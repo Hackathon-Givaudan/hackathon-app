@@ -33,7 +33,9 @@ app.post('/api/questions', async (req, res) => {
     res.status(400).json({ error: 'Question manquante' });
     return;
   }
-  const answer = DATA_AI_URL ? await askDataTeam(question) : await ask(question);
+  const answer = DATA_AI_URL
+    ? await askDataTeam(question)
+    : await ask(question);
   const { rows } = await db.query(
     'INSERT INTO questions (question, answer) VALUES ($1, $2) RETURNING *',
     [question, answer],
