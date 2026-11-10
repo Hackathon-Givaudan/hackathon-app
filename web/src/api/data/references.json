@@ -1,0 +1,969 @@
+[
+  {
+    "id": "DEMO-F-001",
+    "universe": "parfum",
+    "name": "Écume Saline",
+    "family": "Aquatique",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["sel marin", "algue"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["menthe aquatique", "bergamote"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["bois flotté", "musc blanc"]
+      }
+    ],
+    "moods": ["bord de mer", "plage", "vacances"],
+    "emotions": ["liberté", "fraîcheur", "évasion"],
+    "uses": ["bougie", "diffuseur", "body mist"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-002",
+    "universe": "parfum",
+    "name": "Brise de Port",
+    "family": "Aquatique",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["ozone", "citron vert"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["lavande", "sauge"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["ambre gris", "cèdre"]
+      }
+    ],
+    "moods": ["bord de mer", "port", "voile"],
+    "emotions": ["apaisement", "nostalgie"],
+    "uses": ["bougie", "savon", "spray d'ambiance"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-003",
+    "universe": "parfum",
+    "name": "Terrasse au Soleil",
+    "family": "Hespéridé",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["orange douce", "pamplemousse"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["fleur d'oranger", "néroli"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["musc", "bois blond"]
+      }
+    ],
+    "moods": ["été", "terrasse", "apéritif"],
+    "emotions": ["joie", "énergie"],
+    "uses": ["body mist", "gel douche", "bougie"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-004",
+    "universe": "parfum",
+    "name": "Linge Propre",
+    "family": "Musquée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["aldéhydes", "poire"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["coton", "iris"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["musc blanc"]
+      }
+    ],
+    "moods": ["maison", "linge", "matin"],
+    "emotions": ["confort", "propreté"],
+    "uses": ["lessive", "savon", "spray textile"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-005",
+    "universe": "parfum",
+    "name": "Savon d'Atelier",
+    "family": "Musquée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["bergamote", "lavande"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["fleur de coton", "rose légère"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["musc", "santal"]
+      }
+    ],
+    "moods": ["salle de bain", "hammam", "soin"],
+    "emotions": ["douceur", "calme"],
+    "uses": ["savon", "crème mains", "shampoing"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-006",
+    "universe": "parfum",
+    "name": "Velours Ambré",
+    "family": "Ambrée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["épices douces", "cardamome"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["ambre", "ciste"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["vanille", "benjoin"]
+      }
+    ],
+    "moods": ["hiver", "salon", "coin du feu"],
+    "emotions": ["chaleur", "réconfort"],
+    "uses": ["bougie", "parfum", "diffuseur"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-007",
+    "universe": "parfum",
+    "name": "Forêt Après la Pluie",
+    "family": "Boisée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["feuille verte", "baie de genièvre"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["mousse", "fougère"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["vétiver", "cèdre"]
+      }
+    ],
+    "moods": ["forêt", "randonnée", "automne"],
+    "emotions": ["ressourcement", "sérénité"],
+    "uses": ["bougie", "diffuseur", "savon"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-008",
+    "universe": "parfum",
+    "name": "Feu de Bois",
+    "family": "Boisée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["poivre noir", "cade"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["cuir doux"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["bois fumé", "patchouli"]
+      }
+    ],
+    "moods": ["montagne", "chalet", "hiver"],
+    "emotions": ["intimité", "réconfort"],
+    "uses": ["bougie", "diffuseur"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-009",
+    "universe": "parfum",
+    "name": "Pétales Poudrés",
+    "family": "Florale",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["poire", "baie rose"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["rose", "pivoine"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["musc poudré"]
+      }
+    ],
+    "moods": ["chambre", "boudoir", "printemps"],
+    "emotions": ["tendresse", "romantisme"],
+    "uses": ["body mist", "crème corps", "parfum"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-010",
+    "universe": "parfum",
+    "name": "Jardin de Jasmin",
+    "family": "Florale",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["mandarine"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["jasmin", "tubéreuse"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["santal crémeux"]
+      }
+    ],
+    "moods": ["jardin", "soir d'été", "Méditerranée"],
+    "emotions": ["sensualité", "élégance"],
+    "uses": ["parfum", "bougie", "huile corps"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-011",
+    "universe": "parfum",
+    "name": "Thé Blanc",
+    "family": "Verte",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["thé vert", "citron"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["jasmin léger"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["musc"]
+      }
+    ],
+    "moods": ["spa", "yoga", "matin"],
+    "emotions": ["calme", "légèreté"],
+    "uses": ["savon", "spray d'ambiance", "body mist"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-012",
+    "universe": "parfum",
+    "name": "Figuier",
+    "family": "Verte",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["feuille de figuier", "bergamote"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["lait de figue"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["cèdre", "coco"]
+      }
+    ],
+    "moods": ["Méditerranée", "jardin", "vacances"],
+    "emotions": ["évasion", "douceur"],
+    "uses": ["bougie", "parfum", "body mist"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-013",
+    "universe": "parfum",
+    "name": "Vanille Gourmande",
+    "family": "Gourmande",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["caramel", "amande"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["vanille"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["fève tonka", "musc"]
+      }
+    ],
+    "moods": ["pâtisserie", "cocooning", "hiver"],
+    "emotions": ["gourmandise", "réconfort"],
+    "uses": ["body mist", "bougie", "gel douche"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-014",
+    "universe": "parfum",
+    "name": "Coco Lagon",
+    "family": "Gourmande",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["noix de coco", "ananas"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["fleur de tiaré"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["vanille"]
+      }
+    ],
+    "moods": ["plage tropicale", "vacances"],
+    "emotions": ["insouciance", "joie"],
+    "uses": ["body mist", "crème solaire", "gel douche"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-015",
+    "universe": "parfum",
+    "name": "Bois Noble",
+    "family": "Boisée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["bergamote", "élémi"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["iris"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["santal", "oud doux"]
+      }
+    ],
+    "moods": ["hôtel", "boutique", "luxe discret"],
+    "emotions": ["prestige", "assurance"],
+    "uses": ["parfum", "diffuseur", "savon premium"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-016",
+    "universe": "parfum",
+    "name": "Cuir Satin",
+    "family": "Cuirée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["safran", "framboise"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["cuir"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["ambre", "bois"]
+      }
+    ],
+    "moods": ["boutique", "voiture", "soirée"],
+    "emotions": ["audace", "élégance"],
+    "uses": ["parfum", "diffuseur"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-017",
+    "universe": "parfum",
+    "name": "Lavande des Champs",
+    "family": "Aromatique",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["lavande", "romarin"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["thym"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["foin", "musc"]
+      }
+    ],
+    "moods": ["Provence", "campagne", "été"],
+    "emotions": ["apaisement", "authenticité"],
+    "uses": ["savon", "sachet", "bougie"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-018",
+    "universe": "parfum",
+    "name": "Agrumes Pétillants",
+    "family": "Hespéridé",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["citron", "yuzu", "gingembre"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["menthe"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["bois clair"]
+      }
+    ],
+    "moods": ["sport", "salle de gym", "matin"],
+    "emotions": ["énergie", "vitalité"],
+    "uses": ["gel douche", "déodorant", "body mist"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-019",
+    "universe": "parfum",
+    "name": "Rose et Poivre",
+    "family": "Florale",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["poivre rose", "litchi"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["rose"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["patchouli doux"]
+      }
+    ],
+    "moods": ["soirée", "ville", "automne"],
+    "emotions": ["confiance", "caractère"],
+    "uses": ["parfum", "bougie", "savon premium"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-F-020",
+    "universe": "parfum",
+    "name": "Nuage de Musc",
+    "family": "Musquée",
+    "tiers": [
+      {
+        "tier": "Tête",
+        "notes": ["poire", "aldéhydes"]
+      },
+      {
+        "tier": "Cœur",
+        "notes": ["fleur de coton"]
+      },
+      {
+        "tier": "Fond",
+        "notes": ["musc blanc", "ambrette"]
+      }
+    ],
+    "moods": ["peau", "cocon", "nuit"],
+    "emotions": ["douceur", "intimité"],
+    "uses": ["body mist", "crème corps", "spray textile"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-001",
+    "universe": "arome",
+    "name": "Vanille Bourbon Douce",
+    "family": "Vanillé",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["vanille"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["crème", "caramel léger"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["lactée"]
+      }
+    ],
+    "moods": ["dessert", "cocooning", "doux", "enveloppant", "crémeux"],
+    "emotions": ["gourmandise", "réconfort"],
+    "uses": ["boisson protéinée", "yaourt", "pâtisserie"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-002",
+    "universe": "arome",
+    "name": "Cacao Intense",
+    "family": "Chocolaté",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["cacao"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["noisette grillée"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["torréfiée"]
+      }
+    ],
+    "moods": ["sport", "goûter", "hiver", "intense", "rond", "légèrement amer"],
+    "emotions": ["énergie", "gourmandise"],
+    "uses": ["boisson protéinée", "barre", "céréales"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-003",
+    "universe": "arome",
+    "name": "Fraise des Bois",
+    "family": "Fruité rouge",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["fraise"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["framboise", "violette"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["fraîche"]
+      }
+    ],
+    "moods": ["été", "enfance", "goûter", "fruité", "juteux", "acidulé"],
+    "emotions": ["joie", "fraîcheur"],
+    "uses": ["boisson protéinée", "yaourt", "confiserie"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-004",
+    "universe": "arome",
+    "name": "Banane Mûre",
+    "family": "Fruité exotique",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["banane"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["vanille"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["crémeuse"]
+      }
+    ],
+    "moods": ["petit-déjeuner", "sport", "onctueux", "doux", "velouté"],
+    "emotions": ["énergie", "douceur"],
+    "uses": ["boisson protéinée", "smoothie", "barre"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-005",
+    "universe": "arome",
+    "name": "Café Torréfié",
+    "family": "Torréfié",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["café"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["caramel", "cacao"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["amère douce"]
+      }
+    ],
+    "moods": ["matin", "bureau", "pause", "corsé", "amer doux", "chaud"],
+    "emotions": ["énergie", "concentration"],
+    "uses": ["boisson protéinée", "boisson froide", "dessert"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-006",
+    "universe": "arome",
+    "name": "Citron Vert Pétillant",
+    "family": "Agrume",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["citron vert"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["menthe", "gingembre"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["acidulée"]
+      }
+    ],
+    "moods": ["été", "sport", "terrasse", "pétillant", "vif", "rafraîchissant"],
+    "emotions": ["fraîcheur", "vitalité"],
+    "uses": ["boisson gazeuse", "eau aromatisée", "sorbet"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-007",
+    "universe": "arome",
+    "name": "Fruits Rouges Mélangés",
+    "family": "Fruité rouge",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["cassis", "framboise", "mûre"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["cerise"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["légèrement acide"]
+      }
+    ],
+    "moods": ["goûter", "été", "acidulé", "juteux", "vif"],
+    "emotions": ["gourmandise", "joie"],
+    "uses": ["boisson", "confiture", "yaourt"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-008",
+    "universe": "arome",
+    "name": "Caramel Beurre Salé",
+    "family": "Caramélisé",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["caramel"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["beurre", "fleur de sel"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["lactée"]
+      }
+    ],
+    "moods": ["Bretagne", "dessert", "hiver", "fondant", "salé-sucré", "riche"],
+    "emotions": ["réconfort", "gourmandise"],
+    "uses": ["boisson protéinée", "glace", "biscuit"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-009",
+    "universe": "arome",
+    "name": "Mangue Passion",
+    "family": "Fruité exotique",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["mangue"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["fruit de la passion"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["sucrée"]
+      }
+    ],
+    "moods": ["vacances", "tropiques", "été", "juteux", "exotique", "sucré"],
+    "emotions": ["évasion", "énergie"],
+    "uses": ["boisson", "smoothie", "sorbet"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-010",
+    "universe": "arome",
+    "name": "Noisette Grillée",
+    "family": "Fruit sec",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["noisette"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["amande", "caramel"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["torréfiée"]
+      }
+    ],
+    "moods": ["goûter", "hiver", "grillé", "rond", "réconfortant"],
+    "emotions": ["réconfort", "gourmandise"],
+    "uses": ["pâte à tartiner", "barre", "boisson végétale"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-011",
+    "universe": "arome",
+    "name": "Menthe Fraîche",
+    "family": "Herbacé",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["menthe verte"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["citron"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["rafraîchissante"]
+      }
+    ],
+    "moods": ["été", "après repas", "glacé", "rafraîchissant", "vif"],
+    "emotions": ["fraîcheur", "légèreté"],
+    "uses": ["boisson", "confiserie", "chewing-gum"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-012",
+    "universe": "arome",
+    "name": "Thé Pêche",
+    "family": "Fruité infusé",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["thé noir"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["pêche blanche"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["légèrement tannique"]
+      }
+    ],
+    "moods": ["été", "terrasse", "désaltérant", "léger", "fruité"],
+    "emotions": ["détente", "fraîcheur"],
+    "uses": ["thé glacé", "boisson", "sirop"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-013",
+    "universe": "arome",
+    "name": "Cookie Dough",
+    "family": "Pâtissier",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["pâte à biscuit"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["vanille", "sucre brun"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["beurrée"]
+      }
+    ],
+    "moods": ["goûter", "cocooning", "gourmand", "beurré", "fondant"],
+    "emotions": ["gourmandise", "nostalgie"],
+    "uses": ["boisson protéinée", "glace", "barre"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-014",
+    "universe": "arome",
+    "name": "Coco Lactée",
+    "family": "Fruité exotique",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["noix de coco"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["vanille"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["crémeuse"]
+      }
+    ],
+    "moods": ["plage", "dessert", "crémeux", "doux", "velouté"],
+    "emotions": ["douceur", "évasion"],
+    "uses": ["boisson végétale", "yaourt", "glace"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-015",
+    "universe": "arome",
+    "name": "Gingembre Citronnelle",
+    "family": "Épicé",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["gingembre"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["citronnelle", "citron"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["piquante"]
+      }
+    ],
+    "moods": ["bien-être", "matin", "piquant", "chauffant", "tonique"],
+    "emotions": ["vitalité", "ressourcement"],
+    "uses": ["shot", "boisson fonctionnelle", "infusion"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-016",
+    "universe": "arome",
+    "name": "Pomme Verte Croquante",
+    "family": "Fruité",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["pomme verte"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["poire"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["acidulée"]
+      }
+    ],
+    "moods": ["automne", "goûter", "croquant", "acidulé", "frais"],
+    "emotions": ["fraîcheur", "légèreté"],
+    "uses": ["boisson", "compote", "confiserie"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-017",
+    "universe": "arome",
+    "name": "Matcha Doux",
+    "family": "Herbacé",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["thé matcha"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["crème"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["végétale"]
+      }
+    ],
+    "moods": [
+      "zen",
+      "matin",
+      "bien-être",
+      "végétal",
+      "doux",
+      "légèrement amer"
+    ],
+    "emotions": ["calme", "concentration"],
+    "uses": ["boisson protéinée", "latte", "dessert"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-018",
+    "universe": "arome",
+    "name": "Cannelle Épices de Noël",
+    "family": "Épicé",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["cannelle"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["muscade", "orange"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["chaude"]
+      }
+    ],
+    "moods": ["hiver", "fêtes", "chaud", "épicé", "enveloppant"],
+    "emotions": ["réconfort", "nostalgie"],
+    "uses": ["boisson chaude", "biscuit", "pâtisserie"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-019",
+    "universe": "arome",
+    "name": "Yuzu Agrumes",
+    "family": "Agrume",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["yuzu"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["pamplemousse"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["amère légère"]
+      }
+    ],
+    "moods": ["Japon", "été", "gastronomie", "vif", "zesté", "raffiné"],
+    "emotions": ["raffinement", "fraîcheur"],
+    "uses": ["boisson premium", "sorbet", "sauce"],
+    "source": "fictif démo"
+  },
+  {
+    "id": "DEMO-A-020",
+    "universe": "arome",
+    "name": "Pain Grillé Céréales",
+    "family": "Céréalier",
+    "tiers": [
+      {
+        "tier": "Dominante",
+        "notes": ["céréales grillées"]
+      },
+      {
+        "tier": "Secondaires",
+        "notes": ["miel"]
+      },
+      {
+        "tier": "Finale",
+        "notes": ["biscuitée"]
+      }
+    ],
+    "moods": ["petit-déjeuner", "sport", "biscuité", "rond", "doux"],
+    "emotions": ["énergie", "simplicité"],
+    "uses": ["boisson protéinée", "barre", "céréales"],
+    "source": "fictif démo"
+  }
+]
