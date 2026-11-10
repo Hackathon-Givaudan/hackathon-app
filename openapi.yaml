@@ -1,0 +1,301 @@
+openapi: 3.1.0
+info:
+  title: Hackathon Givaudan, API du parcours client
+  version: 0.1.0
+  description: |
+    Contrat entre le front (`web/`), l'API (`api/`) et le service Data/IA (`ia/`).
+    Il décrit les quatre gestes du parcours d'une marque :
+    envoyer ses envies, valider les notes, recevoir une formule, l'accepter.
+    Un `brief` porte tout le parcours d'une marque, de ses envies à la formule acceptée.
+servers:
+  - url: http://localhost:3000
+    description: API locale, dans le dev container
+# L'API du prototype n'a pas d'authentification
+security: []
+tags:
+  - name: Parcours
+    description: Les quatre gestes, dans l'ordre
+  - name: Santé
+    description: État de l'API et de la base
+paths:
+  /api/health:
+    get:
+      tags: [Santé]
+      operationId: getHealth
+      summary: Vérifier que l'API et la base répondent
+      responses:
+        '200':
+          description: L'API et PostgreSQL répondent
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, db]
+                properties:
+                  status:
+                    type: string
+                    const: ok
+                  db:
+                    type: string
+                    description: Version de PostgreSQL
+  /api/briefs:
+    post:
+      tags: [Parcours]
+      operationId: createBrief
+      summary: 'Geste 1 : envoyer ses envies'
+      description: |
+        La marque décrit son projet avec ses mots : ambiance, usage, émotion.
+        L'API crée un brief et propose des notes choisies dans le référentiel.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BriefInput'
+            example:
+              universe: parfum
+              wishes: Une brume minérale au lever du jour, fraîche et silencieuse.
+      responses:
+        '201':
+          description: Brief créé, avec les notes proposées
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brief'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '502':
+          $ref: '#/components/responses/AiUnavailable'
+  /api/briefs/{briefId}:
+    get:
+      tags: [Parcours]
+      operationId: getBrief
+      summary: Relire un brief et son état
+      parameters:
+        - $ref: '#/components/parameters/BriefId'
+      responses:
+        '200':
+          description: Le brief
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brief'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/briefs/{briefId}/notes:
+    put:
+      tags: [Parcours]
+      operationId: validateNotes
+      summary: 'Geste 2 : valider les notes'
+      description: |
+        La marque garde les notes qui traduisent ses envies et retire les autres.
+        Les identifiants doivent exister dans le référentiel.
+      parameters:
+        - $ref: '#/components/parameters/BriefId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [noteIds]
+              properties:
+                noteIds:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+            example:
+              noteIds: [iris, cedre]
+      responses:
+        '200':
+          description: Notes validées
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brief'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /api/briefs/{briefId}/formula:
+    post:
+      tags: [Parcours]
+      operationId: proposeFormula
+      summary: 'Geste 3 : recevoir une formule'
+      description: |
+        L'API propose la formule de la banque la plus proche des notes validées,
+        avec une explication. Rappeler la route renvoie la même formule.
+      parameters:
+        - $ref: '#/components/parameters/BriefId'
+      responses:
+        '200':
+          description: Formule proposée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Formula'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '502':
+          $ref: '#/components/responses/AiUnavailable'
+  /api/briefs/{briefId}/formula/acceptance:
+    post:
+      tags: [Parcours]
+      operationId: acceptFormula
+      summary: 'Geste 4 : accepter la formule'
+      description: La marque accepte la formule proposée. Le brief est alors terminé.
+      parameters:
+        - $ref: '#/components/parameters/BriefId'
+      responses:
+        '200':
+          description: Formule acceptée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brief'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+components:
+  parameters:
+    BriefId:
+      name: briefId
+      in: path
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+  schemas:
+    Universe:
+      type: string
+      enum: [parfum, arome]
+      description: Parfums et arômes alimentaires ont chacun leur référentiel
+    BriefStatus:
+      type: string
+      enum:
+        [notes_proposed, notes_validated, formula_proposed, formula_accepted]
+      description: Où en est le parcours. Chaque geste fait avancer d'un état.
+    BriefInput:
+      type: object
+      required: [universe, wishes]
+      properties:
+        universe:
+          $ref: '#/components/schemas/Universe'
+        wishes:
+          type: string
+          minLength: 3
+          maxLength: 2000
+          description: Les envies de la marque, en texte libre
+    Note:
+      type: object
+      required: [id, label, family]
+      properties:
+        id:
+          type: string
+          description: Identifiant dans le référentiel
+        label:
+          type: string
+        family:
+          type: string
+          description: Famille de la note, par exemple boisée ou hespéridée
+        reason:
+          type: string
+          description: Pourquoi cette note traduit les envies de la marque
+    Brief:
+      type: object
+      required:
+        [id, universe, wishes, status, proposedNotes, validatedNotes, createdAt]
+      properties:
+        id:
+          type: integer
+        universe:
+          $ref: '#/components/schemas/Universe'
+        wishes:
+          type: string
+        status:
+          $ref: '#/components/schemas/BriefStatus'
+        proposedNotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        validatedNotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        createdAt:
+          type: string
+          format: date-time
+    Formula:
+      type: object
+      required: [id, name, notes, explanation, source]
+      properties:
+        id:
+          type: string
+          description: Identifiant dans la banque de formules
+        name:
+          type: string
+        notes:
+          type: array
+          items:
+            type: object
+            required: [note, share]
+            properties:
+              note:
+                $ref: '#/components/schemas/Note'
+              share:
+                type: integer
+                minimum: 1
+                maximum: 100
+                description: Part de la note dans la formule, en pourcentage
+        explanation:
+          type: string
+          description: Lien entre la formule et les notes validées, en une ou deux phrases
+        source:
+          type: string
+          description: Origine de la formule, ou « exemple construit »
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+          description: Message lisible, en français
+  responses:
+    BadRequest:
+      description: Requête invalide, par exemple un champ manquant ou une note inconnue
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: Envies manquantes
+    NotFound:
+      description: Brief introuvable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: Brief introuvable
+    Conflict:
+      description: Le geste arrive trop tôt ou trop tard dans le parcours
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: Validez les notes avant de demander une formule
+    AiUnavailable:
+      description: Le service Data/IA ou le modèle ne répond pas
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: Service IA indisponible, réessayez
