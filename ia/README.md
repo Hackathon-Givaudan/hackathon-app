@@ -38,15 +38,15 @@ La documentation interactive des routes est sur <http://localhost:8000/docs>.
 
 ## Où est quoi
 
-| Fichier             | Rôle                                                  |
-| ------------------- | ----------------------------------------------------- |
-| `data/*.csv`        | Les 40 références fictives du Product, 20 par univers |
-| `app/references.py` | Lit les CSV                                           |
-| `app/llm.py`        | Le seul fichier qui parle au modèle                   |
-| `app/notes.py`      | Les deux étapes ci-dessus                             |
-| `app/main.py`       | Les routes                                            |
-| `tests/`            | Tests sans modèle                                     |
-| `evaluation/`       | Mesure de la qualité avec un modèle                   |
+| Fichier             | Rôle                                                        |
+| ------------------- | ----------------------------------------------------------- |
+| `data/*.csv`        | Les 40 références fictives du Product, 20 par univers       |
+| `app/references.py` | Lit les CSV                                                 |
+| `app/llm.py`        | Le seul fichier qui parle au modèle                         |
+| `app/notes.py`      | Les deux étapes ci-dessus                                   |
+| `app/main.py`       | Les routes                                                  |
+| `tests/`            | `test_notes.py` : les règles, `test_routes.py` : les routes |
+| `evaluation/`       | Mesure de la qualité avec un modèle                         |
 
 ## Tester
 
