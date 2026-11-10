@@ -5,7 +5,8 @@ info:
   description: |
     Contrat entre le front (`web/`), l'API (`api/`) et le service Data/IA (`ia/`).
     Il décrit les quatre gestes du parcours d'une marque :
-    envoyer ses envies, valider les notes, recevoir une formule, l'accepter.
+    décrire son projet, confirmer ce que nous avons compris,
+    recevoir jusqu'à trois pistes, en choisir une.
     Un `brief` porte tout le parcours d'une marque, de ses envies à la formule acceptée.
 servers:
   - url: http://localhost:3000
@@ -45,7 +46,8 @@ paths:
       summary: 'Geste 1 : envoyer ses envies'
       description: |
         La marque décrit son projet avec ses mots : ambiance, usage, émotion.
-        L'API crée un brief et propose des notes choisies dans le référentiel.
+        L'API crée un brief, dit ce qu'elle a compris du projet (`understood`)
+        et propose des notes choisies dans le référentiel.
       requestBody:
         required: true
         content:
@@ -120,40 +122,57 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
-  /api/briefs/{briefId}/formula:
+  /api/briefs/{briefId}/formulas:
     post:
       tags: [Parcours]
-      operationId: proposeFormula
-      summary: 'Geste 3 : recevoir une formule'
+      operationId: proposeFormulas
+      summary: "Geste 3 : recevoir jusqu'à trois pistes"
       description: |
-        L'API propose la formule de la banque la plus proche des notes validées,
-        avec une explication. Rappeler la route renvoie la même formule.
+        L'API propose les formules de la banque les plus proches des notes validées,
+        trois au plus, la plus proche d'abord, chacune avec son explication.
+        Rappeler la route renvoie les mêmes pistes. Pour ajuster, la marque
+        revalide ses notes (geste 2), puis redemande ses pistes.
       parameters:
         - $ref: '#/components/parameters/BriefId'
       responses:
         '200':
-          description: Formule proposée
+          description: Pistes proposées
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Formula'
+                type: object
+                required: [formulas]
+                properties:
+                  formulas:
+                    type: array
+                    minItems: 1
+                    maxItems: 3
+                    items:
+                      $ref: '#/components/schemas/Formula'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
         '502':
           $ref: '#/components/responses/AiUnavailable'
-  /api/briefs/{briefId}/formula/acceptance:
+  /api/briefs/{briefId}/formulas/{formulaId}/acceptance:
     post:
       tags: [Parcours]
       operationId: acceptFormula
-      summary: 'Geste 4 : accepter la formule'
-      description: La marque accepte la formule proposée. Le brief est alors terminé.
+      summary: 'Geste 4 : choisir une piste'
+      description: |
+        La marque choisit une des pistes proposées. Le brief est alors terminé.
       parameters:
         - $ref: '#/components/parameters/BriefId'
+        - name: formulaId
+          in: path
+          required: true
+          description: Identifiant d'une des pistes proposées au geste 3
+          schema:
+            type: string
       responses:
         '200':
-          description: Formule acceptée
+          description: Piste choisie
           content:
             application/json:
               schema:
@@ -181,6 +200,21 @@ components:
       enum:
         [notes_proposed, notes_validated, formula_proposed, formula_accepted]
       description: Où en est le parcours. Chaque geste fait avancer d'un état.
+    Understanding:
+      type: object
+      required: [kind, label]
+      description: Une idée que le service a retenue du projet de la marque
+      properties:
+        kind:
+          type: string
+          enum: [usage, ambiance, emotion]
+          description: |
+            `usage` : le produit ou son emploi (bougie, yaourt).
+            `ambiance` : le lieu ou le moment (bord de mer, goûter).
+            `emotion` : l'émotion ou la sensation (évasion, fraîcheur).
+        label:
+          type: string
+          description: L'étiquette du référentiel, par exemple « bord de mer »
     BriefInput:
       type: object
       required: [universe, wishes]
@@ -210,7 +244,16 @@ components:
     Brief:
       type: object
       required:
-        [id, universe, wishes, status, proposedNotes, validatedNotes, createdAt]
+        [
+          id,
+          universe,
+          wishes,
+          status,
+          understood,
+          proposedNotes,
+          validatedNotes,
+          createdAt,
+        ]
       properties:
         id:
           type: integer
@@ -222,6 +265,13 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/BriefStatus'
+        understood:
+          type: array
+          description: |
+            Ce que nous avons compris du projet, pour le récapitulatif.
+            Vide si le service n'a retenu aucune étiquette.
+          items:
+            $ref: '#/components/schemas/Understanding'
         proposedNotes:
           type: array
           items:
@@ -257,7 +307,9 @@ components:
                 description: Part de la note dans la formule, en pourcentage
         explanation:
           type: string
-          description: Lien entre la formule et les notes validées, en une ou deux phrases
+          description: |
+            Pourquoi cette piste : son lien avec les notes validées et le projet,
+            en une ou deux phrases
         source:
           type: string
           description: Origine de la formule, ou « exemple construit »
@@ -292,7 +344,7 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
           example:
-            error: Validez les notes avant de demander une formule
+            error: Validez les notes avant de demander vos pistes
     AiUnavailable:
       description: Le service Data/IA ou le modèle ne répond pas
       content:
