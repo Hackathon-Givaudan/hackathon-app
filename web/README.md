@@ -6,11 +6,20 @@ Le parcours d'une marque, en quatre gestes : décrire ses envies, valider les no
 
 Dans le dev container, depuis `/workspace` : `npm run dev`, puis <http://localhost:5173>.
 
-Par défaut, le front tourne en **démonstration** : les réponses sont calculées dans le navigateur. Pour appeler l'API réelle, une fois ses routes codées :
+Le front a deux modes, choisis par `VITE_API_MODE` :
+
+| Lancé par           | Mode          | D'où viennent les réponses                            |
+| ------------------- | ------------- | ----------------------------------------------------- |
+| `npm run dev`       | démonstration | Calculées dans le navigateur, sans API ni modèle      |
+| `docker compose up` | réel          | L'API, le service `ia/` et le modèle (`compose.yaml`) |
+
+Le défaut de `npm run dev` reste la démonstration : il marche sans rien d'autre, et les tests s'appuient dessus. Pour le mode réel dans le dev container, où l'API et le service `ia/` tournent :
 
 ```bash
 VITE_API_MODE=live npm run dev
 ```
+
+Le bandeau affiche « démonstration » quand ce n'est pas le mode réel.
 
 ## Tester le mode réel sans l'API
 
