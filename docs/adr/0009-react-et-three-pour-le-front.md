@@ -21,5 +21,5 @@ Nous choisissons l'option 1, en gardant le contrat de l'ADR 0001 : scripts `dev`
 ## Conséquences
 
 - Positives : un fichier par écran, relu séparément ; le flacon montre à la marque ce qu'elle construit, des notes à la formule.
-- Négatives, à accepter : six dépendances d'exécution de plus à maintenir ; le fichier 3D est le plus long du front et le moins familier à relire ; le flacon demande WebGL, donc un navigateur récent pour la démo.
+- Négatives, à accepter : une douzaine de dépendances de plus à maintenir, polices comprises ; le fichier 3D est le plus long du front et le moins familier à relire ; le flacon demande WebGL, donc un navigateur récent pour la démo.
 - À revoir si : le flacon ralentit la page sur la machine de démo, ou si son entretien prend le temps des écrans.
