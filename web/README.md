@@ -44,11 +44,14 @@ Un écran n'appelle jamais `fetch` : il passe par `api`.
 
 ## Tester
 
-```bash
-npm test -w web
-```
+Un test se range à côté de ce qu'il protège.
 
-`src/api/demo.test.ts` vérifie les règles du mode démonstration : les notes proposées, la formule choisie, l'ordre des gestes. Un test se range à côté du fichier qu'il protège.
+| Commande                  | Fichier                | Ce qu'il vérifie                                                |
+| ------------------------- | ---------------------- | --------------------------------------------------------------- |
+| `npm test -w web`         | `src/api/demo.test.ts` | Les règles : notes proposées, formule choisie, ordre des gestes |
+| `npm run test:e2e -w web` | `e2e/journey.spec.ts`  | Le parcours complet dans un navigateur, parfum puis arôme       |
+
+Le test de bout en bout a besoin d'un navigateur, à installer une fois : `npx playwright install --with-deps chromium`. Il tourne sans WebGL, donc sans le flacon 3D : c'est voulu, le parcours doit rester utilisable sans lui.
 
 ## Données de démonstration
 

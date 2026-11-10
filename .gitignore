@@ -3,3 +3,7 @@ dist/
 .env
 db/data/
 .scratch/
+
+# Rapports de Playwright
+test-results/
+playwright-report/
