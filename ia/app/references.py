@@ -8,19 +8,21 @@ from pathlib import Path
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 
-# Colonnes de chaque fichier : les niveaux de notes, puis les étiquettes qui décrivent la référence
+# Colonnes de chaque fichier : les niveaux de notes, les étiquettes qui décrivent la référence, ses usages
 COLUMNS = {
     "parfum": {
         "file": "parfums.csv",
         "family": "famille_olfactive",
         "tiers": {"Tête": "notes_de_tete", "Cœur": "notes_de_coeur", "Fond": "notes_de_fond"},
-        "tags": ["ambiances", "emotions", "usages_compatibles"],
+        "tags": ["ambiances", "emotions"],
+        "uses": "usages_compatibles",
     },
     "arome": {
         "file": "aromes.csv",
         "family": "famille_aromatique",
         "tiers": {"Dominante": "note_dominante", "Secondaires": "notes_secondaires", "Finale": "finale_en_bouche"},
-        "tags": ["moments_de_consommation", "sensations", "emotions", "applications_compatibles"],
+        "tags": ["moments_de_consommation", "sensations", "emotions"],
+        "uses": "applications_compatibles",
     },
 }
 
@@ -32,6 +34,7 @@ class Reference:
     family: str
     tiers: dict[str, list[str]]  # niveau -> notes, par exemple "Tête" -> ["sel marin", "algue"]
     tags: list[str]  # ambiances, émotions et usages
+    uses: list[str]  # les usages seuls : bougie, yaourt…
     source: str
 
     @property
@@ -58,7 +61,8 @@ def load(universe: str) -> list[Reference]:
                 name=row["nom_reference"],
                 family=row[columns["family"]],
                 tiers={tier: split(row[column]) for tier, column in columns["tiers"].items()},
-                tags=[tag for column in columns["tags"] for tag in split(row[column])],
+                tags=[tag for column in [*columns["tags"], columns["uses"]] for tag in split(row[column])],
+                uses=split(row[columns["uses"]]),
                 source=row["source"],
             )
             for row in csv.DictReader(file)

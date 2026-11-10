@@ -5,9 +5,15 @@ Il traduit les envies d'une marque en notes. La formule, proposée à partir des
 ## Comment ça marche
 
 1. **Des envies aux étiquettes.** Le modèle de langage lit le texte de la marque et choisit jusqu'à 5 étiquettes dans une liste fermée : les ambiances, émotions et usages du référentiel. Une étiquette hors liste est jetée.
-2. **Des étiquettes aux notes.** Les références qui portent ces étiquettes donnent leurs notes, 6 au plus, chacune avec sa raison.
+2. **Des étiquettes aux notes.** Les références qui portent ces étiquettes sont classées, puis les plus proches donnent leurs notes à tour de rôle, 6 au plus, chacune avec sa raison.
 
-Le modèle ne fait que l'étape 1. Aucune note n'est inventée : tout vient de `data/`. Si le modèle ne répond pas, un recoupement de mots le remplace.
+Le modèle ne fait que l'étape 1. Aucune note n'est inventée : tout vient de `data/`. Si le modèle ne répond pas, le service cherche les étiquettes écrites telles quelles dans le texte.
+
+Trois règles de classement, dans `app/notes.py` :
+
+- Une étiquette rare pèse plus : « bord de mer » (2 références) départage mieux que « bougie » (11).
+- L'usage compte moitié moins qu'une ambiance ou une émotion : il dit où ira la création, pas ce qu'elle doit évoquer.
+- Deux envies différentes reçoivent chacune leurs notes : « hiver » et « joie » ne viennent pas de la même référence.
 
 ## Lancer
 
@@ -56,15 +62,28 @@ docker run --rm -v "$PWD/ia":/ia -w /ia hackathon-ia sh -c "pip install -q -r re
 
 ## Mesure du 10 novembre
 
-Dix envies de `evaluation/envies.json`, sur un Mac M3 Pro, modèle déjà chargé. Une envie est réussie si une des notes attendues est proposée.
+### Dix envies en texte libre
 
-| Modèle        | Envies réussies | Réponse la plus lente |
-| ------------- | --------------- | --------------------- |
-| Sans modèle   | 6 / 10          | 0,1 s                 |
-| `llama3.2:1b` | 4 / 10          | 16,2 s                |
-| `mistral:7b`  | 9 / 10          | 4,4 s                 |
-| `qwen2.5:7b`  | 9 / 10          | 13,0 s                |
+Dix envies de `evaluation/envies.json`, sur un Mac M3 Pro. Une envie est réussie si une des notes attendues est proposée.
 
-Seul `mistral:7b` tient le seuil du spike : 8 sur 10 en moins de 5 s. `llama3.2:1b` fait moins bien que l'absence de modèle.
+| Modèle        | Envies réussies | Réponse la plus lente | Mesuré                        |
+| ------------- | --------------- | --------------------- | ----------------------------- |
+| Sans modèle   | 5 / 10          | 0,1 s                 | Avec les règles de classement |
+| `mistral:7b`  | 10 / 10         | 8,1 s                 | Avec les règles de classement |
+| `llama3.2:1b` | 4 / 10          | 16,2 s                | Avant ces règles              |
+| `qwen2.5:7b`  | 9 / 10          | 13,0 s                | Avant ces règles              |
 
-Limites : dix envies seulement, écrites par la même personne que le code, pas encore jugées par le Product. Pour rejouer : `python evaluation/evaluate.py http://localhost:8000`.
+Avec `mistral:7b`, les 8,1 s sont celles du premier appel, modèle pas encore chargé ; les neuf suivants prennent de 3,3 à 4,1 s. Avant les règles de classement, `mistral:7b` faisait 9 sur 10 et l'absence de modèle 6 sur 10 : chercher les étiquettes telles quelles évite les faux rapprochements, mais reconnaît un peu moins bien un texte libre.
+
+### Les réponses de l'écran d'accueil
+
+Le front pose trois questions à six réponses, soit 216 combinaisons par univers. Mesuré sans modèle, sur les 216 : l'ambiance choisie et l'émotion choisie sont-elles toutes les deux citées dans les raisons ?
+
+| Univers | Avant les règles | Après     |
+| ------- | ---------------- | --------- |
+| Parfum  | 2 / 216          | 191 / 216 |
+| Arôme   | 17 / 216         | 85 / 216  |
+
+Avant, la marque ne recevait jamais que les notes d'une seule référence, et un même jeu de notes revenait pour 66 combinaisons de parfum sur 216 (8 après). Les arômes restent en retrait : leurs étiquettes se recoupent davantage d'une référence à l'autre.
+
+Limites : dix envies seulement, écrites par la même personne que le code, pas encore jugées par le Product ; une seule passe par modèle ; 40 références fictives. Pour rejouer : `python evaluation/evaluate.py http://localhost:8000`.
