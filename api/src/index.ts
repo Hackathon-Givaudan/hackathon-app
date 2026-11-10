@@ -149,10 +149,15 @@ app.post('/api/briefs/:briefId/formula', async (req, res) => {
     return fail(res, 409, 'Validez les notes avant de demander une formule');
   }
 
+  // Les notes proposées puis retirées : la formule doit dire si elle en contient une
+  const keptIds = brief.validated_notes.map((note) => note.id);
   const formula = await proposeFormula(
     brief.universe,
     brief.wishes,
-    brief.validated_notes.map((note) => note.id),
+    keptIds,
+    brief.proposed_notes
+      .map((note) => note.id)
+      .filter((id) => !keptIds.includes(id)),
   );
   await db.query(
     `UPDATE briefs SET formula = $1::jsonb, status = 'formula_proposed'

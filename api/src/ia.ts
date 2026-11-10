@@ -108,8 +108,14 @@ export async function proposeFormula(
   universe: Universe,
   wishes: string,
   noteIds: string[],
+  rejectedNoteIds: string[],
 ): Promise<Formula> {
-  const data = await call('/formula', { universe, wishes, noteIds });
+  const data = await call('/formula', {
+    universe,
+    wishes,
+    noteIds,
+    rejectedNoteIds,
+  });
   if (!isFormula(data)) throw new IaError(502, UNAVAILABLE);
   return data;
 }
