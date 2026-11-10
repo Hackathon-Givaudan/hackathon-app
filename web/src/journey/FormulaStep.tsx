@@ -1,5 +1,5 @@
-/* Geste 3 : la marque reçoit une formule, puis l'accepte (geste 4) */
-import { Check } from 'lucide-react';
+/* Geste 3 : la marque reçoit une formule, puis demande son échantillon (geste 4) */
+import { ArrowRight } from 'lucide-react';
 import { isDemo } from '../api';
 import type { Formula } from '../api';
 import { errorText, linkButton, primaryButton, smallLabel } from '../shared/ui';
@@ -7,6 +7,8 @@ import { errorText, linkButton, primaryButton, smallLabel } from '../shared/ui';
 type Props = {
   formula: Formula;
   expert: string;
+  /* Ce que veut dire chaque niveau, par exemple « Tête : ce que l'on sent en premier » */
+  tiers: Record<string, string>;
   busy: boolean;
   error: string;
   onAccept: () => void;
@@ -16,11 +18,15 @@ type Props = {
 export function FormulaStep({
   formula,
   expert,
+  tiers,
   busy,
   error,
   onAccept,
   onBack,
 }: Props) {
+  /* Les notes regroupées par niveau, dans l'ordre où la formule les donne */
+  const levels = [...new Set(formula.notes.map(({ note }) => note.family))];
+
   return (
     <div className="mt-auto pb-6 pt-10">
       <p className={smallLabel}>Notre proposition</p>
@@ -31,33 +37,42 @@ export function FormulaStep({
         {formula.explanation}
       </p>
 
-      <ul className="mt-6 grid grid-cols-2 gap-x-8 border-t border-white/45 sm:grid-cols-3">
-        {formula.notes.map(({ note, share }) => (
-          <li key={note.id} className="border-b border-white/25 py-2.5">
-            <p className={smallLabel}>{note.family}</p>
-            <p className="f-display text-[21px] leading-tight first-letter:uppercase">
-              {note.label}
-            </p>
-            <p className="mono text-sm">{share}%</p>
-          </li>
+      <dl className="mt-6 border-t border-white/45">
+        {levels.map((level) => (
+          <div
+            key={level}
+            className="grid gap-x-6 border-b border-white/25 py-3 sm:grid-cols-[210px_1fr]"
+          >
+            <dt>
+              <span className={smallLabel}>{level}</span>
+              <span className="block text-sm opacity-80">{tiers[level]}</span>
+            </dt>
+            <dd className="f-display text-[23px] leading-tight first-letter:uppercase">
+              {formula.notes
+                .filter(({ note }) => note.family === level)
+                .map(({ note }) => note.label)
+                .join(', ')}
+            </dd>
+          </div>
         ))}
-      </ul>
+      </dl>
       <p className="mono mt-3 text-[11px] opacity-80">
         {isDemo ? 'Référence de démonstration' : 'Référence de notre banque'} (
-        {formula.source}). Parts illustratives.
+        {formula.source}).
       </p>
 
       <div className="mt-6 flex flex-wrap items-center gap-5">
         <button onClick={onAccept} disabled={busy} className={primaryButton}>
-          <Check className="size-4" />
-          {busy ? 'Enregistrement…' : 'Accepter cette formule'}
+          {busy ? 'Enregistrement…' : 'Demander un échantillon'}
+          <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>
           Revoir les notes
         </button>
       </div>
       <p className="mt-4 text-sm opacity-85">
-        Un doute ? Votre {expert} peut l’ajuster avec vous après l’échantillon.
+        Vous jugerez sur l’échantillon. Votre {expert} peut ensuite ajuster la
+        formule avec vous.
       </p>
       {error && <p className={errorText}>{error}</p>}
     </div>

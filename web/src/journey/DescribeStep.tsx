@@ -10,6 +10,7 @@ import {
   primaryButton,
   smallLabel,
 } from '../shared/ui';
+import { Analysing } from './Analysing';
 import { VOCABULARY } from '../shared/vocabulary';
 
 type Props = {
@@ -64,7 +65,9 @@ export function DescribeStep({
         )}
       </div>
 
-      {current < questions.length ? (
+      {busy ? (
+        <Analysing />
+      ) : current < questions.length ? (
         <>
           <p className={cn(smallLabel, 'mt-6')}>
             Question {current + 1} sur {questions.length}
@@ -115,7 +118,7 @@ export function DescribeStep({
             disabled={busy || !done}
             className={cn(primaryButton, 'mt-5')}
           >
-            {busy ? 'Traduction en notes…' : 'Traduire en notes'}
+            Traduire en notes
             <ArrowRight className="size-4" />
           </button>
         </>
