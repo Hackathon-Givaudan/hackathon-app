@@ -60,6 +60,14 @@ La documentation interactive des routes est sur <http://localhost:8000/docs>.
 docker run --rm -v "$PWD/ia":/ia -w /ia hackathon-ia sh -c "pip install -q -r requirements-dev.txt && python -m pytest -q"
 ```
 
+## Travailler ici
+
+- Un ticket d'abord : Spike pour une question à trancher, Tâche pour un travail. Le livrable d'un spike va dans ce dossier.
+- Une branche `feature/nom-court` depuis `develop`, une pull request vers `develop` avec `Closes #N`, la relecture d'un tech lead.
+- Chaque entrée du référentiel et de la banque porte sa source, ou la mention « exemple construit ». Aucun chiffre inventé.
+- Les fichiers JSON, YAML et Markdown de ce dossier passent par Prettier : le hook les reformate au commit, et la CI refuse ceux qui ne le sont pas.
+- Les secrets vont dans un fichier `.env` local, jamais commité. L'environnement Python va dans `ia/.venv/`, ignoré par git.
+
 ## Mesure du 10 novembre
 
 ### Dix envies en texte libre
