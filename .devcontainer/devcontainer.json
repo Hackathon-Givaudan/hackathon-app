@@ -1,7 +1,8 @@
 {
   "name": "Hackathon",
-  "dockerComposeFile": ["../compose.yaml"],
+  "dockerComposeFile": ["../compose.yaml", "compose.yaml"],
   "service": "dev",
+  "runServices": ["dev", "ia"],
   "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
   "remoteUser": "node",
