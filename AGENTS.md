@@ -13,10 +13,10 @@ Toutes les commandes se lancent dans le dev container, depuis `/workspace`.
 
 ## Règles
 
-- Les routes sont dans `api/src/index.ts`, toutes sous `/api`. Le front appelle `/api` : le proxy vers le port 3000 est dans `web/vite.config.ts`.
-- Le modèle de langage s'appelle par `ask()` dans `api/src/index.ts`, vers `AI_BASE_URL/chat/completions`. Le fournisseur se change dans `api/.env`, pas dans le code. Quand `DATA_AI_URL` est renseignée, `askDataTeam()` appelle le service Data/IA à la place.
-- Le schéma et les données de test sont dans `db/init/`, joués seulement quand `db/data/` est vide : les modifier ne change pas une base existante.
-- `api/tsconfig.json` est en mode strict et `eslint.config.mjs` refuse `any` : on type les réponses de l'IA et de la base.
+- Les routes sont dans `api/src/index.ts`, toutes sous `/api`, et suivent `openapi.yaml` : une route change d'abord dans le contrat (ADR 0006). Toute erreur sort au format `{ "error": "message" }`. Le front appelle `/api` : le proxy vers le port 3000 est dans `web/vite.config.ts`.
+- L'API n'appelle jamais le modèle de langage : `api/src/ia.ts` appelle le service Data/IA par `DATA_AI_URL`, une fonction par route (ADR 0010). Sans ce service, les gestes 1 et 3 répondent 502.
+- Le schéma est dans `db/init/`, joué seulement quand `db/data/` est vide : le modifier ne change pas une base existante.
+- `api/tsconfig.json` est en mode strict et `eslint.config.mjs` refuse `any` : on type les réponses du service Data/IA et de la base.
 - Une branche `feature/nom-court` par ticket, depuis `develop`. La pull request vise `develop`, suit `.github/pull_request_template.md` et contient `Closes #N`. Commits en anglais, préfixés `feat:`, `fix:`, `chore:` ou `docs:`.
 - Toute modification de `.github/`, `.devcontainer/`, `compose.yaml`, `eslint.config.mjs` ou d'un `package.json` attend la relecture d'un tech lead (`.github/CODEOWNERS`).
 - Le plan d'un travail vit dans son ticket : `gh issue view N`. Les brouillons de session vont dans `.scratch/`, ignoré par git.
@@ -25,7 +25,7 @@ Toutes les commandes se lancent dans le dev container, depuis `/workspace`.
 
 - Lis `docs/adr/` avant d'ajouter une dépendance ou de changer de composant.
 - Ne contredis pas un ADR au statut « acceptée ». S'il faut en changer, propose un nouvel ADR, puis arrête-toi.
-- Node.js 24 et TypeScript pour l'API et le front (ADR 0001). PostgreSQL 17, avec pgvector si besoin, pas SQLite ni une base vectorielle à part (ADR 0002). Un fournisseur compatible OpenAI, Ollama en local par défaut (ADR 0003).
+- Node.js 24 et TypeScript pour l'API et le front (ADR 0001). PostgreSQL 17, avec pgvector si besoin, pas SQLite ni une base vectorielle à part (ADR 0002). Un fournisseur compatible OpenAI, Ollama en local par défaut (ADR 0003). Le code Data/IA vit dans `ia/` (ADR 0005).
 
 ## À ne pas faire
 
