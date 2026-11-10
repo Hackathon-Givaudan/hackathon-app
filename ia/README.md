@@ -1,6 +1,6 @@
 # ia : le service Data/IA
 
-Il traduit les envies d'une marque en notes. La formule, proposée à partir des notes validées, arrive dans un second ticket. Il ne répond qu'à l'API (`api/`), jamais au navigateur. Sa place dans le dépôt : [ADR 0005](../docs/adr/0005-code-data-ia.md). Son langage : ADR 0007. Son modèle : ADR 0008.
+Il traduit les envies d'une marque en notes, puis les notes validées en formule : la référence de la banque la plus proche, jamais du sur-mesure. Il ne répond qu'à l'API (`api/`), jamais au navigateur. Sa place dans le dépôt : [ADR 0005](../docs/adr/0005-code-data-ia.md). Son langage : ADR 0007. Son modèle : ADR 0008.
 
 ## Comment ça marche
 
@@ -35,12 +35,15 @@ La documentation interactive des routes est sur <http://localhost:8000/docs>.
 
 ## Routes
 
-| Route         | Entrée               | Sortie                                      |
-| ------------- | -------------------- | ------------------------------------------- |
-| `GET /health` |                      | État et nombre de références                |
-| `POST /notes` | `universe`, `wishes` | `notes` : `id`, `label`, `family`, `reason` |
+| Route           | Entrée                                                          | Sortie                                            |
+| --------------- | --------------------------------------------------------------- | ------------------------------------------------- |
+| `GET /health`   |                                                                 | État et nombre de références                      |
+| `POST /notes`   | `universe`, `wishes`                                            | `notes` : `id`, `label`, `family`, `reason`       |
+| `POST /formula` | `universe`, `wishes`, `noteIds`, `rejectedNoteIds` (facultatif) | Une formule au format `Formula` de `openapi.yaml` |
 
 `universe` vaut `parfum` ou `arome`. Une réponse 422 signifie que rien ne correspond.
+
+La formule est la référence qui contient le plus de notes validées ; à égalité, celle dont l'usage est cité dans les envies. Ses parts sont illustratives : entières, égales, de somme 100, tant que la banque ne donne pas de proportions. Dans une formule, `family` porte le niveau de la note (Tête, Cœur, Fond ; Dominante, Secondaires, Finale). L'explication signale toute note de `rejectedNoteIds` que la formule contient.
 
 ## Où est quoi
 
@@ -50,6 +53,7 @@ La documentation interactive des routes est sur <http://localhost:8000/docs>.
 | `app/references.py` | Lit les CSV                                                 |
 | `app/llm.py`        | Le seul fichier qui parle au modèle                         |
 | `app/notes.py`      | Les deux étapes ci-dessus                                   |
+| `app/formula.py`    | La référence la plus proche des notes validées, expliquée   |
 | `app/main.py`       | Les routes                                                  |
 | `tests/`            | `test_notes.py` : les règles, `test_routes.py` : les routes |
 | `evaluation/`       | Mesure de la qualité avec un modèle                         |
