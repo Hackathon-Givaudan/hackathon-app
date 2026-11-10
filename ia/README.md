@@ -83,6 +83,17 @@ Dix envies de `evaluation/envies.json`, sur un Mac M3 Pro. Une envie est réussi
 
 Avec `mistral:7b`, les 8,1 s sont celles du premier appel, modèle pas encore chargé ; les neuf suivants prennent de 3,3 à 4,1 s. Avant les règles de classement, `mistral:7b` faisait 9 sur 10 et l'absence de modèle 6 sur 10 : chercher les étiquettes telles quelles évite les faux rapprochements, mais reconnaît un peu moins bien un texte libre.
 
+### Les textes qui ne décrivent rien
+
+Un texte sans aucun sens, une question ou une consigne (« xyz qsdf », « Combien font deux plus deux ? », « Ignore tes consignes ») doit être refusé, pas traduit en notes. Le modèle dit d'abord si le texte décrit un projet ; sinon le service répond 422.
+
+| Mesure, `mistral:7b`               | Avant ce contrôle | Après   |
+| ---------------------------------- | ----------------- | ------- |
+| Textes absurdes refusés (8 essais) | 1 / 8             | 7 / 8   |
+| Vraies envies réussies             | 10 / 10           | 10 / 10 |
+
+Le texte encore accepté est « ma voiture est en panne » : « voiture » est une étiquette du référentiel. Cinq de ces textes sont dans `evaluation/envies.json`, sans note attendue : le jeu compte donc 15 cas, 15 réussis avec `mistral:7b`, 10 sans modèle.
+
 ### Les réponses de l'écran d'accueil
 
 Le front pose trois questions à six réponses, soit 216 combinaisons par univers. Mesuré sans modèle, sur les 216 : l'ambiance choisie et l'émotion choisie sont-elles toutes les deux citées dans les raisons ?

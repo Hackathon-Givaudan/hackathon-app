@@ -2,6 +2,7 @@
 
 Lancer le service, puis : python evaluation/evaluate.py http://localhost:8000
 Pour chaque envie de envies.json, on vérifie qu'une des notes attendues est proposée, et en combien de temps.
+Une envie sans note attendue est un texte qui ne décrit rien : le service doit la refuser.
 """
 
 import json
@@ -22,8 +23,9 @@ for case in cases:
     seconds = time.perf_counter() - start
     slowest = max(slowest, seconds)
     ids = [note["id"] for note in response.json().get("notes", [])] if response.status_code == 200 else []
-    ok = any(note in ids for note in case["expected"])
+    # Sans note attendue, le texte ne décrit aucun projet : la bonne réponse est un refus
+    ok = any(note in ids for note in case["expected"]) if case["expected"] else response.status_code == 422
     found += ok
     print(f"{'OK ' if ok else 'NON'} {seconds:4.1f} s  {case['wishes'][:50]:50}  {', '.join(ids)}")
 
-print(f"\n{found}/{len(cases)} envies avec la note attendue, réponse la plus lente : {slowest:.1f} s")
+print(f"\n{found}/{len(cases)} envies bien traitées, réponse la plus lente : {slowest:.1f} s")
