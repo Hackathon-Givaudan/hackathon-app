@@ -15,3 +15,15 @@ jobs:
       - run: npm run lint
       - run: npm run format:check
       - run: npm run build
+
+  tests-ia:
+    runs-on: ubuntu-latest
+    # La même image que ia/Dockerfile
+    container: python:3.12-slim
+    defaults:
+      run:
+        working-directory: ia
+    steps:
+      - uses: actions/checkout@v7
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest
