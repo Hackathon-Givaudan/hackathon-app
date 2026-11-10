@@ -12,6 +12,17 @@ Par défaut, le front tourne en **démonstration** : les réponses sont calculé
 VITE_API_MODE=live npm run dev
 ```
 
+## Tester le mode réel sans l'API
+
+Tant que l'API ne code pas les routes, un serveur simulé depuis le contrat permet de vérifier que le front envoie les bonnes requêtes :
+
+```bash
+npx @stoplight/prism-cli mock openapi.yaml -p 3000
+VITE_API_MODE=live npm run dev -w web
+```
+
+Les réponses sont factices (`string` partout) : ce test vérifie les routes et les champs, pas le contenu.
+
 ## Où est quoi
 
 | Dossier        | Rôle                                                                                              |
