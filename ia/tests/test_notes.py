@@ -8,7 +8,7 @@ from app.references import REFERENCES, slug
 
 @pytest.fixture(autouse=True)
 def no_llm(monkeypatch):
-    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: [])
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: None)
 
 
 def test_every_reference_has_notes_and_tags():
@@ -78,3 +78,9 @@ def test_the_longest_wording_wins():
     # « boisson protéinée » ne doit pas être lue comme « boisson » tout court
     found = notes.propose_notes("arome", "Produit : boisson protéinée.")
     assert {note["reason"] for note in found} == {"Convient pour : boisson protéinée"}
+
+
+def test_the_model_verdict_is_final_even_if_a_word_matches(monkeypatch):
+    # « voiture » est une étiquette, mais le modèle a jugé que ce texte ne décrit aucun projet
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: [])
+    assert notes.propose_notes("parfum", "ma voiture est en panne") == []
