@@ -6,31 +6,9 @@ Le parcours d'une marque, en quatre gestes : décrire ses envies, valider les no
 
 Dans le dev container, depuis `/workspace` : `npm run dev`, puis <http://localhost:5173>.
 
-Le front a deux modes, choisis par `VITE_API_MODE` :
+Le front n'a qu'un mode : il appelle l'API réelle, qui s'appuie sur le service `ia/` et le modèle de langage. Il n'y a pas de mode démonstration : ce qu'on montre est ce qui tourne.
 
-| Lancé par           | Mode          | D'où viennent les réponses                            |
-| ------------------- | ------------- | ----------------------------------------------------- |
-| `npm run dev`       | démonstration | Calculées dans le navigateur, sans API ni modèle      |
-| `docker compose up` | réel          | L'API, le service `ia/` et le modèle (`compose.yaml`) |
-
-Le défaut de `npm run dev` reste la démonstration : il marche sans rien d'autre, et les tests s'appuient dessus. Pour le mode réel dans le dev container, où l'API et le service `ia/` tournent :
-
-```bash
-VITE_API_MODE=live npm run dev
-```
-
-Le bandeau affiche « démonstration » quand ce n'est pas le mode réel.
-
-## Tester le mode réel sans l'API
-
-Tant que l'API ne code pas les routes, un serveur simulé depuis le contrat permet de vérifier que le front envoie les bonnes requêtes :
-
-```bash
-npx @stoplight/prism-cli mock openapi.yaml -p 3000
-VITE_API_MODE=live npm run dev -w web
-```
-
-Les réponses sont factices (`string` partout) : ce test vérifie les routes et les champs, pas le contenu.
+`npm run dev`, depuis la racine, lance l'API et le front. Le service `ia/` et PostgreSQL sont démarrés par le dev container. Sans eux, le premier écran s'affiche, puis l'envoi des envies répond « Le service ne répond pas, réessayez. »
 
 ## Où est quoi
 
@@ -46,8 +24,7 @@ Les réponses sont factices (`string` partout) : ce test vérifie les routes et 
 
 - `types.ts` : les types du contrat. Si `openapi.yaml` change, c'est ici qu'on répercute.
 - `http.ts` : les appels réels, une fonction par route.
-- `demo.ts` : les mêmes gestes, sans serveur, à partir de `data/references.json`.
-- `index.ts` : choisit entre les deux.
+- `index.ts` : le point d'entrée, que les écrans importent.
 
 Un écran n'appelle jamais `fetch` : il passe par `api`.
 
@@ -55,16 +32,12 @@ Un écran n'appelle jamais `fetch` : il passe par `api`.
 
 Un test se range à côté de ce qu'il protège.
 
-| Commande                  | Fichier                | Ce qu'il vérifie                                                |
-| ------------------------- | ---------------------- | --------------------------------------------------------------- |
-| `npm test -w web`         | `src/api/demo.test.ts` | Les règles : notes proposées, formule choisie, ordre des gestes |
-| `npm run test:e2e -w web` | `e2e/journey.spec.ts`  | Le parcours complet dans un navigateur, parfum puis arôme       |
+| Commande                  | Fichier                | Ce qu'il vérifie                                              |
+| ------------------------- | ---------------------- | ------------------------------------------------------------- |
+| `npm test -w web`         | `src/api/http.test.ts` | Les appels à l'API et l'affichage de ses erreurs, API simulée |
+| `npm run test:e2e -w web` | `e2e/journey.spec.ts`  | Le parcours complet dans un navigateur, sur la tranche réelle |
 
-Le test de bout en bout a besoin d'un navigateur, à installer une fois : `npx playwright install --with-deps chromium`. Il tourne sans WebGL, donc sans le flacon 3D : c'est voulu, le parcours doit rester utilisable sans lui.
-
-## Données de démonstration
-
-`src/api/data/references.json` vient des fichiers `fragrances-demo.csv` et `aromes-demo.csv` du Product : 40 références fictives. Les parts affichées dans une formule sont illustratives.
+Le test de bout en bout a besoin de la tranche (API, PostgreSQL, service `ia/`) et d'un navigateur, à installer une fois : `npx playwright install --with-deps chromium`. Il tourne sans WebGL, donc sans le flacon 3D : c'est voulu, le parcours doit rester utilisable sans lui. Les références et leurs données vivent dans `ia/data/`, plus dans le front.
 
 ## À savoir
 

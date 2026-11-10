@@ -1,6 +1,5 @@
 /* Geste 3 : la marque reçoit une formule, puis l'accepte (geste 4) */
 import { Check } from 'lucide-react';
-import { isDemo } from '../api';
 import type { Formula } from '../api';
 import { errorText, linkButton, primaryButton, smallLabel } from '../shared/ui';
 
@@ -43,8 +42,7 @@ export function FormulaStep({
         ))}
       </ul>
       <p className="mono mt-3 text-[11px] opacity-80">
-        {isDemo ? 'Référence de démonstration' : 'Référence de notre banque'} (
-        {formula.source}). Parts illustratives.
+        Référence de notre banque ({formula.source}). Parts illustratives.
       </p>
 
       <div className="mt-6 flex flex-wrap items-center gap-5">
