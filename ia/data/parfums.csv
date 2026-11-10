@@ -1,0 +1,21 @@
+id,nom_reference,famille_olfactive,notes_de_tete,notes_de_coeur,notes_de_fond,ambiances,emotions,usages_compatibles,intensite_1_5,tenue,origine,source
+DEMO-F-001,Écume Saline,Aquatique,sel marin | algue,menthe aquatique | bergamote,bois flotté | musc blanc,bord de mer | plage | vacances,liberté | fraîcheur | évasion,bougie | diffuseur | body mist,3,moyenne,mixte,fictif démo
+DEMO-F-002,Brise de Port,Aquatique,ozone | citron vert,lavande | sauge,ambre gris | cèdre,bord de mer | port | voile,apaisement | nostalgie,bougie | savon | spray d'ambiance,3,moyenne,synthétique,fictif démo
+DEMO-F-003,Terrasse au Soleil,Hespéridé,orange douce | pamplemousse,fleur d'oranger | néroli,musc | bois blond,été | terrasse | apéritif,joie | énergie,body mist | gel douche | bougie,2,faible,mixte,fictif démo
+DEMO-F-004,Linge Propre,Musquée,aldéhydes | poire,coton | iris,musc blanc,maison | linge | matin,confort | propreté,lessive | savon | spray textile,2,forte,synthétique,fictif démo
+DEMO-F-005,Savon d'Atelier,Musquée,bergamote | lavande,fleur de coton | rose légère,musc | santal,salle de bain | hammam | soin,douceur | calme,savon | crème mains | shampoing,2,moyenne,mixte,fictif démo
+DEMO-F-006,Velours Ambré,Ambrée,épices douces | cardamome,ambre | ciste,vanille | benjoin,hiver | salon | coin du feu,chaleur | réconfort,bougie | parfum | diffuseur,4,forte,mixte,fictif démo
+DEMO-F-007,Forêt Après la Pluie,Boisée,feuille verte | baie de genièvre,mousse | fougère,vétiver | cèdre,forêt | randonnée | automne,ressourcement | sérénité,bougie | diffuseur | savon,3,moyenne,mixte,fictif démo
+DEMO-F-008,Feu de Bois,Boisée,poivre noir | cade,cuir doux,bois fumé | patchouli,montagne | chalet | hiver,intimité | réconfort,bougie | diffuseur,5,forte,synthétique,fictif démo
+DEMO-F-009,Pétales Poudrés,Florale,poire | baie rose,rose | pivoine,musc poudré,chambre | boudoir | printemps,tendresse | romantisme,body mist | crème corps | parfum,3,moyenne,mixte,fictif démo
+DEMO-F-010,Jardin de Jasmin,Florale,mandarine,jasmin | tubéreuse,santal crémeux,jardin | soir d'été | Méditerranée,sensualité | élégance,parfum | bougie | huile corps,4,forte,mixte,fictif démo
+DEMO-F-011,Thé Blanc,Verte,thé vert | citron,jasmin léger,musc,spa | yoga | matin,calme | légèreté,savon | spray d'ambiance | body mist,2,faible,mixte,fictif démo
+DEMO-F-012,Figuier,Verte,feuille de figuier | bergamote,lait de figue,cèdre | coco,Méditerranée | jardin | vacances,évasion | douceur,bougie | parfum | body mist,3,moyenne,mixte,fictif démo
+DEMO-F-013,Vanille Gourmande,Gourmande,caramel | amande,vanille,fève tonka | musc,pâtisserie | cocooning | hiver,gourmandise | réconfort,body mist | bougie | gel douche,4,forte,synthétique,fictif démo
+DEMO-F-014,Coco Lagon,Gourmande,noix de coco | ananas,fleur de tiaré,vanille,plage tropicale | vacances,insouciance | joie,body mist | crème solaire | gel douche,3,moyenne,synthétique,fictif démo
+DEMO-F-015,Bois Noble,Boisée,bergamote | élémi,iris,santal | oud doux,hôtel | boutique | luxe discret,prestige | assurance,parfum | diffuseur | savon premium,4,forte,mixte,fictif démo
+DEMO-F-016,Cuir Satin,Cuirée,safran | framboise,cuir,ambre | bois,boutique | voiture | soirée,audace | élégance,parfum | diffuseur,5,forte,synthétique,fictif démo
+DEMO-F-017,Lavande des Champs,Aromatique,lavande | romarin,thym,foin | musc,Provence | campagne | été,apaisement | authenticité,savon | sachet | bougie,3,moyenne,naturel,fictif démo
+DEMO-F-018,Agrumes Pétillants,Hespéridé,citron | yuzu | gingembre,menthe,bois clair,sport | salle de gym | matin,énergie | vitalité,gel douche | déodorant | body mist,3,faible,mixte,fictif démo
+DEMO-F-019,Rose et Poivre,Florale,poivre rose | litchi,rose,patchouli doux,soirée | ville | automne,confiance | caractère,parfum | bougie | savon premium,4,forte,mixte,fictif démo
+DEMO-F-020,Nuage de Musc,Musquée,poire | aldéhydes,fleur de coton,musc blanc | ambrette,peau | cocon | nuit,douceur | intimité,body mist | crème corps | spray textile,2,moyenne,synthétique,fictif démo
