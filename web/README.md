@@ -42,6 +42,14 @@ Les réponses sont factices (`string` partout) : ce test vérifie les routes et 
 
 Un écran n'appelle jamais `fetch` : il passe par `api`.
 
+## Tester
+
+```bash
+npm test -w web
+```
+
+`src/api/demo.test.ts` vérifie les règles du mode démonstration : les notes proposées, la formule choisie, l'ordre des gestes. Un test se range à côté du fichier qu'il protège.
+
 ## Données de démonstration
 
 `src/api/data/references.json` vient des fichiers `fragrances-demo.csv` et `aromes-demo.csv` du Product : 40 références fictives. Les parts affichées dans une formule sont illustratives.

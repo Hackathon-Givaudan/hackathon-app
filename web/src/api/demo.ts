@@ -44,7 +44,9 @@ function matchWishes(reference: Reference, wishes: string) {
   return words(wishes).filter((word) => sheet.has(word)).length;
 }
 
-const pause = () => new Promise((resolve) => setTimeout(resolve, 600));
+/* Le temps de réponse simulé, pour que l'attente se voie à l'écran. Nul pendant les tests. */
+const delay = import.meta.env.MODE === 'test' ? 0 : 600;
+const pause = () => new Promise((resolve) => setTimeout(resolve, delay));
 
 function findBrief(briefId: number) {
   const brief = briefs.get(briefId);
