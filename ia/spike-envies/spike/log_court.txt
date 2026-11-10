@@ -1,0 +1,29 @@
+Chauffe du modèle qwen2.5:7b (non chronométrée)…
+E01 48.71s  sel, citron, accord_marin, gaiac, cedre
+E02 41.56s  caramel, cacao, miel, cannelle, feve_tonka
+E03 56.96s  rose, fleur_d_oranger, iris, violette, mimosa
+E04 59.13s  musc_blanc, aldehydes, herbe_coupee, feuille_de_violette, bambou
+E05 60.49s  osmanthus, gaiac, oud
+E06 38.34s  pin, cedre, santal, patchouli, ambroxan
+E07 36.60s  sauge_sclaree, lavande, romarin, galbanum, bambou
+E08 37.77s  santal, gaiac, cypres, cedre, herbe_coupee
+E09 71.78s  osmanthus, sauge_sclaree, cannelle, iris, cacao
+E10 63.14s  mangue, noix_de_coco, ananas, pamplemousse, bergamote
+E11 36.43s  cacao, caramel, vanille, feve_tonka, cannelle
+E12 103.61s  osmanthus, cannelle, cacao, gaiac, vanille
+E13 56.87s  pierre_mouillee, sel, herbe_coupee, accord_ozonique, accord_marin
+E14 63.95s  pamplemousse, citron, bergamote, galbanum, menthe
+E15 44.46s  cachemire, caramel, vanille, cacao, daim
+E16 85.44s  osmanthus, gardenia, jasmin, fleur_d_oranger
+E17 51.67s  cardamome, galbanum, poivre_rose, yuzu, basilic
+E18 91.01s  gaiac, galbanum, herbe_coupee
+E19 196.71s  gaiac, herbe_coupee
+E20 205.20s  poivre_noir, cannelle, vanille, miel, pin
+
+=== Résumé automatique (à confirmer par Yasmina et Brandon) ===
+Modèle               : qwen2.5:7b
+Latence p50 / p95 / max : 58.05 / 196.71 / 205.20 s  (seuil 5.0 s)
+Notes hors référentiel : 0
+Précision vs notes attendues : 37/92 = 40%
+Baseline mots-clés      : 44/86 = 51%
+Feuille de jugement     : spike/resultats_qwen2.5_7b_court.csv

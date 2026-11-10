@@ -1,0 +1,251 @@
+openapi: 3.1.0
+info:
+  title: Service Data/IA — Envies, notes et formules
+  version: 0.1.0
+  description: |
+    Reçoit les envies du client en texte libre, renvoie les notes correspondantes
+    choisies dans le référentiel, puis les formules les plus proches des notes validées.
+    Toute note renvoyée appartient au référentiel (jamais de note inventée par le modèle).
+servers:
+  - url: http://localhost:8000
+    description: Local (l'emplacement dans le dépôt se décide au point de 9 h)
+tags:
+  - name: Santé
+  - name: Référentiel
+  - name: Envies
+  - name: Formules
+
+paths:
+  /health:
+    get:
+      tags: [Santé]
+      summary: État du service et du modèle
+      responses:
+        "200":
+          description: Service prêt
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Health" }
+
+  /v1/notes:
+    get:
+      tags: [Référentiel]
+      summary: Liste les notes du référentiel
+      parameters:
+        - { name: famille, in: query, schema: { $ref: "#/components/schemas/Famille" } }
+        - { name: etage, in: query, schema: { $ref: "#/components/schemas/Etage" } }
+      responses:
+        "200":
+          description: Notes du référentiel
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [version_referentiel, notes]
+                properties:
+                  version_referentiel: { type: string, example: "2026-11-10" }
+                  notes:
+                    type: array
+                    items: { $ref: "#/components/schemas/Note" }
+
+  /v1/envies/notes:
+    post:
+      tags: [Envies]
+      summary: Traduit une envie en texte libre en notes du référentiel
+      description: |
+        Objectif de latence : < 5 s (p95). Au-delà, 504.
+        Les notes sont triées par pertinence décroissante.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/EnvieRequest" }
+            example:
+              texte: "Je veux un parfum frais pour l'été, qui sent le citron et la mer."
+              max_notes: 5
+      responses:
+        "200":
+          description: Notes proposées
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/EnvieResponse" }
+        "400": { $ref: "#/components/responses/Erreur" }
+        "503": { $ref: "#/components/responses/Erreur" }
+        "504": { $ref: "#/components/responses/Erreur" }
+
+  /v1/formules/proches:
+    post:
+      tags: [Formules]
+      summary: Formules les plus proches d'un ensemble de notes validées
+      description: |
+        Similarité cosinus pondérée entre le vecteur des notes validées et le vecteur
+        (pourcentages) de chaque formule. Déterministe, pas d'appel au modèle.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/FormulesRequest" }
+            example:
+              notes_validees: [{ note_id: citron }, { note_id: accord_marin, poids: 2 }, { note_id: sel }]
+              limite: 3
+      responses:
+        "200":
+          description: Formules classées
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/FormulesResponse" }
+        "400": { $ref: "#/components/responses/Erreur" }
+        "422": { $ref: "#/components/responses/Erreur" }
+
+  /v1/formules/{formule_id}:
+    get:
+      tags: [Formules]
+      summary: Détail d'une formule
+      parameters:
+        - { name: formule_id, in: path, required: true, schema: { type: string, example: F005 } }
+      responses:
+        "200":
+          description: Formule
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Formule" }
+        "404": { $ref: "#/components/responses/Erreur" }
+
+components:
+  responses:
+    Erreur:
+      description: Erreur
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Erreur" }
+
+  schemas:
+    Famille:
+      type: string
+      enum: [hesperide, aromatique, vert, floral, fruite, epice, gourmand, boise, ambre, musque, cuir, marin, chypre]
+    Etage:
+      type: string
+      enum: [tete, coeur, fond]
+
+    Note:
+      type: object
+      required: [id, nom, famille, etage]
+      properties:
+        id: { type: string, example: bergamote }
+        nom: { type: string, example: Bergamote }
+        famille: { $ref: "#/components/schemas/Famille" }
+        facette: { type: string, example: agrume }
+        etage: { $ref: "#/components/schemas/Etage" }
+        nature: { type: string, enum: [naturel, synthese, accord] }
+
+    EnvieRequest:
+      type: object
+      required: [texte]
+      properties:
+        texte: { type: string, minLength: 3, maxLength: 1000 }
+        max_notes: { type: integer, minimum: 1, maximum: 10, default: 5 }
+        exclure_notes:
+          type: array
+          description: Notes que le client ne veut pas (allergie, rejet)
+          items: { type: string }
+        langue: { type: string, default: fr, example: fr }
+
+    NoteProposee:
+      allOf:
+        - $ref: "#/components/schemas/Note"
+        - type: object
+          required: [score]
+          properties:
+            score: { type: number, minimum: 0, maximum: 1, description: Confiance du modèle }
+            justification: { type: string, example: "« la mer » évoque l'accord marin" }
+
+    EnvieResponse:
+      type: object
+      required: [request_id, notes, modele, latence_ms, version_referentiel]
+      properties:
+        request_id: { type: string, format: uuid }
+        notes:
+          type: array
+          items: { $ref: "#/components/schemas/NoteProposee" }
+        notes_ecartees:
+          type: array
+          description: Termes produits par le modèle absents du référentiel (journalisés, jamais renvoyés comme notes)
+          items: { type: string }
+        modele: { type: string, example: "qwen2.5:7b" }
+        latence_ms: { type: integer, example: 2300 }
+        version_referentiel: { type: string }
+
+    NoteValidee:
+      type: object
+      required: [note_id]
+      properties:
+        note_id: { type: string }
+        poids: { type: number, minimum: 0, default: 1 }
+
+    FormulesRequest:
+      type: object
+      required: [notes_validees]
+      properties:
+        notes_validees:
+          type: array
+          minItems: 1
+          items: { $ref: "#/components/schemas/NoteValidee" }
+        limite: { type: integer, minimum: 1, maximum: 20, default: 3 }
+        score_min: { type: number, minimum: 0, maximum: 1, default: 0 }
+
+    LigneFormule:
+      type: object
+      required: [note_id, etage, pourcentage]
+      properties:
+        note_id: { type: string }
+        etage: { $ref: "#/components/schemas/Etage" }
+        pourcentage: { type: number }
+
+    Formule:
+      type: object
+      required: [id, nom, notes]
+      properties:
+        id: { type: string, example: F005 }
+        nom: { type: string, example: Embruns }
+        description: { type: string }
+        notes:
+          type: array
+          items: { $ref: "#/components/schemas/LigneFormule" }
+
+    FormuleProche:
+      type: object
+      required: [formule, similarite, notes_communes, notes_manquantes]
+      properties:
+        formule: { $ref: "#/components/schemas/Formule" }
+        similarite: { type: number, minimum: 0, maximum: 1 }
+        notes_communes: { type: array, items: { type: string } }
+        notes_manquantes:
+          type: array
+          description: Notes validées absentes de la formule
+          items: { type: string }
+
+    FormulesResponse:
+      type: object
+      required: [formules]
+      properties:
+        formules:
+          type: array
+          items: { $ref: "#/components/schemas/FormuleProche" }
+
+    Health:
+      type: object
+      properties:
+        statut: { type: string, enum: [ok, degrade] }
+        modele: { type: string }
+        modele_disponible: { type: boolean }
+        version_referentiel: { type: string }
+
+    Erreur:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          enum: [TEXTE_INVALIDE, NOTE_INCONNUE, FORMULE_INCONNUE, MODELE_INDISPONIBLE, DELAI_DEPASSE]
+        message: { type: string }
+        details: { type: object }

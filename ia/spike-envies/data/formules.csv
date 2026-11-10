@@ -1,0 +1,198 @@
+﻿formule_id;formule_nom;description;note_id;note_nom;famille;etage;pourcentage
+F001;Zeste Matinal;Cologne fraîche et pétillante;citron;Citron;hesperide;tete;20,0
+F001;Zeste Matinal;Cologne fraîche et pétillante;bergamote;Bergamote;hesperide;tete;20,0
+F001;Zeste Matinal;Cologne fraîche et pétillante;petitgrain;Petitgrain;hesperide;tete;10,0
+F001;Zeste Matinal;Cologne fraîche et pétillante;neroli;Néroli;floral;tete;15,0
+F001;Zeste Matinal;Cologne fraîche et pétillante;romarin;Romarin;aromatique;tete;10,0
+F001;Zeste Matinal;Cologne fraîche et pétillante;musc_blanc;Musc blanc;musque;fond;25,0
+F002;Riviera;Hespéridé aromatique méditerranéen;bergamote;Bergamote;hesperide;tete;20,0
+F002;Riviera;Hespéridé aromatique méditerranéen;citron;Citron;hesperide;tete;10,0
+F002;Riviera;Hespéridé aromatique méditerranéen;basilic;Basilic;aromatique;tete;10,0
+F002;Riviera;Hespéridé aromatique méditerranéen;feuille_de_figuier;Feuille de figuier;vert;coeur;20,0
+F002;Riviera;Hespéridé aromatique méditerranéen;cypres;Cyprès;boise;coeur;15,0
+F002;Riviera;Hespéridé aromatique méditerranéen;cedre;Cèdre;boise;fond;25,0
+F003;Linge au Soleil;Musqué propre et lumineux;aldehydes;Aldéhydes;musque;tete;10,0
+F003;Linge au Soleil;Musqué propre et lumineux;bergamote;Bergamote;hesperide;tete;10,0
+F003;Linge au Soleil;Musqué propre et lumineux;muguet;Muguet;floral;coeur;15,0
+F003;Linge au Soleil;Musqué propre et lumineux;fleur_d_oranger;Fleur d'oranger;floral;coeur;15,0
+F003;Linge au Soleil;Musqué propre et lumineux;musc_blanc;Musc blanc;musque;fond;35,0
+F003;Linge au Soleil;Musqué propre et lumineux;cachemire;Cachemire;boise;fond;15,0
+F004;Jardin après la Pluie;Vert aérien;galbanum;Galbanum;vert;tete;10,0
+F004;Jardin après la Pluie;Vert aérien;feuille_de_violette;Feuille de violette;vert;tete;15,0
+F004;Jardin après la Pluie;Vert aérien;herbe_coupee;Herbe coupée;vert;tete;15,0
+F004;Jardin après la Pluie;Vert aérien;accord_ozonique;Accord ozonique;marin;tete;15,0
+F004;Jardin après la Pluie;Vert aérien;muguet;Muguet;floral;coeur;15,0
+F004;Jardin après la Pluie;Vert aérien;pierre_mouillee;Pierre mouillée;marin;coeur;10,0
+F004;Jardin après la Pluie;Vert aérien;vetiver;Vétiver;boise;fond;20,0
+F005;Embruns;Aquatique salé;accord_marin;Accord marin;marin;tete;20,0
+F005;Embruns;Aquatique salé;citron_vert;Citron vert;hesperide;tete;10,0
+F005;Embruns;Aquatique salé;sel;Sel;marin;coeur;15,0
+F005;Embruns;Aquatique salé;sauge_sclaree;Sauge sclarée;aromatique;coeur;10,0
+F005;Embruns;Aquatique salé;ambroxan;Ambroxan;boise;fond;30,0
+F005;Embruns;Aquatique salé;cedre;Cèdre;boise;fond;15,0
+F006;Rose Velours;Floral rose poudré;framboise;Framboise;fruite;tete;10,0
+F006;Rose Velours;Floral rose poudré;poivre_rose;Poivre rose;epice;tete;10,0
+F006;Rose Velours;Floral rose poudré;rose;Rose;floral;coeur;35,0
+F006;Rose Velours;Floral rose poudré;iris;Iris;floral;coeur;10,0
+F006;Rose Velours;Floral rose poudré;violette;Violette;floral;coeur;10,0
+F006;Rose Velours;Floral rose poudré;musc_blanc;Musc blanc;musque;fond;15,0
+F006;Rose Velours;Floral rose poudré;patchouli;Patchouli;boise;fond;10,0
+F007;Bouquet de Mai;Floral frais printanier;poire;Poire;fruite;tete;10,0
+F007;Bouquet de Mai;Floral frais printanier;muguet;Muguet;floral;coeur;25,0
+F007;Bouquet de Mai;Floral frais printanier;pivoine;Pivoine;floral;coeur;20,0
+F007;Bouquet de Mai;Floral frais printanier;lilas;Lilas;floral;coeur;15,0
+F007;Bouquet de Mai;Floral frais printanier;magnolia;Magnolia;floral;coeur;10,0
+F007;Bouquet de Mai;Floral frais printanier;musc_blanc;Musc blanc;musque;fond;20,0
+F008;Fleur Blanche Nocturne;Floral blanc opulent;mandarine;Mandarine;hesperide;tete;10,0
+F008;Fleur Blanche Nocturne;Floral blanc opulent;jasmin;Jasmin;floral;coeur;25,0
+F008;Fleur Blanche Nocturne;Floral blanc opulent;tubereuse;Tubéreuse;floral;coeur;25,0
+F008;Fleur Blanche Nocturne;Floral blanc opulent;ylang_ylang;Ylang-ylang;floral;coeur;10,0
+F008;Fleur Blanche Nocturne;Floral blanc opulent;vanille;Vanille;gourmand;fond;15,0
+F008;Fleur Blanche Nocturne;Floral blanc opulent;santal;Santal;boise;fond;15,0
+F009;Île Monoï;Floral solaire tropical;ananas;Ananas;fruite;tete;10,0
+F009;Île Monoï;Floral solaire tropical;frangipanier;Frangipanier;floral;coeur;25,0
+F009;Île Monoï;Floral solaire tropical;noix_de_coco;Noix de coco;fruite;coeur;20,0
+F009;Île Monoï;Floral solaire tropical;ylang_ylang;Ylang-ylang;floral;coeur;15,0
+F009;Île Monoï;Floral solaire tropical;vanille;Vanille;gourmand;fond;15,0
+F009;Île Monoï;Floral solaire tropical;musc_blanc;Musc blanc;musque;fond;15,0
+F010;Poudre d'Iris;Floral poudré chic;aldehydes;Aldéhydes;musque;tete;5,0
+F010;Poudre d'Iris;Floral poudré chic;iris;Iris;floral;coeur;30,0
+F010;Poudre d'Iris;Floral poudré chic;violette;Violette;floral;coeur;15,0
+F010;Poudre d'Iris;Floral poudré chic;heliotrope;Héliotrope;floral;coeur;15,0
+F010;Poudre d'Iris;Floral poudré chic;accord_poudre;Accord poudré;musque;fond;15,0
+F010;Poudre d'Iris;Floral poudré chic;cedre;Cèdre;boise;fond;10,0
+F010;Poudre d'Iris;Floral poudré chic;musc_blanc;Musc blanc;musque;fond;10,0
+F011;Mimosa d'Hiver;Floral poudré miellé;mandarine;Mandarine;hesperide;tete;10,0
+F011;Mimosa d'Hiver;Floral poudré miellé;mimosa;Mimosa;floral;coeur;30,0
+F011;Mimosa d'Hiver;Floral poudré miellé;heliotrope;Héliotrope;floral;coeur;15,0
+F011;Mimosa d'Hiver;Floral poudré miellé;miel;Miel;gourmand;fond;10,0
+F011;Mimosa d'Hiver;Floral poudré miellé;feve_tonka;Fève tonka;gourmand;fond;15,0
+F011;Mimosa d'Hiver;Floral poudré miellé;musc_blanc;Musc blanc;musque;fond;20,0
+F012;Verger d'Été;Fruité juteux;peche;Pêche;fruite;coeur;25,0
+F012;Verger d'Été;Fruité juteux;poire;Poire;fruite;tete;15,0
+F012;Verger d'Été;Fruité juteux;cassis;Cassis;fruite;tete;10,0
+F012;Verger d'Été;Fruité juteux;osmanthus;Osmanthus;floral;coeur;15,0
+F012;Verger d'Été;Fruité juteux;pivoine;Pivoine;floral;coeur;10,0
+F012;Verger d'Été;Fruité juteux;musc_blanc;Musc blanc;musque;fond;25,0
+F013;Baies Sauvages;Fruité gourmand;fruits_rouges;Fruits rouges;fruite;tete;25,0
+F013;Baies Sauvages;Fruité gourmand;cassis;Cassis;fruite;tete;15,0
+F013;Baies Sauvages;Fruité gourmand;framboise;Framboise;fruite;tete;15,0
+F013;Baies Sauvages;Fruité gourmand;rose;Rose;floral;coeur;15,0
+F013;Baies Sauvages;Fruité gourmand;vanille;Vanille;gourmand;fond;15,0
+F013;Baies Sauvages;Fruité gourmand;patchouli;Patchouli;boise;fond;15,0
+F014;Tropicalia;Fruité exotique;mangue;Mangue;fruite;tete;25,0
+F014;Tropicalia;Fruité exotique;ananas;Ananas;fruite;tete;15,0
+F014;Tropicalia;Fruité exotique;citron_vert;Citron vert;hesperide;tete;15,0
+F014;Tropicalia;Fruité exotique;noix_de_coco;Noix de coco;fruite;coeur;15,0
+F014;Tropicalia;Fruité exotique;frangipanier;Frangipanier;floral;coeur;10,0
+F014;Tropicalia;Fruité exotique;santal;Santal;boise;fond;20,0
+F015;Crème Brûlée;Gourmand sucré;caramel;Caramel;gourmand;fond;25,0
+F015;Crème Brûlée;Gourmand sucré;vanille;Vanille;gourmand;fond;25,0
+F015;Crème Brûlée;Gourmand sucré;feve_tonka;Fève tonka;gourmand;fond;15,0
+F015;Crème Brûlée;Gourmand sucré;lait;Lait;gourmand;fond;10,0
+F015;Crème Brûlée;Gourmand sucré;amande;Amande;gourmand;coeur;10,0
+F015;Crème Brûlée;Gourmand sucré;musc_blanc;Musc blanc;musque;fond;15,0
+F016;Café des Artistes;Gourmand torréfié;cardamome;Cardamome;epice;tete;10,0
+F016;Café des Artistes;Gourmand torréfié;cafe;Café;gourmand;coeur;30,0
+F016;Café des Artistes;Gourmand torréfié;cacao;Cacao;gourmand;fond;15,0
+F016;Café des Artistes;Gourmand torréfié;praline;Praliné;gourmand;fond;15,0
+F016;Café des Artistes;Gourmand torréfié;vanille;Vanille;gourmand;fond;15,0
+F016;Café des Artistes;Gourmand torréfié;patchouli;Patchouli;boise;fond;15,0
+F017;Cocon;Gourmand lacté doux;lait;Lait;gourmand;fond;20,0
+F017;Cocon;Gourmand lacté doux;amande;Amande;gourmand;coeur;15,0
+F017;Cocon;Gourmand lacté doux;heliotrope;Héliotrope;floral;coeur;15,0
+F017;Cocon;Gourmand lacté doux;vanille;Vanille;gourmand;fond;20,0
+F017;Cocon;Gourmand lacté doux;cachemire;Cachemire;boise;fond;15,0
+F017;Cocon;Gourmand lacté doux;santal;Santal;boise;fond;15,0
+F018;Pain d'Épices;Ambré épicé hivernal;orange_douce;Orange douce;hesperide;tete;10,0
+F018;Pain d'Épices;Ambré épicé hivernal;cannelle;Cannelle;epice;coeur;20,0
+F018;Pain d'Épices;Ambré épicé hivernal;clou_de_girofle;Clou de girofle;epice;coeur;10,0
+F018;Pain d'Épices;Ambré épicé hivernal;muscade;Muscade;epice;coeur;10,0
+F018;Pain d'Épices;Ambré épicé hivernal;miel;Miel;gourmand;fond;15,0
+F018;Pain d'Épices;Ambré épicé hivernal;benjoin;Benjoin;ambre;fond;15,0
+F018;Pain d'Épices;Ambré épicé hivernal;vanille;Vanille;gourmand;fond;20,0
+F019;Nuit d'Orient;Ambré intense;safran;Safran;epice;coeur;10,0
+F019;Nuit d'Orient;Ambré intense;rose;Rose;floral;coeur;15,0
+F019;Nuit d'Orient;Ambré intense;oud;Oud;boise;fond;25,0
+F019;Nuit d'Orient;Ambré intense;ambre;Ambre;ambre;fond;20,0
+F019;Nuit d'Orient;Ambré intense;encens;Encens;ambre;fond;10,0
+F019;Nuit d'Orient;Ambré intense;labdanum;Labdanum;ambre;fond;20,0
+F020;Cathédrale;Ambré résineux;poivre_noir;Poivre noir;epice;tete;10,0
+F020;Cathédrale;Ambré résineux;encens;Encens;ambre;fond;30,0
+F020;Cathédrale;Ambré résineux;myrrhe;Myrrhe;ambre;fond;15,0
+F020;Cathédrale;Ambré résineux;opoponax;Opoponax;ambre;fond;15,0
+F020;Cathédrale;Ambré résineux;cedre;Cèdre;boise;fond;15,0
+F020;Cathédrale;Ambré résineux;gaiac;Gaïac;boise;fond;15,0
+F021;Ambre Doré;Ambré doux;bergamote;Bergamote;hesperide;tete;10,0
+F021;Ambre Doré;Ambré doux;benjoin;Benjoin;ambre;fond;20,0
+F021;Ambre Doré;Ambré doux;ambre;Ambre;ambre;fond;25,0
+F021;Ambre Doré;Ambré doux;vanille;Vanille;gourmand;fond;20,0
+F021;Ambre Doré;Ambré doux;feve_tonka;Fève tonka;gourmand;fond;10,0
+F021;Ambre Doré;Ambré doux;musc_blanc;Musc blanc;musque;fond;15,0
+F022;Forêt Profonde;Boisé résineux;pin;Pin;boise;coeur;20,0
+F022;Forêt Profonde;Boisé résineux;cypres;Cyprès;boise;coeur;15,0
+F022;Forêt Profonde;Boisé résineux;poivre_noir;Poivre noir;epice;tete;10,0
+F022;Forêt Profonde;Boisé résineux;cedre;Cèdre;boise;fond;25,0
+F022;Forêt Profonde;Boisé résineux;mousse_de_chene;Mousse de chêne;chypre;fond;10,0
+F022;Forêt Profonde;Boisé résineux;vetiver;Vétiver;boise;fond;20,0
+F023;Santal Crémeux;Boisé lacté;cardamome;Cardamome;epice;tete;10,0
+F023;Santal Crémeux;Boisé lacté;figue;Figue;fruite;coeur;10,0
+F023;Santal Crémeux;Boisé lacté;santal;Santal;boise;fond;35,0
+F023;Santal Crémeux;Boisé lacté;lait;Lait;gourmand;fond;10,0
+F023;Santal Crémeux;Boisé lacté;cachemire;Cachemire;boise;fond;15,0
+F023;Santal Crémeux;Boisé lacté;ambrette;Ambrette;musque;fond;20,0
+F024;Vétiver Chic;Boisé terreux;pamplemousse;Pamplemousse;hesperide;tete;15,0
+F024;Vétiver Chic;Boisé terreux;poivre_rose;Poivre rose;epice;tete;10,0
+F024;Vétiver Chic;Boisé terreux;vetiver;Vétiver;boise;fond;35,0
+F024;Vétiver Chic;Boisé terreux;cedre;Cèdre;boise;fond;15,0
+F024;Vétiver Chic;Boisé terreux;mousse_de_chene;Mousse de chêne;chypre;fond;10,0
+F024;Vétiver Chic;Boisé terreux;musc_blanc;Musc blanc;musque;fond;15,0
+F025;Fougère Barbier;Fougère aromatique;lavande;Lavande;aromatique;tete;30,0
+F025;Fougère Barbier;Fougère aromatique;bergamote;Bergamote;hesperide;tete;15,0
+F025;Fougère Barbier;Fougère aromatique;sauge_sclaree;Sauge sclarée;aromatique;coeur;10,0
+F025;Fougère Barbier;Fougère aromatique;rose;Rose;floral;coeur;5,0
+F025;Fougère Barbier;Fougère aromatique;feve_tonka;Fève tonka;gourmand;fond;20,0
+F025;Fougère Barbier;Fougère aromatique;mousse_de_chene;Mousse de chêne;chypre;fond;20,0
+F026;Chypre Moderne;Chypre fruité;bergamote;Bergamote;hesperide;tete;20,0
+F026;Chypre Moderne;Chypre fruité;cassis;Cassis;fruite;tete;10,0
+F026;Chypre Moderne;Chypre fruité;rose;Rose;floral;coeur;15,0
+F026;Chypre Moderne;Chypre fruité;jasmin;Jasmin;floral;coeur;10,0
+F026;Chypre Moderne;Chypre fruité;patchouli;Patchouli;boise;fond;25,0
+F026;Chypre Moderne;Chypre fruité;mousse_de_chene;Mousse de chêne;chypre;fond;20,0
+F027;Cuir de Russie;Cuir fumé;safran;Safran;epice;coeur;10,0
+F027;Cuir de Russie;Cuir fumé;bouleau;Bouleau;cuir;fond;20,0
+F027;Cuir de Russie;Cuir fumé;cuir;Cuir;cuir;fond;25,0
+F027;Cuir de Russie;Cuir fumé;labdanum;Labdanum;ambre;fond;15,0
+F027;Cuir de Russie;Cuir fumé;tabac;Tabac;cuir;fond;10,0
+F027;Cuir de Russie;Cuir fumé;gaiac;Gaïac;boise;fond;20,0
+F028;Club Tabac;Cuir tabac miellé;cannelle;Cannelle;epice;coeur;10,0
+F028;Club Tabac;Cuir tabac miellé;tabac;Tabac;cuir;fond;30,0
+F028;Club Tabac;Cuir tabac miellé;miel;Miel;gourmand;fond;15,0
+F028;Club Tabac;Cuir tabac miellé;feve_tonka;Fève tonka;gourmand;fond;15,0
+F028;Club Tabac;Cuir tabac miellé;daim;Daim;cuir;fond;15,0
+F028;Club Tabac;Cuir tabac miellé;cedre;Cèdre;boise;fond;15,0
+F029;Peau Douce;Musqué peau;poire;Poire;fruite;tete;5,0
+F029;Peau Douce;Musqué peau;ambrette;Ambrette;musque;fond;20,0
+F029;Peau Douce;Musqué peau;iris;Iris;floral;coeur;10,0
+F029;Peau Douce;Musqué peau;musc_blanc;Musc blanc;musque;fond;30,0
+F029;Peau Douce;Musqué peau;cachemire;Cachemire;boise;fond;15,0
+F029;Peau Douce;Musqué peau;ambroxan;Ambroxan;boise;fond;20,0
+F030;Zen;Vert thé apaisant;yuzu;Yuzu;hesperide;tete;15,0
+F030;Zen;Vert thé apaisant;bambou;Bambou;vert;tete;15,0
+F030;Zen;Vert thé apaisant;the_vert;Thé vert;vert;coeur;25,0
+F030;Zen;Vert thé apaisant;muguet;Muguet;floral;coeur;10,0
+F030;Zen;Vert thé apaisant;cedre;Cèdre;boise;fond;15,0
+F030;Zen;Vert thé apaisant;musc_blanc;Musc blanc;musque;fond;20,0
+F031;Garrigue;Aromatique méditerranéen;citron;Citron;hesperide;tete;10,0
+F031;Garrigue;Aromatique méditerranéen;thym;Thym;aromatique;coeur;15,0
+F031;Garrigue;Aromatique méditerranéen;romarin;Romarin;aromatique;tete;20,0
+F031;Garrigue;Aromatique méditerranéen;lavande;Lavande;aromatique;tete;15,0
+F031;Garrigue;Aromatique méditerranéen;armoise;Armoise;aromatique;coeur;10,0
+F031;Garrigue;Aromatique méditerranéen;cypres;Cyprès;boise;coeur;15,0
+F031;Garrigue;Aromatique méditerranéen;labdanum;Labdanum;ambre;fond;15,0
+F032;Mojito;Hespéridé aromatique festif;citron_vert;Citron vert;hesperide;tete;30,0
+F032;Mojito;Hespéridé aromatique festif;menthe;Menthe;aromatique;tete;25,0
+F032;Mojito;Hespéridé aromatique festif;gingembre;Gingembre;epice;tete;10,0
+F032;Mojito;Hespéridé aromatique festif;herbe_coupee;Herbe coupée;vert;tete;10,0
+F032;Mojito;Hespéridé aromatique festif;musc_blanc;Musc blanc;musque;fond;15,0
+F032;Mojito;Hespéridé aromatique festif;ambroxan;Ambroxan;boise;fond;10,0

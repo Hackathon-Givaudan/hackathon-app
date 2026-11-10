@@ -1,0 +1,95 @@
+﻿id;nom;famille;facette;etage;nature;mots_cles_envie
+bergamote;Bergamote;hesperide;agrume;tete;naturel;frais, pétillant, élégant, thé earl grey, lumineux, propre
+citron;Citron;hesperide;agrume;tete;naturel;zeste, acidulé, frais, été, propre, vivifiant
+orange_douce;Orange douce;hesperide;agrume;tete;naturel;joyeux, solaire, jus d'orange, enfance, gai
+mandarine;Mandarine;hesperide;agrume;tete;naturel;sucré, juteux, doux, pétillant, Noël
+pamplemousse;Pamplemousse;hesperide;agrume;tete;naturel;amer, tonique, énergisant, sport, matin
+citron_vert;Citron vert;hesperide;agrume;tete;naturel;mojito, cocktail, piquant, tropical, frais
+yuzu;Yuzu;hesperide;agrume;tete;naturel;japon, zen, acidulé, original, pétillant
+petitgrain;Petitgrain;hesperide;agrume vert;tete;naturel;feuille, vert, amer, eau de Cologne, propre
+neroli;Néroli;floral;fleur blanche hespéridée;tete;naturel;méditerranée, lumineux, savon, propre, printemps
+lavande;Lavande;aromatique;herbe aromatique;tete;naturel;provence, propre, apaisant, linge, calme, barbier
+romarin;Romarin;aromatique;herbe aromatique;tete;naturel;garrigue, herbes, cuisine, sud, camphré
+menthe;Menthe;aromatique;herbe fraîche;tete;naturel;glacé, fraîcheur, mojito, chewing-gum, été
+basilic;Basilic;aromatique;herbe aromatique;tete;naturel;italie, potager, vert, épicé, frais
+sauge_sclaree;Sauge sclarée;aromatique;herbe aromatique;coeur;naturel;herbacé, ambré, masculin, apaisant
+thym;Thym;aromatique;herbe aromatique;coeur;naturel;garrigue, sec, chaud, herbes de provence
+armoise;Armoise;aromatique;herbe amère;coeur;naturel;amer, sauvage, herbe sèche, mystérieux
+galbanum;Galbanum;vert;vert résineux;tete;naturel;vert intense, tige, feuille écrasée, nature, sauvage
+feuille_de_violette;Feuille de violette;vert;vert feuille;tete;naturel;concombre, frais, feuille, aquatique, vert
+herbe_coupee;Herbe coupée;vert;vert herbe;tete;synthese;pelouse, printemps, jardin, rosée, nature
+the_vert;Thé vert;vert;vert thé;coeur;accord;zen, léger, transparent, apaisant, propre
+feuille_de_figuier;Feuille de figuier;vert;vert lacté;coeur;accord;méditerranée, vacances, lacté, vert, sud
+bambou;Bambou;vert;vert aqueux;tete;accord;zen, aquatique, léger, spa, asie
+rose;Rose;floral;rose;coeur;naturel;romantique, féminin, classique, bouquet, pétale
+jasmin;Jasmin;floral;fleur blanche;coeur;naturel;sensuel, nuit d'été, opulent, capiteux, solaire
+fleur_d_oranger;Fleur d'oranger;floral;fleur blanche;coeur;naturel;douceur, bébé, mariage, méditerranée, brioche
+tubereuse;Tubéreuse;floral;fleur blanche;coeur;naturel;capiteux, crémeux, glamour, sensuel, intense
+ylang_ylang;Ylang-ylang;floral;fleur solaire;coeur;naturel;exotique, solaire, crémeux, banane, tropical
+iris;Iris;floral;poudré;coeur;naturel;poudré, rouge à lèvres, chic, élégant, carotte, froid
+violette;Violette;floral;poudré;coeur;accord;bonbon, poudré, rétro, doux, mauve
+muguet;Muguet;floral;fleur fraîche;coeur;accord;1er mai, printemps, frais, clochettes, propre
+pivoine;Pivoine;floral;fleur fraîche;coeur;accord;fraîche, rosée, jeune, printemps, léger
+magnolia;Magnolia;floral;fleur fraîche;coeur;accord;citronné, crémeux, lumineux, élégant
+frangipanier;Frangipanier;floral;fleur solaire;coeur;accord;tropical, plage, monoï, vacances, île
+mimosa;Mimosa;floral;fleur poudrée;coeur;naturel;février, soleil d'hiver, poudré, miellé, côte d'azur
+gardenia;Gardénia;floral;fleur blanche;coeur;accord;crémeux, champignon, vert, fleur blanche, opulent
+osmanthus;Osmanthus;floral;fleur fruitée;coeur;naturel;abricot, cuir, thé, asie, délicat
+lilas;Lilas;floral;fleur fraîche;coeur;accord;printemps, jardin, nostalgie, doux, mauve
+heliotrope;Héliotrope;floral;fleur poudrée;coeur;accord;pâte d'amande, poudré, cerise, réconfort, doux
+peche;Pêche;fruite;fruit à noyau;coeur;accord;velouté, juteux, été, doux, peau
+poire;Poire;fruite;fruit à pépins;tete;accord;juteux, croquant, frais, gourmand léger
+pomme;Pomme;fruite;fruit à pépins;tete;accord;croquant, verger, acidulé, frais, automne
+cassis;Cassis;fruite;fruit rouge;tete;naturel;baie, acidulé, vert, bourgeon, mûr
+framboise;Framboise;fruite;fruit rouge;tete;accord;baie, sucré, acidulé, gourmand, rose
+fruits_rouges;Fruits rouges;fruite;fruit rouge;tete;accord;baies, fraise, cerise, gourmand, jeune
+figue;Figue;fruite;fruit lacté;coeur;accord;méditerranée, lacté, mûr, été, sud
+noix_de_coco;Noix de coco;fruite;fruit lacté;coeur;accord;plage, crème solaire, tropical, lacté, vacances
+ananas;Ananas;fruite;fruit exotique;tete;accord;tropical, juteux, cocktail, pétillant, fête
+mangue;Mangue;fruite;fruit exotique;tete;accord;tropical, juteux, sucré, exotique, soleil
+poivre_rose;Poivre rose;epice;épice fraîche;tete;naturel;pétillant, rosé, moderne, piquant léger
+poivre_noir;Poivre noir;epice;épice chaude;tete;naturel;piquant, sec, viril, cuisine, électrique
+cardamome;Cardamome;epice;épice fraîche;tete;naturel;café oriental, chaï, frais épicé, élégant
+cannelle;Cannelle;epice;épice chaude;coeur;naturel;noël, pain d'épices, chaud, réconfort, hiver
+clou_de_girofle;Clou de girofle;epice;épice chaude;coeur;naturel;vin chaud, piquant, dentiste, chaud, orient
+gingembre;Gingembre;epice;épice fraîche;tete;naturel;pétillant, tonique, citronné, piquant, énergie
+safran;Safran;epice;épice cuirée;coeur;naturel;luxe, orient, cuir, métallique, précieux
+muscade;Muscade;epice;épice chaude;coeur;naturel;chaud, boisé, cuisine, hiver, doux épicé
+vanille;Vanille;gourmand;vanillé;fond;naturel;douceur, réconfort, gâteau, sucré, chaleur, crème
+feve_tonka;Fève tonka;gourmand;amandé;fond;naturel;amande, foin, caramel, chaleur, réconfort
+caramel;Caramel;gourmand;sucré;fond;accord;sucré, bonbon, crème brûlée, gourmand, enfance
+praline;Praliné;gourmand;sucré;fond;accord;noisette, pâtisserie, gourmand, chocolat, doux
+cafe;Café;gourmand;torréfié;coeur;naturel;torréfié, matin, energie, amer, expresso
+cacao;Cacao;gourmand;torréfié;fond;naturel;chocolat, amer, gourmand, sensuel, poudré
+miel;Miel;gourmand;miellé;fond;accord;doré, chaud, sucré, animal, cire
+amande;Amande;gourmand;amandé;coeur;accord;pâte d'amande, cerise, frangipane, doux, enfance
+lait;Lait;gourmand;lacté;fond;accord;lacté, doux, bébé, crémeux, cocooning
+cedre;Cèdre;boise;bois sec;fond;naturel;crayon, sec, forêt, droit, élégant, masculin
+santal;Santal;boise;bois crémeux;fond;naturel;crémeux, lacté, doux, méditation, inde, peau
+vetiver;Vétiver;boise;bois terreux;fond;naturel;terreux, fumé, racine, élégant, chic, vert
+patchouli;Patchouli;boise;bois terreux;fond;naturel;terreux, hippie, sous-bois, sombre, chocolaté
+oud;Oud;boise;bois animal;fond;accord;intense, orient, luxe, fumé, animal, sombre
+gaiac;Gaïac;boise;bois fumé;fond;naturel;fumé, feu de bois, doux, rose fumée
+cypres;Cyprès;boise;bois résineux;coeur;naturel;toscane, résine, frais boisé, méditerranée
+pin;Pin;boise;bois résineux;coeur;naturel;forêt, sapin, montagne, résine, noël
+ambroxan;Ambroxan;boise;bois ambré;fond;synthese;peau, minéral, salé, moderne, sillage, addictif
+cachemire;Cachemire;boise;bois musqué;fond;synthese;doux, pull, cocooning, moelleux, peau
+ambre;Ambre;ambre;ambré;fond;accord;chaud, orient, sensuel, résineux, soir, hiver
+benjoin;Benjoin;ambre;baumier;fond;naturel;vanillé, résine, chaud, encens doux, réconfort
+labdanum;Labdanum;ambre;ambré cuiré;fond;naturel;ambré, cuir, animal, résineux, chaud
+encens;Encens;ambre;résineux;fond;naturel;église, spirituel, fumée, méditation, mystique
+myrrhe;Myrrhe;ambre;résineux;fond;naturel;sacré, amer, résine, mystique, orient
+opoponax;Opoponax;ambre;baumier;fond;naturel;doux, balsamique, chaud, orient
+musc_blanc;Musc blanc;musque;musc propre;fond;synthese;linge propre, peau, doux, coton, savon
+ambrette;Ambrette;musque;musc végétal;fond;naturel;peau, poire, musc naturel, sensuel, doux
+aldehydes;Aldéhydes;musque;aldéhydé;tete;synthese;pétillant, champagne, classique, savon, années 50
+accord_poudre;Accord poudré;musque;poudré;fond;accord;poudre de riz, maquillage, rétro, doux, talc
+cuir;Cuir;cuir;cuir;fond;accord;sac en cuir, voiture, sauvage, intense, élégant
+bouleau;Bouleau;cuir;cuir fumé;fond;naturel;goudron, fumé, cuir russe, feu
+daim;Daim;cuir;cuir doux;fond;accord;doux, gant, peau, velours, poudré
+tabac;Tabac;cuir;tabac;fond;accord;cigare, miel, foin, club, chaud, vieux livres
+accord_marin;Accord marin;marin;aquatique;tete;accord;mer, océan, vague, embruns, vacances, frais
+sel;Sel;marin;minéral;coeur;accord;peau salée, plage, minéral, été
+accord_ozonique;Accord ozonique;marin;aérien;tete;accord;air, après la pluie, montagne, propre, aérien
+pierre_mouillee;Pierre mouillée;marin;minéral;coeur;accord;pluie, pierre, minéral, pétrichor, froid
+mousse_de_chene;Mousse de chêne;chypre;mousse;fond;naturel;sous-bois, humide, chic, classique, terreux

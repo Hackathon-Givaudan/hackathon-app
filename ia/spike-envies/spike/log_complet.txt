@@ -1,0 +1,14 @@
+Chauffe du modèle qwen2.5:7b (non chronométrée)…
+E01 147.40s  sel, citron, accord_marin, bergamote, ananas
+E02 164.71s  caramel, cacao, miel, cannelle
+E03 126.48s  rose, fleur_d_oranger, iris, vanille, sauge_sclaree
+E04 111.11s  musc_blanc, aldehydes, herbe_coupee, accord_marin, accord_ozonique
+E05 133.86s  osmanthus, gaiac, oud, cypres
+
+=== Résumé automatique (à confirmer par Yasmina et Brandon) ===
+Modèle               : qwen2.5:7b
+Latence p50 / p95 / max : 133.86 / 164.71 / 164.71 s  (seuil 5.0 s)
+Notes hors référentiel : 0
+Précision vs notes attendues : 11/23 = 48%
+Baseline mots-clés      : 10/25 = 40%
+Feuille de jugement     : spike/resultats_qwen2.5_7b.csv

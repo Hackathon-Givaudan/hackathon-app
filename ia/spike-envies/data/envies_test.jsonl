@@ -1,0 +1,20 @@
+{"id": "E01", "texte": "Je veux un parfum frais pour l'été, qui sent le citron et la mer, pour aller à la plage.", "notes_attendues": ["citron", "accord_marin", "sel", "bergamote", "citron_vert"], "difficulte": "facile"}
+{"id": "E02", "texte": "Quelque chose de doux et réconfortant, comme un gâteau qui sort du four un dimanche d'hiver.", "notes_attendues": ["vanille", "caramel", "feve_tonka", "cannelle", "praline"], "difficulte": "moyenne"}
+{"id": "E03", "texte": "Un parfum romantique et féminin, avec des fleurs, mais pas trop sucré.", "notes_attendues": ["rose", "pivoine", "muguet", "iris", "musc_blanc"], "difficulte": "moyenne"}
+{"id": "E04", "texte": "J'aimerais sentir le linge propre qui sèche au soleil.", "notes_attendues": ["musc_blanc", "aldehydes", "fleur_d_oranger", "cachemire", "bergamote"], "difficulte": "facile"}
+{"id": "E05", "texte": "Un parfum mystérieux et intense pour sortir le soir, un peu oriental.", "notes_attendues": ["oud", "ambre", "encens", "safran", "labdanum"], "difficulte": "moyenne"}
+{"id": "E06", "texte": "Je cherche l'odeur d'une forêt de montagne, les sapins, la résine.", "notes_attendues": ["pin", "cypres", "cedre", "mousse_de_chene", "encens"], "difficulte": "facile"}
+{"id": "E07", "texte": "Un truc qui me rappelle mes vacances en Provence : la garrigue, la lavande, le soleil.", "notes_attendues": ["lavande", "romarin", "thym", "cypres", "labdanum"], "difficulte": "facile"}
+{"id": "E08", "texte": "Je veux un parfum zen, léger, pour le bureau, qui ne dérange personne.", "notes_attendues": ["the_vert", "bambou", "yuzu", "musc_blanc", "muguet"], "difficulte": "difficile"}
+{"id": "E09", "texte": "Un parfum chic et élégant, un peu poudré, comme le rouge à lèvres de ma grand-mère.", "notes_attendues": ["iris", "violette", "accord_poudre", "aldehydes", "heliotrope"], "difficulte": "moyenne"}
+{"id": "E10", "texte": "Quelque chose de tropical et fruité, avec de la mangue et de la noix de coco.", "notes_attendues": ["mangue", "noix_de_coco", "ananas", "frangipanier", "citron_vert"], "difficulte": "facile"}
+{"id": "E11", "texte": "J'adore l'odeur du café le matin et du chocolat noir.", "notes_attendues": ["cafe", "cacao", "praline", "vanille", "cardamome"], "difficulte": "facile"}
+{"id": "E12", "texte": "Un parfum masculin, boisé et fumé, comme un feu de cheminée dans un vieux club.", "notes_attendues": ["gaiac", "bouleau", "tabac", "cuir", "cedre"], "difficulte": "moyenne"}
+{"id": "E13", "texte": "L'odeur de l'air après un orage, la pierre mouillée et l'herbe.", "notes_attendues": ["accord_ozonique", "pierre_mouillee", "herbe_coupee", "feuille_de_violette", "vetiver"], "difficulte": "difficile"}
+{"id": "E14", "texte": "Je voudrais un parfum énergisant pour le sport, tonique, pas sucré du tout.", "notes_attendues": ["pamplemousse", "gingembre", "menthe", "citron", "poivre_rose"], "difficulte": "moyenne"}
+{"id": "E15", "texte": "Un parfum qui sent juste la peau, très doux, comme un pull en cachemire.", "notes_attendues": ["cachemire", "musc_blanc", "ambrette", "ambroxan", "santal"], "difficulte": "moyenne"}
+{"id": "E16", "texte": "Des fleurs blanches capiteuses, sensuelles, une nuit d'été en Inde.", "notes_attendues": ["jasmin", "tubereuse", "ylang_ylang", "santal", "gardenia"], "difficulte": "facile"}
+{"id": "E17", "texte": "Un parfum original qui me ressemble : je suis créative, un peu rêveuse, j'aime les marchés aux épices.", "notes_attendues": ["cardamome", "safran", "cannelle", "poivre_rose", "muscade"], "difficulte": "difficile"}
+{"id": "E18", "texte": "Rien de floral ni de gourmand, je veux quelque chose de vert et amer.", "notes_attendues": ["galbanum", "petitgrain", "armoise", "vetiver", "feuille_de_violette"], "difficulte": "difficile"}
+{"id": "E19", "texte": "smth fresh n clean for everyday, like after shower", "notes_attendues": ["musc_blanc", "bergamote", "aldehydes", "neroli", "lavande"], "difficulte": "difficile"}
+{"id": "E20", "texte": "Une odeur de Noël : orange, épices, un peu de miel et de bois.", "notes_attendues": ["orange_douce", "cannelle", "clou_de_girofle", "miel", "pin"], "difficulte": "facile"}
