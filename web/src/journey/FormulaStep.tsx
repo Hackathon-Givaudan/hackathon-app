@@ -1,7 +1,13 @@
 /* Geste 3 : la marque reçoit une formule, puis demande son échantillon (geste 4) */
 import { ArrowRight } from 'lucide-react';
 import type { Formula } from '../api';
-import { errorText, linkButton, primaryButton, smallLabel } from '../shared/ui';
+import {
+  cn,
+  errorText,
+  linkButton,
+  primaryButton,
+  smallLabel,
+} from '../shared/ui';
 
 type Props = {
   formula: Formula;
@@ -32,7 +38,8 @@ export function FormulaStep({
       <h1 className="f-display mt-1 text-[56px] leading-none md:text-[72px]">
         {formula.name}
       </h1>
-      <p className="mt-4 max-w-[52ch] text-[17px] leading-snug">
+      <p className={cn(smallLabel, 'mt-5')}>Pourquoi cette proposition</p>
+      <p className="mt-1 max-w-[52ch] text-[17px] leading-snug">
         {formula.explanation}
       </p>
 
@@ -65,7 +72,7 @@ export function FormulaStep({
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>
-          Revoir les notes
+          Ajuster mes notes
         </button>
       </div>
       <p className="mt-4 text-sm opacity-85">

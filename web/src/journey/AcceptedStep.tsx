@@ -15,9 +15,9 @@ export function AcceptedStep({ formula, expert, onRestart }: Props) {
   ];
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>Demande d’échantillon enregistrée</p>
+      <p className={smallLabel}>{formula.name}</p>
       <h1 className="f-display mt-1 text-[52px] leading-[1.05] md:text-[64px]">
-        {formula.name} part à l’essai.
+        Votre demande est envoyée.
       </h1>
 
       <ol className="mt-8 border-t border-white/45">

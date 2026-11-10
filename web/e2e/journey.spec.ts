@@ -1,61 +1,88 @@
-/* Le parcours d'une marque, joué dans un vrai navigateur, du premier choix à la formule acceptée. */
+/* Le parcours d'une marque, joué dans un vrai navigateur, de son projet à sa demande d'échantillon. */
 import { expect, test, type Page } from '@playwright/test';
 
-/* Répond aux trois questions, puis demande les notes */
-async function describe(page: Page, universe: string, answers: string[]) {
+const SEASIDE = 'Une bougie pour un restaurant en bord de mer';
+
+/* Choisit l'univers, part d'un exemple de projet, puis continue */
+async function describe(page: Page, universe: string, example: string) {
   await page.goto('/');
   await page.getByRole('button', { name: universe }).click();
-  for (const answer of answers) {
-    await page.getByRole('button', { name: answer, exact: true }).click();
-  }
-  await page.getByRole('button', { name: 'Traduire en notes' }).click();
+  await page.getByRole('button', { name: new RegExp(example) }).click();
+  await page.getByRole('button', { name: 'Continuer' }).click();
 }
 
-test('a perfume brand goes from its wishes to an accepted formula', async ({
+const confirm = (page: Page) =>
+  page.getByRole('button', { name: 'C’est bien ça, voir la proposition' });
+
+test('a perfume brand goes from its project to a sample request', async ({
   page,
 }) => {
-  await describe(page, 'Un parfum', ['bougie', 'bord de mer', 'évasion']);
-  await expect(page.getByRole('button', { name: /sel marin/i })).toBeVisible();
-  // La marque lit ce que nous avons compris de ses envies
+  await describe(page, 'Un parfum', SEASIDE);
+
+  // Le récapitulatif : ce que nous avons compris, et les notes qui en découlent
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Voici ce que nous avons compris.',
+  );
   await expect(
     page.locator('p', { hasText: 'Nous avons entendu' }),
   ).toContainText('bord de mer');
+  await expect(page.getByRole('button', { name: /sel marin/i })).toBeVisible();
 
-  await page.getByRole('button', { name: /^Valider \d notes?$/ }).click();
+  await confirm(page).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'Écume Saline',
   );
+  await expect(page.getByText('Pourquoi cette proposition')).toBeVisible();
 
   await page.getByRole('button', { name: 'Demander un échantillon' }).click();
-  await expect(
-    page.getByText('Demande d’échantillon enregistrée'),
-  ).toBeVisible();
+  await expect(page.getByText('Votre demande est envoyée')).toBeVisible();
   await expect(page.getByText('Votre parfumeur ajuste')).toBeVisible();
 });
 
 test('a flavour brand follows the same journey with its own words', async ({
   page,
 }) => {
-  await describe(page, 'Un arôme alimentaire', [
-    'yaourt',
-    'goûter',
-    'gourmandise',
-  ]);
+  await describe(page, 'Un arôme alimentaire', 'Un yaourt');
 
-  await page.getByRole('button', { name: /^Valider \d notes?$/ }).click();
+  await confirm(page).click();
   await page.getByRole('button', { name: 'Demander un échantillon' }).click();
   await expect(page.getByText('Votre aromaticien ajuste')).toBeVisible();
 });
 
-test('a brand cannot continue without keeping a note', async ({ page }) => {
-  await describe(page, 'Un parfum', ['bougie', 'bord de mer', 'évasion']);
+test('a brand can write its project with its own words', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Un parfum' }).click();
+  await page
+    .getByLabel('Votre projet')
+    .fill('Un diffuseur pour un jardin, calme');
+  await page.getByRole('button', { name: 'Continuer' }).click();
 
-  await expect(page.getByRole('button', { name: /^Valider/ })).toBeVisible();
+  await expect(confirm(page)).toBeVisible();
+});
+
+test('a brand that does not know what to write can be guided', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Un parfum' }).click();
+  await page.getByRole('button', { name: 'Me laisser guider' }).click();
+  for (const answer of ['bougie', 'bord de mer', 'évasion']) {
+    await page.getByRole('button', { name: answer, exact: true }).click();
+  }
+  await page.getByRole('button', { name: 'Continuer' }).click();
+
+  await expect(page.getByRole('button', { name: /sel marin/i })).toBeVisible();
+});
+
+test('a brand cannot continue without keeping a note', async ({ page }) => {
+  await describe(page, 'Un parfum', SEASIDE);
+
+  await expect(confirm(page)).toBeVisible();
   const kept = page.getByRole('button', { pressed: true });
   while ((await kept.count()) > 0) await kept.first().click();
 
   await expect(page.getByText('Gardez au moins une note.')).toBeVisible();
-  await expect(page.getByRole('button', { name: /^Valider/ })).toBeDisabled();
+  await expect(confirm(page)).toBeDisabled();
 });
 
 test('the home says what the brand gets before any choice', async ({
@@ -67,16 +94,12 @@ test('the home says what the brand gets before any choice', async ({
   for (const promise of ['Vous décrivez', 'Nous traduisons', 'Vous recevez']) {
     await expect(page.getByText(promise)).toBeVisible();
   }
-  await expect(page.getByRole('button', { name: 'Un parfum' })).toBeVisible();
-  await expect(
-    page.getByRole('button', { name: 'Un arôme alimentaire' }),
-  ).toBeVisible();
 });
 
 test('technical words are explained where they appear', async ({ page }) => {
-  await describe(page, 'Un parfum', ['bougie', 'bord de mer', 'évasion']);
+  await describe(page, 'Un parfum', SEASIDE);
   await expect(page.getByText('Une note est une odeur')).toBeVisible();
 
-  await page.getByRole('button', { name: /^Valider \d notes?$/ }).click();
+  await confirm(page).click();
   await expect(page.getByText('ce que l’on sent en premier')).toBeVisible();
 });

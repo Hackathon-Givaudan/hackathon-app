@@ -27,9 +27,10 @@ const Bottle3D = lazy(() => import('./bottle/Bottle3D'));
 type Step = 'universe' | 'describe' | 'notes' | 'formula' | 'accepted';
 const STEPS: [Step, string][] = [
   ['universe', 'Univers'],
-  ['describe', 'Envies'],
-  ['notes', 'Notes'],
-  ['formula', 'Formule'],
+  ['describe', 'Projet'],
+  ['notes', 'Récapitulatif'],
+  ['formula', 'Proposition'],
+  ['accepted', 'Demande'],
 ];
 
 export default function App() {
@@ -144,11 +145,7 @@ export default function App() {
     };
   }, [step]);
 
-  /* Une fois la formule acceptée, la dernière étape reste allumée */
-  const stepIndex =
-    step === 'accepted'
-      ? STEPS.length - 1
-      : STEPS.findIndex(([id]) => id === step);
+  const stepIndex = STEPS.findIndex(([id]) => id === step);
 
   return (
     <div className="f-root ink relative isolate flex min-h-svh flex-col overflow-x-clip">

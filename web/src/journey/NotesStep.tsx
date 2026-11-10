@@ -1,4 +1,5 @@
-/* Geste 2 : la marque garde les notes qui traduisent ses envies */
+/* Geste 2 : le récapitulatif. La marque vérifie ce que nous avons compris
+   et garde les notes qui traduisent ses envies */
 import { ArrowRight, Check } from 'lucide-react';
 import type { Note } from '../api';
 import {
@@ -47,7 +48,14 @@ export function NotesStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>Vos mots</p>
+      <h1 className="f-display text-[44px] leading-[1.08] md:text-[52px]">
+        Voici ce que nous avons compris.
+      </h1>
+      <p className="mt-2 text-[15px]">
+        Vérifiez avant de voir notre proposition. Vous pouvez tout modifier.
+      </p>
+
+      <p className={cn(smallLabel, 'mt-6')}>Votre projet</p>
       <p className="mt-1 text-[15px] opacity-85">« {wishes} »</p>
       {heard.length > 0 && (
         <p className="mt-3 text-[15px]">
@@ -56,10 +64,10 @@ export function NotesStep({
         </p>
       )}
 
-      <h1 className="f-display mt-6 text-[44px] leading-[1.08] md:text-[52px]">
-        Voici les notes que nous y entendons.
-      </h1>
-      <p className="mt-2 text-[15px]">
+      <h2 className="f-display mt-6 text-[28px] leading-tight">
+        Vos envies, traduites en notes
+      </h2>
+      <p className="mt-1 text-[15px]">
         {noteHelp} Retirez celles qui ne vous ressemblent pas.
       </p>
 
@@ -111,12 +119,12 @@ export function NotesStep({
           className={primaryButton}
         >
           {busy
-            ? 'Recherche de la formule…'
-            : `Valider ${keptIds.length} note${keptIds.length > 1 ? 's' : ''}`}
+            ? 'Recherche de votre proposition…'
+            : 'C’est bien ça, voir la proposition'}
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>
-          Reformuler mes envies
+          Modifier mon projet
         </button>
       </div>
       {keptIds.length === 0 && (
