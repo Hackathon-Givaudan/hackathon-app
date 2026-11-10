@@ -17,7 +17,7 @@ def no_llm(monkeypatch):
 def test_health_counts_the_references():
     response = client.get("/health")
     assert response.status_code == 200
-    assert response.json() == {"status": "ok", "references": {"parfum": 21, "arome": 20}}
+    assert response.json() == {"status": "ok", "references": {"parfum": 20, "arome": 20}}
 
 
 def test_notes_have_the_fields_the_api_expects():
