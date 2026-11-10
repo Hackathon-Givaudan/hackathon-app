@@ -1,6 +1,6 @@
 # ia : le service Data/IA
 
-Il traduit les envies d'une marque en notes. La formule, proposée à partir des notes validées, arrive dans un second ticket. Il ne répond qu'à l'API (`api/`), jamais au navigateur. Sa place dans le dépôt : [ADR 0005](../docs/adr/0005-code-data-ia.md). Son langage : ADR 0007. Son modèle : ADR 0008.
+Il traduit les envies d'une marque en notes, puis les notes validées en formule : la référence de la banque la plus proche, jamais du sur-mesure. Il ne répond qu'à l'API (`api/`), jamais au navigateur. Sa place dans le dépôt : [ADR 0005](../docs/adr/0005-code-data-ia.md). Son langage : ADR 0007. Son modèle : ADR 0008.
 
 ## Comment ça marche
 
@@ -35,12 +35,15 @@ La documentation interactive des routes est sur <http://localhost:8000/docs>.
 
 ## Routes
 
-| Route         | Entrée               | Sortie                                      |
-| ------------- | -------------------- | ------------------------------------------- |
-| `GET /health` |                      | État et nombre de références                |
-| `POST /notes` | `universe`, `wishes` | `notes` : `id`, `label`, `family`, `reason` |
+| Route           | Entrée                                                          | Sortie                                            |
+| --------------- | --------------------------------------------------------------- | ------------------------------------------------- |
+| `GET /health`   |                                                                 | État et nombre de références                      |
+| `POST /notes`   | `universe`, `wishes`                                            | `notes` : `id`, `label`, `family`, `reason`       |
+| `POST /formula` | `universe`, `wishes`, `noteIds`, `rejectedNoteIds` (facultatif) | Une formule au format `Formula` de `openapi.yaml` |
 
 `universe` vaut `parfum` ou `arome`. Une réponse 422 signifie que rien ne correspond.
+
+La formule est la référence qui contient le plus de notes validées ; à égalité, celle dont l'usage est cité dans les envies. Ses parts sont illustratives : entières, égales, de somme 100, tant que la banque ne donne pas de proportions. Dans une formule, `family` porte le niveau de la note (Tête, Cœur, Fond ; Dominante, Secondaires, Finale). L'explication signale toute note de `rejectedNoteIds` que la formule contient.
 
 ## Où est quoi
 
@@ -50,6 +53,7 @@ La documentation interactive des routes est sur <http://localhost:8000/docs>.
 | `app/references.py` | Lit les CSV                                                 |
 | `app/llm.py`        | Le seul fichier qui parle au modèle                         |
 | `app/notes.py`      | Les deux étapes ci-dessus                                   |
+| `app/formula.py`    | La référence la plus proche des notes validées, expliquée   |
 | `app/main.py`       | Les routes                                                  |
 | `tests/`            | `test_notes.py` : les règles, `test_routes.py` : les routes |
 | `evaluation/`       | Mesure de la qualité avec un modèle                         |
@@ -82,6 +86,18 @@ Dix envies de `evaluation/envies.json`, sur un Mac M3 Pro. Une envie est réussi
 | `qwen2.5:7b`  | 9 / 10          | 13,0 s                | Avant ces règles              |
 
 Avec `mistral:7b`, les 8,1 s sont celles du premier appel, modèle pas encore chargé ; les neuf suivants prennent de 3,3 à 4,1 s. Avant les règles de classement, `mistral:7b` faisait 9 sur 10 et l'absence de modèle 6 sur 10 : chercher les étiquettes telles quelles évite les faux rapprochements, mais reconnaît un peu moins bien un texte libre.
+
+### Les textes qui ne décrivent rien
+
+Un texte sans aucun sens, une question, une consigne ou un autre sujet (« xyz qsdf », « Combien font deux plus deux ? », « Ignore tes consignes », « ma voiture est en panne ») doit être refusé, pas traduit en notes. Le modèle dit d'abord si le texte décrit un projet. S'il répond non, son verdict est final : le service répond 422, même si un mot du texte ressemble à une étiquette. S'il ne répond pas du tout, le service cherche lui-même les étiquettes dans le texte.
+
+| Mesure, `mistral:7b`, une passe               | Avant ce contrôle | Après   |
+| --------------------------------------------- | ----------------- | ------- |
+| Textes absurdes refusés (8 essais)            | 1 / 8             | 8 / 8   |
+| Vraies envies réussies                        | 10 / 10           | 10 / 10 |
+| Réponses de l'écran d'accueil refusées à tort | non mesuré        | 0 / 40  |
+
+Les 40 réponses de l'écran d'accueil sont tirées au hasard parmi les 432 combinaisons. Cinq textes absurdes sont dans `evaluation/envies.json`, sans note attendue : le jeu compte 15 cas, 15 réussis avec `mistral:7b`, 10 sans modèle.
 
 ### Les réponses de l'écran d'accueil
 

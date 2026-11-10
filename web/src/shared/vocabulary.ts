@@ -1,26 +1,83 @@
-/* Les mots changent entre parfums et arômes, pas le parcours */
+/* Les mots et les questions changent entre parfums et arômes, pas le parcours.
+   Les réponses proposées reprennent les étiquettes des références : le service les reconnaît. */
 import type { Universe } from '../api';
+
+export type Question = { id: string; title: string; options: string[] };
 
 export const VOCABULARY: Record<
   Universe,
-  { label: string; expert: string; question: string; examples: string[] }
+  { label: string; hint: string; expert: string; questions: Question[] }
 > = {
   parfum: {
-    label: 'Parfum',
+    label: 'Un parfum',
+    hint: 'Bougie, soin, parfum d’ambiance…',
     expert: 'parfumeur',
-    question: 'Quelle ambiance votre produit doit-il évoquer\u00a0?',
-    examples: [
-      'Une bougie qui rappelle le bord de mer, pour un moment d’évasion.',
-      'Un gel douche d’été, joyeux, comme une terrasse au soleil.',
+    questions: [
+      {
+        id: 'product',
+        title: 'Pour quel produit ?',
+        options: [
+          'bougie',
+          'diffuseur',
+          'body mist',
+          'savon',
+          'gel douche',
+          'parfum',
+        ],
+      },
+      {
+        id: 'mood',
+        title: 'Quelle ambiance ?',
+        options: ['bord de mer', 'jardin', 'été', 'hiver', 'matin', 'soirée'],
+      },
+      {
+        id: 'emotion',
+        title: 'Quelle émotion doit-il laisser ?',
+        options: [
+          'évasion',
+          'réconfort',
+          'joie',
+          'calme',
+          'élégance',
+          'énergie',
+        ],
+      },
     ],
   },
   arome: {
-    label: 'Arôme alimentaire',
+    label: 'Un arôme alimentaire',
+    hint: 'Boisson, yaourt, pâtisserie…',
     expert: 'aromaticien',
-    question: 'Quel goût et quel moment imaginez-vous\u00a0?',
-    examples: [
-      'Une boisson protéinée gourmande et réconfortante, pour le dessert.',
-      'Un yaourt d’été, fruité et joyeux, qui rappelle l’enfance.',
+    questions: [
+      {
+        id: 'product',
+        title: 'Pour quel produit ?',
+        options: [
+          'boisson protéinée',
+          'yaourt',
+          'barre',
+          'confiserie',
+          'glace',
+          'pâtisserie',
+        ],
+      },
+      {
+        id: 'mood',
+        title: 'Pour quel moment ?',
+        options: ['goûter', 'dessert', 'sport', 'été', 'hiver', 'matin'],
+      },
+      {
+        id: 'emotion',
+        title: 'Quelle sensation doit-il laisser ?',
+        options: [
+          'gourmandise',
+          'fraîcheur',
+          'énergie',
+          'réconfort',
+          'joie',
+          'nostalgie',
+        ],
+      },
     ],
   },
 };

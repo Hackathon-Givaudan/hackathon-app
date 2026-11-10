@@ -11,7 +11,7 @@ client = TestClient(app)
 
 @pytest.fixture(autouse=True)
 def no_llm(monkeypatch):
-    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: [])
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: None)
 
 
 def test_health_counts_the_references():
