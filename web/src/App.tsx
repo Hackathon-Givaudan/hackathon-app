@@ -10,6 +10,7 @@ import {
 } from 'react';
 import gsap from 'gsap';
 import { api, isDemo } from './api';
+import { BottleBoundary } from './bottle/BottleBoundary';
 import type { Brief, Formula, Universe } from './api';
 import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
@@ -177,15 +178,17 @@ export default function App() {
       <div className="grid flex-1 lg:grid-cols-2">
         <aside className="flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
           <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
-            <Suspense fallback={null}>
-              <Bottle3D
-                layers={layers}
-                title={bottleTitle}
-                sub={bottleCaption}
-                spinKey={step}
-                focus={null}
-              />
-            </Suspense>
+            <BottleBoundary>
+              <Suspense fallback={null}>
+                <Bottle3D
+                  layers={layers}
+                  title={bottleTitle}
+                  sub={bottleCaption}
+                  spinKey={step}
+                  focus={null}
+                />
+              </Suspense>
+            </BottleBoundary>
           </div>
           <p className="mono text-[11px] opacity-80">
             {layers.length === 0
