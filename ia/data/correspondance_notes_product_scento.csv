@@ -1,4 +1,4 @@
-﻿note_product,note_scento,statut,niveaux_product,nb_references_demo,references_demo,occurrences_scento_tous_niveaux,source,remarque
+note_product,note_scento,statut,niveaux_product,nb_references_demo,references_demo,occurrences_scento_tous_niveaux,source,remarque
 aldéhydes,Aldehydes,Correspondance exacte vérifiée,tête,2,DEMO-F-004 ; DEMO-F-020,20,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
 algue,,Sans équivalent validé,tête,1,DEMO-F-001,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
 amande,Almond,Correspondance exacte vérifiée,tête,1,DEMO-F-013,39,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.

@@ -1,5 +1,5 @@
-﻿id,nom_reference,famille_olfactive,notes_de_tete,notes_de_coeur,notes_de_fond,ambiances,emotions,usages_compatibles,intensite_1_5,tenue,origine,source
-SCENTO-ysl-libre,Libre,florale blanche,mandarine | néroli | lavande,fleur d’oranger | jasmin sambac,musc | vanille,,,,,,,https://www.scento.com/perfumes/libre-yves-saint-laurent
+id,nom_reference,famille_olfactive,notes_de_tete,notes_de_coeur,notes_de_fond,ambiances,emotions,usages_compatibles,intensite_1_5,tenue,origine,source
+SCENTO-ysl-libre,Libre,florale blanche,mandarine | néroli | lavande,fleur d'oranger | jasmin sambac,musc | vanille,,,,,,,https://www.scento.com/perfumes/libre-yves-saint-laurent
 SCENTO-guerlain-shalimar,Shalimar,florale,notes florales | bergamote,iris | jasmin | rose,vanille | opoponax | fève tonka,,,,,,,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain
 SCENTO-creed-aventus,Aventus,fruitée,citron | poivre rose | pomme | bergamote | cassis,ananas | jasmin | patchouli,bouleau | ambroxan | cèdre | mousse de chêne | musc,,,,,,,https://www.scento.com/perfumes/aventus-creed
 SCENTO-mfk-baccarat-rouge-540,Baccarat Rouge 540,boisée,jasmin | safran,cèdre,ambre gris,,,,,,,https://www.scento.com/perfumes/baccarat-rouge-540-maison-francis-kurkdjian
@@ -21,12 +21,12 @@ SCENTO-creed-green-irish-tweed,Green Irish Tweed,verte,citron | verveine | menth
 SCENTO-jo-malone-wood-sage-and-sea-salt,Wood Sage & Sea Salt,marine et minérale,ambrette,sel,sauge,,,,,,,https://www.scento.com/perfume-database/perfumes/jo-malone-wood-sage-and-sea-salt
 SCENTO-mfk-grand-soir,Grand Soir,ambrée et résineuse,labdanum,benjoin,vanille | ambre,,,,,,,https://www.scento.com/perfumes/grand-soir-maison-francis-kurkdjian
 SCENTO-byredo-mojave-ghost,Mojave Ghost,boisée,ambrette | sapotille,magnolia | santal | violette,cèdre | musc | vétiver,,,,,,,https://www.scento.com/perfumes/mojave-ghost-byredo
-SCENTO-maison-margiela-replica-by-the-fireplace,Replica By the Fireplace,boisée,poivre rose | fleur d’oranger | clou de girofle,châtaigne | bois de gaïac | cade,vanille | baume du pérou | cashmeran,,,,,,,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace
-SCENTO-parfums-de-marly-pegasus,Pegasus,verte,anis | bergamote | amande,cyprès | feuille de violette | fleur d’oranger,ambroxan | vanille | santal,,,,,,,https://www.scento.com/perfumes/pegasus-by-parfums-de-marly
+SCENTO-maison-margiela-replica-by-the-fireplace,Replica By the Fireplace,boisée,poivre rose | fleur d'oranger | clou de girofle,châtaigne | bois de gaïac | cade,vanille | baume du pérou | cashmeran,,,,,,,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace
+SCENTO-parfums-de-marly-pegasus,Pegasus,verte,anis | bergamote | amande,cyprès | feuille de violette | fleur d'oranger,ambroxan | vanille | santal,,,,,,,https://www.scento.com/perfumes/pegasus-by-parfums-de-marly
 SCENTO-montale-arabians-tonka,Arabians Tonka,gourmande,bergamote | safran,rose | oud,ambre | mousse de chêne | fève tonka | cuir | sucre brun | musc,,,,,,,https://www.scento.com/perfumes/arabians-tonka-montale
 SCENTO-versace-dylan-blue,Dylan Blue,boisée,bergamote | pamplemousse | figue | accord aquatique,feuille de violette | poivre | papyrus | ambroxan | patchouli,musc | fève tonka | safran | encens,,,,,,,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue
 SCENTO-mancera-cedrat-boise,Cedrat Boise,boisée,agrumes | cassis | épices froides,jasmin | patchouli,notes boisées | cuir | mousse de chêne | vanille,,,,,,,https://www.scento.com/perfumes/cedrat-boise-mancera
-SCENTO-kilian-good-girl-gone-bad,Good Girl Gone Bad,florale,fleur d’oranger | rose,osmanthus | tubéreuse,jonquille,,,,,,,https://www.scento.com/perfumes/good-girl-gone-bad-by-kilian
+SCENTO-kilian-good-girl-gone-bad,Good Girl Gone Bad,florale,fleur d'oranger | rose,osmanthus | tubéreuse,jonquille,,,,,,,https://www.scento.com/perfumes/good-girl-gone-bad-by-kilian
 SCENTO-lancome-idole,Idôle,boisée,bergamote | poire | poivre rose,rose | jasmin,musc | vanille | patchouli | cèdre,,,,,,,https://www.scento.com/perfumes/idole-lancome
 SCENTO-nishane-hacivat,Hacivat,boisée,bergamote | ananas | pamplemousse,jasmin | patchouli | cèdre,clearwood | mousse de chêne | bois sec,,,,,,,https://www.scento.com/perfumes/hacivat-nishane
 SCENTO-ysl-la-nuit-de-lhomme,La Nuit de L'Homme,épicée,poivre | anis | bergamote,lavande | labdanum,vanille | patchouli | vétiver,,,,,,,https://www.scento.com/perfumes/la-nuit-de-lhomme-yves-saint-laurent
@@ -48,4 +48,4 @@ SCENTO-parfums-de-marly-herod,Herod,ambrée et résineuse,cannelle | poivre,taba
 SCENTO-montale-intense-cafe,Intense Cafe,florale,notes florales,rose | café,ambre | vanille | musc,,,,,,,https://www.scento.com/perfumes/intense-cafe-montale
 SCENTO-burberry-her,Her,fruitée,cassis | myrtille | framboise,jasmin | violette,bois blancs | musc | ambre,,,,,,,https://www.scento.com/perfumes/burberry-her-burberry
 SCENTO-nishane-ani,Ani,épicée,bergamote | feuilles vertes | gingembre bleu | poivre rose,cassis | rose de turquie | cardamome,patchouli | cèdre | vanille | benjoin | ambre gris | musc | santal,,,,,,,https://www.scento.com/perfumes/ani-nishane
-SCENTO-ysl-mon-paris,Mon Paris,florale blanche,fraise | framboise | poire | bergamote | orange,fleur de datura | pivoine | fleur d’oranger | jasmin sambac,patchouli | musc | ambroxan | cèdre | mousse de chêne | vanille,,,,,,,https://www.scento.com/perfumes/mon-paris-yves-saint-laurent
+SCENTO-ysl-mon-paris,Mon Paris,florale blanche,fraise | framboise | poire | bergamote | orange,fleur de datura | pivoine | fleur d'oranger | jasmin sambac,patchouli | musc | ambroxan | cèdre | mousse de chêne | vanille,,,,,,,https://www.scento.com/perfumes/mon-paris-yves-saint-laurent
