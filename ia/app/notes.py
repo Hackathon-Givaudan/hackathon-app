@@ -31,7 +31,9 @@ def find_tags(universe: str, wishes: str) -> list[str]:
     found = exact + loose
     # « boisson » s'efface devant « boisson protéinée » : la formulation la plus longue l'emporte
     longest = [tag for tag in found if not any(tag != other and mentions(other, tag) for other in found)]
-    return pick_tags(wishes, tags) or longest
+    chosen = pick_tags(wishes, tags)
+    # Le modèle a le dernier mot quand il répond ; sans réponse de sa part, les étiquettes trouvées dans le texte
+    return longest if chosen is None else chosen
 
 
 def propose_notes(universe: str, wishes: str) -> list[dict]:

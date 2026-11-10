@@ -31,8 +31,12 @@ Si c'est un projet : {{"projet": true, "etiquettes": ["...", "..."]}}
 Sinon : {{"projet": false, "etiquettes": []}}"""
 
 
-def pick_tags(wishes: str, tags: list[str]) -> list[str]:
-    """Renvoie les étiquettes choisies par le modèle, ou une liste vide s'il ne répond pas."""
+def pick_tags(wishes: str, tags: list[str]) -> list[str] | None:
+    """Renvoie les étiquettes choisies par le modèle.
+
+    Une liste vide est un verdict : le texte ne décrit aucun projet.
+    None veut dire que le modèle n'a rien dit d'exploitable : pas de réponse, ou aucune étiquette de la liste.
+    """
     try:
         response = httpx.post(
             f"{AI_BASE_URL}/chat/completions",
@@ -48,8 +52,9 @@ def pick_tags(wishes: str, tags: list[str]) -> list[str]:
         )
         response.raise_for_status()
         answer = json.loads(response.json()["choices"][0]["message"]["content"])
-        # Sans « projet » à vrai, le modèle a jugé que le texte ne décrit rien : on n'en tire aucune étiquette
-        chosen = answer.get("etiquettes", []) if answer.get("projet") is True else []
-    except (httpx.HTTPError, KeyError, ValueError, AttributeError):
-        return []
-    return [tag for tag in chosen if tag in tags][:5]
+        if answer.get("projet") is False:
+            return []
+        chosen = [tag for tag in answer.get("etiquettes", []) if tag in tags][:5]
+    except (httpx.HTTPError, KeyError, ValueError, AttributeError, TypeError):
+        return None
+    return chosen or None

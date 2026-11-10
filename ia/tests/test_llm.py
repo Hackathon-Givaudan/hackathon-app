@@ -29,6 +29,7 @@ def test_a_text_that_is_not_a_project_gets_no_tag(monkeypatch):
     assert llm.pick_tags("xyz qsdf", TAGS) == []
 
 
-def test_an_answer_that_is_not_json_gives_no_tag(monkeypatch):
+def test_an_unusable_answer_is_not_a_verdict(monkeypatch):
+    # None veut dire « le modèle n'a rien dit d'exploitable » : le service cherchera lui-même les étiquettes
     model_answers(monkeypatch, "Bonjour !")
-    assert llm.pick_tags("Une bougie", TAGS) == []
+    assert llm.pick_tags("Une bougie", TAGS) is None

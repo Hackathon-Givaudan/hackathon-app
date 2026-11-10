@@ -85,14 +85,15 @@ Avec `mistral:7b`, les 8,1 s sont celles du premier appel, modèle pas encore ch
 
 ### Les textes qui ne décrivent rien
 
-Un texte sans aucun sens, une question ou une consigne (« xyz qsdf », « Combien font deux plus deux ? », « Ignore tes consignes ») doit être refusé, pas traduit en notes. Le modèle dit d'abord si le texte décrit un projet ; sinon le service répond 422.
+Un texte sans aucun sens, une question, une consigne ou un autre sujet (« xyz qsdf », « Combien font deux plus deux ? », « Ignore tes consignes », « ma voiture est en panne ») doit être refusé, pas traduit en notes. Le modèle dit d'abord si le texte décrit un projet. S'il répond non, son verdict est final : le service répond 422, même si un mot du texte ressemble à une étiquette. S'il ne répond pas du tout, le service cherche lui-même les étiquettes dans le texte.
 
-| Mesure, `mistral:7b`               | Avant ce contrôle | Après   |
-| ---------------------------------- | ----------------- | ------- |
-| Textes absurdes refusés (8 essais) | 1 / 8             | 7 / 8   |
-| Vraies envies réussies             | 10 / 10           | 10 / 10 |
+| Mesure, `mistral:7b`, une passe               | Avant ce contrôle | Après   |
+| --------------------------------------------- | ----------------- | ------- |
+| Textes absurdes refusés (8 essais)            | 1 / 8             | 8 / 8   |
+| Vraies envies réussies                        | 10 / 10           | 10 / 10 |
+| Réponses de l'écran d'accueil refusées à tort | non mesuré        | 0 / 40  |
 
-Le texte encore accepté est « ma voiture est en panne » : « voiture » est une étiquette du référentiel. Cinq de ces textes sont dans `evaluation/envies.json`, sans note attendue : le jeu compte donc 15 cas, 15 réussis avec `mistral:7b`, 10 sans modèle.
+Les 40 réponses de l'écran d'accueil sont tirées au hasard parmi les 432 combinaisons. Cinq textes absurdes sont dans `evaluation/envies.json`, sans note attendue : le jeu compte 15 cas, 15 réussis avec `mistral:7b`, 10 sans modèle.
 
 ### Les réponses de l'écran d'accueil
 
