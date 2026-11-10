@@ -1,6 +1,6 @@
 # web : le front
 
-Le front du parcours d'une marque, en quatre gestes : décrire ses envies, valider les notes, recevoir une formule, l'accepter. Ce sont les quatre routes de [`openapi.yaml`](../openapi.yaml). Ce socle pose React, Tailwind et la couche API ; les écrans arrivent dans un second temps.
+Le parcours d'une marque, en quatre gestes : décrire ses envies, valider les notes, recevoir une formule, l'accepter. Ce sont les quatre routes de [`openapi.yaml`](../openapi.yaml).
 
 ## Lancer
 
@@ -14,11 +14,13 @@ VITE_API_MODE=live npm run dev
 
 ## Où est quoi
 
-| Dossier       | Rôle                                                   |
-| ------------- | ------------------------------------------------------ |
-| `src/App.tsx` | La page d'accueil, en attendant les écrans du parcours |
-| `src/api/`    | Le seul endroit qui parle à l'API (voir ci-dessous)    |
-| `src/shared/` | Vocabulaire parfum ou arôme, styles communs            |
+| Dossier        | Rôle                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| `src/App.tsx`  | L'enchaînement des étapes et l'état du parcours                                                   |
+| `src/journey/` | Un fichier par écran : `UniverseStep`, `DescribeStep`, `NotesStep`, `FormulaStep`, `AcceptedStep` |
+| `src/api/`     | Le seul endroit qui parle à l'API (voir ci-dessous)                                               |
+| `src/bottle/`  | Le flacon 3D et les couleurs des notes                                                            |
+| `src/shared/`  | Vocabulaire parfum ou arôme, styles communs                                                       |
 
 ## La couche API
 
@@ -36,3 +38,4 @@ Un écran n'appelle jamais `fetch` : il passe par `api`.
 ## À savoir
 
 - Le modèle de langage n'est jamais appelé depuis le navigateur : il reste derrière l'API (ADR 0003).
+- Le flacon demande WebGL : utilisez un navigateur récent pour la démo.
