@@ -1,6 +1,6 @@
 # 0003. Appeler l'IA par une API compatible OpenAI, Ollama en local par défaut
 
-- Statut : acceptée
+- Statut : acceptée, complétée par [0005](0005-code-data-ia.md) : `DATA_AI_URL` vise le service de `compose.yaml`, plus un tunnel ngrok
 - Date : 2026-11-05
 - Décideurs : Maxime (tech-lead)
 

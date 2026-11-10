@@ -1,6 +1,6 @@
 # 0001. Un monolithe Node.js et TypeScript pour l'API et le front
 
-- Statut : acceptée
+- Statut : acceptée, modifiée par [0005](0005-code-data-ia.md) : le code Data/IA vit désormais dans ce dépôt
 - Date : 2026-11-05
 - Décideurs : Maxime (tech-lead)
 

@@ -6,7 +6,7 @@
 
 ## Contexte
 
-Deux membres Data commencent à coder le 10 novembre : un référentiel de notes aromatiques et olfactives, une banque de formules, et un service qui traduit les envies d'un client en notes puis en formules. Leur langage peut différer de celui de l'API (Node.js, ADR 0001) : il sera choisi dans un ADR à part. Le jalon m2, le 13 novembre, exige que `docker compose up` sur le tag lance toute la tranche, de l'écran aux données. `develop` et `main` sont protégées : rien n'y entre sans pull request, check `qualite` vert et relecture. L'API sait déjà appeler un service externe par `DATA_AI_URL` (ADR 0003).
+Deux membres Data commencent à coder le 10 novembre : un référentiel de notes aromatiques et olfactives, une banque de formules, et un service qui traduit les envies d'un client en notes puis en formules. Leur langage peut différer de celui de l'API (Node.js, ADR 0001) : il sera choisi dans un ADR à part. Le jalon m2, le 13 novembre, exige que `docker compose up` sur le tag lance toute la tranche, de l'écran aux données. `develop` et `main` sont protégées : rien n'y entre sans pull request, check `qualite` vert et relecture. Jusqu'ici, l'ADR 0001 plaçait le code Data/IA hors de ce dépôt, derrière une API, et l'ADR 0003 prévoyait de l'appeler par un tunnel ngrok, via `DATA_AI_URL`.
 
 ## Options
 
@@ -16,7 +16,7 @@ Deux membres Data commencent à coder le 10 novembre : un référentiel de notes
 
 ## Décision
 
-Nous choisissons l'option 1 : le code Data/IA vit dans `ia/`. Chaque travail Data part d'un ticket, sur sa branche `feature/nom-court` depuis `develop`, fusionnée par pull request. Le service sera lancé par `compose.yaml`, et `DATA_AI_URL` pointera vers lui plutôt que vers un tunnel ngrok, ce qui complète l'ADR 0003.
+Nous choisissons l'option 1 : le code Data/IA vit dans `ia/`. Chaque travail Data part d'un ticket, sur sa branche `feature/nom-court` depuis `develop`, fusionnée par pull request. Cette décision remplace la conséquence de l'[ADR 0001](0001-monolithe-node-typescript.md) qui plaçait ce code hors du dépôt. Elle complète l'[ADR 0003](0003-fournisseur-ia.md) : le service sera lancé par `compose.yaml`, et `DATA_AI_URL` pointera vers lui plutôt que vers un tunnel ngrok.
 
 ## Conséquences
 
