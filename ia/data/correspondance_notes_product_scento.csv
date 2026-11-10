@@ -1,0 +1,79 @@
+﻿note_product,note_scento,statut,niveaux_product,nb_references_demo,references_demo,occurrences_scento_tous_niveaux,source,remarque
+aldéhydes,Aldehydes,Correspondance exacte vérifiée,tête,2,DEMO-F-004 ; DEMO-F-020,20,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+algue,,Sans équivalent validé,tête,1,DEMO-F-001,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+amande,Almond,Correspondance exacte vérifiée,tête,1,DEMO-F-013,39,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+ambre,Amber,Correspondance exacte vérifiée,cœur / fond,2,DEMO-F-006 ; DEMO-F-016,370,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+ambre gris,Ambergris,À valider — nuance,fond,1,DEMO-F-002,75,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+ambrette,Ambrette,Correspondance exacte vérifiée,fond,1,DEMO-F-020,28,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+ananas,Pineapple,Correspondance exacte vérifiée,tête,1,DEMO-F-014,50,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+baie de genièvre,Juniper,À valider — nuance,tête,1,DEMO-F-007,54,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+baie rose,Pink Pepper,À valider — nuance,tête,1,DEMO-F-009,178,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+benjoin,Benzoin,Correspondance exacte vérifiée,fond,1,DEMO-F-006,91,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+bergamote,Bergamot,Correspondance exacte vérifiée,cœur / tête,4,DEMO-F-001 ; DEMO-F-005 ; DEMO-F-012 ; DEMO-F-015,518,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+bois,,Sans équivalent validé,fond,1,DEMO-F-016,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+bois blond,,Sans équivalent validé,fond,1,DEMO-F-003,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+bois clair,,Sans équivalent validé,fond,1,DEMO-F-018,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+bois flotté,,Sans équivalent validé,fond,1,DEMO-F-001,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+bois fumé,,Sans équivalent validé,fond,1,DEMO-F-008,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+cade,,Sans équivalent validé,tête,1,DEMO-F-008,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+caramel,Caramel,Correspondance exacte vérifiée,tête,1,DEMO-F-013,43,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+cardamome,Cardamom,Correspondance exacte vérifiée,tête,1,DEMO-F-006,153,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+ciste,Labdanum,À valider — nuance,cœur,1,DEMO-F-006,92,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+citron,Lemon,Correspondance exacte vérifiée,tête,2,DEMO-F-011 ; DEMO-F-018,209,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+citron vert,,Sans équivalent validé,tête,1,DEMO-F-002,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+coco,Coconut,Correspondance exacte vérifiée,fond,1,DEMO-F-012,46,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+coton,,Sans équivalent validé,cœur,1,DEMO-F-004,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+cuir,Leather,Correspondance exacte vérifiée,cœur,1,DEMO-F-016,138,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+cuir doux,,Sans équivalent validé,cœur,1,DEMO-F-008,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+cèdre,Cedarwood,Correspondance exacte vérifiée,fond,3,DEMO-F-002 ; DEMO-F-007 ; DEMO-F-012,380,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+feuille de figuier,,Sans équivalent validé,tête,1,DEMO-F-012,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+feuille verte,,Sans équivalent validé,tête,1,DEMO-F-007,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+fleur d'oranger,Orange Blossom,À valider — nuance,cœur,1,DEMO-F-003,205,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+fleur de coton,,Sans équivalent validé,cœur,2,DEMO-F-005 ; DEMO-F-020,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+fleur de tiaré,,Sans équivalent validé,cœur,1,DEMO-F-014,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+foin,Hay,Correspondance exacte vérifiée,fond,1,DEMO-F-017,6,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+fougère,Fern,À valider — nuance,cœur,1,DEMO-F-007,3,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+framboise,Raspberry,Correspondance exacte vérifiée,tête,1,DEMO-F-016,68,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+fève tonka,Tonka Bean,Correspondance exacte vérifiée,fond,1,DEMO-F-013,216,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+gingembre,Ginger,Correspondance exacte vérifiée,tête,1,DEMO-F-018,99,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+iris,Iris,Correspondance exacte vérifiée,cœur,2,DEMO-F-004 ; DEMO-F-015,163,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+jasmin,Jasmine,Correspondance exacte vérifiée,cœur,1,DEMO-F-010,386,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+jasmin léger,,Sans équivalent validé,cœur,1,DEMO-F-011,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+lait de figue,,Sans équivalent validé,cœur,1,DEMO-F-012,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+lavande,Lavender,Correspondance exacte vérifiée,cœur / tête,3,DEMO-F-002 ; DEMO-F-005 ; DEMO-F-017,181,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+litchi,Lychee,Correspondance exacte vérifiée,tête,1,DEMO-F-019,43,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+mandarine,Mandarin,Correspondance exacte vérifiée,tête,1,DEMO-F-010,252,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+menthe,Mint,Correspondance exacte vérifiée,cœur,1,DEMO-F-018,73,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+menthe aquatique,,Sans équivalent validé,cœur,1,DEMO-F-001,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+mousse,,Sans équivalent validé,cœur,1,DEMO-F-007,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+musc,Musk,Correspondance exacte vérifiée,fond,5,DEMO-F-003 ; DEMO-F-005 ; DEMO-F-011 ; DEMO-F-013 ; DEMO-F-017,619,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+musc blanc,,Sans équivalent validé,fond,3,DEMO-F-001 ; DEMO-F-004 ; DEMO-F-020,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+musc poudré,,Sans équivalent validé,fond,1,DEMO-F-009,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+noix de coco,Coconut,Correspondance exacte vérifiée,tête,1,DEMO-F-014,46,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+néroli,Neroli,Correspondance exacte vérifiée,cœur,1,DEMO-F-003,84,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+orange douce,Orange,À valider — nuance,tête,1,DEMO-F-003,108,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+oud doux,Oud,À valider — nuance,fond,1,DEMO-F-015,121,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+ozone,,Sans équivalent validé,tête,1,DEMO-F-002,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+pamplemousse,Grapefruit,Correspondance exacte vérifiée,tête,1,DEMO-F-003,109,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+patchouli,Patchouli,Correspondance exacte vérifiée,fond,1,DEMO-F-008,461,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+patchouli doux,,Sans équivalent validé,fond,1,DEMO-F-019,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+pivoine,Peony,Correspondance exacte vérifiée,cœur,1,DEMO-F-009,66,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+poire,Pear,Correspondance exacte vérifiée,tête,3,DEMO-F-004 ; DEMO-F-009 ; DEMO-F-020,89,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+poivre noir,Black Pepper,À vérifier — absent de Scento,tête,1,DEMO-F-008,,Product : fragrances-demo.csv,Traduction proposée mais terme exact absent du référentiel Scento.
+poivre rose,Pink Pepper,À valider — nuance,tête,1,DEMO-F-019,178,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Équivalence approchée ou terme spécifique : validation humaine nécessaire.
+romarin,Rosemary,Correspondance exacte vérifiée,tête,1,DEMO-F-017,38,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+rose,Rose,Correspondance exacte vérifiée,cœur,2,DEMO-F-009 ; DEMO-F-019,414,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+rose légère,,Sans équivalent validé,cœur,1,DEMO-F-005,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+safran,Saffron,Correspondance exacte vérifiée,tête,1,DEMO-F-016,111,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+santal,Sandalwood,Correspondance exacte vérifiée,fond,2,DEMO-F-005 ; DEMO-F-015,374,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+santal crémeux,,Sans équivalent validé,fond,1,DEMO-F-010,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+sauge,Sage,Correspondance exacte vérifiée,cœur,1,DEMO-F-002,57,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+sel marin,,Sans équivalent validé,tête,1,DEMO-F-001,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+thym,Thyme,Correspondance exacte vérifiée,cœur,1,DEMO-F-017,16,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+thé vert,Green Tea,À vérifier — absent de Scento,tête,1,DEMO-F-011,,Product : fragrances-demo.csv,Traduction proposée mais terme exact absent du référentiel Scento.
+tubéreuse,Tuberose,Correspondance exacte vérifiée,cœur,1,DEMO-F-010,76,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+vanille,Vanilla,Correspondance exacte vérifiée,cœur / fond,3,DEMO-F-006 ; DEMO-F-013 ; DEMO-F-014,524,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+vétiver,Vetiver,Correspondance exacte vérifiée,fond,1,DEMO-F-007,270,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+yuzu,Yuzu,Correspondance exacte vérifiée,tête,1,DEMO-F-018,11,Product : fragrances-demo.csv ; Scento : referentiel_notes.csv,Terme anglais retrouvé dans le référentiel Scento; niveau à considérer séparément.
+élémi,,Sans équivalent validé,tête,1,DEMO-F-015,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.
+épices douces,,Sans équivalent validé,tête,1,DEMO-F-006,,Product : fragrances-demo.csv,Descripteur libre : conserver tel quel et faire valider par Product.

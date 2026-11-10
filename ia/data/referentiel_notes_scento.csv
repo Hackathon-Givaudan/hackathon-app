@@ -1,0 +1,772 @@
+﻿note,niveau,occurrences,source_exemple,source_dataset
+Bergamot,tete,511,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain,https://github.com/Scento-com/perfume-dataset
+Mandarin,tete,246,https://www.scento.com/perfumes/libre-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Lemon,tete,203,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Pink Pepper,tete,152,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Orange,tete,104,https://www.scento.com/perfumes/mon-paris-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Grapefruit,tete,103,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Cardamom,tete,102,https://www.scento.com/perfumes/layton-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Rose,tete,86,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Apple,tete,82,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Pear,tete,79,https://www.scento.com/perfume-database/perfumes/jo-malone-english-pear-and-freesia,https://github.com/Scento-com/perfume-dataset
+Blackcurrant,tete,78,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Pepper,tete,78,https://www.scento.com/perfumes/gypsy-water-byredo,https://github.com/Scento-com/perfume-dataset
+Saffron,tete,71,https://www.scento.com/perfumes/baccarat-rouge-540-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Lavender,tete,62,https://www.scento.com/perfumes/libre-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Ginger,tete,61,https://www.scento.com/perfumes/fakhar-black-lattafa,https://github.com/Scento-com/perfume-dataset
+Mint,tete,56,https://www.scento.com/perfumes/green-irish-tweed-creed,https://github.com/Scento-com/perfume-dataset
+Cinnamon,tete,53,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Neroli,tete,51,https://www.scento.com/perfumes/libre-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Orange Blossom,tete,51,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace,https://github.com/Scento-com/perfume-dataset
+Peach,tete,48,https://www.scento.com/perfumes/kirke-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Raspberry,tete,46,https://www.scento.com/perfumes/kirke-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Citrus,tete,39,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Pineapple,tete,38,https://www.scento.com/perfumes/hacivat-nishane,https://github.com/Scento-com/perfume-dataset
+Lychee,tete,36,https://www.scento.com/perfumes/delina-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Jasmine,tete,35,https://www.scento.com/perfumes/baccarat-rouge-540-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Juniper,tete,34,https://www.scento.com/perfumes/gypsy-water-byredo,https://github.com/Scento-com/perfume-dataset
+Petitgrain,tete,33,https://www.scento.com/perfumes/reflection-man-amouage,https://github.com/Scento-com/perfume-dataset
+Lime,tete,32,https://www.scento.com/perfumes/emporio-armani-she-giorgio-armani,https://github.com/Scento-com/perfume-dataset
+Nutmeg,tete,32,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Plum,tete,30,https://www.scento.com/perfumes/nomade-chloe,https://github.com/Scento-com/perfume-dataset
+Coriander,tete,26,https://www.scento.com/perfume-database/perfumes/dior-poison,https://github.com/Scento-com/perfume-dataset
+Green leaves,tete,25,https://www.scento.com/perfumes/ani-nishane,https://github.com/Scento-com/perfume-dataset
+Sage,tete,23,https://www.scento.com/perfumes/explorer-montblanc,https://github.com/Scento-com/perfume-dataset
+Basil,tete,22,https://www.scento.com/perfumes/hugo-man-hugo-boss,https://github.com/Scento-com/perfume-dataset
+Strawberry,tete,21,https://www.scento.com/perfumes/mon-paris-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Violet,tete,21,https://www.scento.com/perfumes/oud-satin-mood-by-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Aldehydes,tete,20,https://www.scento.com/perfumes/blanche-byredo,https://github.com/Scento-com/perfume-dataset
+Almond,tete,20,https://www.scento.com/perfumes/pegasus-by-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Bitter orange,tete,20,https://www.scento.com/perfumes/neroli-portofino-tom-ford,https://github.com/Scento-com/perfume-dataset
+Blood Orange,tete,20,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-k-by-dolce-and-gabbana,https://github.com/Scento-com/perfume-dataset
+Coconut,tete,20,https://www.scento.com/perfumes/fan-your-flames-nishane,https://github.com/Scento-com/perfume-dataset
+Freesia,tete,19,https://www.scento.com/perfumes/miracle-lancome,https://github.com/Scento-com/perfume-dataset
+Rosemary,tete,19,https://www.scento.com/perfumes/reflection-man-amouage,https://github.com/Scento-com/perfume-dataset
+Violet Leaf,tete,19,https://www.scento.com/perfume-database/perfumes/nishane-ege,https://github.com/Scento-com/perfume-dataset
+Geranium,tete,17,https://www.scento.com/perfume-database/perfumes/frederic-malle-rose-and-cuir,https://github.com/Scento-com/perfume-dataset
+Iris,tete,16,https://www.scento.com/perfume-database/perfumes/marc-jacobs-decadence,https://github.com/Scento-com/perfume-dataset
+Rum,tete,16,https://www.scento.com/perfumes/fan-your-flames-nishane,https://github.com/Scento-com/perfume-dataset
+Frankincense,tete,15,https://www.scento.com/perfume-database/perfumes/amouage-gold-man,https://github.com/Scento-com/perfume-dataset
+Sea Notes,tete,15,https://www.scento.com/perfume-database/perfumes/ralph-lauren-polo-blue,https://github.com/Scento-com/perfume-dataset
+Spice,tete,15,https://www.scento.com/perfume-database/perfumes/frederic-malle-french-lover,https://github.com/Scento-com/perfume-dataset
+Anise,tete,14,https://www.scento.com/perfumes/pegasus-by-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Cherry,tete,14,https://www.scento.com/perfume-database/perfumes/kayali-lovefest-burning-cherry-48,https://github.com/Scento-com/perfume-dataset
+Fig,tete,14,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Floral notes,tete,14,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain,https://github.com/Scento-com/perfume-dataset
+Ambrette,tete,13,https://www.scento.com/perfume-database/perfumes/jo-malone-wood-sage-and-sea-salt,https://github.com/Scento-com/perfume-dataset
+Blackberry,tete,13,https://www.scento.com/perfume-database/perfumes/jo-malone-blackberry-and-bay,https://github.com/Scento-com/perfume-dataset
+Incense,tete,13,https://www.scento.com/perfumes/red-tobacco-mancera,https://github.com/Scento-com/perfume-dataset
+Mango,tete,13,https://www.scento.com/perfume-database/perfumes/lacoste-l-12-12-rouge,https://github.com/Scento-com/perfume-dataset
+Passion fruit,tete,13,https://www.scento.com/perfumes/kirke-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Tea,tete,13,https://www.scento.com/perfume-database/perfumes/lacoste-l-12-12-rouge,https://github.com/Scento-com/perfume-dataset
+Artemisia,tete,12,https://www.scento.com/perfume-database/perfumes/amouage-memoir-man,https://github.com/Scento-com/perfume-dataset
+Cedarwood,tete,12,https://www.scento.com/perfume-database/perfumes/trussardi-donna,https://github.com/Scento-com/perfume-dataset
+Clary Sage,tete,12,https://www.scento.com/perfume-database/perfumes/tauer-perfumes-lonestar-memories,https://github.com/Scento-com/perfume-dataset
+Clove,tete,12,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace,https://github.com/Scento-com/perfume-dataset
+Galbanum,tete,12,https://www.scento.com/perfumes/green-irish-tweed-creed,https://github.com/Scento-com/perfume-dataset
+Melon,tete,12,https://www.scento.com/perfumes/carnal-flower-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Rhubarb,tete,12,https://www.scento.com/perfumes/delina-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Thyme,tete,12,https://www.scento.com/perfume-database/perfumes/dsquared2-potion,https://github.com/Scento-com/perfume-dataset
+Peony,tete,11,https://www.scento.com/perfume-database/perfumes/viktor-rolf-flowerbomb,https://github.com/Scento-com/perfume-dataset
+Vetiver,tete,11,https://www.scento.com/perfume-database/perfumes/serge-lutens-fille-en-aiguilles,https://github.com/Scento-com/perfume-dataset
+Yuzu,tete,11,https://www.scento.com/perfumes/leau-dissey-pour-homme-issey-miyake,https://github.com/Scento-com/perfume-dataset
+Cypress,tete,10,https://www.scento.com/perfumes/tam-dao-diptyque,https://github.com/Scento-com/perfume-dataset
+Magnolia,tete,10,https://www.scento.com/perfume-database/perfumes/moschino-toy-2,https://github.com/Scento-com/perfume-dataset
+Vanilla,tete,10,https://www.scento.com/perfume-database/perfumes/afnan-delicious-bouquet,https://github.com/Scento-com/perfume-dataset
+Ylang-Ylang,tete,10,https://www.scento.com/perfumes/andromeda-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Absinthe,tete,9,https://www.scento.com/perfume-database/perfumes/amouage-memoir-man,https://github.com/Scento-com/perfume-dataset
+Gardenia,tete,9,https://www.scento.com/perfume-database/perfumes/nina-ricci-lair-du-temps,https://github.com/Scento-com/perfume-dataset
+Honey,tete,9,https://www.scento.com/perfume-database/perfumes/carner-barcelona-el-born,https://github.com/Scento-com/perfume-dataset
+Lily of the Valley,tete,9,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-lazy-sunday-morning,https://github.com/Scento-com/perfume-dataset
+Musk,tete,9,https://www.scento.com/perfume-database/perfumes/prada-candy-kiss,https://github.com/Scento-com/perfume-dataset
+Oud,tete,9,https://www.scento.com/perfumes/black-aoud-montale,https://github.com/Scento-com/perfume-dataset
+Tuberose,tete,9,https://www.scento.com/perfumes/emporio-armani-she-giorgio-armani,https://github.com/Scento-com/perfume-dataset
+Verbena,tete,9,https://www.scento.com/perfumes/green-irish-tweed-creed,https://github.com/Scento-com/perfume-dataset
+Aquatic Accord,tete,8,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Caramel,tete,8,https://www.scento.com/perfume-database/perfumes/armaf-club-de-nuit-precieux,https://github.com/Scento-com/perfume-dataset
+Coffee,tete,8,https://www.scento.com/perfumes/encens-suave-matiere-premiere,https://github.com/Scento-com/perfume-dataset
+Elemi,tete,8,https://www.scento.com/perfumes/galloway-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Fruit,tete,8,https://www.scento.com/perfumes/fakhar-rose-lattafa,https://github.com/Scento-com/perfume-dataset
+Cumin,tete,7,https://www.scento.com/perfume-database/perfumes/kenzo-kenzo-jungle,https://github.com/Scento-com/perfume-dataset
+Honeysuckle,tete,7,https://www.scento.com/perfume-database/perfumes/kayali-utopia-vanilla-coco-21,https://github.com/Scento-com/perfume-dataset
+Marigold,tete,7,https://www.scento.com/perfume-database/perfumes/armaf-venetian-ambre-edition-man,https://github.com/Scento-com/perfume-dataset
+Red berries,tete,7,https://www.scento.com/perfumes/eilish-billie-eilish,https://github.com/Scento-com/perfume-dataset
+Tarragon,tete,7,https://www.scento.com/perfumes/dia-woman-amouage,https://github.com/Scento-com/perfume-dataset
+Wild berries,tete,7,https://www.scento.com/perfume-database/perfumes/carolina-herrera-good-girl-supreme,https://github.com/Scento-com/perfume-dataset
+Apricot,tete,6,https://www.scento.com/perfume-database/perfumes/michael-kors-sexy-ruby,https://github.com/Scento-com/perfume-dataset
+Cut Grass,tete,6,https://www.scento.com/perfumes/andromeda-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Leather,tete,6,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-velvet-tender-oud,https://github.com/Scento-com/perfume-dataset
+Lily,tete,6,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Red currant,tete,6,https://www.scento.com/perfumes/orion-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Angelica,tete,5,https://www.scento.com/perfumes/fleur-de-peau-diptyque,https://github.com/Scento-com/perfume-dataset
+Carnation,tete,5,https://www.scento.com/perfume-database/perfumes/nina-ricci-lair-du-temps,https://github.com/Scento-com/perfume-dataset
+Chamomile,tete,5,https://www.scento.com/perfume-database/perfumes/gucci-memoire-dune-odeur,https://github.com/Scento-com/perfume-dataset
+Davana,tete,5,https://www.scento.com/perfume-database/perfumes/ormonde-jayne-osmanthus,https://github.com/Scento-com/perfume-dataset
+Hazelnut,tete,5,https://www.scento.com/perfumes/guidance-amouage,https://github.com/Scento-com/perfume-dataset
+Labdanum,tete,5,https://www.scento.com/perfumes/grand-soir-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Lavandin,tete,5,https://www.scento.com/perfume-database/perfumes/michael-kors-pour-homme,https://github.com/Scento-com/perfume-dataset
+Orchid,tete,5,https://www.scento.com/perfumes/yara-lattafa,https://github.com/Scento-com/perfume-dataset
+Pimento,tete,5,https://www.scento.com/perfume-database/perfumes/lattafa-oud-mood,https://github.com/Scento-com/perfume-dataset
+Pomegranate,tete,5,https://www.scento.com/perfumes/euphoria-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Tobacco,tete,5,https://www.scento.com/perfumes/asad-lattafa,https://github.com/Scento-com/perfume-dataset
+Amaretto,tete,4,https://www.scento.com/perfume-database/perfumes/cartier-le-baiser-du-dragon,https://github.com/Scento-com/perfume-dataset
+Amber,tete,4,https://www.scento.com/perfume-database/perfumes/afnan-edict-amberythme,https://github.com/Scento-com/perfume-dataset
+Apple Blossom,tete,4,https://www.scento.com/perfume-database/perfumes/tommy-hilfiger-tommy-girl,https://github.com/Scento-com/perfume-dataset
+Champagne,tete,4,https://www.scento.com/perfume-database/perfumes/etat-libre-dorange-remarkable-people,https://github.com/Scento-com/perfume-dataset
+Cognac,tete,4,https://www.scento.com/perfumes/angels-share-by-kilian,https://github.com/Scento-com/perfume-dataset
+Cyclamen,tete,4,https://www.scento.com/perfumes/dia-woman-amouage,https://github.com/Scento-com/perfume-dataset
+Daffodil,tete,4,https://www.scento.com/perfumes/perfect-marc-jacobs,https://github.com/Scento-com/perfume-dataset
+Heliotrope,tete,4,https://www.scento.com/perfumes/yara-lattafa,https://github.com/Scento-com/perfume-dataset
+Jasmine Sambac,tete,4,https://www.scento.com/perfume-database/perfumes/armaf-magnificent-satin,https://github.com/Scento-com/perfume-dataset
+Lilac,tete,4,https://www.scento.com/perfume-database/perfumes/zoologist-hummingbird,https://github.com/Scento-com/perfume-dataset
+Litsea,tete,4,https://www.scento.com/perfumes/wulong-cha-nishane,https://github.com/Scento-com/perfume-dataset
+Lotus,tete,4,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Patchouli,tete,4,https://www.scento.com/perfume-database/perfumes/calvin-klein-truth,https://github.com/Scento-com/perfume-dataset
+Pistachio,tete,4,https://www.scento.com/perfume-database/perfumes/elie-saab-girl-of-now,https://github.com/Scento-com/perfume-dataset
+Sichuan Pepper,tete,4,https://www.scento.com/perfume-database/perfumes/amouage-journey-man,https://github.com/Scento-com/perfume-dataset
+Water Lily,tete,4,https://www.scento.com/perfume-database/perfumes/bvlgari-pour-homme,https://github.com/Scento-com/perfume-dataset
+Woody notes,tete,4,https://www.scento.com/perfume-database/perfumes/ajmal-dahn-al-oudh-moattaq,https://github.com/Scento-com/perfume-dataset
+Almond milk,tete,3,https://www.scento.com/perfume-database/perfumes/michael-kors-wonderlust,https://github.com/Scento-com/perfume-dataset
+Aromatic Notes,tete,3,https://www.scento.com/perfume-database/perfumes/afnan-patchouli-on-fire,https://github.com/Scento-com/perfume-dataset
+Blackcurrant leaf,tete,3,https://www.scento.com/perfumes/amor-amor-cacharel,https://github.com/Scento-com/perfume-dataset
+Blueberry,tete,3,https://www.scento.com/perfumes/burberry-her-burberry,https://github.com/Scento-com/perfume-dataset
+Calone,tete,3,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Caraway,tete,3,https://www.scento.com/perfumes/erolfa-creed,https://github.com/Scento-com/perfume-dataset
+Carrot seed,tete,3,https://www.scento.com/perfume-database/perfumes/kilian-sacred-wood,https://github.com/Scento-com/perfume-dataset
+Cedrat,tete,3,https://www.scento.com/perfume-database/perfumes/annick-goutal-eau-dhadrien,https://github.com/Scento-com/perfume-dataset
+Chocolate,tete,3,https://www.scento.com/perfume-database/perfumes/van-cleef-arpels-moonlight-patchouli,https://github.com/Scento-com/perfume-dataset
+Dragon fruit,tete,3,https://www.scento.com/perfume-database/perfumes/afnan-9pm,https://github.com/Scento-com/perfume-dataset
+Dried Fruits,tete,3,https://www.scento.com/perfume-database/perfumes/tiziana-terenzi-ursa,https://github.com/Scento-com/perfume-dataset
+Fir Balsam,tete,3,https://www.scento.com/perfumes/gold-rose-oudh-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Hawthorn,tete,3,https://www.scento.com/perfume-database/perfumes/etro-heliotrope,https://github.com/Scento-com/perfume-dataset
+Hyacinth,tete,3,https://www.scento.com/perfume-database/perfumes/cacharel-anais-anais,https://github.com/Scento-com/perfume-dataset
+Marshmallow,tete,3,https://www.scento.com/perfume-database/perfumes/ariana-grande-r-e-m,https://github.com/Scento-com/perfume-dataset
+Maté,tete,3,https://www.scento.com/perfume-database/perfumes/byredo-mixed-emotions,https://github.com/Scento-com/perfume-dataset
+Oakmoss,tete,3,https://www.scento.com/perfume-database/perfumes/afnan-supremacy-silver,https://github.com/Scento-com/perfume-dataset
+Oregano,tete,3,https://www.scento.com/perfume-database/perfumes/afnan-supremacy-incense,https://github.com/Scento-com/perfume-dataset
+Osmanthus,tete,3,https://www.scento.com/perfumes/oajan-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Red Pepper,tete,3,https://www.scento.com/perfumes/reflection-man-amouage,https://github.com/Scento-com/perfume-dataset
+Red fruits,tete,3,https://www.scento.com/perfumes/club-de-nuit-milestone-armaf,https://github.com/Scento-com/perfume-dataset
+Salt,tete,3,https://www.scento.com/perfume-database/perfumes/armaf-club-de-nuit-precieux-iv,https://github.com/Scento-com/perfume-dataset
+Sugar,tete,3,https://www.scento.com/perfumes/eilish-billie-eilish,https://github.com/Scento-com/perfume-dataset
+Wood,tete,3,https://www.scento.com/perfume-database/perfumes/moschino-cheap-and-chic,https://github.com/Scento-com/perfume-dataset
+Bamboo,tete,2,https://www.scento.com/perfume-database/perfumes/calvin-klein-truth,https://github.com/Scento-com/perfume-dataset
+Bay,tete,2,https://www.scento.com/perfume-database/perfumes/serge-lutens-fille-en-aiguilles,https://github.com/Scento-com/perfume-dataset
+Birch,tete,2,https://www.scento.com/perfumes/boss-bottled-night-hugo-boss,https://github.com/Scento-com/perfume-dataset
+Broom,tete,2,https://www.scento.com/perfume-database/perfumes/parfums-dusita-melodie-de-lamour,https://github.com/Scento-com/perfume-dataset
+Calypsone,tete,2,https://www.scento.com/perfume-database/perfumes/jean-paul-gaultier-divine,https://github.com/Scento-com/perfume-dataset
+Campanula,tete,2,https://www.scento.com/perfume-database/perfumes/etro-vicolo-fiori,https://github.com/Scento-com/perfume-dataset
+Clover,tete,2,https://www.scento.com/perfume-database/perfumes/guerlain-aqua-allegoria-herba-fresca,https://github.com/Scento-com/perfume-dataset
+Guava,tete,2,https://www.scento.com/perfumes/eternity-moment-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Ivy,tete,2,https://www.scento.com/perfumes/aqua-allegoria-mandarine-basilic-guerlain,https://github.com/Scento-com/perfume-dataset
+Lactones,tete,2,https://www.scento.com/perfume-database/perfumes/armaf-odyssey-black-forest,https://github.com/Scento-com/perfume-dataset
+Liquorice,tete,2,https://www.scento.com/perfume-database/perfumes/gisada-ambassador-intense,https://github.com/Scento-com/perfume-dataset
+Mandora,tete,2,https://www.scento.com/perfumes/gucci-guilty-gucci,https://github.com/Scento-com/perfume-dataset
+Maple,tete,2,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-banana-rush,https://github.com/Scento-com/perfume-dataset
+Milk,tete,2,https://www.scento.com/perfumes/eclaire-lattafa,https://github.com/Scento-com/perfume-dataset
+Mimosa,tete,2,https://www.scento.com/perfume-database/perfumes/prada-amber,https://github.com/Scento-com/perfume-dataset
+Myrrh,tete,2,https://www.scento.com/perfume-database/perfumes/nishane-afrika-olifant,https://github.com/Scento-com/perfume-dataset
+Myrtle,tete,2,https://www.scento.com/perfumes/tam-dao-diptyque,https://github.com/Scento-com/perfume-dataset
+Naseberry,tete,2,https://www.scento.com/perfumes/mojave-ghost-byredo,https://github.com/Scento-com/perfume-dataset
+Pear blossom,tete,2,https://www.scento.com/perfume-database/perfumes/kayali-utopia-vanilla-coco-21,https://github.com/Scento-com/perfume-dataset
+Pine,tete,2,https://www.scento.com/perfume-database/perfumes/serge-lutens-fille-en-aiguilles,https://github.com/Scento-com/perfume-dataset
+Sand,tete,2,https://www.scento.com/perfumes/kirke-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Sandalwood,tete,2,https://www.scento.com/perfumes/original-santal-by-creed,https://github.com/Scento-com/perfume-dataset
+Schinus molle,tete,2,https://www.scento.com/perfume-database/perfumes/nishane-sultan-vetiver,https://github.com/Scento-com/perfume-dataset
+Shiso,tete,2,https://www.scento.com/perfume-database/perfumes/annick-goutal-un-matin-dorage,https://github.com/Scento-com/perfume-dataset
+Tomato Leaf,tete,2,https://www.scento.com/perfume-database/perfumes/rasasi-shuhrah,https://github.com/Scento-com/perfume-dataset
+Turkish Rose,tete,2,https://www.scento.com/perfume-database/perfumes/ajmal-dahn-al-oudh-moattaq,https://github.com/Scento-com/perfume-dataset
+Turmeric,tete,2,https://www.scento.com/perfumes/shine-despite-everything-atkinsons,https://github.com/Scento-com/perfume-dataset
+Vegetal accord,tete,2,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-when-the-rain-stops,https://github.com/Scento-com/perfume-dataset
+Whisky,tete,2,https://www.scento.com/perfume-database/perfumes/zoologist-rhino,https://github.com/Scento-com/perfume-dataset
+White Flowers,tete,2,https://www.scento.com/perfume-database/perfumes/armaf-infinity-gold,https://github.com/Scento-com/perfume-dataset
+African Marigold,tete,1,https://www.scento.com/perfumes/bal-dafrique-byredo,https://github.com/Scento-com/perfume-dataset
+Almdudler,tete,1,https://www.scento.com/perfume-database/perfumes/escentric-molecules-escentric-02,https://github.com/Scento-com/perfume-dataset
+Ambergris,tete,1,https://www.scento.com/perfume-database/perfumes/nishane-afrika-olifant,https://github.com/Scento-com/perfume-dataset
+Ambrofix,tete,1,https://www.scento.com/perfume-database/perfumes/afnan-mirsaal-of-trust,https://github.com/Scento-com/perfume-dataset
+Apricot blossom,tete,1,https://www.scento.com/perfumes/tresor-lancome,https://github.com/Scento-com/perfume-dataset
+Banana,tete,1,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-banana-rush,https://github.com/Scento-com/perfume-dataset
+Beech,tete,1,https://www.scento.com/perfume-database/perfumes/mugler-alien-man,https://github.com/Scento-com/perfume-dataset
+Black Ink,tete,1,https://www.scento.com/perfumes/black-lacquer-tom-ford,https://github.com/Scento-com/perfume-dataset
+Black grape,tete,1,https://www.scento.com/perfume-database/perfumes/nishane-karagoz,https://github.com/Scento-com/perfume-dataset
+Blackcurrant liquor,tete,1,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-on-a-date,https://github.com/Scento-com/perfume-dataset
+Blue ginger,tete,1,https://www.scento.com/perfumes/ani-nishane,https://github.com/Scento-com/perfume-dataset
+Bluebell,tete,1,https://www.scento.com/perfume-database/perfumes/jo-malone-wild-bluebell,https://github.com/Scento-com/perfume-dataset
+Bouquet garni,tete,1,https://www.scento.com/perfume-database/perfumes/nishane-karagoz,https://github.com/Scento-com/perfume-dataset
+Bubble gum,tete,1,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-lili-fantasy,https://github.com/Scento-com/perfume-dataset
+Buchu,tete,1,https://www.scento.com/perfumes/bal-dafrique-byredo,https://github.com/Scento-com/perfume-dataset
+Cactus,tete,1,https://www.scento.com/perfume-database/perfumes/bvlgari-man-extreme,https://github.com/Scento-com/perfume-dataset
+Calophyllum,tete,1,https://www.scento.com/perfume-database/perfumes/the-different-company-oriental-lounge,https://github.com/Scento-com/perfume-dataset
+Camphor,tete,1,https://www.scento.com/perfume-database/perfumes/heeley-esprit-du-tigre,https://github.com/Scento-com/perfume-dataset
+Candied Orange,tete,1,https://www.scento.com/perfume-database/perfumes/jovoy-ambre,https://github.com/Scento-com/perfume-dataset
+Candied citrus,tete,1,https://www.scento.com/perfume-database/perfumes/moschino-toy-2-bubble-gum,https://github.com/Scento-com/perfume-dataset
+Cannabis,tete,1,https://www.scento.com/perfumes/black-afgano-nasomatto,https://github.com/Scento-com/perfume-dataset
+Carambola,tete,1,https://www.scento.com/perfume-database/perfumes/versace-man-eau-fraiche-toilette,https://github.com/Scento-com/perfume-dataset
+Caviar,tete,1,https://www.scento.com/perfume-database/perfumes/carolina-herrera-212-vip-men,https://github.com/Scento-com/perfume-dataset
+Cetalox,tete,1,https://www.scento.com/perfumes/not-a-perfume-juliette-has-a-gun,https://github.com/Scento-com/perfume-dataset
+Cloudberry,tete,1,https://www.scento.com/perfume-database/perfumes/marc-jacobs-daisy-love,https://github.com/Scento-com/perfume-dataset
+Cold spices,tete,1,https://www.scento.com/perfumes/cedrat-boise-mancera,https://github.com/Scento-com/perfume-dataset
+Cotton Candy,tete,1,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-powder-love,https://github.com/Scento-com/perfume-dataset
+Crème Brûlée,tete,1,https://www.scento.com/perfumes/havana-tonka-byredo,https://github.com/Scento-com/perfume-dataset
+Dates,tete,1,https://www.scento.com/perfume-database/perfumes/ormonde-jayne-taif,https://github.com/Scento-com/perfume-dataset
+Dill,tete,1,https://www.scento.com/perfume-database/perfumes/mugler-alien-man,https://github.com/Scento-com/perfume-dataset
+Embers,tete,1,https://www.scento.com/perfumes/gold-rose-oudh-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Fern,tete,1,https://www.scento.com/perfumes/cassiopea-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Frangipani,tete,1,https://www.scento.com/perfumes/prada-la-femme-prada,https://github.com/Scento-com/perfume-dataset
+Fresh wind,tete,1,https://www.scento.com/perfumes/orion-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Ginger lily,tete,1,https://www.scento.com/perfumes/olympea-parfum-rabanne,https://github.com/Scento-com/perfume-dataset
+Goji berry,tete,1,https://www.scento.com/perfume-database/perfumes/bvlgari-omnia-coral,https://github.com/Scento-com/perfume-dataset
+Green Watery Accord,tete,1,https://www.scento.com/perfume-database/perfumes/armani-acqua-di-gioia,https://github.com/Scento-com/perfume-dataset
+Green pear,tete,1,https://www.scento.com/perfumes/toy-boy-moschino,https://github.com/Scento-com/perfume-dataset
+Gunpowder,tete,1,https://www.scento.com/perfume-database/perfumes/viktor-rolf-flowerbomb-nectar,https://github.com/Scento-com/perfume-dataset
+Ice Cream,tete,1,https://www.scento.com/perfume-database/perfumes/armaf-magnificent-jardin,https://github.com/Scento-com/perfume-dataset
+Kumquat,tete,1,https://www.scento.com/perfume-database/perfumes/coach-coach-for-men,https://github.com/Scento-com/perfume-dataset
+Laurel Leaf,tete,1,https://www.scento.com/perfume-database/perfumes/zoologist-tyrannosaurus-rex,https://github.com/Scento-com/perfume-dataset
+Lemon sorbet,tete,1,https://www.scento.com/perfume-database/perfumes/moschino-toy-2-pearl,https://github.com/Scento-com/perfume-dataset
+Lemongrass,tete,1,https://www.scento.com/perfume-database/perfumes/burberry-brit-toilette,https://github.com/Scento-com/perfume-dataset
+Linden Blossom,tete,1,https://www.scento.com/perfumes/tilia-marc-antoine-barrois,https://github.com/Scento-com/perfume-dataset
+Lingonberry,tete,1,https://www.scento.com/perfume-database/perfumes/byredo-flowerhead,https://github.com/Scento-com/perfume-dataset
+Mastic,tete,1,https://www.scento.com/perfumes/fan-your-flames-x-nishane,https://github.com/Scento-com/perfume-dataset
+Mignonette,tete,1,https://www.scento.com/perfume-database/perfumes/burberry-weekend,https://github.com/Scento-com/perfume-dataset
+Mineral Accord,tete,1,https://www.scento.com/perfume-database/perfumes/trussardi-the-italian-artists-of-via-solferino,https://github.com/Scento-com/perfume-dataset
+Mushroom,tete,1,https://www.scento.com/perfumes/black-orchid-reserve-tom-ford,https://github.com/Scento-com/perfume-dataset
+Opoponax,tete,1,https://www.scento.com/perfume-database/perfumes/byredo-slow-dance,https://github.com/Scento-com/perfume-dataset
+Palm Date,tete,1,https://www.scento.com/perfumes/camel-zoologist,https://github.com/Scento-com/perfume-dataset
+Papaya,tete,1,https://www.scento.com/perfumes/ck-one-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Papaya Blossom,tete,1,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-dolce,https://github.com/Scento-com/perfume-dataset
+Papyrus,tete,1,https://www.scento.com/perfume-database/perfumes/jovoy-private-label,https://github.com/Scento-com/perfume-dataset
+Passion Flower,tete,1,https://www.scento.com/perfume-database/perfumes/lancome-hypnose-parfum,https://github.com/Scento-com/perfume-dataset
+Pine Needle,tete,1,https://www.scento.com/perfume-database/perfumes/burberry-hero-eau-de-parfum,https://github.com/Scento-com/perfume-dataset
+Pink Guava,tete,1,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Pomarose,tete,1,https://www.scento.com/perfumes/explorer-montblanc,https://github.com/Scento-com/perfume-dataset
+Popcorn,tete,1,https://www.scento.com/perfume-database/perfumes/ajmal-evoke-red-edition-her,https://github.com/Scento-com/perfume-dataset
+Poppy,tete,1,https://www.scento.com/perfumes/poeme-lancome,https://github.com/Scento-com/perfume-dataset
+Praline,tete,1,https://www.scento.com/perfume-database/perfumes/kayali-oudgasm-vanilla-oud,https://github.com/Scento-com/perfume-dataset
+Pumpkin,tete,1,https://www.scento.com/perfume-database/perfumes/etat-libre-dorange-like-this,https://github.com/Scento-com/perfume-dataset
+Queen of the night flower,tete,1,https://www.scento.com/perfumes/la-favorite-jean-paul-gaultier,https://github.com/Scento-com/perfume-dataset
+Quince,tete,1,https://www.scento.com/perfume-database/perfumes/ariana-grande-r-e-m,https://github.com/Scento-com/perfume-dataset
+Rangoon creeper,tete,1,https://www.scento.com/perfumes/gucci-bloom-gucci,https://github.com/Scento-com/perfume-dataset
+Rice Powder,tete,1,https://www.scento.com/perfume-database/perfumes/kenzo-kenzo-amour,https://github.com/Scento-com/perfume-dataset
+Rosewood,tete,1,https://www.scento.com/perfume-database/perfumes/davidoff-zino,https://github.com/Scento-com/perfume-dataset
+Rosyfolia,tete,1,https://www.scento.com/perfumes/lust-in-paradise-ex-nihilo,https://github.com/Scento-com/perfume-dataset
+Safraleine,tete,1,https://www.scento.com/perfumes/rien-etat-libre-dorange,https://github.com/Scento-com/perfume-dataset
+Santolina,tete,1,https://www.scento.com/perfume-database/perfumes/dsquared2-green-wood,https://github.com/Scento-com/perfume-dataset
+Sesame,tete,1,https://www.scento.com/perfume-database/perfumes/trussardi-trussardi-elegantly-cool,https://github.com/Scento-com/perfume-dataset
+Smoked tea,tete,1,https://www.scento.com/perfumes/valentino-donna-born-in-roma-green-stravaganza-valentino,https://github.com/Scento-com/perfume-dataset
+Soap bubbles,tete,1,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-bubble-bath,https://github.com/Scento-com/perfume-dataset
+Soil,tete,1,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Solar Salicylate,tete,1,https://www.scento.com/perfumes/squid-zoologist,https://github.com/Scento-com/perfume-dataset
+Speculoos,tete,1,https://www.scento.com/perfumes/northern-love-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Spicy notes,tete,1,https://www.scento.com/perfume-database/perfumes/afnan-patchouli-on-fire,https://github.com/Scento-com/perfume-dataset
+Sweet Pea,tete,1,https://www.scento.com/perfumes/my-burberry-burberry,https://github.com/Scento-com/perfume-dataset
+Tiger Liana,tete,1,https://www.scento.com/perfume-database/perfumes/mugler-aura,https://github.com/Scento-com/perfume-dataset
+Tonka Bean,tete,1,https://www.scento.com/perfume-database/perfumes/afnan-edict-amberythme,https://github.com/Scento-com/perfume-dataset
+Water fruits and flowers,tete,1,https://www.scento.com/perfume-database/perfumes/trussardi-donna,https://github.com/Scento-com/perfume-dataset
+White Fur,tete,1,https://www.scento.com/perfume-database/perfumes/nina-ricci-nina-fantasy,https://github.com/Scento-com/perfume-dataset
+White Linen,tete,1,https://www.scento.com/perfume-database/perfumes/heeley-cardinal,https://github.com/Scento-com/perfume-dataset
+White Woods,tete,1,https://www.scento.com/perfumes/blamage-nasomatto,https://github.com/Scento-com/perfume-dataset
+Wintergreen,tete,1,https://www.scento.com/perfume-database/perfumes/heeley-esprit-du-tigre,https://github.com/Scento-com/perfume-dataset
+Wisteria,tete,1,https://www.scento.com/perfumes/hold-me-closer-nishane,https://github.com/Scento-com/perfume-dataset
+Jasmine,coeur,338,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain,https://github.com/Scento-com/perfume-dataset
+Rose,coeur,322,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain,https://github.com/Scento-com/perfume-dataset
+Orange Blossom,coeur,152,https://www.scento.com/perfumes/libre-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Iris,coeur,116,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain,https://github.com/Scento-com/perfume-dataset
+Lavender,coeur,116,https://www.scento.com/perfumes/layton-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Geranium,coeur,107,https://www.scento.com/perfumes/layton-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Patchouli,coeur,91,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Ylang-Ylang,coeur,86,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Violet,coeur,78,https://www.scento.com/perfumes/layton-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Cedarwood,coeur,74,https://www.scento.com/perfumes/baccarat-rouge-540-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Lily of the Valley,coeur,71,https://www.scento.com/perfumes/kirke-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Vanilla,coeur,69,https://www.scento.com/perfumes/musc-ravageur-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Tuberose,coeur,64,https://www.scento.com/perfumes/good-girl-gone-bad-by-kilian,https://github.com/Scento-com/perfume-dataset
+Jasmine Sambac,coeur,53,https://www.scento.com/perfumes/libre-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Peony,coeur,53,https://www.scento.com/perfume-database/perfumes/jo-malone-peony-and-blush-suede,https://github.com/Scento-com/perfume-dataset
+Nutmeg,coeur,49,https://www.scento.com/perfumes/delina-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Pepper,coeur,49,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Cardamom,coeur,47,https://www.scento.com/perfume-database/perfumes/afnan-9pm,https://github.com/Scento-com/perfume-dataset
+Vetiver,coeur,46,https://www.scento.com/perfumes/explorer-montblanc,https://github.com/Scento-com/perfume-dataset
+Cinnamon,coeur,45,https://www.scento.com/perfumes/angels-share-by-kilian,https://github.com/Scento-com/perfume-dataset
+Musk,coeur,42,https://www.scento.com/perfumes/musc-ravageur-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Sandalwood,coeur,41,https://www.scento.com/perfumes/mojave-ghost-byredo,https://github.com/Scento-com/perfume-dataset
+Amber,coeur,38,https://www.scento.com/perfumes/musc-ravageur-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Gardenia,coeur,38,https://www.scento.com/perfume-database/perfumes/carolina-herrera-212-vip,https://github.com/Scento-com/perfume-dataset
+Magnolia,coeur,37,https://www.scento.com/perfumes/mojave-ghost-byredo,https://github.com/Scento-com/perfume-dataset
+Leather,coeur,34,https://www.scento.com/perfumes/explorer-montblanc,https://github.com/Scento-com/perfume-dataset
+Heliotrope,coeur,33,https://www.scento.com/perfume-database/perfumes/frederic-malle-dans-tes-bras,https://github.com/Scento-com/perfume-dataset
+Ginger,coeur,32,https://www.scento.com/perfume-database/perfumes/armaf-club-de-nuit-iconic,https://github.com/Scento-com/perfume-dataset
+Incense,coeur,32,https://www.scento.com/perfumes/gypsy-water-byredo,https://github.com/Scento-com/perfume-dataset
+Peach,coeur,32,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Saffron,coeur,31,https://www.scento.com/perfumes/polo-red-ralph-lauren,https://github.com/Scento-com/perfume-dataset
+Sage,coeur,31,https://www.scento.com/perfumes/hugo-man-hugo-boss,https://github.com/Scento-com/perfume-dataset
+Neroli,coeur,30,https://www.scento.com/perfumes/reflection-man-amouage,https://github.com/Scento-com/perfume-dataset
+Oud,coeur,30,https://www.scento.com/perfumes/arabians-tonka-montale,https://github.com/Scento-com/perfume-dataset
+Osmanthus,coeur,29,https://www.scento.com/perfumes/good-girl-gone-bad-by-kilian,https://github.com/Scento-com/perfume-dataset
+Clary Sage,coeur,28,https://www.scento.com/perfume-database/perfumes/versace-pour-homme,https://github.com/Scento-com/perfume-dataset
+Tonka Bean,coeur,26,https://www.scento.com/perfumes/fan-your-flames-nishane,https://github.com/Scento-com/perfume-dataset
+Labdanum,coeur,25,https://www.scento.com/perfumes/la-nuit-de-lhomme-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Lily,coeur,25,https://www.scento.com/perfume-database/perfumes/cartier-baiser-vole,https://github.com/Scento-com/perfume-dataset
+Tea,coeur,25,https://www.scento.com/perfumes/silver-mountain-water-creed,https://github.com/Scento-com/perfume-dataset
+Frankincense,coeur,24,https://www.scento.com/perfume-database/perfumes/heeley-cardinal,https://github.com/Scento-com/perfume-dataset
+Apple,coeur,22,https://www.scento.com/perfume-database/perfumes/roberto-cavalli-paradiso-azzurro,https://github.com/Scento-com/perfume-dataset
+Freesia,coeur,22,https://www.scento.com/perfume-database/perfumes/jo-malone-english-pear-and-freesia,https://github.com/Scento-com/perfume-dataset
+Honeysuckle,coeur,22,https://www.scento.com/perfumes/love-dont-be-shy-by-kilian,https://github.com/Scento-com/perfume-dataset
+Orchid,coeur,22,https://www.scento.com/perfumes/euphoria-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Pink Pepper,coeur,22,https://www.scento.com/perfume-database/perfumes/armani-acqua-di-gioia,https://github.com/Scento-com/perfume-dataset
+Clove,coeur,20,https://www.scento.com/perfumes/portrait-of-a-lady-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Violet Leaf,coeur,19,https://www.scento.com/perfumes/pegasus-by-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Blackcurrant,coeur,18,https://www.scento.com/perfumes/portrait-of-a-lady-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Coconut,coeur,18,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-beach-walk,https://github.com/Scento-com/perfume-dataset
+Rosemary,coeur,18,https://www.scento.com/perfumes/o-de-lancome-lancome,https://github.com/Scento-com/perfume-dataset
+Coffee,coeur,17,https://www.scento.com/perfumes/intense-cafe-montale,https://github.com/Scento-com/perfume-dataset
+Raspberry,coeur,17,https://www.scento.com/perfumes/portrait-of-a-lady-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Almond,coeur,16,https://www.scento.com/perfume-database/perfumes/elie-saab-girl-of-now,https://github.com/Scento-com/perfume-dataset
+Caramel,coeur,16,https://www.scento.com/perfumes/crystal-noir-parfum-versace,https://github.com/Scento-com/perfume-dataset
+Carnation,coeur,16,https://www.scento.com/perfumes/hugo-man-hugo-boss,https://github.com/Scento-com/perfume-dataset
+Juniper,coeur,16,https://www.scento.com/perfumes/fakhar-black-lattafa,https://github.com/Scento-com/perfume-dataset
+Mint,coeur,15,https://www.scento.com/perfumes/viking-creed,https://github.com/Scento-com/perfume-dataset
+Myrrh,coeur,15,https://www.scento.com/perfume-database/perfumes/amouage-gold-man,https://github.com/Scento-com/perfume-dataset
+Tobacco,coeur,15,https://www.scento.com/perfumes/herod-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Benzoin,coeur,14,https://www.scento.com/perfumes/grand-soir-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Daffodil,coeur,14,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-dolce,https://github.com/Scento-com/perfume-dataset
+Elemi,coeur,14,https://www.scento.com/perfume-database/perfumes/amouage-honour-man,https://github.com/Scento-com/perfume-dataset
+Honey,coeur,14,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Plum,coeur,14,https://www.scento.com/perfume-database/perfumes/hugo-boss-hugo-woman,https://github.com/Scento-com/perfume-dataset
+Sea Notes,coeur,14,https://www.scento.com/perfumes/silver-mountain-water-creed,https://github.com/Scento-com/perfume-dataset
+Turkish Rose,coeur,14,https://www.scento.com/perfumes/ani-nishane,https://github.com/Scento-com/perfume-dataset
+White Flowers,coeur,14,https://www.scento.com/perfume-database/perfumes/hugo-boss-boss-orange,https://github.com/Scento-com/perfume-dataset
+Coriander,coeur,13,https://www.scento.com/perfumes/gentle-fluidity-gold-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Fig,coeur,13,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-k-by-dolce-and-gabbana,https://github.com/Scento-com/perfume-dataset
+Mimosa,coeur,13,https://www.scento.com/perfume-database/perfumes/zoologist-hummingbird,https://github.com/Scento-com/perfume-dataset
+Cypress,coeur,12,https://www.scento.com/perfumes/pegasus-by-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Petitgrain,coeur,12,https://www.scento.com/perfumes/eau-sauvage-dior,https://github.com/Scento-com/perfume-dataset
+Pineapple,coeur,12,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Basil,coeur,11,https://www.scento.com/perfumes/o-de-lancome-lancome,https://github.com/Scento-com/perfume-dataset
+Lotus,coeur,11,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Spice,coeur,11,https://www.scento.com/perfumes/habit-rouge-guerlain,https://github.com/Scento-com/perfume-dataset
+Cashmere Wood,coeur,10,https://www.scento.com/perfumes/gucci-rush-gucci,https://github.com/Scento-com/perfume-dataset
+Frangipani,coeur,10,https://www.scento.com/perfumes/la-bomba-carolina-herrera,https://github.com/Scento-com/perfume-dataset
+Praline,coeur,10,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Aquatic Accord,coeur,9,https://www.scento.com/perfume-database/perfumes/montblanc-legend-spirit,https://github.com/Scento-com/perfume-dataset
+Chocolate,coeur,9,https://www.scento.com/perfumes/chocolate-greedy-montale,https://github.com/Scento-com/perfume-dataset
+Guaiac Wood,coeur,9,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace,https://github.com/Scento-com/perfume-dataset
+Water Lily,coeur,9,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Lavandin,coeur,8,https://www.scento.com/perfume-database/perfumes/afnan-9pm-elixir,https://github.com/Scento-com/perfume-dataset
+Lilac,coeur,8,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Oakmoss,coeur,8,https://www.scento.com/perfumes/supremacy-not-only-intense-afnan,https://github.com/Scento-com/perfume-dataset
+Pear,coeur,8,https://www.scento.com/perfumes/andromeda-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Pimento,coeur,8,https://www.scento.com/perfume-database/perfumes/afnan-9pm-elixir,https://github.com/Scento-com/perfume-dataset
+Salt,coeur,8,https://www.scento.com/perfume-database/perfumes/jo-malone-wood-sage-and-sea-salt,https://github.com/Scento-com/perfume-dataset
+Suede,coeur,8,https://www.scento.com/perfume-database/perfumes/afnan-9pm,https://github.com/Scento-com/perfume-dataset
+Woody notes,coeur,8,https://www.scento.com/perfume-database/perfumes/armaf-odyssey-aoud,https://github.com/Scento-com/perfume-dataset
+Angelica,coeur,7,https://www.scento.com/perfumes/luna-rossa-black-eau-de-parfum-prada,https://github.com/Scento-com/perfume-dataset
+Bergamot,coeur,7,https://www.scento.com/perfume-database/perfumes/afnan-historic-olmeda,https://github.com/Scento-com/perfume-dataset
+Cyclamen,coeur,7,https://www.scento.com/perfumes/bal-dafrique-byredo,https://github.com/Scento-com/perfume-dataset
+Davana,coeur,7,https://www.scento.com/perfumes/carlisle-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Melon,coeur,7,https://www.scento.com/perfume-database/perfumes/armaf-club-de-nuit-iconic,https://github.com/Scento-com/perfume-dataset
+Rum,coeur,7,https://www.scento.com/perfume-database/perfumes/carolina-herrera-212-vip,https://github.com/Scento-com/perfume-dataset
+Wood,coeur,7,https://www.scento.com/perfume-database/perfumes/gucci-memoire-dune-odeur,https://github.com/Scento-com/perfume-dataset
+Ambergris,coeur,6,https://www.scento.com/perfumes/explorer-ultra-blue-montblanc,https://github.com/Scento-com/perfume-dataset
+Apricot,coeur,6,https://www.scento.com/perfume-database/perfumes/marc-jacobs-honey,https://github.com/Scento-com/perfume-dataset
+Artemisia,coeur,6,https://www.scento.com/perfume-database/perfumes/acqua-di-parma-colonia-intensa,https://github.com/Scento-com/perfume-dataset
+Birch,coeur,6,https://www.scento.com/perfumes/club-de-nuit-intense-man-armaf,https://github.com/Scento-com/perfume-dataset
+Cypriol,coeur,6,https://www.scento.com/perfume-database/perfumes/ajmal-chapter-4-by-nathalie-lorson,https://github.com/Scento-com/perfume-dataset
+Floral notes,coeur,6,https://www.scento.com/perfume-database/perfumes/mfk-aqua-universalis,https://github.com/Scento-com/perfume-dataset
+Fruit,coeur,6,https://www.scento.com/perfume-database/perfumes/armaf-art-d-amour-pour-femme,https://github.com/Scento-com/perfume-dataset
+Hay,coeur,6,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Hibiscus,coeur,6,https://www.scento.com/perfumes/virgin-island-water-creed,https://github.com/Scento-com/perfume-dataset
+Lychee,coeur,6,https://www.scento.com/perfumes/daisy-dream-marc-jacobs,https://github.com/Scento-com/perfume-dataset
+Mandarin,coeur,6,https://www.scento.com/perfumes/miracle-lancome,https://github.com/Scento-com/perfume-dataset
+Marigold,coeur,6,https://www.scento.com/perfume-database/perfumes/nishane-tuberoza,https://github.com/Scento-com/perfume-dataset
+Passion fruit,coeur,6,https://www.scento.com/perfume-database/perfumes/afnan-kiaana-crush,https://github.com/Scento-com/perfume-dataset
+Spicy notes,coeur,6,https://www.scento.com/perfumes/orion-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Tiaré,coeur,6,https://www.scento.com/perfume-database/perfumes/roberto-cavalli-just-cavalli,https://github.com/Scento-com/perfume-dataset
+Amyris,coeur,5,https://www.scento.com/perfume-database/perfumes/kilian-sacred-wood,https://github.com/Scento-com/perfume-dataset
+Anise,coeur,5,https://www.scento.com/perfume-database/perfumes/armaf-club-de-nuit-precieux,https://github.com/Scento-com/perfume-dataset
+Bay,coeur,5,https://www.scento.com/perfume-database/perfumes/jo-malone-blackberry-and-bay,https://github.com/Scento-com/perfume-dataset
+Cashmeran,coeur,5,https://www.scento.com/perfume-database/perfumes/frederic-malle-dans-tes-bras,https://github.com/Scento-com/perfume-dataset
+Cherry,coeur,5,https://www.scento.com/perfume-database/perfumes/floris-cherry-blossom,https://github.com/Scento-com/perfume-dataset
+Fir Balsam,coeur,5,https://www.scento.com/perfume-database/perfumes/montblanc-legend-night,https://github.com/Scento-com/perfume-dataset
+Galbanum,coeur,5,https://www.scento.com/perfumes/royal-oud-creed,https://github.com/Scento-com/perfume-dataset
+Grapefruit,coeur,5,https://www.scento.com/perfume-database/perfumes/tommy-hilfiger-tommy-girl,https://github.com/Scento-com/perfume-dataset
+Green leaves,coeur,5,https://www.scento.com/perfume-database/perfumes/the-different-company-bergamote,https://github.com/Scento-com/perfume-dataset
+Hyacinth,coeur,5,https://www.scento.com/perfume-database/perfumes/versace-pour-homme,https://github.com/Scento-com/perfume-dataset
+Lemon,coeur,5,https://www.scento.com/perfumes/phantom-parfum-rabanne,https://github.com/Scento-com/perfume-dataset
+Papyrus,coeur,5,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Pine,coeur,5,https://www.scento.com/perfumes/erolfa-creed,https://github.com/Scento-com/perfume-dataset
+Ambrette,coeur,4,https://www.scento.com/perfume-database/perfumes/kayali-utopia-vanilla-coco-21,https://github.com/Scento-com/perfume-dataset
+Chestnut,coeur,4,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace,https://github.com/Scento-com/perfume-dataset
+Cumin,coeur,4,https://www.scento.com/perfume-database/perfumes/azzaro-wanted-by-night,https://github.com/Scento-com/perfume-dataset
+Dates,coeur,4,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Hazelnut,coeur,4,https://www.scento.com/perfume-database/perfumes/mugler-womanity,https://github.com/Scento-com/perfume-dataset
+Hedione,coeur,4,https://www.scento.com/perfumes/megamare-orto-parisi,https://github.com/Scento-com/perfume-dataset
+Mahonial,coeur,4,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Mango,coeur,4,https://www.scento.com/perfume-database/perfumes/gisada-ambassador-for-men,https://github.com/Scento-com/perfume-dataset
+Maté,coeur,4,https://www.scento.com/perfume-database/perfumes/memo-paris-irish-leather,https://github.com/Scento-com/perfume-dataset
+Strawberry,coeur,4,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-miss-charming,https://github.com/Scento-com/perfume-dataset
+Sugar,coeur,4,https://www.scento.com/perfume-database/perfumes/afnan-delicious-bouquet,https://github.com/Scento-com/perfume-dataset
+Thyme,coeur,4,https://www.scento.com/perfumes/orion-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Algae,coeur,3,https://www.scento.com/perfume-database/perfumes/heeley-sel-marin,https://github.com/Scento-com/perfume-dataset
+Amaryllis,coeur,3,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-dolce,https://github.com/Scento-com/perfume-dataset
+Amberwood,coeur,3,https://www.scento.com/perfume-database/perfumes/afnan-adwaa-al-sharq,https://github.com/Scento-com/perfume-dataset
+Ambroxan,coeur,3,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Carrot seed,coeur,3,https://www.scento.com/perfumes/autumn-vibes-maison-margiela,https://github.com/Scento-com/perfume-dataset
+Champaca,coeur,3,https://www.scento.com/perfume-database/perfumes/roja-parfums-oligarch,https://github.com/Scento-com/perfume-dataset
+Cherry Blossom,coeur,3,https://www.scento.com/perfume-database/perfumes/moschino-toy-2-bubble-gum,https://github.com/Scento-com/perfume-dataset
+Citrus,coeur,3,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-k-by-dolce-and-gabbana,https://github.com/Scento-com/perfume-dataset
+Gourmand accord,coeur,3,https://www.scento.com/perfumes/yara-lattafa,https://github.com/Scento-com/perfume-dataset
+Immortelle,coeur,3,https://www.scento.com/perfume-database/perfumes/etat-libre-dorange-like-this,https://github.com/Scento-com/perfume-dataset
+Liquorice,coeur,3,https://www.scento.com/perfume-database/perfumes/kenzo-kenzo-jungle,https://github.com/Scento-com/perfume-dataset
+Milk,coeur,3,https://www.scento.com/perfume-database/perfumes/ex-nihilo-vetiver-moloko,https://github.com/Scento-com/perfume-dataset
+Myrtle,coeur,3,https://www.scento.com/perfume-database/perfumes/acqua-di-parma-colonia-intensa,https://github.com/Scento-com/perfume-dataset
+Opoponax,coeur,3,https://www.scento.com/perfume-database/perfumes/afnan-supremacy-incense,https://github.com/Scento-com/perfume-dataset
+Orange,coeur,3,https://www.scento.com/perfume-database/perfumes/caron-narcisse-noir,https://github.com/Scento-com/perfume-dataset
+Petalia,coeur,3,https://www.scento.com/perfumes/fleur-narcotique-ex-nihilo,https://github.com/Scento-com/perfume-dataset
+Red berries,coeur,3,https://www.scento.com/perfume-database/perfumes/profumum-roma-acqua-e-zucchero,https://github.com/Scento-com/perfume-dataset
+Resins,coeur,3,https://www.scento.com/perfumes/black-afgano-nasomatto,https://github.com/Scento-com/perfume-dataset
+Sichuan Pepper,coeur,3,https://www.scento.com/perfume-database/perfumes/armaf-magnificent-blue-pour-homme,https://github.com/Scento-com/perfume-dataset
+Toffee,coeur,3,https://www.scento.com/perfume-database/perfumes/afnan-9pm,https://github.com/Scento-com/perfume-dataset
+Apple Blossom,coeur,2,https://www.scento.com/perfumes/daisy-eau-so-fresh-marc-jacobs,https://github.com/Scento-com/perfume-dataset
+Aquatic flowers,coeur,2,https://www.scento.com/perfume-database/perfumes/moschino-cheap-and-chic,https://github.com/Scento-com/perfume-dataset
+Balsam of Peru,coeur,2,https://www.scento.com/perfume-database/perfumes/givenchy-gentleman,https://github.com/Scento-com/perfume-dataset
+Blackberry,coeur,2,https://www.scento.com/perfume-database/perfumes/calvin-klein-truth,https://github.com/Scento-com/perfume-dataset
+Boronia,coeur,2,https://www.scento.com/perfume-database/perfumes/dior-diorissimo,https://github.com/Scento-com/perfume-dataset
+Broom,coeur,2,https://www.scento.com/perfume-database/perfumes/houbigant-quelques-fleurs-loriginal,https://github.com/Scento-com/perfume-dataset
+Caraway,coeur,2,https://www.scento.com/perfume-database/perfumes/armaf-club-de-nuit-intense-woman,https://github.com/Scento-com/perfume-dataset
+Cetalox,coeur,2,https://www.scento.com/perfumes/not-a-perfume-juliette-has-a-gun,https://github.com/Scento-com/perfume-dataset
+Chamomile,coeur,2,https://www.scento.com/perfumes/aqua-allegoria-mandarine-basilic-guerlain,https://github.com/Scento-com/perfume-dataset
+Chantilly,coeur,2,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-miami-shake,https://github.com/Scento-com/perfume-dataset
+Cognac,coeur,2,https://www.scento.com/perfumes/bitter-peach-tom-ford,https://github.com/Scento-com/perfume-dataset
+Coumarin,coeur,2,https://www.scento.com/perfumes/bianco-latte-giardini-di-toscana,https://github.com/Scento-com/perfume-dataset
+Cut Grass,coeur,2,https://www.scento.com/perfumes/ck-be-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Datura flower,coeur,2,https://www.scento.com/perfumes/mon-paris-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Fern,coeur,2,https://www.scento.com/perfume-database/perfumes/guerlain-jicky,https://github.com/Scento-com/perfume-dataset
+Fresh Cotton,coeur,2,https://www.scento.com/perfume-database/perfumes/acqua-di-parma-buongiorno-amore-mio,https://github.com/Scento-com/perfume-dataset
+Ice Cream,coeur,2,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-miami-shake,https://github.com/Scento-com/perfume-dataset
+Marshmallow,coeur,2,https://www.scento.com/perfume-database/perfumes/ariana-grande-moonlight,https://github.com/Scento-com/perfume-dataset
+Mineral Accord,coeur,2,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Nectarine,coeur,2,https://www.scento.com/perfume-database/perfumes/burberry-weekend,https://github.com/Scento-com/perfume-dataset
+Night Blooming Jasmine,coeur,2,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Oakwood,coeur,2,https://www.scento.com/perfumes/angels-share-by-kilian,https://github.com/Scento-com/perfume-dataset
+Palo Santo,coeur,2,https://www.scento.com/perfume-database/perfumes/afnan-souvenir-blooming-bliss,https://github.com/Scento-com/perfume-dataset
+Peach Blossom,coeur,2,https://www.scento.com/perfume-database/perfumes/burberry-weekend,https://github.com/Scento-com/perfume-dataset
+Pistachio,coeur,2,https://www.scento.com/perfume-database/perfumes/davidoff-run-wild,https://github.com/Scento-com/perfume-dataset
+Pittosporum,coeur,2,https://www.scento.com/perfumes/neroli-portofino-tom-ford,https://github.com/Scento-com/perfume-dataset
+Popcorn,coeur,2,https://www.scento.com/perfumes/idole-nectar-lancome,https://github.com/Scento-com/perfume-dataset
+Poppy,coeur,2,https://www.scento.com/perfumes/eilish-no-2-billie-eilish,https://github.com/Scento-com/perfume-dataset
+Powdery notes,coeur,2,https://www.scento.com/perfume-database/perfumes/armaf-infinity-gold,https://github.com/Scento-com/perfume-dataset
+Raspberry Blossom,coeur,2,https://www.scento.com/perfumes/rose-of-no-mans-land-byredo,https://github.com/Scento-com/perfume-dataset
+Rhubarb,coeur,2,https://www.scento.com/perfume-database/perfumes/dsquared2-potion-for-women,https://github.com/Scento-com/perfume-dataset
+Rosehip,coeur,2,https://www.scento.com/perfume-database/perfumes/burberry-weekend,https://github.com/Scento-com/perfume-dataset
+Rosewood,coeur,2,https://www.scento.com/perfume-database/perfumes/afnan-oud-rising,https://github.com/Scento-com/perfume-dataset
+Sesame,coeur,2,https://www.scento.com/perfume-database/perfumes/davidoff-davidoff-adventure,https://github.com/Scento-com/perfume-dataset
+Styrax,coeur,2,https://www.scento.com/perfume-database/perfumes/burberry-brit-rhythm,https://github.com/Scento-com/perfume-dataset
+Sweet Pea,coeur,2,https://www.scento.com/perfume-database/perfumes/issey-miyake-pleats-please,https://github.com/Scento-com/perfume-dataset
+Transluzone,coeur,2,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-beach-walk,https://github.com/Scento-com/perfume-dataset
+Tulip,coeur,2,https://www.scento.com/perfume-database/perfumes/zoologist-hummingbird,https://github.com/Scento-com/perfume-dataset
+White Woods,coeur,2,https://www.scento.com/perfumes/club-de-nuit-milestone-armaf,https://github.com/Scento-com/perfume-dataset
+Absinthe,coeur,1,https://www.scento.com/perfume-database/perfumes/trussardi-walking-in-porta-venezia,https://github.com/Scento-com/perfume-dataset
+Aerial flower,coeur,1,https://www.scento.com/perfume-database/perfumes/versace-the-dreamer-toilette,https://github.com/Scento-com/perfume-dataset
+Akigalawood,coeur,1,https://www.scento.com/perfume-database/perfumes/tom-ford-fougere-dargent,https://github.com/Scento-com/perfume-dataset
+Almond milk,coeur,1,https://www.scento.com/perfumes/perfect-marc-jacobs,https://github.com/Scento-com/perfume-dataset
+Amber lily,coeur,1,https://www.scento.com/perfume-database/perfumes/versace-the-dreamer-toilette,https://github.com/Scento-com/perfume-dataset
+Ambermax,coeur,1,https://www.scento.com/perfumes/eros-eau-de-parfum-versace,https://github.com/Scento-com/perfume-dataset
+Aromatic Notes,coeur,1,https://www.scento.com/perfume-database/perfumes/armaf-mirage-man,https://github.com/Scento-com/perfume-dataset
+Bamboo,coeur,1,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-light-blue-toilette,https://github.com/Scento-com/perfume-dataset
+Basil Verbena,coeur,1,https://www.scento.com/perfume-database/perfumes/ralph-lauren-polo-blue,https://github.com/Scento-com/perfume-dataset
+Basmati Rice,coeur,1,https://www.scento.com/perfumes/love-in-white-for-summer-creed,https://github.com/Scento-com/perfume-dataset
+Beeswax,coeur,1,https://www.scento.com/perfumes/feminite-du-bois-serge-lutens,https://github.com/Scento-com/perfume-dataset
+Birch Woods,coeur,1,https://www.scento.com/perfume-database/perfumes/santa-maria-novella-tabacco-toscano,https://github.com/Scento-com/perfume-dataset
+Bitter orange,coeur,1,https://www.scento.com/perfumes/taormina-orange-tom-ford,https://github.com/Scento-com/perfume-dataset
+Black Elder,coeur,1,https://www.scento.com/perfume-database/perfumes/hermes-24-faubourg,https://github.com/Scento-com/perfume-dataset
+Black Hemlock,coeur,1,https://www.scento.com/perfume-database/perfumes/ormonde-jayne-ormonde-woman,https://github.com/Scento-com/perfume-dataset
+Black Ink,coeur,1,https://www.scento.com/perfumes/squid-zoologist,https://github.com/Scento-com/perfume-dataset
+Blood Orange,coeur,1,https://www.scento.com/perfume-database/perfumes/armaf-tag-him-prestige,https://github.com/Scento-com/perfume-dataset
+Blue Wisteria,coeur,1,https://www.scento.com/perfumes/daisy-dream-marc-jacobs,https://github.com/Scento-com/perfume-dataset
+Blueberry,coeur,1,https://www.scento.com/perfume-database/perfumes/moschino-toy-2-bubble-gum,https://github.com/Scento-com/perfume-dataset
+Bubble gum,coeur,1,https://www.scento.com/perfume-database/perfumes/moschino-toy-2-bubble-gum,https://github.com/Scento-com/perfume-dataset
+Cactus,coeur,1,https://www.scento.com/perfume-database/perfumes/coach-coach-dreams,https://github.com/Scento-com/perfume-dataset
+Cade,coeur,1,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace,https://github.com/Scento-com/perfume-dataset
+Calone,coeur,1,https://www.scento.com/perfumes/megamare-orto-parisi,https://github.com/Scento-com/perfume-dataset
+Candied fruits,coeur,1,https://www.scento.com/perfumes/khamrah-qahwa-lattafa,https://github.com/Scento-com/perfume-dataset
+Carrot,coeur,1,https://www.scento.com/perfume-database/perfumes/byredo-eyes-closed,https://github.com/Scento-com/perfume-dataset
+Castoreum,coeur,1,https://www.scento.com/perfume-database/perfumes/nishane-afrika-olifant,https://github.com/Scento-com/perfume-dataset
+Caviar,coeur,1,https://www.scento.com/perfumes/goddess-burberry,https://github.com/Scento-com/perfume-dataset
+Celery seeds,coeur,1,https://www.scento.com/perfume-database/perfumes/amouage-jubilation-xxv-man,https://github.com/Scento-com/perfume-dataset
+Champagne,coeur,1,https://www.scento.com/perfumes/pink-me-up-atelier-des-ors,https://github.com/Scento-com/perfume-dataset
+Cucumber,coeur,1,https://www.scento.com/perfume-database/perfumes/jo-malone-earl-grey-and-cucumber,https://github.com/Scento-com/perfume-dataset
+Curry,coeur,1,https://www.scento.com/perfume-database/perfumes/etat-libre-dorange-remarkable-people,https://github.com/Scento-com/perfume-dataset
+Daisy,coeur,1,https://www.scento.com/perfume-database/perfumes/marc-jacobs-daisy-love,https://github.com/Scento-com/perfume-dataset
+Dried Fruits,coeur,1,https://www.scento.com/perfume-database/perfumes/mugler-womanity,https://github.com/Scento-com/perfume-dataset
+Dry Wood,coeur,1,https://www.scento.com/perfumes/god-of-fire-stephane-humbert-lucas-777,https://github.com/Scento-com/perfume-dataset
+Ebony Wood,coeur,1,https://www.scento.com/perfumes/black-lacquer-tom-ford,https://github.com/Scento-com/perfume-dataset
+Fennel,coeur,1,https://www.scento.com/perfume-database/perfumes/trussardi-the-street-artists-of-isola,https://github.com/Scento-com/perfume-dataset
+Fenugreek,coeur,1,https://www.scento.com/perfumes/lineage-amouage,https://github.com/Scento-com/perfume-dataset
+Fig Wood,coeur,1,https://www.scento.com/perfume-database/perfumes/acqua-di-parma-buongiorno-dolce-far-niente,https://github.com/Scento-com/perfume-dataset
+Flax flower,coeur,1,https://www.scento.com/perfumes/toy-boy-moschino,https://github.com/Scento-com/perfume-dataset
+Flouve,coeur,1,https://www.scento.com/perfume-database/perfumes/zoologist-rhino,https://github.com/Scento-com/perfume-dataset
+Gentian,coeur,1,https://www.scento.com/perfume-database/perfumes/dsquared2-potion,https://github.com/Scento-com/perfume-dataset
+Georgywood,coeur,1,https://www.scento.com/perfumes/blue-talisman-ex-nihilo,https://github.com/Scento-com/perfume-dataset
+Geraniol,coeur,1,https://www.scento.com/perfume-database/perfumes/amouage-journey-man,https://github.com/Scento-com/perfume-dataset
+Gingerbread,coeur,1,https://www.scento.com/perfumes/valentino-uomo-born-in-roma-yellow-dream-valentino,https://github.com/Scento-com/perfume-dataset
+Green pear,coeur,1,https://www.scento.com/perfumes/la-belle-jean-paul-gaultier,https://github.com/Scento-com/perfume-dataset
+Guava,coeur,1,https://www.scento.com/perfume-database/perfumes/versace-dylan-turquoise,https://github.com/Scento-com/perfume-dataset
+Hawthorn,coeur,1,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Hydrangea,coeur,1,https://www.scento.com/perfume-database/perfumes/marc-jacobs-divine-decadence,https://github.com/Scento-com/perfume-dataset
+Indole,coeur,1,https://www.scento.com/perfume-database/perfumes/issey-miyake-pleats-please,https://github.com/Scento-com/perfume-dataset
+Infinium,coeur,1,https://www.scento.com/perfume-database/perfumes/givenchy-pi,https://github.com/Scento-com/perfume-dataset
+Kulfi,coeur,1,https://www.scento.com/perfumes/noir-extreme-tom-ford,https://github.com/Scento-com/perfume-dataset
+Lactones,coeur,1,https://www.scento.com/perfume-database/perfumes/armaf-island-bliss,https://github.com/Scento-com/perfume-dataset
+Laurel Leaf,coeur,1,https://www.scento.com/perfume-database/perfumes/rabanne-invictus-legend,https://github.com/Scento-com/perfume-dataset
+Lemon Wood,coeur,1,https://www.scento.com/perfume-database/perfumes/acqua-di-parma-buongiorno-dolce-far-niente,https://github.com/Scento-com/perfume-dataset
+Lemongrass,coeur,1,https://www.scento.com/perfume-database/perfumes/tauer-perfumes-orange-star,https://github.com/Scento-com/perfume-dataset
+Lime,coeur,1,https://www.scento.com/perfumes/no-1-clive-christian-for-men-clive-christian,https://github.com/Scento-com/perfume-dataset
+Liquor,coeur,1,https://www.scento.com/perfumes/pure-xs-rabanne,https://github.com/Scento-com/perfume-dataset
+Lovage,coeur,1,https://www.scento.com/perfume-database/perfumes/the-different-company-sel-de-vetiver,https://github.com/Scento-com/perfume-dataset
+Macadamia,coeur,1,https://www.scento.com/perfume-database/perfumes/ajmal-evoke-red-edition-her,https://github.com/Scento-com/perfume-dataset
+Mahonia,coeur,1,https://www.scento.com/perfumes/mystique-bouquet-afnan,https://github.com/Scento-com/perfume-dataset
+Maninka Fruit,coeur,1,https://www.scento.com/perfumes/boss-the-scent-hugo-boss,https://github.com/Scento-com/perfume-dataset
+Maple,coeur,1,https://www.scento.com/perfumes/autumn-vibes-maison-margiela,https://github.com/Scento-com/perfume-dataset
+Mastic,coeur,1,https://www.scento.com/perfumes/noir-extreme-tom-ford,https://github.com/Scento-com/perfume-dataset
+Mignonette,coeur,1,https://www.scento.com/perfume-database/perfumes/armani-acqua-di-gio-eau-de-toilette,https://github.com/Scento-com/perfume-dataset
+Monoi,coeur,1,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-lust-for-sun,https://github.com/Scento-com/perfume-dataset
+Oolong tea,coeur,1,https://www.scento.com/perfumes/wulong-cha-nishane,https://github.com/Scento-com/perfume-dataset
+Palmarosa,coeur,1,https://www.scento.com/perfume-database/perfumes/serge-lutens-la-fille-de-berlin,https://github.com/Scento-com/perfume-dataset
+Panna cotta,coeur,1,https://www.scento.com/perfume-database/perfumes/afnan-delicious-bouquet,https://github.com/Scento-com/perfume-dataset
+Passion Flower,coeur,1,https://www.scento.com/perfumes/eternity-moment-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Pear blossom,coeur,1,https://www.scento.com/perfume-database/perfumes/ariana-grande-r-e-m,https://github.com/Scento-com/perfume-dataset
+Persimmon,coeur,1,https://www.scento.com/perfume-database/perfumes/jo-malone-wild-bluebell,https://github.com/Scento-com/perfume-dataset
+Pine Needle,coeur,1,https://www.scento.com/perfumes/gypsy-water-byredo,https://github.com/Scento-com/perfume-dataset
+Pomarose,coeur,1,https://www.scento.com/perfume-database/perfumes/versace-eros-parfum,https://github.com/Scento-com/perfume-dataset
+Pomegranate,coeur,1,https://www.scento.com/perfume-database/perfumes/santa-maria-novella-melograno,https://github.com/Scento-com/perfume-dataset
+Prickly Pear,coeur,1,https://www.scento.com/perfume-database/perfumes/diptyque-ilio,https://github.com/Scento-com/perfume-dataset
+Quince,coeur,1,https://www.scento.com/perfumes/my-burberry-burberry,https://github.com/Scento-com/perfume-dataset
+Rice Powder,coeur,1,https://www.scento.com/perfume-database/perfumes/jovoy-rouge,https://github.com/Scento-com/perfume-dataset
+Salty vanilla,coeur,1,https://www.scento.com/perfumes/olympea-parfum-rabanne,https://github.com/Scento-com/perfume-dataset
+Sand,coeur,1,https://www.scento.com/perfume-database/perfumes/moschino-toy-2-pearl,https://github.com/Scento-com/perfume-dataset
+Santolina,coeur,1,https://www.scento.com/perfume-database/perfumes/bvlgari-aqva-pour-homme,https://github.com/Scento-com/perfume-dataset
+Satinwood,coeur,1,https://www.scento.com/perfume-database/perfumes/the-different-company-oriental-lounge,https://github.com/Scento-com/perfume-dataset
+Shiso,coeur,1,https://www.scento.com/perfumes/mandarino-di-amalfi-tom-ford,https://github.com/Scento-com/perfume-dataset
+Silk plant blossom,coeur,1,https://www.scento.com/perfume-database/perfumes/calvin-klein-truth,https://github.com/Scento-com/perfume-dataset
+Smoke,coeur,1,https://www.scento.com/perfumes/duro-nasomatto,https://github.com/Scento-com/perfume-dataset
+Smoked tea,coeur,1,https://www.scento.com/perfumes/neroli-outrenoir-guerlain,https://github.com/Scento-com/perfume-dataset
+Speculoos,coeur,1,https://www.scento.com/perfumes/amore-caffe-mancera,https://github.com/Scento-com/perfume-dataset
+Tarragon,coeur,1,https://www.scento.com/perfume-database/perfumes/versace-man-eau-fraiche-toilette,https://github.com/Scento-com/perfume-dataset
+Tea rose,coeur,1,https://www.scento.com/perfumes/cassiopea-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Tomato Leaf,coeur,1,https://www.scento.com/perfume-database/perfumes/sisley-eau-de-campagne,https://github.com/Scento-com/perfume-dataset
+Tropical fruits,coeur,1,https://www.scento.com/perfumes/yara-lattafa,https://github.com/Scento-com/perfume-dataset
+Turkish Delight,coeur,1,https://www.scento.com/perfume-database/perfumes/mancera-roses-vanille-parfum,https://github.com/Scento-com/perfume-dataset
+Turmeric,coeur,1,https://www.scento.com/perfumes/jasmin-et-cigarette-etat-libre-dorange,https://github.com/Scento-com/perfume-dataset
+Verbena,coeur,1,https://www.scento.com/perfumes/colonia-acqua-di-parma,https://github.com/Scento-com/perfume-dataset
+Vodka,coeur,1,https://www.scento.com/perfume-database/perfumes/carolina-herrera-212-vip-men,https://github.com/Scento-com/perfume-dataset
+Water fruits and flowers,coeur,1,https://www.scento.com/perfume-database/perfumes/nishane-nanshe,https://github.com/Scento-com/perfume-dataset
+White currant,coeur,1,https://www.scento.com/perfume-database/perfumes/moschino-toy-2,https://github.com/Scento-com/perfume-dataset
+Wild berries,coeur,1,https://www.scento.com/perfume-database/perfumes/kayali-eden-juicy-apple,https://github.com/Scento-com/perfume-dataset
+Wisteria,coeur,1,https://www.scento.com/perfume-database/perfumes/gucci-guilty-elixir-pour-femme,https://github.com/Scento-com/perfume-dataset
+Musk,fond,568,https://www.scento.com/perfumes/libre-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Vanilla,fond,445,https://www.scento.com/perfumes/libre-yves-saint-laurent,https://github.com/Scento-com/perfume-dataset
+Patchouli,fond,366,https://www.scento.com/perfumes/layton-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Sandalwood,fond,331,https://www.scento.com/perfumes/gypsy-water-byredo,https://github.com/Scento-com/perfume-dataset
+Amber,fond,328,https://www.scento.com/perfumes/gypsy-water-byredo,https://github.com/Scento-com/perfume-dataset
+Cedarwood,fond,294,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Vetiver,fond,213,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Tonka Bean,fond,189,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain,https://github.com/Scento-com/perfume-dataset
+Oakmoss,fond,122,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Leather,fond,98,https://www.scento.com/perfumes/arabians-tonka-montale,https://github.com/Scento-com/perfume-dataset
+Oud,fond,82,https://www.scento.com/perfumes/oud-satin-mood-by-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Ambroxan,fond,79,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Benzoin,fond,77,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Ambergris,fond,68,https://www.scento.com/perfumes/baccarat-rouge-540-maison-francis-kurkdjian,https://github.com/Scento-com/perfume-dataset
+Labdanum,fond,62,https://www.scento.com/perfumes/love-dont-be-shy-by-kilian,https://github.com/Scento-com/perfume-dataset
+Woody notes,fond,44,https://www.scento.com/perfumes/cedrat-boise-mancera,https://github.com/Scento-com/perfume-dataset
+Cashmere Wood,fond,39,https://www.scento.com/perfumes/olympea-parfum-rabanne,https://github.com/Scento-com/perfume-dataset
+Frankincense,fond,38,https://www.scento.com/perfumes/portrait-of-a-lady-frederic-malle,https://github.com/Scento-com/perfume-dataset
+Guaiac Wood,fond,33,https://www.scento.com/perfumes/layton-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Iris,fond,31,https://www.scento.com/perfume-database/perfumes/nina-ricci-lair-du-temps,https://github.com/Scento-com/perfume-dataset
+Tobacco,fond,30,https://www.scento.com/perfumes/red-tobacco-mancera,https://github.com/Scento-com/perfume-dataset
+Amberwood,fond,29,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Wood,fond,28,https://www.scento.com/perfume-database/perfumes/guerlain-jicky,https://github.com/Scento-com/perfume-dataset
+Incense,fond,26,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Cashmeran,fond,22,https://www.scento.com/perfumes/delina-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Cypriol,fond,21,https://www.scento.com/perfumes/galloway-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Suede,fond,21,https://www.scento.com/perfume-database/perfumes/jo-malone-peony-and-blush-suede,https://github.com/Scento-com/perfume-dataset
+Praline,fond,20,https://www.scento.com/perfumes/layton-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Caramel,fond,19,https://www.scento.com/perfume-database/perfumes/viktor-rolf-bonbon,https://github.com/Scento-com/perfume-dataset
+Myrrh,fond,19,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Akigalawood,fond,15,https://www.scento.com/perfumes/khamrah-lattafa,https://github.com/Scento-com/perfume-dataset
+Honey,fond,14,https://www.scento.com/perfume-database/perfumes/elie-saab-le-parfum,https://github.com/Scento-com/perfume-dataset
+Balsam of Peru,fond,13,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-by-the-fireplace,https://github.com/Scento-com/perfume-dataset
+Chocolate,fond,13,https://www.scento.com/perfume-database/perfumes/cartier-le-baiser-du-dragon,https://github.com/Scento-com/perfume-dataset
+Jasmine,fond,13,https://www.scento.com/perfumes/gucci-bloom-gucci,https://github.com/Scento-com/perfume-dataset
+Cypress,fond,12,https://www.scento.com/perfume-database/perfumes/roberto-cavalli-paradiso,https://github.com/Scento-com/perfume-dataset
+Opoponax,fond,12,https://www.scento.com/perfumes/shalimar-eau-de-parfum-guerlain,https://github.com/Scento-com/perfume-dataset
+Ambrette,fond,11,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-lazy-sunday-morning,https://github.com/Scento-com/perfume-dataset
+Ambrofix,fond,11,https://www.scento.com/perfume-database/perfumes/afnan-9pm,https://github.com/Scento-com/perfume-dataset
+White Woods,fond,11,https://www.scento.com/perfumes/burberry-her-burberry,https://github.com/Scento-com/perfume-dataset
+Heliotrope,fond,10,https://www.scento.com/perfumes/kirke-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Coffee,fond,9,https://www.scento.com/perfumes/khamrah-qahwa-lattafa,https://github.com/Scento-com/perfume-dataset
+Fir Balsam,fond,9,https://www.scento.com/perfumes/percival-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Saffron,fond,9,https://www.scento.com/perfume-database/perfumes/versace-dylan-blue,https://github.com/Scento-com/perfume-dataset
+Sugar,fond,9,https://www.scento.com/perfumes/andromeda-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Brown Sugar,fond,8,https://www.scento.com/perfumes/arabians-tonka-montale,https://github.com/Scento-com/perfume-dataset
+Civet,fond,8,https://www.scento.com/perfume-database/perfumes/amouage-gold-man,https://github.com/Scento-com/perfume-dataset
+Coconut,fond,8,https://www.scento.com/perfumes/andromeda-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Rosewood,fond,8,https://www.scento.com/perfumes/tam-dao-diptyque,https://github.com/Scento-com/perfume-dataset
+Marshmallow,fond,7,https://www.scento.com/perfumes/love-dont-be-shy-by-kilian,https://github.com/Scento-com/perfume-dataset
+Papyrus,fond,7,https://www.scento.com/perfumes/rose-of-no-mans-land-byredo,https://github.com/Scento-com/perfume-dataset
+Styrax,fond,7,https://www.scento.com/perfumes/bitter-peach-tom-ford,https://github.com/Scento-com/perfume-dataset
+Cinnamon,fond,6,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Coumarin,fond,6,https://www.scento.com/perfume-database/perfumes/zoologist-hummingbird,https://github.com/Scento-com/perfume-dataset
+Ginger,fond,6,https://www.scento.com/perfume-database/perfumes/dsquared2-potion-for-women,https://github.com/Scento-com/perfume-dataset
+Oakwood,fond,6,https://www.scento.com/perfume-database/perfumes/parfums-dusita-le-pavillon-dor,https://github.com/Scento-com/perfume-dataset
+Powdery notes,fond,6,https://www.scento.com/perfume-database/perfumes/nishane-nanshe,https://github.com/Scento-com/perfume-dataset
+Rose,fond,6,https://www.scento.com/perfume-database/perfumes/armaf-eternia,https://github.com/Scento-com/perfume-dataset
+Teak Wood,fond,6,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Birch,fond,5,https://www.scento.com/perfumes/aventus-creed,https://github.com/Scento-com/perfume-dataset
+Chestnut,fond,5,https://www.scento.com/perfume-database/perfumes/lattafa-haya,https://github.com/Scento-com/perfume-dataset
+Fig,fond,5,https://www.scento.com/perfumes/wulong-cha-nishane,https://github.com/Scento-com/perfume-dataset
+Immortelle,fond,5,https://www.scento.com/perfume-database/perfumes/annick-goutal-nuit-etoilee,https://github.com/Scento-com/perfume-dataset
+Maté,fond,5,https://www.scento.com/perfumes/jasmin-et-cigarette-etat-libre-dorange,https://github.com/Scento-com/perfume-dataset
+Orchid,fond,5,https://www.scento.com/perfumes/crystal-noir-parfum-versace,https://github.com/Scento-com/perfume-dataset
+Peach,fond,5,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Raspberry,fond,5,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Resins,fond,5,https://www.scento.com/perfume-database/perfumes/lattafa-oud-mood,https://github.com/Scento-com/perfume-dataset
+Toffee,fond,5,https://www.scento.com/perfume-database/perfumes/montale-red-aoud,https://github.com/Scento-com/perfume-dataset
+Violet,fond,5,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Animalic Notes,fond,4,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Blackcurrant,fond,4,https://www.scento.com/perfume-database/perfumes/cacharel-anais-anais,https://github.com/Scento-com/perfume-dataset
+Cardamom,fond,4,https://www.scento.com/perfume-database/perfumes/roja-parfums-scandal,https://github.com/Scento-com/perfume-dataset
+Chantilly,fond,4,https://www.scento.com/perfume-database/perfumes/zoologist-hummingbird,https://github.com/Scento-com/perfume-dataset
+Driftwood,fond,4,https://www.scento.com/perfume-database/perfumes/marc-jacobs-daisy-love,https://github.com/Scento-com/perfume-dataset
+Elemi,fond,4,https://www.scento.com/perfume-database/perfumes/roja-parfums-apex,https://github.com/Scento-com/perfume-dataset
+Juniper,fond,4,https://www.scento.com/perfume-database/perfumes/orto-parisi-viride,https://github.com/Scento-com/perfume-dataset
+Lichen,fond,4,https://www.scento.com/perfume-database/perfumes/molinard-habanita,https://github.com/Scento-com/perfume-dataset
+Liquorice,fond,4,https://www.scento.com/perfume-database/perfumes/nishane-ege,https://github.com/Scento-com/perfume-dataset
+Mahogany,fond,4,https://www.scento.com/perfumes/euphoria-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Olive tree,fond,4,https://www.scento.com/perfume-database/perfumes/hugo-boss-boss-orange,https://github.com/Scento-com/perfume-dataset
+Palo Santo,fond,4,https://www.scento.com/perfume-database/perfumes/kayali-lovefest-burning-cherry-48,https://github.com/Scento-com/perfume-dataset
+Pink Pepper,fond,4,https://www.scento.com/perfume-database/perfumes/gucci-flora,https://github.com/Scento-com/perfume-dataset
+Rum,fond,4,https://www.scento.com/perfume-database/perfumes/roja-parfums-apex,https://github.com/Scento-com/perfume-dataset
+Spice,fond,4,https://www.scento.com/perfume-database/perfumes/guerlain-mitsouko,https://github.com/Scento-com/perfume-dataset
+Almond,fond,3,https://www.scento.com/perfumes/emporio-armani-she-giorgio-armani,https://github.com/Scento-com/perfume-dataset
+Angelica,fond,3,https://www.scento.com/perfumes/neroli-portofino-tom-ford,https://github.com/Scento-com/perfume-dataset
+Apple,fond,3,https://www.scento.com/perfume-database/perfumes/afnan-historic-olmeda,https://github.com/Scento-com/perfume-dataset
+Blonde Woods,fond,3,https://www.scento.com/perfumes/black-saffron-byredo,https://github.com/Scento-com/perfume-dataset
+Dates,fond,3,https://www.scento.com/perfume-database/perfumes/afnan-portrait-revival,https://github.com/Scento-com/perfume-dataset
+Ebony Wood,fond,3,https://www.scento.com/perfumes/andromeda-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Galbanum,fond,3,https://www.scento.com/perfume-database/perfumes/roja-parfums-oligarch,https://github.com/Scento-com/perfume-dataset
+Georgywood,fond,3,https://www.scento.com/perfumes/guidance-46-amouage,https://github.com/Scento-com/perfume-dataset
+Lavender,fond,3,https://www.scento.com/perfume-database/perfumes/armaf-tres-nuit-lyric-man,https://github.com/Scento-com/perfume-dataset
+Neroli,fond,3,https://www.scento.com/perfume-database/perfumes/van-cleef-arpels-neroli-amara,https://github.com/Scento-com/perfume-dataset
+Sage,fond,3,https://www.scento.com/perfume-database/perfumes/jo-malone-wood-sage-and-sea-salt,https://github.com/Scento-com/perfume-dataset
+Spicy notes,fond,3,https://www.scento.com/perfumes/turathi-blue-afnan,https://github.com/Scento-com/perfume-dataset
+Tuberose,fond,3,https://www.scento.com/perfumes/rolling-in-love-by-kilian,https://github.com/Scento-com/perfume-dataset
+Ambrettolide,fond,2,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-moscow-mule,https://github.com/Scento-com/perfume-dataset
+Ambrocenide,fond,2,https://www.scento.com/perfume-database/perfumes/armaf-ombre-oud-intense-black,https://github.com/Scento-com/perfume-dataset
+Amyris,fond,2,https://www.scento.com/perfume-database/perfumes/ex-nihilo-vetiver-moloko,https://github.com/Scento-com/perfume-dataset
+Apricot,fond,2,https://www.scento.com/perfume-database/perfumes/afnan-turathi-red,https://github.com/Scento-com/perfume-dataset
+Birch Woods,fond,2,https://www.scento.com/perfume-database/perfumes/byredo-mixed-emotions,https://github.com/Scento-com/perfume-dataset
+Blackberry,fond,2,https://www.scento.com/perfume-database/perfumes/davidoff-cool-water-woman,https://github.com/Scento-com/perfume-dataset
+Cade,fond,2,https://www.scento.com/perfume-database/perfumes/zoologist-tyrannosaurus-rex,https://github.com/Scento-com/perfume-dataset
+Cetalox,fond,2,https://www.scento.com/perfumes/not-a-perfume-juliette-has-a-gun,https://github.com/Scento-com/perfume-dataset
+Cherry,fond,2,https://www.scento.com/perfume-database/perfumes/penhaligons-juniper-sling,https://github.com/Scento-com/perfume-dataset
+Clearwood,fond,2,https://www.scento.com/perfumes/hacivat-nishane,https://github.com/Scento-com/perfume-dataset
+Clove,fond,2,https://www.scento.com/perfume-database/perfumes/roja-parfums-danger-pour-femme,https://github.com/Scento-com/perfume-dataset
+Coriander,fond,2,https://www.scento.com/perfumes/noa-cacharel,https://github.com/Scento-com/perfume-dataset
+Davana,fond,2,https://www.scento.com/perfumes/oajan-parfums-de-marly,https://github.com/Scento-com/perfume-dataset
+Gurjum Balsam,fond,2,https://www.scento.com/perfumes/passionfroudh-fugazzi,https://github.com/Scento-com/perfume-dataset
+Lily of the Valley,fond,2,https://www.scento.com/perfume-database/perfumes/guerlain-aqua-allegoria-herba-fresca,https://github.com/Scento-com/perfume-dataset
+Lorenox,fond,2,https://www.scento.com/perfume-database/perfumes/etat-libre-dorange-remarkable-people,https://github.com/Scento-com/perfume-dataset
+Magnolia,fond,2,https://www.scento.com/perfume-database/perfumes/tommy-hilfiger-tommy-girl,https://github.com/Scento-com/perfume-dataset
+Meringue,fond,2,https://www.scento.com/perfume-database/perfumes/jean-paul-gaultier-divine,https://github.com/Scento-com/perfume-dataset
+Milk mousse,fond,2,https://www.scento.com/perfume-database/perfumes/salvatore-ferragamo-signorina-misteriosa,https://github.com/Scento-com/perfume-dataset
+Mint,fond,2,https://www.scento.com/perfume-database/perfumes/afnan-edict-musctique,https://github.com/Scento-com/perfume-dataset
+Muscone,fond,2,https://www.scento.com/perfume-database/perfumes/nishane-afrika-olifant,https://github.com/Scento-com/perfume-dataset
+Mushroom,fond,2,https://www.scento.com/perfume-database/perfumes/carolina-herrera-bad-boy-cobalt,https://github.com/Scento-com/perfume-dataset
+Nutmeg,fond,2,https://www.scento.com/perfume-database/perfumes/roja-parfums-scandal,https://github.com/Scento-com/perfume-dataset
+Orange Blossom,fond,2,https://www.scento.com/perfume-database/perfumes/afnan-rare-passion,https://github.com/Scento-com/perfume-dataset
+Orcanox,fond,2,https://www.scento.com/perfume-database/perfumes/bentley-azure,https://github.com/Scento-com/perfume-dataset
+Osmanthus,fond,2,https://www.scento.com/perfume-database/perfumes/gucci-bloom-nettare-di-fiori,https://github.com/Scento-com/perfume-dataset
+Pear,fond,2,https://www.scento.com/perfumes/draco-tiziana-terenzi,https://github.com/Scento-com/perfume-dataset
+Peony,fond,2,https://www.scento.com/perfume-database/perfumes/afnan-turathi-red,https://github.com/Scento-com/perfume-dataset
+Pepper,fond,2,https://www.scento.com/perfume-database/perfumes/armaf-hunter-intense,https://github.com/Scento-com/perfume-dataset
+Pine Needle,fond,2,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-when-the-rain-stops,https://github.com/Scento-com/perfume-dataset
+Plum,fond,2,https://www.scento.com/perfumes/daisy-eau-so-fresh-marc-jacobs,https://github.com/Scento-com/perfume-dataset
+Rice Powder,fond,2,https://www.scento.com/perfume-database/perfumes/creed-pure-white-cologne,https://github.com/Scento-com/perfume-dataset
+Sylkolide,fond,2,https://www.scento.com/perfumes/toy-boy-moschino,https://github.com/Scento-com/perfume-dataset
+Ultravanil,fond,2,https://www.scento.com/perfumes/myrrhe-mystere-tom-ford,https://github.com/Scento-com/perfume-dataset
+Alaskan wood,fond,1,https://www.scento.com/perfumes/boss-alive-eau-de-parfum-hugo-boss,https://github.com/Scento-com/perfume-dataset
+Algae,fond,1,https://www.scento.com/perfume-database/perfumes/orientica-amber-rouge,https://github.com/Scento-com/perfume-dataset
+Amberketal,fond,1,https://www.scento.com/perfumes/1-million-rabanne,https://github.com/Scento-com/perfume-dataset
+Ambermax,fond,1,https://www.scento.com/perfumes/toy-boy-moschino,https://github.com/Scento-com/perfume-dataset
+Anise,fond,1,https://www.scento.com/perfume-database/perfumes/roja-parfums-oligarch,https://github.com/Scento-com/perfume-dataset
+Bamboo,fond,1,https://www.scento.com/perfumes/my-euphoria-calvin-klein,https://github.com/Scento-com/perfume-dataset
+Beeswax,fond,1,https://www.scento.com/perfume-database/perfumes/jo-malone-earl-grey-and-cucumber,https://github.com/Scento-com/perfume-dataset
+Broom,fond,1,https://www.scento.com/perfume-database/perfumes/ormonde-jayne-taif,https://github.com/Scento-com/perfume-dataset
+Carnation,fond,1,https://www.scento.com/perfume-database/perfumes/afnan-mirsaal-of-trust,https://github.com/Scento-com/perfume-dataset
+Carrot,fond,1,https://www.scento.com/perfumes/fleur-de-peau-diptyque,https://github.com/Scento-com/perfume-dataset
+Castoreum,fond,1,https://www.scento.com/perfume-database/perfumes/nabeel-ya-ghali,https://github.com/Scento-com/perfume-dataset
+Cistus Ambrein,fond,1,https://www.scento.com/perfume-database/perfumes/tauer-perfumes-cologne-du-maghreb,https://github.com/Scento-com/perfume-dataset
+Citrus,fond,1,https://www.scento.com/perfume-database/perfumes/afnan-souvenir-desert-rose,https://github.com/Scento-com/perfume-dataset
+Civettone,fond,1,https://www.scento.com/perfume-database/perfumes/nishane-afrika-olifant,https://github.com/Scento-com/perfume-dataset
+Clary Sage,fond,1,https://www.scento.com/perfume-database/perfumes/bvlgari-aqva-pour-homme,https://github.com/Scento-com/perfume-dataset
+Coal,fond,1,https://www.scento.com/perfumes/luna-rossa-black-eau-de-parfum-prada,https://github.com/Scento-com/perfume-dataset
+Coco de Mer,fond,1,https://www.scento.com/perfumes/eau-de-soleil-blanc-tom-ford,https://github.com/Scento-com/perfume-dataset
+Cognac,fond,1,https://www.scento.com/perfume-database/perfumes/rabanne-lady-million-empire,https://github.com/Scento-com/perfume-dataset
+Copaiba Balm,fond,1,https://www.scento.com/perfume-database/perfumes/kilian-sacred-wood,https://github.com/Scento-com/perfume-dataset
+Cotton Candy,fond,1,https://www.scento.com/perfume-database/perfumes/armaf-magnificent-jardin,https://github.com/Scento-com/perfume-dataset
+Crystal Moss,fond,1,https://www.scento.com/perfumes/gucci-bloom-intense-gucci,https://github.com/Scento-com/perfume-dataset
+Crème Brûlée,fond,1,https://www.scento.com/perfumes/vanilla-haze-fugazzi,https://github.com/Scento-com/perfume-dataset
+Cut Grass,fond,1,https://www.scento.com/perfume-database/perfumes/roja-parfums-oligarch,https://github.com/Scento-com/perfume-dataset
+Cyclamen,fond,1,https://www.scento.com/perfume-database/perfumes/guerlain-aqua-allegoria-herba-fresca,https://github.com/Scento-com/perfume-dataset
+Daffodil,fond,1,https://www.scento.com/perfumes/good-girl-gone-bad-by-kilian,https://github.com/Scento-com/perfume-dataset
+Datura flower,fond,1,https://www.scento.com/perfumes/poeme-lancome,https://github.com/Scento-com/perfume-dataset
+Dried Fruits,fond,1,https://www.scento.com/perfume-database/perfumes/serge-lutens-fille-en-aiguilles,https://github.com/Scento-com/perfume-dataset
+Dry Wood,fond,1,https://www.scento.com/perfumes/asad-lattafa,https://github.com/Scento-com/perfume-dataset
+Dry timberwood,fond,1,https://www.scento.com/perfumes/hacivat-nishane,https://github.com/Scento-com/perfume-dataset
+Fig Wood,fond,1,https://www.scento.com/perfumes/fico-di-amalfi-acqua-di-parma,https://github.com/Scento-com/perfume-dataset
+Freesia,fond,1,https://www.scento.com/perfume-database/perfumes/viktor-rolf-flowerbomb,https://github.com/Scento-com/perfume-dataset
+Fruit,fond,1,https://www.scento.com/perfume-database/perfumes/van-cleef-arpels-moonlight-patchouli,https://github.com/Scento-com/perfume-dataset
+Geranium,fond,1,https://www.scento.com/perfume-database/perfumes/armaf-momento-lace-woman,https://github.com/Scento-com/perfume-dataset
+Grapefruit,fond,1,https://www.scento.com/perfumes/acqua-fiorentina-creed,https://github.com/Scento-com/perfume-dataset
+Green leaves,fond,1,https://www.scento.com/perfume-database/perfumes/cartier-baiser-vole,https://github.com/Scento-com/perfume-dataset
+Hedione,fond,1,https://www.scento.com/perfume-database/perfumes/juliette-has-a-gun-anyway,https://github.com/Scento-com/perfume-dataset
+Honeysuckle,fond,1,https://www.scento.com/perfume-database/perfumes/clinique-happy,https://github.com/Scento-com/perfume-dataset
+Ironwood,fond,1,https://www.scento.com/perfume-database/perfumes/givenchy-pi,https://github.com/Scento-com/perfume-dataset
+Kingwood,fond,1,https://www.scento.com/perfume-database/perfumes/carolina-herrera-212-vip-men,https://github.com/Scento-com/perfume-dataset
+Laurel Leaf,fond,1,https://www.scento.com/perfume-database/perfumes/roberto-cavalli-paradiso,https://github.com/Scento-com/perfume-dataset
+Lavandin,fond,1,https://www.scento.com/perfumes/viking-creed,https://github.com/Scento-com/perfume-dataset
+Lemon,fond,1,https://www.scento.com/perfume-database/perfumes/dolce-gabbana-light-blue-toilette,https://github.com/Scento-com/perfume-dataset
+Lily,fond,1,https://www.scento.com/perfume-database/perfumes/cartier-baiser-vole,https://github.com/Scento-com/perfume-dataset
+Liqueur,fond,1,https://www.scento.com/perfume-database/perfumes/trussardi-i-vicoli-via-fiori-chiari,https://github.com/Scento-com/perfume-dataset
+Lotus,fond,1,https://www.scento.com/perfume-database/perfumes/kenzo-leau-kenzo,https://github.com/Scento-com/perfume-dataset
+Lychee,fond,1,https://www.scento.com/perfumes/la-nuit-tresor-lancome,https://github.com/Scento-com/perfume-dataset
+Marine Leather,fond,1,https://www.scento.com/perfumes/ocean-leather-memo-paris,https://github.com/Scento-com/perfume-dataset
+Mastic,fond,1,https://www.scento.com/perfume-database/perfumes/acqua-di-parma-mirto-di-panarea-la-riserva,https://github.com/Scento-com/perfume-dataset
+Mineral Accord,fond,1,https://www.scento.com/perfumes/fame-in-love-rabanne,https://github.com/Scento-com/perfume-dataset
+Mossy Stones,fond,1,https://www.scento.com/perfumes/bat-zoologist,https://github.com/Scento-com/perfume-dataset
+Muscenone,fond,1,https://www.scento.com/perfume-database/perfumes/nishane-afrika-olifant,https://github.com/Scento-com/perfume-dataset
+Orange,fond,1,https://www.scento.com/perfume-database/perfumes/armaf-just-for-you-femme-woman,https://github.com/Scento-com/perfume-dataset
+Panna cotta,fond,1,https://www.scento.com/perfumes/signorina-salvatore-ferragamo,https://github.com/Scento-com/perfume-dataset
+Pepperwood,fond,1,https://www.scento.com/perfumes/orange-crush-fugazzi,https://github.com/Scento-com/perfume-dataset
+Petalia,fond,1,https://www.scento.com/perfume-database/perfumes/afnan-la-fleur-bouquet,https://github.com/Scento-com/perfume-dataset
+Petitgrain,fond,1,https://www.scento.com/perfume-database/perfumes/bvlgari-allegra-chill-sole,https://github.com/Scento-com/perfume-dataset
+Pine,fond,1,https://www.scento.com/perfume-database/perfumes/roberto-cavalli-paradiso,https://github.com/Scento-com/perfume-dataset
+Pine Resin,fond,1,https://www.scento.com/perfume-database/perfumes/profumum-roma-arso,https://github.com/Scento-com/perfume-dataset
+Pomegranate,fond,1,https://www.scento.com/perfume-database/perfumes/bvlgari-omnia-coral,https://github.com/Scento-com/perfume-dataset
+Red seaweed,fond,1,https://www.scento.com/perfume-database/perfumes/maison-margiela-replica-sailing-day,https://github.com/Scento-com/perfume-dataset
+Rhubarb,fond,1,https://www.scento.com/perfume-database/perfumes/roja-parfums-scandal,https://github.com/Scento-com/perfume-dataset
+Rhubarb wood,fond,1,https://www.scento.com/perfume-database/perfumes/the-different-company-bergamote,https://github.com/Scento-com/perfume-dataset
+Rosemary,fond,1,https://www.scento.com/perfume-database/perfumes/armaf-tres-nuit-lyric-man,https://github.com/Scento-com/perfume-dataset
+Salt,fond,1,https://www.scento.com/perfume-database/perfumes/the-different-company-sel-de-vetiver,https://github.com/Scento-com/perfume-dataset
+Sea Notes,fond,1,https://www.scento.com/perfume-database/perfumes/gucci-gucci-flora-gorgeous-orchid,https://github.com/Scento-com/perfume-dataset
+Smoked tea,fond,1,https://www.scento.com/perfumes/la-petite-robe-noire-guerlain,https://github.com/Scento-com/perfume-dataset
+Sycamore wood,fond,1,https://www.scento.com/perfume-database/perfumes/versace-man-eau-fraiche-toilette,https://github.com/Scento-com/perfume-dataset
+Tanaka wood,fond,1,https://www.scento.com/perfume-database/perfumes/kenzo-kenzo-amour,https://github.com/Scento-com/perfume-dataset
+Thibetone,fond,1,https://www.scento.com/perfume-database/perfumes/nishane-afrika-olifant,https://github.com/Scento-com/perfume-dataset
+Tobacco flower,fond,1,https://www.scento.com/perfume-database/perfumes/versace-the-dreamer-toilette,https://github.com/Scento-com/perfume-dataset
+Transparent Wood,fond,1,https://www.scento.com/perfumes/fleur-narcotique-ex-nihilo,https://github.com/Scento-com/perfume-dataset
+Treemoss,fond,1,https://www.scento.com/perfumes/rien-etat-libre-dorange,https://github.com/Scento-com/perfume-dataset
+Wisteria,fond,1,https://www.scento.com/perfumes/my-burberry-blush-burberry,https://github.com/Scento-com/perfume-dataset
+Wolfwood,fond,1,https://www.scento.com/perfumes/forever-wanted-elixir-azzaro,https://github.com/Scento-com/perfume-dataset
+Ylang-Ylang,fond,1,https://www.scento.com/perfume-database/perfumes/the-different-company-sel-de-vetiver,https://github.com/Scento-com/perfume-dataset
