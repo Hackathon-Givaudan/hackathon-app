@@ -1,0 +1,42 @@
+name: Spike
+description: Une exploration Data/IA, en temps limité.
+type: Spike
+body:
+  - type: markdown
+    attributes:
+      value: 'Titre : la question. Exemple : « Le modèle local traduit-il des envies en notes de notre référentiel ? ».'
+  - type: input
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: methode
+    attributes:
+      label: Méthode
+      placeholder: 10 envies réelles, notes jugées par le Product
+    validations:
+      required: true
+  - type: input
+    id: seuil
+    attributes:
+      label: Seuil
+      description: Chiffré, sinon l'exploration ne finit jamais.
+      placeholder: 8 notes justes sur 10, en moins de 5 s
+    validations:
+      required: true
+  - type: dropdown
+    id: duree
+    attributes:
+      label: Durée max
+      options:
+        - ½ jour
+        - 1 jour
+    validations:
+      required: true
+  - type: input
+    id: livrable
+    attributes:
+      label: Livrable
+      value: Notebook dans ia/ et décision écrite dans ce ticket
