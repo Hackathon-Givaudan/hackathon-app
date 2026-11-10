@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/hanken-grotesk';
+@import '@fontsource-variable/bodoni-moda';
+@import '@fontsource/ibm-plex-mono/400.css';
+
+/* Univers parfum : couleur d'encre du fond animé */
+:root {
+  --ink: oklch(0.2 0.055 340);
+}
+body {
+  margin: 0;
+  background: #22101f;
+}
+.ink {
+  /* Fond fixe : une lueur douce derrière le flacon */
+  background:
+    radial-gradient(
+      ellipse 60% 55% at 25% 45%,
+      oklch(0.36 0.07 330 / 0.55),
+      transparent 70%
+    ),
+    var(--ink);
+  color: oklch(0.98 0.005 95);
+}
+.f-root {
+  font-family: 'Hanken Grotesk Variable', sans-serif;
+}
+.f-root ::selection {
+  background: #2a1626;
+  color: #ece9ef;
+}
+.f-display {
+  font-family: 'Bodoni Moda Variable', Didot, serif;
+  font-weight: 500;
+}
+.mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
