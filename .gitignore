@@ -5,3 +5,7 @@ db/data/
 .scratch/
 .venv/
 __pycache__/
+
+# Rapports de Playwright
+test-results/
+playwright-report/
