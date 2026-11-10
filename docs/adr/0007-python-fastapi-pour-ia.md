@@ -6,7 +6,7 @@
 
 ## Contexte
 
-L'[ADR 0005](0005-code-data-ia.md) place le code Data/IA dans `ia/` et laisse le choix du langage à un ADR à part, avant le premier commit de code. Ce service reçoit les envies d'une marque et renvoie des notes puis une formule, pour les gestes 1 et 3 de [`openapi.yaml`](../../openapi.yaml). Trois membres Data y travailleront, avec des données en CSV. Il doit démarrer par `compose.yaml` pour le jalon m2, le 13 novembre. Le dev container ne contient que Node.js.
+L'[ADR 0005](0005-code-data-ia.md) place le code Data/IA dans `ia/` et laisse le choix du langage à un ADR à part, avant le premier commit de code. Ce service reçoit les envies d'une marque et renvoie des notes puis une formule, pour les gestes 1 et 3 de [`openapi.yaml`](../../openapi.yaml). Deux membres Data y travailleront, avec des données en CSV. Il doit démarrer par `compose.yaml` pour le jalon m2, le 13 novembre. Le dev container ne contient que Node.js.
 
 ## Options
 

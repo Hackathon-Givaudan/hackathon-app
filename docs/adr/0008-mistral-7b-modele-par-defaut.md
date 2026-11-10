@@ -32,4 +32,4 @@ Nous choisissons l'option 1 : `mistral:7b` devient le modèle par défaut du ser
 
 - Positives : les notes proposées en développement ressemblent à celles de la démo ; le service garde le recoupement de mots si le modèle est éteint.
 - Négatives, à accepter : 4,4 Go à télécharger sur chaque machine, contre 1,3 Go ; la mesure ne porte que sur dix envies, écrites par l'auteur du code et pas encore jugées par le Product ; aucune mesure sur une machine moins puissante.
-- À revoir si : le Product juge moins de 8 envies sur 10 bien traduites sur son propre jeu d'envies, ou si une machine de l'équipe dépasse 5 s par réponse.
+- À revoir si : le Product juge moins de 8 envies sur 10 bien traduites sur son propre jeu d'envies, ou si une machine de l'équipe dépasse 5 s par réponse, modèle déjà chargé (le premier appel, qui le charge, est plus long).
