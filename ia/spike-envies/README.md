@@ -14,15 +14,15 @@ Cela touche la clause « à revoir si une machine de l'équipe dépasse 5 s par 
 
 ## Contenu
 
-| Chemin | Rôle |
-| --- | --- |
-| `data/referentiel_notes.*` | 94 notes, 13 familles, étage, mots-clés d'envie (données fictives) |
-| `data/formules.*` | 32 formules avec pourcentages (fictives) |
-| `data/envies_test.jsonl` | 20 envies de test avec notes attendues |
-| `data/build_data.py` | Régénère les fichiers ci-dessus |
-| `spike/spike_envies.py` | `run` (mesure), `fusion` + `score` (jugement Product), `proches` (formules proches) |
-| `spike/resultats_*.csv`, `log_*.txt` | Résultats bruts du 10/11/2026 |
-| `docs/` | Ticket du spike, sources sur les notes et arômes, proposition de routes |
+| Chemin                               | Rôle                                                                                |
+| ------------------------------------ | ----------------------------------------------------------------------------------- |
+| `data/referentiel_notes.*`           | 94 notes, 13 familles, étage, mots-clés d'envie (données fictives)                  |
+| `data/formules.*`                    | 32 formules avec pourcentages (fictives)                                            |
+| `data/envies_test.jsonl`             | 20 envies de test avec notes attendues                                              |
+| `data/build_data.py`                 | Régénère les fichiers ci-dessus                                                     |
+| `spike/spike_envies.py`              | `run` (mesure), `fusion` + `score` (jugement Product), `proches` (formules proches) |
+| `spike/resultats_*.csv`, `log_*.txt` | Résultats bruts du 10/11/2026                                                       |
+| `docs/`                              | Ticket du spike, sources sur les notes et arômes, proposition de routes             |
 
 `docs/openapi-data-ia.yaml` et `docs/api-data-ia.md` sont une **proposition** écrite avant de connaître `openapi.yaml` et `ia/app/`. Le contrat de référence reste `openapi.yaml` (ADR 0006).
 

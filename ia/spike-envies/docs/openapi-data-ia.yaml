@@ -21,21 +21,29 @@ paths:
       tags: [Santé]
       summary: État du service et du modèle
       responses:
-        "200":
+        '200':
           description: Service prêt
           content:
             application/json:
-              schema: { $ref: "#/components/schemas/Health" }
+              schema: { $ref: '#/components/schemas/Health' }
 
   /v1/notes:
     get:
       tags: [Référentiel]
       summary: Liste les notes du référentiel
       parameters:
-        - { name: famille, in: query, schema: { $ref: "#/components/schemas/Famille" } }
-        - { name: etage, in: query, schema: { $ref: "#/components/schemas/Etage" } }
+        - {
+            name: famille,
+            in: query,
+            schema: { $ref: '#/components/schemas/Famille' },
+          }
+        - {
+            name: etage,
+            in: query,
+            schema: { $ref: '#/components/schemas/Etage' },
+          }
       responses:
-        "200":
+        '200':
           description: Notes du référentiel
           content:
             application/json:
@@ -43,10 +51,10 @@ paths:
                 type: object
                 required: [version_referentiel, notes]
                 properties:
-                  version_referentiel: { type: string, example: "2026-11-10" }
+                  version_referentiel: { type: string, example: '2026-11-10' }
                   notes:
                     type: array
-                    items: { $ref: "#/components/schemas/Note" }
+                    items: { $ref: '#/components/schemas/Note' }
 
   /v1/envies/notes:
     post:
@@ -59,19 +67,19 @@ paths:
         required: true
         content:
           application/json:
-            schema: { $ref: "#/components/schemas/EnvieRequest" }
+            schema: { $ref: '#/components/schemas/EnvieRequest' }
             example:
               texte: "Je veux un parfum frais pour l'été, qui sent le citron et la mer."
               max_notes: 5
       responses:
-        "200":
+        '200':
           description: Notes proposées
           content:
             application/json:
-              schema: { $ref: "#/components/schemas/EnvieResponse" }
-        "400": { $ref: "#/components/responses/Erreur" }
-        "503": { $ref: "#/components/responses/Erreur" }
-        "504": { $ref: "#/components/responses/Erreur" }
+              schema: { $ref: '#/components/schemas/EnvieResponse' }
+        '400': { $ref: '#/components/responses/Erreur' }
+        '503': { $ref: '#/components/responses/Erreur' }
+        '504': { $ref: '#/components/responses/Erreur' }
 
   /v1/formules/proches:
     post:
@@ -84,32 +92,42 @@ paths:
         required: true
         content:
           application/json:
-            schema: { $ref: "#/components/schemas/FormulesRequest" }
+            schema: { $ref: '#/components/schemas/FormulesRequest' }
             example:
-              notes_validees: [{ note_id: citron }, { note_id: accord_marin, poids: 2 }, { note_id: sel }]
+              notes_validees:
+                [
+                  { note_id: citron },
+                  { note_id: accord_marin, poids: 2 },
+                  { note_id: sel },
+                ]
               limite: 3
       responses:
-        "200":
+        '200':
           description: Formules classées
           content:
             application/json:
-              schema: { $ref: "#/components/schemas/FormulesResponse" }
-        "400": { $ref: "#/components/responses/Erreur" }
-        "422": { $ref: "#/components/responses/Erreur" }
+              schema: { $ref: '#/components/schemas/FormulesResponse' }
+        '400': { $ref: '#/components/responses/Erreur' }
+        '422': { $ref: '#/components/responses/Erreur' }
 
   /v1/formules/{formule_id}:
     get:
       tags: [Formules]
       summary: Détail d'une formule
       parameters:
-        - { name: formule_id, in: path, required: true, schema: { type: string, example: F005 } }
+        - {
+            name: formule_id,
+            in: path,
+            required: true,
+            schema: { type: string, example: F005 },
+          }
       responses:
-        "200":
+        '200':
           description: Formule
           content:
             application/json:
-              schema: { $ref: "#/components/schemas/Formule" }
-        "404": { $ref: "#/components/responses/Erreur" }
+              schema: { $ref: '#/components/schemas/Formule' }
+        '404': { $ref: '#/components/responses/Erreur' }
 
 components:
   responses:
@@ -117,12 +135,27 @@ components:
       description: Erreur
       content:
         application/json:
-          schema: { $ref: "#/components/schemas/Erreur" }
+          schema: { $ref: '#/components/schemas/Erreur' }
 
   schemas:
     Famille:
       type: string
-      enum: [hesperide, aromatique, vert, floral, fruite, epice, gourmand, boise, ambre, musque, cuir, marin, chypre]
+      enum:
+        [
+          hesperide,
+          aromatique,
+          vert,
+          floral,
+          fruite,
+          epice,
+          gourmand,
+          boise,
+          ambre,
+          musque,
+          cuir,
+          marin,
+          chypre,
+        ]
     Etage:
       type: string
       enum: [tete, coeur, fond]
@@ -133,9 +166,9 @@ components:
       properties:
         id: { type: string, example: bergamote }
         nom: { type: string, example: Bergamote }
-        famille: { $ref: "#/components/schemas/Famille" }
+        famille: { $ref: '#/components/schemas/Famille' }
         facette: { type: string, example: agrume }
-        etage: { $ref: "#/components/schemas/Etage" }
+        etage: { $ref: '#/components/schemas/Etage' }
         nature: { type: string, enum: [naturel, synthese, accord] }
 
     EnvieRequest:
@@ -152,12 +185,19 @@ components:
 
     NoteProposee:
       allOf:
-        - $ref: "#/components/schemas/Note"
+        - $ref: '#/components/schemas/Note'
         - type: object
           required: [score]
           properties:
-            score: { type: number, minimum: 0, maximum: 1, description: Confiance du modèle }
-            justification: { type: string, example: "« la mer » évoque l'accord marin" }
+            score:
+              {
+                type: number,
+                minimum: 0,
+                maximum: 1,
+                description: Confiance du modèle,
+              }
+            justification:
+              { type: string, example: "« la mer » évoque l'accord marin" }
 
     EnvieResponse:
       type: object
@@ -166,12 +206,12 @@ components:
         request_id: { type: string, format: uuid }
         notes:
           type: array
-          items: { $ref: "#/components/schemas/NoteProposee" }
+          items: { $ref: '#/components/schemas/NoteProposee' }
         notes_ecartees:
           type: array
           description: Termes produits par le modèle absents du référentiel (journalisés, jamais renvoyés comme notes)
           items: { type: string }
-        modele: { type: string, example: "qwen2.5:7b" }
+        modele: { type: string, example: 'qwen2.5:7b' }
         latence_ms: { type: integer, example: 2300 }
         version_referentiel: { type: string }
 
@@ -189,7 +229,7 @@ components:
         notes_validees:
           type: array
           minItems: 1
-          items: { $ref: "#/components/schemas/NoteValidee" }
+          items: { $ref: '#/components/schemas/NoteValidee' }
         limite: { type: integer, minimum: 1, maximum: 20, default: 3 }
         score_min: { type: number, minimum: 0, maximum: 1, default: 0 }
 
@@ -198,7 +238,7 @@ components:
       required: [note_id, etage, pourcentage]
       properties:
         note_id: { type: string }
-        etage: { $ref: "#/components/schemas/Etage" }
+        etage: { $ref: '#/components/schemas/Etage' }
         pourcentage: { type: number }
 
     Formule:
@@ -210,13 +250,13 @@ components:
         description: { type: string }
         notes:
           type: array
-          items: { $ref: "#/components/schemas/LigneFormule" }
+          items: { $ref: '#/components/schemas/LigneFormule' }
 
     FormuleProche:
       type: object
       required: [formule, similarite, notes_communes, notes_manquantes]
       properties:
-        formule: { $ref: "#/components/schemas/Formule" }
+        formule: { $ref: '#/components/schemas/Formule' }
         similarite: { type: number, minimum: 0, maximum: 1 }
         notes_communes: { type: array, items: { type: string } }
         notes_manquantes:
@@ -230,7 +270,7 @@ components:
       properties:
         formules:
           type: array
-          items: { $ref: "#/components/schemas/FormuleProche" }
+          items: { $ref: '#/components/schemas/FormuleProche' }
 
     Health:
       type: object
@@ -246,6 +286,13 @@ components:
       properties:
         code:
           type: string
-          enum: [TEXTE_INVALIDE, NOTE_INCONNUE, FORMULE_INCONNUE, MODELE_INDISPONIBLE, DELAI_DEPASSE]
+          enum:
+            [
+              TEXTE_INVALIDE,
+              NOTE_INCONNUE,
+              FORMULE_INCONNUE,
+              MODELE_INDISPONIBLE,
+              DELAI_DEPASSE,
+            ]
         message: { type: string }
         details: { type: object }

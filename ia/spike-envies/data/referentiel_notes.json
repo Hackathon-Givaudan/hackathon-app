@@ -38,13 +38,7 @@
     "facette": "agrume",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "joyeux",
-      "solaire",
-      "jus d'orange",
-      "enfance",
-      "gai"
-    ]
+    "mots_cles_envie": ["joyeux", "solaire", "jus d'orange", "enfance", "gai"]
   },
   {
     "id": "mandarine",
@@ -53,13 +47,7 @@
     "facette": "agrume",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "sucré",
-      "juteux",
-      "doux",
-      "pétillant",
-      "Noël"
-    ]
+    "mots_cles_envie": ["sucré", "juteux", "doux", "pétillant", "Noël"]
   },
   {
     "id": "pamplemousse",
@@ -68,13 +56,7 @@
     "facette": "agrume",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "amer",
-      "tonique",
-      "énergisant",
-      "sport",
-      "matin"
-    ]
+    "mots_cles_envie": ["amer", "tonique", "énergisant", "sport", "matin"]
   },
   {
     "id": "citron_vert",
@@ -83,13 +65,7 @@
     "facette": "agrume",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "mojito",
-      "cocktail",
-      "piquant",
-      "tropical",
-      "frais"
-    ]
+    "mots_cles_envie": ["mojito", "cocktail", "piquant", "tropical", "frais"]
   },
   {
     "id": "yuzu",
@@ -98,13 +74,7 @@
     "facette": "agrume",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "japon",
-      "zen",
-      "acidulé",
-      "original",
-      "pétillant"
-    ]
+    "mots_cles_envie": ["japon", "zen", "acidulé", "original", "pétillant"]
   },
   {
     "id": "petitgrain",
@@ -113,13 +83,7 @@
     "facette": "agrume vert",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "feuille",
-      "vert",
-      "amer",
-      "eau de Cologne",
-      "propre"
-    ]
+    "mots_cles_envie": ["feuille", "vert", "amer", "eau de Cologne", "propre"]
   },
   {
     "id": "neroli",
@@ -159,13 +123,7 @@
     "facette": "herbe aromatique",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "garrigue",
-      "herbes",
-      "cuisine",
-      "sud",
-      "camphré"
-    ]
+    "mots_cles_envie": ["garrigue", "herbes", "cuisine", "sud", "camphré"]
   },
   {
     "id": "menthe",
@@ -174,13 +132,7 @@
     "facette": "herbe fraîche",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "glacé",
-      "fraîcheur",
-      "mojito",
-      "chewing-gum",
-      "été"
-    ]
+    "mots_cles_envie": ["glacé", "fraîcheur", "mojito", "chewing-gum", "été"]
   },
   {
     "id": "basilic",
@@ -189,13 +141,7 @@
     "facette": "herbe aromatique",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "italie",
-      "potager",
-      "vert",
-      "épicé",
-      "frais"
-    ]
+    "mots_cles_envie": ["italie", "potager", "vert", "épicé", "frais"]
   },
   {
     "id": "sauge_sclaree",
@@ -204,12 +150,7 @@
     "facette": "herbe aromatique",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "herbacé",
-      "ambré",
-      "masculin",
-      "apaisant"
-    ]
+    "mots_cles_envie": ["herbacé", "ambré", "masculin", "apaisant"]
   },
   {
     "id": "thym",
@@ -218,12 +159,7 @@
     "facette": "herbe aromatique",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "garrigue",
-      "sec",
-      "chaud",
-      "herbes de provence"
-    ]
+    "mots_cles_envie": ["garrigue", "sec", "chaud", "herbes de provence"]
   },
   {
     "id": "armoise",
@@ -232,12 +168,7 @@
     "facette": "herbe amère",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "amer",
-      "sauvage",
-      "herbe sèche",
-      "mystérieux"
-    ]
+    "mots_cles_envie": ["amer", "sauvage", "herbe sèche", "mystérieux"]
   },
   {
     "id": "galbanum",
@@ -261,13 +192,7 @@
     "facette": "vert feuille",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "concombre",
-      "frais",
-      "feuille",
-      "aquatique",
-      "vert"
-    ]
+    "mots_cles_envie": ["concombre", "frais", "feuille", "aquatique", "vert"]
   },
   {
     "id": "herbe_coupee",
@@ -276,13 +201,7 @@
     "facette": "vert herbe",
     "etage": "tete",
     "nature": "synthese",
-    "mots_cles_envie": [
-      "pelouse",
-      "printemps",
-      "jardin",
-      "rosée",
-      "nature"
-    ]
+    "mots_cles_envie": ["pelouse", "printemps", "jardin", "rosée", "nature"]
   },
   {
     "id": "the_vert",
@@ -291,13 +210,7 @@
     "facette": "vert thé",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "zen",
-      "léger",
-      "transparent",
-      "apaisant",
-      "propre"
-    ]
+    "mots_cles_envie": ["zen", "léger", "transparent", "apaisant", "propre"]
   },
   {
     "id": "feuille_de_figuier",
@@ -306,13 +219,7 @@
     "facette": "vert lacté",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "méditerranée",
-      "vacances",
-      "lacté",
-      "vert",
-      "sud"
-    ]
+    "mots_cles_envie": ["méditerranée", "vacances", "lacté", "vert", "sud"]
   },
   {
     "id": "bambou",
@@ -321,13 +228,7 @@
     "facette": "vert aqueux",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "zen",
-      "aquatique",
-      "léger",
-      "spa",
-      "asie"
-    ]
+    "mots_cles_envie": ["zen", "aquatique", "léger", "spa", "asie"]
   },
   {
     "id": "rose",
@@ -366,13 +267,7 @@
     "facette": "fleur blanche",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "douceur",
-      "bébé",
-      "mariage",
-      "méditerranée",
-      "brioche"
-    ]
+    "mots_cles_envie": ["douceur", "bébé", "mariage", "méditerranée", "brioche"]
   },
   {
     "id": "tubereuse",
@@ -381,13 +276,7 @@
     "facette": "fleur blanche",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "capiteux",
-      "crémeux",
-      "glamour",
-      "sensuel",
-      "intense"
-    ]
+    "mots_cles_envie": ["capiteux", "crémeux", "glamour", "sensuel", "intense"]
   },
   {
     "id": "ylang_ylang",
@@ -396,13 +285,7 @@
     "facette": "fleur solaire",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "exotique",
-      "solaire",
-      "crémeux",
-      "banane",
-      "tropical"
-    ]
+    "mots_cles_envie": ["exotique", "solaire", "crémeux", "banane", "tropical"]
   },
   {
     "id": "iris",
@@ -427,13 +310,7 @@
     "facette": "poudré",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "bonbon",
-      "poudré",
-      "rétro",
-      "doux",
-      "mauve"
-    ]
+    "mots_cles_envie": ["bonbon", "poudré", "rétro", "doux", "mauve"]
   },
   {
     "id": "muguet",
@@ -442,13 +319,7 @@
     "facette": "fleur fraîche",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "1er mai",
-      "printemps",
-      "frais",
-      "clochettes",
-      "propre"
-    ]
+    "mots_cles_envie": ["1er mai", "printemps", "frais", "clochettes", "propre"]
   },
   {
     "id": "pivoine",
@@ -457,13 +328,7 @@
     "facette": "fleur fraîche",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "fraîche",
-      "rosée",
-      "jeune",
-      "printemps",
-      "léger"
-    ]
+    "mots_cles_envie": ["fraîche", "rosée", "jeune", "printemps", "léger"]
   },
   {
     "id": "magnolia",
@@ -472,12 +337,7 @@
     "facette": "fleur fraîche",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "citronné",
-      "crémeux",
-      "lumineux",
-      "élégant"
-    ]
+    "mots_cles_envie": ["citronné", "crémeux", "lumineux", "élégant"]
   },
   {
     "id": "frangipanier",
@@ -486,13 +346,7 @@
     "facette": "fleur solaire",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "tropical",
-      "plage",
-      "monoï",
-      "vacances",
-      "île"
-    ]
+    "mots_cles_envie": ["tropical", "plage", "monoï", "vacances", "île"]
   },
   {
     "id": "mimosa",
@@ -531,13 +385,7 @@
     "facette": "fleur fruitée",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "abricot",
-      "cuir",
-      "thé",
-      "asie",
-      "délicat"
-    ]
+    "mots_cles_envie": ["abricot", "cuir", "thé", "asie", "délicat"]
   },
   {
     "id": "lilas",
@@ -546,13 +394,7 @@
     "facette": "fleur fraîche",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "printemps",
-      "jardin",
-      "nostalgie",
-      "doux",
-      "mauve"
-    ]
+    "mots_cles_envie": ["printemps", "jardin", "nostalgie", "doux", "mauve"]
   },
   {
     "id": "heliotrope",
@@ -576,13 +418,7 @@
     "facette": "fruit à noyau",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "velouté",
-      "juteux",
-      "été",
-      "doux",
-      "peau"
-    ]
+    "mots_cles_envie": ["velouté", "juteux", "été", "doux", "peau"]
   },
   {
     "id": "poire",
@@ -591,12 +427,7 @@
     "facette": "fruit à pépins",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "juteux",
-      "croquant",
-      "frais",
-      "gourmand léger"
-    ]
+    "mots_cles_envie": ["juteux", "croquant", "frais", "gourmand léger"]
   },
   {
     "id": "pomme",
@@ -605,13 +436,7 @@
     "facette": "fruit à pépins",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "croquant",
-      "verger",
-      "acidulé",
-      "frais",
-      "automne"
-    ]
+    "mots_cles_envie": ["croquant", "verger", "acidulé", "frais", "automne"]
   },
   {
     "id": "cassis",
@@ -620,13 +445,7 @@
     "facette": "fruit rouge",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "baie",
-      "acidulé",
-      "vert",
-      "bourgeon",
-      "mûr"
-    ]
+    "mots_cles_envie": ["baie", "acidulé", "vert", "bourgeon", "mûr"]
   },
   {
     "id": "framboise",
@@ -635,13 +454,7 @@
     "facette": "fruit rouge",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "baie",
-      "sucré",
-      "acidulé",
-      "gourmand",
-      "rose"
-    ]
+    "mots_cles_envie": ["baie", "sucré", "acidulé", "gourmand", "rose"]
   },
   {
     "id": "fruits_rouges",
@@ -650,13 +463,7 @@
     "facette": "fruit rouge",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "baies",
-      "fraise",
-      "cerise",
-      "gourmand",
-      "jeune"
-    ]
+    "mots_cles_envie": ["baies", "fraise", "cerise", "gourmand", "jeune"]
   },
   {
     "id": "figue",
@@ -665,13 +472,7 @@
     "facette": "fruit lacté",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "méditerranée",
-      "lacté",
-      "mûr",
-      "été",
-      "sud"
-    ]
+    "mots_cles_envie": ["méditerranée", "lacté", "mûr", "été", "sud"]
   },
   {
     "id": "noix_de_coco",
@@ -695,13 +496,7 @@
     "facette": "fruit exotique",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "tropical",
-      "juteux",
-      "cocktail",
-      "pétillant",
-      "fête"
-    ]
+    "mots_cles_envie": ["tropical", "juteux", "cocktail", "pétillant", "fête"]
   },
   {
     "id": "mangue",
@@ -710,13 +505,7 @@
     "facette": "fruit exotique",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "tropical",
-      "juteux",
-      "sucré",
-      "exotique",
-      "soleil"
-    ]
+    "mots_cles_envie": ["tropical", "juteux", "sucré", "exotique", "soleil"]
   },
   {
     "id": "poivre_rose",
@@ -725,12 +514,7 @@
     "facette": "épice fraîche",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "pétillant",
-      "rosé",
-      "moderne",
-      "piquant léger"
-    ]
+    "mots_cles_envie": ["pétillant", "rosé", "moderne", "piquant léger"]
   },
   {
     "id": "poivre_noir",
@@ -739,13 +523,7 @@
     "facette": "épice chaude",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "piquant",
-      "sec",
-      "viril",
-      "cuisine",
-      "électrique"
-    ]
+    "mots_cles_envie": ["piquant", "sec", "viril", "cuisine", "électrique"]
   },
   {
     "id": "cardamome",
@@ -754,12 +532,7 @@
     "facette": "épice fraîche",
     "etage": "tete",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "café oriental",
-      "chaï",
-      "frais épicé",
-      "élégant"
-    ]
+    "mots_cles_envie": ["café oriental", "chaï", "frais épicé", "élégant"]
   },
   {
     "id": "cannelle",
@@ -768,13 +541,7 @@
     "facette": "épice chaude",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "noël",
-      "pain d'épices",
-      "chaud",
-      "réconfort",
-      "hiver"
-    ]
+    "mots_cles_envie": ["noël", "pain d'épices", "chaud", "réconfort", "hiver"]
   },
   {
     "id": "clou_de_girofle",
@@ -783,13 +550,7 @@
     "facette": "épice chaude",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "vin chaud",
-      "piquant",
-      "dentiste",
-      "chaud",
-      "orient"
-    ]
+    "mots_cles_envie": ["vin chaud", "piquant", "dentiste", "chaud", "orient"]
   },
   {
     "id": "gingembre",
@@ -813,13 +574,7 @@
     "facette": "épice cuirée",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "luxe",
-      "orient",
-      "cuir",
-      "métallique",
-      "précieux"
-    ]
+    "mots_cles_envie": ["luxe", "orient", "cuir", "métallique", "précieux"]
   },
   {
     "id": "muscade",
@@ -828,13 +583,7 @@
     "facette": "épice chaude",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "chaud",
-      "boisé",
-      "cuisine",
-      "hiver",
-      "doux épicé"
-    ]
+    "mots_cles_envie": ["chaud", "boisé", "cuisine", "hiver", "doux épicé"]
   },
   {
     "id": "vanille",
@@ -859,13 +608,7 @@
     "facette": "amandé",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "amande",
-      "foin",
-      "caramel",
-      "chaleur",
-      "réconfort"
-    ]
+    "mots_cles_envie": ["amande", "foin", "caramel", "chaleur", "réconfort"]
   },
   {
     "id": "caramel",
@@ -904,13 +647,7 @@
     "facette": "torréfié",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "torréfié",
-      "matin",
-      "energie",
-      "amer",
-      "expresso"
-    ]
+    "mots_cles_envie": ["torréfié", "matin", "energie", "amer", "expresso"]
   },
   {
     "id": "cacao",
@@ -919,13 +656,7 @@
     "facette": "torréfié",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "chocolat",
-      "amer",
-      "gourmand",
-      "sensuel",
-      "poudré"
-    ]
+    "mots_cles_envie": ["chocolat", "amer", "gourmand", "sensuel", "poudré"]
   },
   {
     "id": "miel",
@@ -934,13 +665,7 @@
     "facette": "miellé",
     "etage": "fond",
     "nature": "accord",
-    "mots_cles_envie": [
-      "doré",
-      "chaud",
-      "sucré",
-      "animal",
-      "cire"
-    ]
+    "mots_cles_envie": ["doré", "chaud", "sucré", "animal", "cire"]
   },
   {
     "id": "amande",
@@ -964,13 +689,7 @@
     "facette": "lacté",
     "etage": "fond",
     "nature": "accord",
-    "mots_cles_envie": [
-      "lacté",
-      "doux",
-      "bébé",
-      "crémeux",
-      "cocooning"
-    ]
+    "mots_cles_envie": ["lacté", "doux", "bébé", "crémeux", "cocooning"]
   },
   {
     "id": "cedre",
@@ -1011,14 +730,7 @@
     "facette": "bois terreux",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "terreux",
-      "fumé",
-      "racine",
-      "élégant",
-      "chic",
-      "vert"
-    ]
+    "mots_cles_envie": ["terreux", "fumé", "racine", "élégant", "chic", "vert"]
   },
   {
     "id": "patchouli",
@@ -1027,13 +739,7 @@
     "facette": "bois terreux",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "terreux",
-      "hippie",
-      "sous-bois",
-      "sombre",
-      "chocolaté"
-    ]
+    "mots_cles_envie": ["terreux", "hippie", "sous-bois", "sombre", "chocolaté"]
   },
   {
     "id": "oud",
@@ -1042,14 +748,7 @@
     "facette": "bois animal",
     "etage": "fond",
     "nature": "accord",
-    "mots_cles_envie": [
-      "intense",
-      "orient",
-      "luxe",
-      "fumé",
-      "animal",
-      "sombre"
-    ]
+    "mots_cles_envie": ["intense", "orient", "luxe", "fumé", "animal", "sombre"]
   },
   {
     "id": "gaiac",
@@ -1058,12 +757,7 @@
     "facette": "bois fumé",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "fumé",
-      "feu de bois",
-      "doux",
-      "rose fumée"
-    ]
+    "mots_cles_envie": ["fumé", "feu de bois", "doux", "rose fumée"]
   },
   {
     "id": "cypres",
@@ -1072,12 +766,7 @@
     "facette": "bois résineux",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "toscane",
-      "résine",
-      "frais boisé",
-      "méditerranée"
-    ]
+    "mots_cles_envie": ["toscane", "résine", "frais boisé", "méditerranée"]
   },
   {
     "id": "pin",
@@ -1086,13 +775,7 @@
     "facette": "bois résineux",
     "etage": "coeur",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "forêt",
-      "sapin",
-      "montagne",
-      "résine",
-      "noël"
-    ]
+    "mots_cles_envie": ["forêt", "sapin", "montagne", "résine", "noël"]
   },
   {
     "id": "ambroxan",
@@ -1117,13 +800,7 @@
     "facette": "bois musqué",
     "etage": "fond",
     "nature": "synthese",
-    "mots_cles_envie": [
-      "doux",
-      "pull",
-      "cocooning",
-      "moelleux",
-      "peau"
-    ]
+    "mots_cles_envie": ["doux", "pull", "cocooning", "moelleux", "peau"]
   },
   {
     "id": "ambre",
@@ -1163,13 +840,7 @@
     "facette": "ambré cuiré",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "ambré",
-      "cuir",
-      "animal",
-      "résineux",
-      "chaud"
-    ]
+    "mots_cles_envie": ["ambré", "cuir", "animal", "résineux", "chaud"]
   },
   {
     "id": "encens",
@@ -1193,13 +864,7 @@
     "facette": "résineux",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "sacré",
-      "amer",
-      "résine",
-      "mystique",
-      "orient"
-    ]
+    "mots_cles_envie": ["sacré", "amer", "résine", "mystique", "orient"]
   },
   {
     "id": "opoponax",
@@ -1208,12 +873,7 @@
     "facette": "baumier",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "doux",
-      "balsamique",
-      "chaud",
-      "orient"
-    ]
+    "mots_cles_envie": ["doux", "balsamique", "chaud", "orient"]
   },
   {
     "id": "musc_blanc",
@@ -1222,13 +882,7 @@
     "facette": "musc propre",
     "etage": "fond",
     "nature": "synthese",
-    "mots_cles_envie": [
-      "linge propre",
-      "peau",
-      "doux",
-      "coton",
-      "savon"
-    ]
+    "mots_cles_envie": ["linge propre", "peau", "doux", "coton", "savon"]
   },
   {
     "id": "ambrette",
@@ -1237,13 +891,7 @@
     "facette": "musc végétal",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "peau",
-      "poire",
-      "musc naturel",
-      "sensuel",
-      "doux"
-    ]
+    "mots_cles_envie": ["peau", "poire", "musc naturel", "sensuel", "doux"]
   },
   {
     "id": "aldehydes",
@@ -1267,13 +915,7 @@
     "facette": "poudré",
     "etage": "fond",
     "nature": "accord",
-    "mots_cles_envie": [
-      "poudre de riz",
-      "maquillage",
-      "rétro",
-      "doux",
-      "talc"
-    ]
+    "mots_cles_envie": ["poudre de riz", "maquillage", "rétro", "doux", "talc"]
   },
   {
     "id": "cuir",
@@ -1297,12 +939,7 @@
     "facette": "cuir fumé",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "goudron",
-      "fumé",
-      "cuir russe",
-      "feu"
-    ]
+    "mots_cles_envie": ["goudron", "fumé", "cuir russe", "feu"]
   },
   {
     "id": "daim",
@@ -1311,13 +948,7 @@
     "facette": "cuir doux",
     "etage": "fond",
     "nature": "accord",
-    "mots_cles_envie": [
-      "doux",
-      "gant",
-      "peau",
-      "velours",
-      "poudré"
-    ]
+    "mots_cles_envie": ["doux", "gant", "peau", "velours", "poudré"]
   },
   {
     "id": "tabac",
@@ -1342,14 +973,7 @@
     "facette": "aquatique",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "mer",
-      "océan",
-      "vague",
-      "embruns",
-      "vacances",
-      "frais"
-    ]
+    "mots_cles_envie": ["mer", "océan", "vague", "embruns", "vacances", "frais"]
   },
   {
     "id": "sel",
@@ -1358,12 +982,7 @@
     "facette": "minéral",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "peau salée",
-      "plage",
-      "minéral",
-      "été"
-    ]
+    "mots_cles_envie": ["peau salée", "plage", "minéral", "été"]
   },
   {
     "id": "accord_ozonique",
@@ -1372,13 +991,7 @@
     "facette": "aérien",
     "etage": "tete",
     "nature": "accord",
-    "mots_cles_envie": [
-      "air",
-      "après la pluie",
-      "montagne",
-      "propre",
-      "aérien"
-    ]
+    "mots_cles_envie": ["air", "après la pluie", "montagne", "propre", "aérien"]
   },
   {
     "id": "pierre_mouillee",
@@ -1387,13 +1000,7 @@
     "facette": "minéral",
     "etage": "coeur",
     "nature": "accord",
-    "mots_cles_envie": [
-      "pluie",
-      "pierre",
-      "minéral",
-      "pétrichor",
-      "froid"
-    ]
+    "mots_cles_envie": ["pluie", "pierre", "minéral", "pétrichor", "froid"]
   },
   {
     "id": "mousse_de_chene",
@@ -1402,12 +1009,6 @@
     "facette": "mousse",
     "etage": "fond",
     "nature": "naturel",
-    "mots_cles_envie": [
-      "sous-bois",
-      "humide",
-      "chic",
-      "classique",
-      "terreux"
-    ]
+    "mots_cles_envie": ["sous-bois", "humide", "chic", "classique", "terreux"]
   }
 ]
