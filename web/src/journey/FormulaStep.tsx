@@ -42,7 +42,7 @@ export function FormulaStep({
         ))}
       </ul>
       <p className="mono mt-3 text-[11px] opacity-80">
-        Référence de démonstration ({formula.source}). Parts illustratives.
+        Référence de notre banque ({formula.source}). Parts illustratives.
       </p>
 
       <div className="mt-6 flex flex-wrap items-center gap-5">

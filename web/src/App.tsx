@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 import gsap from 'gsap';
-import { api, isDemo } from './api';
+import { api } from './api';
 import { BottleBoundary } from './bottle/BottleBoundary';
 import type { Brief, Formula, Universe } from './api';
 import { noteColor } from './bottle/colors';
@@ -154,7 +154,7 @@ export default function App() {
         <div className="pb-4">
           <p className="f-display text-[30px] leading-none">Sillage</p>
           <p className="mono mt-1.5 text-[10px]">
-            Concept étudiant pour Givaudan{isDemo && ' · démonstration'}
+            Concept étudiant pour Givaudan
           </p>
         </div>
         <ol aria-label="Étapes" className="flex">
