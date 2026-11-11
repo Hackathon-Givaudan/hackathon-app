@@ -39,7 +39,7 @@ Prérequis sur votre machine : [Docker Desktop](https://www.docker.com/products/
 2. `F1` → **Dev Containers: Reopen in Container**. VS Code construit l'environnement, démarre PostgreSQL et le service `ia/`, et installe les dépendances. Comptez quelques minutes la première fois.
 3. Dans le terminal de VS Code : `npm run dev`, puis ouvrez <http://localhost:5173>.
 
-L'API suit le contrat de [`openapi.yaml`](openapi.yaml) : quatre gestes, des envies d'une marque à une formule acceptée. Les gestes 1 et 3 passent par le service Data/IA de [`ia/`](ia/README.md), que l'API joint par `DATA_AI_URL` (voir `api/.env.example`). Le front tourne en démonstration par défaut ; `VITE_API_MODE=live npm run dev` lui fait appeler l'API. Après un changement dans `ia/`, relancez le service depuis votre machine : `docker compose up -d --build ia`.
+L'API suit le contrat de [`openapi.yaml`](openapi.yaml) : quatre gestes, des envies d'une marque à une formule acceptée. Les gestes 1 et 3 passent par le service Data/IA de [`ia/`](ia/README.md), que l'API joint par `DATA_AI_URL` (voir `api/.env.example`). Le front n'a qu'un mode : il appelle cette API ([ADR 0013](docs/adr/0013-front-sur-l-api-reelle.md)). Après un changement dans `ia/`, relancez le service depuis votre machine : `docker compose up -d --build ia`.
 
 ## Vérifier
 
@@ -58,3 +58,4 @@ Avant d'ouvrir une pull request : `npm run lint`, `npm run format:check`, `npm r
 - `develop` est la branche par défaut. Une tâche = une branche `feature/*`, fusionnée par pull request après une relecture.
 - `main` ne reçoit que ce qui est démontrable, par pull request depuis `develop`.
 - `api/.env` et `db/data/` restent sur votre machine. Pour repartir d'une base vide : fermez le conteneur, supprimez `db/data/`, rouvrez-le. C'est nécessaire après tout changement de `db/init/`, qui n'est joué que sur une base vide.
+- Le dev container ne crée `api/.env` que s'il n'existe pas. Quand `api/.env.example` gagne une variable, recopiez-la dans votre `api/.env` : sans `DATA_AI_URL`, par exemple, le geste 1 répond 502.
