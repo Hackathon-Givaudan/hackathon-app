@@ -91,7 +91,9 @@ paths:
       summary: 'Geste 2 : valider les notes'
       description: |
         La marque garde les notes qui traduisent ses envies et retire les autres.
-        Les identifiants doivent exister dans le référentiel.
+        Les identifiants doivent être ceux de notes proposées au geste 1.
+        Revalider reste permis tant qu'aucune piste n'est choisie : les pistes
+        déjà proposées sont alors annulées, et le brief revient à `notes_validated`.
       parameters:
         - $ref: '#/components/parameters/BriefId'
       requestBody:
@@ -130,6 +132,9 @@ paths:
       description: |
         L'API propose les formules de la banque les plus proches des notes validées,
         trois au plus, la plus proche d'abord, chacune avec son explication.
+        La première piste est la référence qui contient le plus de notes validées.
+        Une deuxième ou une troisième ne s'ajoute que si elle en contient au moins deux :
+        mieux vaut une piste juste que trois pistes dont une éloignée.
         Rappeler la route renvoie les mêmes pistes. Pour ajuster, la marque
         revalide ses notes (geste 2), puis redemande ses pistes.
       parameters:
@@ -162,6 +167,9 @@ paths:
       summary: 'Geste 4 : choisir une piste'
       description: |
         La marque choisit une des pistes proposées. Le brief est alors terminé.
+        Rechoisir la même piste répond 200. Répond 404 si `formulaId` n'est pas
+        une des pistes de ce brief, et 409 s'il n'y a pas encore de pistes
+        ou si une autre piste est déjà choisie.
       parameters:
         - $ref: '#/components/parameters/BriefId'
         - name: formulaId
@@ -199,7 +207,9 @@ components:
       type: string
       enum:
         [notes_proposed, notes_validated, formula_proposed, formula_accepted]
-      description: Où en est le parcours. Chaque geste fait avancer d'un état.
+      description: |
+        Où en est le parcours. Les gestes 1 à 4 font avancer d'un état.
+        Revalider ses notes (geste 2) ramène de `formula_proposed` à `notes_validated`.
     Understanding:
       type: object
       required: [kind, label]
@@ -207,11 +217,14 @@ components:
       properties:
         kind:
           type: string
-          enum: [usage, ambiance, emotion]
+          enum: [usage, ambiance, emotion, sensation]
           description: |
             `usage` : le produit ou son emploi (bougie, yaourt).
             `ambiance` : le lieu ou le moment (bord de mer, goûter).
-            `emotion` : l'émotion ou la sensation (évasion, fraîcheur).
+            `emotion` : ce que la création fait ressentir (évasion, réconfort).
+            `sensation` : ce qu'on perçoit en bouche, pour un arôme (crémeux, acidulé).
+            Une étiquette présente dans plusieurs colonnes du référentiel, comme
+            « dessert », est rangée en `usage`.
         label:
           type: string
           description: L'étiquette du référentiel, par exemple « bord de mer »
@@ -280,6 +293,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Note'
+        acceptedFormulaId:
+          type: string
+          description: |
+            Identifiant de la piste choisie. Absent tant que le statut
+            n'est pas `formula_accepted`.
         createdAt:
           type: string
           format: date-time
@@ -330,7 +348,7 @@ components:
           example:
             error: Envies manquantes
     NotFound:
-      description: Brief introuvable
+      description: Brief introuvable, ou piste qui n'est pas une de celles de ce brief
       content:
         application/json:
           schema:

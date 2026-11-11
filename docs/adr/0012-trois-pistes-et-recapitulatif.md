@@ -1,6 +1,6 @@
 # 0012. Faire entrer dans le contrat les trois pistes et le récapitulatif
 
-- Statut : proposée, à relire par Maxime
+- Statut : proposée. Relue par Maxime le 11 novembre : d'accord sur le fond. À fusionner après le tag m2
 - Date : 2026-11-10
 - Décideurs : Wissem, Maxime (tech-leads)
 
@@ -11,7 +11,7 @@ Le contrat ([ADR 0006](0006-contrat-api-avant-le-code.md)) décrit quatre gestes
 - le **récapitulatif** affiche ce que nous avons compris du projet, rangé par produit, usage, ambiance et émotions. Le contrat ne renvoie que des notes, chacune avec une raison en texte libre ;
 - les **pistes** sont trois, à comparer, chacune avec « Pourquoi cette piste ». Le contrat renvoie une seule formule.
 
-L'impact map du Product retient la même branche : « envies reformulées, puis trois références existantes, chacune expliquée ». Et elle nomme le risque à éviter : des références éloignées des envies, qui font perdre confiance à la marque.
+La branche validée le 9 novembre parlait d'« une première formule ». La maquette du 10 en montre trois : c'est elle qui fait foi ici. L'impact map du FigJam, lue le 10 novembre, dit la même chose (« trois références existantes, chacune expliquée ») et nomme le risque à éviter : des références éloignées des envies, qui font perdre confiance à la marque.
 
 ## Options
 
@@ -25,15 +25,17 @@ Nous proposons l'option 1. La marque qui ne se reconnaît pas dans une propositi
 
 Ce que le contrat change, dans [`openapi.yaml`](../../openapi.yaml) :
 
-- `Brief.understood` : une liste de `{ kind, label }`, où `kind` vaut `usage`, `ambiance` ou `emotion`. Ce sont les étiquettes que le service a déjà en main au geste 1 : rien de nouveau à calculer.
+- `Brief.understood` : une liste de `{ kind, label }`, où `kind` vaut `usage`, `ambiance` ou `emotion`. Ce sont les étiquettes que le service retient déjà au geste 1. Il reste à garder leur catégorie : `references.py` les range aujourd'hui dans une seule liste, sans dire de quelle colonne elles viennent. La valeur `sensation` sert aux arômes.
 - `POST /api/briefs/{briefId}/formulas` remplace `/formula` et renvoie `{ formulas }`, une à trois formules, la plus proche d'abord.
-- `POST /api/briefs/{briefId}/formulas/{formulaId}/acceptance` remplace `/formula/acceptance`.
+- `POST /api/briefs/{briefId}/formulas/{formulaId}/acceptance` remplace `/formula/acceptance`, et `Brief.acceptedFormulaId` dit ensuite quelle piste est choisie.
+- Une deuxième ou une troisième piste ne s'ajoute que si elle contient au moins deux notes validées. Simulé par Maxime sur les deux banques : trois pistes dans 40 % des cas, deux dans 33 à 42 %, une seule dans 17 à 28 %. Le Product doit confirmer qu'il préfère moins de pistes à une piste faible.
 
 Le modèle n'est pas appelé une fois de plus : il n'intervient qu'au geste 1, et le classement des formules est du code.
 
 ## Conséquences
 
-- Positives : les écrans Récapitulatif et Pistes de la maquette deviennent possibles ; le front ne lit plus le texte des raisons ; le LAB, dans sa version simple, tient déjà dans ce contrat, puisque revalider ses notes puis redemander ses pistes suffit.
-- Négatives, à accepter : deux routes changent de nom, donc l'API, le front et leurs tests bougent ensemble ; tant que le code n'a pas suivi, le contrat et `develop` divergent ; avec vingt références par univers, la troisième piste sera parfois éloignée des envies, ce que l'impact map demande justement d'éviter. Le service peut donc n'en renvoyer qu'une ou deux.
+- Positives : les écrans Récapitulatif et Pistes de la maquette deviennent possibles ; le front ne lit plus le texte des raisons ; retirer ou remettre une note proposée, la version la plus simple du LAB, tient dans ce contrat : la marque revalide ses notes, puis redemande ses pistes. Ajouter une note qui n'a pas été proposée demande une route du référentiel, hors de cette décision.
+- Négatives, à accepter : deux routes changent de nom, donc l'API, le front et leurs tests bougent ensemble ; tant que le code n'a pas suivi, le contrat et `develop` divergent ; avec vingt références par univers, la troisième piste sera parfois éloignée des envies, ce que l'impact map demande justement d'éviter. D'où le seuil ci-dessus.
 - Hors de cette décision : le LAB avec ses mots (« plus frais », « moins boisé ») et le dépôt d'un document.
-- À revoir si : le jalon m2 du 13 novembre est menacé. Il ne demande ni les trois pistes ni le récapitulatif : ce changement sert le concours, pas le jalon, et passe après.
+- Calendrier : le jalon m2 du 13 novembre ne demande ni les trois pistes ni le récapitulatif. Ce changement sert le dossier du concours, à déposer le 4 décembre, et se fusionne après le tag m2, pour que `openapi.yaml` ne décrive pas sur `develop` des routes absentes du commit montré vendredi.
+- À revoir si : le Product préfère toujours trois pistes, ou si le modèle doit rédiger l'explication de chaque piste (ticket #47), ce qui ferait plus d'un appel au geste 3.
