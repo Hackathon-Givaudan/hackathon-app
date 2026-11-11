@@ -1,5 +1,6 @@
 /.devcontainer/      @Hackathon-Givaudan/tech-leads
 /.github/            @Hackathon-Givaudan/tech-leads
 /compose.yaml        @Hackathon-Givaudan/tech-leads
+/Dockerfile          @Hackathon-Givaudan/tech-leads
 /eslint.config.mjs   @Hackathon-Givaudan/tech-leads
 package.json         @Hackathon-Givaudan/tech-leads

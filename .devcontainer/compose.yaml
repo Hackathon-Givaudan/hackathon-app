@@ -1,0 +1,15 @@
+# Le service du dev container, ajouté à ../compose.yaml par devcontainer.json.
+# Les chemins partent de la racine du dépôt, le dossier du premier fichier compose.
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    volumes:
+      - .:/workspace:cached
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    depends_on:
+      db:
+        condition: service_healthy
