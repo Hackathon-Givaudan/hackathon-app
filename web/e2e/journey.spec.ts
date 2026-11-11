@@ -103,3 +103,14 @@ test('technical words are explained where they appear', async ({ page }) => {
   await confirm(page).click();
   await expect(page.getByText('ce que l’on sent en premier')).toBeVisible();
 });
+
+test('a long title stays whole on a narrow screen', async ({ page }) => {
+  // Ticket #57 : l'animation d'entrée laissait un masque sur le titre, qui coupait sa deuxième ligne
+  await page.setViewportSize({ width: 390, height: 844 });
+  await describe(page, 'Un parfum', SEASIDE);
+  await confirm(page).click();
+
+  const title = page.getByRole('heading', { level: 1 });
+  await expect(title).toHaveText('Écume Saline');
+  await expect(title).toHaveCSS('clip-path', 'none');
+});

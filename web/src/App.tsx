@@ -138,7 +138,14 @@ export default function App() {
     const tween = gsap.fromTo(
       title,
       { y: 24, clipPath: 'inset(0 0 100% 0)' },
-      { y: 0, clipPath: 'inset(0 0 -20% 0)', duration: 0.9, ease: 'expo.out' },
+      {
+        y: 0,
+        clipPath: 'inset(0 0 -20% 0)',
+        duration: 0.9,
+        ease: 'expo.out',
+        /* Le masque ne sert qu'à l'entrée : laissé en place, il coupe la deuxième ligne d'un titre long */
+        clearProps: 'clipPath,transform',
+      },
     );
     return () => {
       tween.progress(1).kill();
