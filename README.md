@@ -5,21 +5,41 @@ Application assistée par l'IA, développée en deux semaines pour le hackathon 
 ## Stack
 
 - API : Node.js 24, TypeScript, Express, dans `api/`
-- Front : Vite, TypeScript, dans `web/`
+- Front : React, Vite, TypeScript, dans `web/`
 - Base de données : PostgreSQL 17
 - IA : le service `ia/`, seul à appeler le modèle (tout fournisseur compatible OpenAI, Ollama en local par défaut)
 
 Les décisions et leurs raisons sont dans [docs/adr](docs/adr).
 
-## Démarrer
+## Voir la tranche tourner
+
+Avec [Docker Desktop](https://www.docker.com/products/docker-desktop/) seul, depuis la racine du dépôt :
+
+```bash
+docker compose up
+```
+
+Puis ouvrez <http://localhost:5173>. La commande construit et lance le front, l'API, PostgreSQL et le service `ia/` ; ajoutez `--build` après un changement de code. Le parcours appelle l'API réelle.
+
+Pour que le modèle de langage lise les envies, installez [Ollama](https://ollama.com/download) et téléchargez le modèle retenu par l'ADR 0008 (4,4 Go) :
+
+```bash
+ollama pull mistral:7b
+```
+
+Sans Ollama, la tranche fonctionne quand même : le service `ia/` cherche alors les mots de la marque dans le référentiel. Sous Linux, Ollama doit écouter sur toutes les interfaces (`OLLAMA_HOST=0.0.0.0`).
+
+## Développer
+
+Arrêtez d'abord la tranche (`docker compose down`) : elle occupe les ports 3000 et 5173.
 
 Prérequis sur votre machine : [Docker Desktop](https://www.docker.com/products/docker-desktop/) (ou Docker Engine sous Linux), [VS Code](https://code.visualstudio.com/) avec l'extension [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), git configuré (nom, e-mail). Sous Windows, activez WSL 2 dans Docker Desktop et clonez le projet dans WSL, pas dans `C:\`.
 
 1. Clonez le dépôt et ouvrez le dossier dans VS Code.
-2. `F1` → **Dev Containers: Reopen in Container**. VS Code construit l'environnement, démarre PostgreSQL et installe les dépendances. Comptez quelques minutes la première fois.
+2. `F1` → **Dev Containers: Reopen in Container**. VS Code construit l'environnement, démarre PostgreSQL et le service `ia/`, et installe les dépendances. Comptez quelques minutes la première fois.
 3. Dans le terminal de VS Code : `npm run dev`, puis ouvrez <http://localhost:5173>.
 
-L'API suit le contrat de [`openapi.yaml`](openapi.yaml) : quatre gestes, des envies d'une marque à une formule acceptée. Les gestes 1 et 3 passent par le service Data/IA de [`ia/`](ia/README.md), que l'API joint par `DATA_AI_URL` (voir `api/.env.example`). Tant que ce service ne tourne pas, ils répondent 502.
+L'API suit le contrat de [`openapi.yaml`](openapi.yaml) : quatre gestes, des envies d'une marque à une formule acceptée. Les gestes 1 et 3 passent par le service Data/IA de [`ia/`](ia/README.md), que l'API joint par `DATA_AI_URL` (voir `api/.env.example`). Le front tourne en démonstration par défaut ; `VITE_API_MODE=live npm run dev` lui fait appeler l'API. Après un changement dans `ia/`, relancez le service depuis votre machine : `docker compose up -d --build ia`.
 
 ## Vérifier
 

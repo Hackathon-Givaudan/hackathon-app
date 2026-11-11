@@ -6,7 +6,8 @@ Plateforme de commande d'arômes et de parfums guidée par l'IA, pour le Givauda
 
 Toutes les commandes se lancent dans le dev container, depuis `/workspace`.
 
-- `npm run dev` : API sur le port 3000, front sur le port 5173.
+- `npm run dev` : API sur le port 3000, front sur le port 5173. Le service `ia` démarre avec le dev container et répond sur `http://ia:8000`.
+- Hors du dev container, `docker compose up` lance toute la tranche : `app` (API et front), `ia` et `db` (ADR 0011). Le service `dev` est dans `.devcontainer/compose.yaml`.
 - `curl -s localhost:3000/api/health` doit répondre `"status":"ok"` avec la version de PostgreSQL.
 - `psql postgres://app:app@db:5432/app` ouvre la base. L'hôte `db` est le nom du service dans `compose.yaml`.
 - Avant de dire « fini » : `npm run lint`, `npm run format:check`, `npm run build`. Ce sont les trois contrôles du job `qualite` dans `.github/workflows/ci.yml`.
