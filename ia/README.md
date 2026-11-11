@@ -7,10 +7,11 @@ Il traduit les envies d'une marque en notes, puis les notes validées en formule
 1. **Des envies aux étiquettes.** Le modèle de langage lit le texte de la marque et choisit jusqu'à 5 étiquettes dans une liste fermée : les ambiances, émotions et usages du référentiel. Une étiquette hors liste est jetée.
 2. **Des étiquettes aux notes.** Les références qui portent ces étiquettes sont classées, puis les plus proches donnent leurs notes à tour de rôle, 6 au plus, chacune avec sa raison.
 
-Le modèle ne fait que l'étape 1. Aucune note n'est inventée : tout vient de `data/`. Si le modèle ne répond pas, le service cherche les étiquettes écrites telles quelles dans le texte.
+Le modèle ne fait que l'étape 1. Aucune note n'est inventée : tout vient de `data/`. Les étiquettes que la marque a écrites telles quelles sont toujours gardées : celles du modèle s'y ajoutent, sans les remplacer. Si le modèle ne répond pas, il ne reste que les premières.
 
-Trois règles de classement, dans `app/notes.py` :
+Quatre règles de classement, dans `app/notes.py` :
 
+- Quand la marque nomme un produit du référentiel (« yaourt », « lessive »), la meilleure référence faite pour ce produit ouvre la liste, même si une autre a un meilleur score. Les autres suivent, par score.
 - Une étiquette rare pèse plus : « bord de mer » (2 références) départage mieux que « bougie » (11).
 - L'usage compte moitié moins qu'une ambiance ou une émotion : il dit où ira la création, pas ce qu'elle doit évoquer.
 - Deux envies différentes reçoivent chacune leurs notes : « hiver » et « joie » ne viennent pas de la même référence.

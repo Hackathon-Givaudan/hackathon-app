@@ -67,11 +67,11 @@ def test_wishes_typed_without_accents_are_still_recognised():
     assert "orange-douce" in [note["id"] for note in found]
 
 
-def test_the_wish_weighs_more_than_the_product():
-    # Une glace pour l'été, fraîche : des notes fraîches, pas le caramel qui « convient pour une glace »
+def test_a_product_and_a_wish_both_get_notes():
+    # Une glace pour l'été, fraîche : une référence faite pour la glace d'abord, puis des notes fraîches
     found = notes.propose_notes("arome", "Produit : glace. Ambiance : été. Émotion : fraîcheur.")
-    assert "caramel" not in [note["id"] for note in found]
-    assert all(note["reason"].startswith("Évoque") for note in found)
+    assert found[0]["reason"] == "Convient pour : glace"
+    assert "Évoque « fraîcheur »" in {note["reason"] for note in found}
 
 
 def test_the_longest_wording_wins():
@@ -84,3 +84,20 @@ def test_the_model_verdict_is_final_even_if_a_word_matches(monkeypatch):
     # « voiture » est une étiquette, mais le modèle a jugé que ce texte ne décrit aucun projet
     monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: [])
     assert notes.propose_notes("parfum", "ma voiture est en panne") == []
+
+
+def test_the_words_of_the_brand_are_kept_when_the_model_answers(monkeypatch):
+    # Ticket #58 : le modèle répond « gourmand », la marque avait choisi « gourmandise »
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: ["dessert", "gourmand", "yaourt"])
+    found = notes.propose_notes("arome", "Produit : yaourt. Ambiance : dessert. Émotion : gourmandise.")
+    assert found[0]["family"] == "Vanillé"  # Vanille Bourbon Douce : dessert, gourmandise et yaourt
+    kept = notes.find_tags("arome", "Produit : yaourt. Ambiance : dessert. Émotion : gourmandise.")
+    assert {"gourmandise", "gourmand"} <= set(kept)  # le mot de la marque reste, celui du modèle s'ajoute
+
+
+def test_a_reference_made_for_the_product_comes_first(monkeypatch):
+    # Ticket #58 : « confiance » est rare, mais Rose et Poivre n'est pas faite pour une lessive
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: ["lessive", "parfum", "douceur", "confiance"])
+    found = notes.propose_notes("parfum", "On lance une lessive pour bébé, quelque chose de doux qui rassure.")
+    assert found[0]["family"] == "Musquée"  # Linge Propre, la seule référence prévue pour la lessive
+    assert found[0]["reason"] == "Convient pour : lessive"

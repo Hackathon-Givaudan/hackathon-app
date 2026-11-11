@@ -22,18 +22,27 @@ def mentions(wishes: str, tag: str, normalise=slug) -> bool:
     return f"-{normalise(tag)}-" in f"-{normalise(wishes)}-"
 
 
-def find_tags(universe: str, wishes: str) -> list[str]:
-    """Étiquettes du référentiel qui correspondent aux envies : le modèle d'abord, les mots ensuite."""
+def written_tags(universe: str, wishes: str) -> list[str]:
+    """Étiquettes du référentiel que la marque a écrites telles quelles dans ses envies."""
     tags = all_tags(universe)
     exact = [tag for tag in tags if mentions(wishes, tag, spelled)]
     # Sans les accents (« ete »), sauf si l'orthographe exacte a déjà tranché
     loose = [tag for tag in tags if mentions(wishes, tag) and slug(tag) not in {slug(kept) for kept in exact}]
     found = exact + loose
     # « boisson » s'efface devant « boisson protéinée » : la formulation la plus longue l'emporte
-    longest = [tag for tag in found if not any(tag != other and mentions(other, tag) for other in found)]
-    chosen = pick_tags(wishes, tags)
-    # Le modèle a le dernier mot quand il répond ; sans réponse de sa part, les étiquettes trouvées dans le texte
-    return longest if chosen is None else chosen
+    return [tag for tag in found if not any(tag != other and mentions(other, tag) for other in found)]
+
+
+def find_tags(universe: str, wishes: str) -> list[str]:
+    """Étiquettes qui correspondent aux envies : les mots de la marque, puis ce que le modèle ajoute."""
+    written = written_tags(universe, wishes)
+    chosen = pick_tags(wishes, all_tags(universe))
+    if chosen is None:  # le modèle n'a rien dit d'exploitable
+        return written
+    if not chosen:  # son verdict : ce texte ne décrit aucun projet
+        return []
+    # Les mots écrits par la marque restent ; le modèle ajoute ce qu'elle a dit autrement
+    return written + [tag for tag in chosen if tag not in written]
 
 
 def propose_notes(universe: str, wishes: str) -> list[dict]:
@@ -59,7 +68,18 @@ def propose_notes(universe: str, wishes: str) -> list[dict]:
         return sum(rarity(tag) / (2 if tag in reference.uses else 1) for tag in shared(reference))
 
     # Les références proches de la meilleure (au moins la moitié de son score), trois au plus
-    ranked = sorted(references, key=score, reverse=True)
+    # Le produit demandé : celui que la marque a écrit, sinon celui que le modèle a compris
+    all_uses = {use for reference in references for use in reference.uses}
+    written = written_tags(universe, wishes)
+    named = {tag for tag in written if tag in all_uses} or {tag for tag in tags if tag in all_uses}
+
+    def suits(reference: Reference) -> bool:
+        """La référence est-elle faite pour le produit demandé ?"""
+        return bool(named & set(reference.uses))
+
+    # La meilleure référence faite pour le produit ouvre la liste ; les autres suivent, par score
+    best = sorted(filter(suits, references), key=score, reverse=True)[:1]
+    ranked = best + sorted((reference for reference in references if reference not in best), key=score, reverse=True)
     close = [reference for reference in ranked[:3] if score(reference) and score(reference) >= score(ranked[0]) / 2]
 
     # Une note de chaque référence à tour de rôle : deux envies différentes reçoivent chacune leurs notes
