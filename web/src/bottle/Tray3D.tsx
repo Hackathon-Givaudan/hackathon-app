@@ -9,6 +9,8 @@ export type Vial = {
 };
 
 const GAP = 0.82;
+/* Largeur visible du plateau, dans les unités de la scène */
+const FIT = 3.1;
 
 function VialMesh({ vial, x }: { vial: Vial; x: number }) {
   const lifted = vial.state === 'current' ? 0.35 : 0;
@@ -58,14 +60,16 @@ export default function Tray3D({ vials }: { vials: Vial[] }) {
       <ambientLight intensity={0.9} />
       <directionalLight position={[3, 5, 4]} intensity={2.2} />
       <directionalLight position={[-4, 2, 2]} intensity={0.7} />
-      {vials.map((vial, index) => (
-        <VialMesh key={vial.label} vial={vial} x={index * GAP - width / 2} />
-      ))}
-      {/* Le plateau */}
-      <mesh position={[0, -0.76, 0]}>
-        <boxGeometry args={[width + 1.2, 0.14, 1.3]} />
-        <meshStandardMaterial color="#3A2A36" roughness={0.6} />
-      </mesh>
+      {/* Le plateau entier tient dans le cadre, quel que soit le nombre de fioles */}
+      <group scale={Math.min(1, FIT / (width + 1.2))}>
+        {vials.map((vial, index) => (
+          <VialMesh key={vial.label} vial={vial} x={index * GAP - width / 2} />
+        ))}
+        <mesh position={[0, -0.76, 0]}>
+          <boxGeometry args={[width + 1.2, 0.14, 1.3]} />
+          <meshStandardMaterial color="#3A2A36" roughness={0.6} />
+        </mesh>
+      </group>
     </Canvas>
   );
 }
