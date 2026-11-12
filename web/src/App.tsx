@@ -14,7 +14,7 @@ import { BottleBoundary } from './bottle/BottleBoundary';
 import type { Brief, Formula, Universe } from './api';
 import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
-import { DescribeStep } from './journey/DescribeStep';
+import { SessionStep } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
 import { NotesStep } from './journey/NotesStep';
 import { UniverseStep } from './journey/UniverseStep';
@@ -225,7 +225,7 @@ export default function App() {
               />
             )}
             {step === 'describe' && (
-              <DescribeStep
+              <SessionStep
                 key={universe}
                 universe={universe}
                 busy={busy}
