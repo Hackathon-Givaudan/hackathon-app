@@ -22,6 +22,8 @@ type Props = {
   noteHelp: string;
   /* Le prénom du guide, qui pose les questions */
   guide: string;
+  /* « parfumeur » ou « aromaticien » */
+  expert: string;
   busy: boolean;
   error: string;
   onValidate: () => void;
@@ -45,6 +47,7 @@ export function TrayStep({
   onOpinion,
   noteHelp,
   guide,
+  expert,
   busy,
   error,
   onValidate,
@@ -192,8 +195,8 @@ export function TrayStep({
             </p>
           )}
           <p className="mt-2 text-sm text-secondary">
-            Vous choisissez ce que vous aimez. {guide} équilibre, puis un
-            parfumeur vérifie.
+            Vous choisissez ce que vous aimez. {guide} équilibre, puis un{' '}
+            {expert} vérifie.
           </p>
         </section>
       </div>

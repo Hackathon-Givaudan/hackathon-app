@@ -108,6 +108,9 @@ test('a flavour brand follows the same journey with its own words', async ({
   await smell(page, 'Je l’aime');
   await compose(page).click();
 
+  // Un arôme n'est pas contrôlé comme un parfum : pas d'IFRA, pas de test sur peau
+  await expect(page.getByText('Validée par un aromaticien')).toBeVisible();
+  await expect(page.getByText(/IFRA|sur peau/)).toHaveCount(0);
   await page.getByRole('button', { name: /^Recevoir l’échantillon/ }).click();
   await expect(page.getByText('Votre aromaticien ajuste')).toBeVisible();
 });

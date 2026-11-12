@@ -39,6 +39,8 @@ export function FormulaStep({
 }: Props) {
   /* Les notes regroupées par niveau, dans l'ordre où la formule les donne */
   const levels = [...new Set(formula.notes.map(({ note }) => note.family))];
+  /* L'IFRA et la tenue sur peau ne concernent que les parfums */
+  const flavour = expert === 'aromaticien';
 
   return (
     <div className="mt-auto pb-6 pt-10">
@@ -91,14 +93,19 @@ export function FormulaStep({
       </h2>
       <ul className="mt-2 border-t border-line-strong">
         {[
-          ['Validée par un parfumeur Givaudan', 'Équilibre, tenue et dosages'],
           [
-            'Testée sur peau et en flacon',
-            'Tenue, sillage et stabilité dans le temps',
+            `Validée par un ${expert} Givaudan`,
+            flavour ? 'Équilibre et dosages' : 'Équilibre, tenue et dosages',
           ],
+          flavour
+            ? ['Testée dans votre produit', 'Goût et stabilité dans le temps']
+            : [
+                'Testée sur peau et en flacon',
+                'Tenue, sillage et stabilité dans le temps',
+              ],
           [
             'Contrôlée pour vos pays de vente',
-            `Normes IFRA et réglementation : ${countries.join(', ') || '[X]'}`,
+            `${flavour ? 'Réglementation alimentaire' : 'Normes IFRA et réglementation'} : ${countries.join(', ') || '[X]'}`,
           ],
         ].map(([check, detail]) => (
           <li key={check} className="border-b border-line py-2">

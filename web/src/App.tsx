@@ -373,6 +373,7 @@ export default function App() {
                 }
                 noteHelp={noteHelp}
                 guide={guide}
+                expert={expert}
                 busy={busy}
                 error={error}
                 onValidate={validateNotes}
