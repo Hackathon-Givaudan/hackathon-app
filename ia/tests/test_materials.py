@@ -21,6 +21,11 @@ def test_the_sheet_uses_our_note_ids():
     assert materials.find("fleur-d-oranger")["name"] == "Fleur d'oranger"
 
 
+def test_a_precision_in_brackets_does_not_change_the_id():
+    # Chez Ali « Sel marin (accord) » ; chez nous, la note s'appelle « sel marin »
+    assert materials.find("sel-marin")["name"] == "Sel marin (accord)"
+
+
 def test_related_notes_are_given_by_name():
     # Ali les range par identifiant (« bergamote », « musc ») ; la marque lit leur nom
     assert materials.find("fleur-d-oranger")["pairsWith"][:2] == ["Bergamote", "Musc blanc"]
