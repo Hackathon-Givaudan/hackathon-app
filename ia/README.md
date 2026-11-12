@@ -36,11 +36,13 @@ La documentation interactive des routes est sur <http://localhost:8000/docs>.
 
 ## Routes
 
-| Route           | Entrée                                                          | Sortie                                            |
-| --------------- | --------------------------------------------------------------- | ------------------------------------------------- |
-| `GET /health`   |                                                                 | État et nombre de références                      |
-| `POST /notes`   | `universe`, `wishes`                                            | `notes` : `id`, `label`, `family`, `reason`       |
-| `POST /formula` | `universe`, `wishes`, `noteIds`, `rejectedNoteIds` (facultatif) | Une formule au format `Formula` de `openapi.yaml` |
+| Route                     | Entrée                                                          | Sortie                                                                |
+| ------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `GET /health`             |                                                                 | État et nombre de références                                          |
+| `POST /notes`             | `universe`, `wishes`                                            | `notes` : `id`, `label`, `family`, `reason`                           |
+| `POST /formula`           | `universe`, `wishes`, `noteIds`, `rejectedNoteIds` (facultatif) | Une formule au format `Formula` de `openapi.yaml`                     |
+| `GET /materials/{noteId}` |                                                                 | La fiche matière de la note, 404 si elle n'en a pas                   |
+| `POST /potential`         | Les champs du brief, tous facultatifs                           | Les 7 critères du potentiel, chacun avec sa raison, et une suggestion |
 
 `universe` vaut `parfum` ou `arome`. Une réponse 422 signifie que rien ne correspond.
 
@@ -48,16 +50,27 @@ La formule est la référence qui contient le plus de notes validées ; à égal
 
 ## Où est quoi
 
-| Fichier             | Rôle                                                        |
-| ------------------- | ----------------------------------------------------------- |
-| `data/*.csv`        | Les 40 références fictives du Product, 20 par univers       |
-| `app/references.py` | Lit les CSV                                                 |
-| `app/llm.py`        | Le seul fichier qui parle au modèle                         |
-| `app/notes.py`      | Les deux étapes ci-dessus                                   |
-| `app/formula.py`    | La référence la plus proche des notes validées, expliquée   |
-| `app/main.py`       | Les routes                                                  |
-| `tests/`            | `test_notes.py` : les règles, `test_routes.py` : les routes |
-| `evaluation/`       | Mesure de la qualité avec un modèle                         |
+| Fichier             | Rôle                                                                 |
+| ------------------- | -------------------------------------------------------------------- |
+| `data/*.csv`        | Les 40 références fictives du Product, 20 par univers                |
+| `app/references.py` | Lit les CSV                                                          |
+| `app/llm.py`        | Le seul fichier qui parle au modèle                                  |
+| `app/notes.py`      | Les deux étapes ci-dessus                                            |
+| `app/formula.py`    | La référence la plus proche des notes validées, expliquée            |
+| `app/materials.py`  | La fiche matière, tirée de `data/notes_atelier.json`                 |
+| `app/potential.py`  | Les 7 critères du potentiel, tirés de `data/criteres_potentiel.json` |
+| `app/main.py`       | Les routes                                                           |
+| `tests/`            | `test_notes.py` : les règles, `test_routes.py` : les routes          |
+| `evaluation/`       | Mesure de la qualité avec un modèle                                  |
+
+## Le travail d'Ali (équipe Data)
+
+Ali a construit un moteur complet sur la branche `feature/data-ia-v3` (commit `137fa93`). Plutôt que d'ajouter un deuxième service, on reprend ici ses données et ses règles, dans notre format :
+
+- `data/notes_atelier.json` : 72 fiches matières avec leurs sources. La fiche n'affiche que ce qui est confirmé par une source ; un fait déduit reste hors de la fiche. Les identifiants sont les nôtres (`fleur-d-oranger`), calculés à partir du nom.
+- `data/criteres_potentiel.json` et `data/modele_brief.json` : les 7 critères de l'écran Business 05, les décisions possibles et les valeurs permises du brief. Les règles restent une hypothèse à valider avec Givaudan ; un seuil inconnu s'écrit `[X]`.
+
+Pas encore repris : les deux versions d'une formule, les duels du profil et le « Pourquoi cette note ? ». L'import d'un brief n'est pas repris : le Product l'a écarté.
 
 ## Tester
 
