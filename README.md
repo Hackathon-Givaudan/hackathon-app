@@ -29,6 +29,15 @@ ollama pull mistral:7b
 
 Sans Ollama, la tranche fonctionne quand même : le service `ia/` cherche alors les mots de la marque dans le référentiel. Sous Linux, Ollama doit écouter sur toutes les interfaces (`OLLAMA_HOST=0.0.0.0`).
 
+## Ce qui est simulé
+
+Le front, l'API, PostgreSQL, le service `ia/` et l'appel au modèle sont réels. Quatre choses ne le sont pas :
+
+- La banque : 40 références écrites pour la démonstration, 20 parfums et 20 arômes, marquées « fictif démo » dans `ia/data/`. Aucune formule de Givaudan.
+- La formule proposée : la référence existante la plus proche des notes gardées, jamais une composition sur mesure. Ses parts sont égales par construction, parce que la banque ne donne pas de proportions : l'écran ne les affiche pas.
+- La demande d'échantillon : elle est enregistrée en base, rien n'est envoyé.
+- Les comptes : pas de connexion, un brief n'appartient à personne.
+
 ## Développer
 
 Arrêtez d'abord la tranche (`docker compose down`) : elle occupe les ports 3000 et 5173.
