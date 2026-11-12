@@ -78,10 +78,13 @@ export default function App() {
   /* Le produit choisi à la bienvenue, et ce que la marque complète dans son brief */
   const [product, setProduct] = useState('');
   const [details, setDetails] = useState<BriefDetails>({});
+  /* Les réponses du profil, gardées si la marque revient en arrière */
+  const [profileAnswers, setProfileAnswers] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const panel = useRef<HTMLElement>(null);
-  const { expert, object, lid, noteHelp, tiers } = VOCABULARY[universe];
+  const { expert, object, lid, noteHelp, tiers, profile, existing } =
+    VOCABULARY[universe];
   /* Tant que la marque n'a pas dit ce qu'elle crée, on ne montre ni flacon ni pot */
   const chosen = step !== 'universe';
   const onTray = (step === 'notes' || step === 'delivery') && brief;
@@ -106,7 +109,9 @@ export default function App() {
 
   const sendWishes = (wishes: string) =>
     run(async () => {
-      const created = await api.createBrief(universe, wishes);
+      /* Revenir en arrière puis repartir sans rien changer ne crée pas un deuxième brief */
+      const same = brief?.wishes === wishes.trim() ? brief : null;
+      const created = same ?? (await api.createBrief(universe, wishes));
       /* Les précisions données à l'écran du brief partent avec lui : le conseiller les lit */
       const sent = toApiDetails(details);
       setBrief(
@@ -114,7 +119,7 @@ export default function App() {
           ? await api.completeBrief(created.id, sent)
           : created,
       );
-      setOpinions({});
+      if (!same) setOpinions({});
       setStep('delivery');
     });
 
@@ -140,6 +145,7 @@ export default function App() {
     setCreationName('');
     setProduct('');
     setDetails({});
+    setProfileAnswers([]);
     setError('');
     setStep('universe');
   }
@@ -264,15 +270,20 @@ export default function App() {
             Aide
           </button>
         </div>
-        {help && <HelpDialog onClose={() => setHelp(false)} />}
-        <p className="sr-only" role="status" aria-label="Carnet d’atelier">
+        {help && <HelpDialog guide={guide} onClose={() => setHelp(false)} />}
+        {/* Sur un petit écran, les huit étapes ne tiennent pas en ligne : le carnet dit seulement où l'on est */}
+        <p
+          role="status"
+          aria-label="Carnet d’atelier"
+          className="order-last w-full pb-3 text-sm text-secondary lg:sr-only"
+        >
           Carnet d’atelier · étape {stepIndex + 1} sur {STEPS.length} ·{' '}
-          {STEPS[stepIndex][1]}
+          <span className="font-medium text-ink">{STEPS[stepIndex][1]}</span>
         </p>
         <ol
           aria-label="Carnet d’atelier"
           title={`Carnet d’atelier · étape ${stepIndex + 1} sur ${STEPS.length}`}
-          className="flex"
+          className="hidden lg:flex"
         >
           {STEPS.map(([id, label], index) => (
             <li
@@ -377,6 +388,7 @@ export default function App() {
             {step === 'brief' && (
               <BriefStep
                 guide={guide}
+                profile={profile}
                 wishes={heardWishes}
                 details={details}
                 onDetails={setDetails}
@@ -388,6 +400,8 @@ export default function App() {
               <ProfileStep
                 universe={universe}
                 wishes={heardWishes}
+                answers={profileAnswers}
+                onAnswers={setProfileAnswers}
                 busy={busy}
                 error={error}
                 onSubmit={sendWishes}
@@ -398,6 +412,7 @@ export default function App() {
               <DeliveryStep
                 vials={brief.proposedNotes.length}
                 guide={guide}
+                existing={existing}
                 onArrived={() => setStep('notes')}
                 onBack={() => setStep('profile')}
               />

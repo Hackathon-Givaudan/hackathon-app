@@ -9,6 +9,8 @@ type Phase = 'offer' | 'validation' | 'shipping' | 'back';
 type Props = {
   vials: number;
   guide: string;
+  /* « Partir de parfums existants », ou d'arômes */
+  existing: string;
   onArrived: () => void;
   onBack: () => void;
 };
@@ -46,7 +48,13 @@ function Timeline({ stages, done }: { stages: string[][]; done: number }) {
   );
 }
 
-export function DeliveryStep({ vials, guide, onArrived, onBack }: Props) {
+export function DeliveryStep({
+  vials,
+  guide,
+  existing,
+  onArrived,
+  onBack,
+}: Props) {
   const [phase, setPhase] = useState<Phase>('offer');
   const [offer, setOffer] = useState(0);
   const [ready, setReady] = useState([true, false, false, false]);
@@ -71,7 +79,7 @@ export function DeliveryStep({ vials, guide, onArrived, onBack }: Props) {
       next: null,
     },
     {
-      title: 'Partir de parfums existants',
+      title: existing,
       sub: 'Des échantillons de créations Givaudan proches de votre profil',
       badge: 'Le plus rapide',
       text: `${guide} choisit des formules de la banque proches de votre profil. Moins de sur-mesure, plus rapide.`,

@@ -1,4 +1,4 @@
-/* L'aide : Aurore ne répond qu'avec ces réponses, écrites et validées par l'équipe.
+/* L'aide : le guide ne répond qu'avec ces réponses, écrites et validées par l'équipe.
    Une question qui n'en trouve aucune reçoit REFUSAL. Aucun texte n'est rédigé par un modèle. */
 
 export const REFUSAL =
@@ -9,9 +9,9 @@ type Entry = { question: string; words: string[]; answer: string };
 export const FAQ: Entry[] = [
   {
     question: 'Comment se passe la séance ?',
-    words: ['seance', 'aurore', 'conversation', 'marche'],
+    words: ['seance', 'aurore', 'victor', 'guide', 'conversation', 'marche'],
     answer:
-      'Vous échangez par écrit avec Aurore. Elle note ce qu’elle entend, avec vos mots, et vous pouvez retirer ce qui ne vous ressemble pas.',
+      'Vous échangez par écrit avec votre guide, qui note ce qu’il entend, avec vos mots. Vous pouvez retirer ce qui ne vous ressemble pas.',
   },
   {
     question: 'Quand vais-je recevoir mon échantillon ?',

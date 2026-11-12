@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import type { Universe } from '../api';
 import { smallLabel } from '../shared/ui';
+import { VOCABULARY } from '../shared/vocabulary';
 
 /* Les six axes de la maquette pour chaque univers, avec ce qu'ils veulent dire */
 const AXES: Record<Universe, [string, string][]> = {
@@ -96,8 +97,10 @@ export function ProfileWheel({ universe, words }: Props) {
     setTouch(touch.map((value, at) => (at === index ? value + by : value)));
 
   return (
-    <section aria-label="Votre roue olfactive" className="mt-8">
-      <h2 className="text-[20px] font-semibold">Votre roue olfactive</h2>
+    <section aria-label={VOCABULARY[universe].wheel} className="mt-8">
+      <h2 className="text-[20px] font-semibold">
+        {VOCABULARY[universe].wheel}
+      </h2>
       <p role="status" className="mt-1 text-[16px]">
         Profil établi : plutôt {top.join(' et ')}.
       </p>

@@ -185,9 +185,7 @@ export function AcceptedStep({
               aria-pressed={accepted}
               className={cn(pill, accepted && 'bg-selected')}
             >
-              {accepted
-                ? 'Devis accepté, Karim lance la production'
-                : 'Accepter le devis'}
+              {accepted ? 'Devis accepté' : 'Accepter le devis'}
             </button>
             <button
               onClick={() => setAsked(!asked)}

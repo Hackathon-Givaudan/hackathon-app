@@ -20,6 +20,10 @@ export const VOCABULARY: Record<
     label: string;
     hint: string;
     expert: string;
+    /* Les mots qui changent d'un univers à l'autre : le profil, la roue, les créations existantes */
+    profile: string;
+    wheel: string;
+    existing: string;
     /* L'objet montré à l'écran, et son couvercle */
     object: string;
     lid: 'bouchon' | 'couvercle';
@@ -37,6 +41,9 @@ export const VOCABULARY: Record<
     label: 'Un parfum',
     hint: 'Bougie, soin, parfum d’ambiance…',
     expert: 'parfumeur',
+    profile: 'olfactif',
+    wheel: 'Votre roue olfactive',
+    existing: 'Partir de parfums existants',
     object: 'flacon',
     lid: 'bouchon',
     noteHelp: 'Une note est une odeur qui compose votre parfum.',
@@ -126,6 +133,9 @@ export const VOCABULARY: Record<
     label: 'Un arôme alimentaire',
     hint: 'Boisson, yaourt, pâtisserie…',
     expert: 'aromaticien',
+    profile: 'gustatif',
+    wheel: 'Votre roue des saveurs',
+    existing: 'Partir d’arômes existants',
     object: 'pot',
     lid: 'couvercle',
     noteHelp: 'Une note est une saveur qui compose votre arôme.',

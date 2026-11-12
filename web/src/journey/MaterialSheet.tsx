@@ -24,7 +24,8 @@ export function MaterialSheet({ note }: { note: Note }) {
   /* Une réponse arrivée pour une autre fiole ne compte pas */
   const sheet = state?.noteId === note.id ? state.sheet : undefined;
   const rows: [string, string | undefined][] = [
-    ['Famille', sheet?.family ?? note.family],
+    // La famille est celle de la référence, la même sur tous les écrans
+    ['Famille', note.family],
     ['Origine', sheet?.origin],
     ['Obtention', sheet?.obtained],
     ['Tenue', sheet?.hold],

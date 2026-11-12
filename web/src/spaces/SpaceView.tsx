@@ -49,7 +49,8 @@ export function SpaceView({ onBack }: { onBack: () => void }) {
         Bonjour Léa.
       </h1>
       <p className="mt-2 text-sm text-secondary">
-        Vos données restent privées. Seul votre conseiller Givaudan y a accès.
+        Prototype : pas de comptes, cet espace montre tous les projets
+        enregistrés.
       </p>
       {error && <p className={errorText}>{error}</p>}
       {briefs?.length === 0 && (

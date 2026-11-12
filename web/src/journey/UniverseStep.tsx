@@ -8,7 +8,7 @@ import { linkButton, smallLabel } from '../shared/ui';
 import { VOCABULARY } from '../shared/vocabulary';
 
 const PROMISE = [
-  ['Vous décrivez', 'Un échange écrit avec Aurore, notre parfumeuse IA.'],
+  ['Vous décrivez', 'Un échange écrit avec votre guide, Aurore ou Victor.'],
   [
     'Nous traduisons',
     'Vos mots deviennent des notes, que vous sentez une à une.',
@@ -20,11 +20,11 @@ const PROMISE = [
 const STAGES = [
   [
     'La séance',
-    'Vous racontez votre projet à Aurore. Elle note ce qu’elle entend.',
+    'Vous racontez votre projet à votre guide, qui note ce qu’il entend.',
   ],
   [
     'Le brief',
-    'Vous relisez ce qu’elle a compris, et précisez vos goûts en cinq questions.',
+    'Vous relisez ce qu’il a compris, et précisez vos goûts en cinq questions.',
   ],
   ['Le plateau', 'Vous donnez votre avis sur chaque fiole proposée.'],
   [

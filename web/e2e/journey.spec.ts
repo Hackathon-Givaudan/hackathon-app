@@ -57,9 +57,7 @@ async function openKit(page: Page) {
 /* De l'accueil au plateau, sans répondre aux questions du profil */
 async function reachTray(page: Page, universe: string, example: string) {
   await describe(page, universe, example);
-  await page
-    .getByRole('button', { name: 'Établir mon profil olfactif' })
-    .click();
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
   await openKit(page);
 }
@@ -74,9 +72,7 @@ test('a perfume brand goes from its project to a sample request', async ({
     'Voici votre brief.',
   );
   await expect(page.getByText('bord de mer')).toBeVisible();
-  await page
-    .getByRole('button', { name: 'Établir mon profil olfactif' })
-    .click();
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
   // Le profil ne pose que les questions que la séance n'a pas tranchées
   for (const answer of [
     'Le soir',
@@ -270,9 +266,7 @@ test('the profile does not ask again what the session already settled', async ({
   page,
 }) => {
   await describe(page, 'Un parfum', 'Un diffuseur pour les soirées d’hiver');
-  await page
-    .getByRole('button', { name: 'Établir mon profil olfactif' })
-    .click();
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
 
   // La séance a entendu « hiver » : le profil ne redemande pas « l'été ou l'hiver »
   await expect(page.getByText('Plutôt le calme ou l’énergie ?')).toBeVisible();
@@ -292,9 +286,7 @@ test('the brand is welcomed and chooses its guide', async ({ page }) => {
 
 test('the brand waits for its tray, then smells it', async ({ page }) => {
   await describe(page, 'Un parfum', SEASIDE);
-  await page
-    .getByRole('button', { name: 'Établir mon profil olfactif' })
-    .click();
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
 
   // Écran 07 : trois façons de recevoir ses fioles, celle du conseiller en premier
@@ -427,9 +419,7 @@ async function orderSample(page: Page) {
   await page.getByLabel('Volume annuel').fill('500');
   await page.getByRole('button', { name: 'Grand public' }).click();
   await page.getByRole('button', { name: 'France', exact: true }).click();
-  await page
-    .getByRole('button', { name: 'Établir mon profil olfactif' })
-    .click();
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
   await openKit(page);
   await smell(page, 'Je l’aime');
@@ -494,9 +484,7 @@ test('the profile wheel leans with the brand and can be shaped by hand', async (
   page,
 }) => {
   await describe(page, 'Un parfum', SEASIDE);
-  await page
-    .getByRole('button', { name: 'Établir mon profil olfactif' })
-    .click();
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
 
   // Le brief parle de bord de mer : la roue penche déjà vers le marin
   const wheel = page.getByRole('region', { name: 'Votre roue olfactive' });
@@ -513,4 +501,150 @@ test('the workshop notebook says where the brand is', async ({ page }) => {
   await expect(
     page.getByRole('status', { name: 'Carnet d’atelier' }),
   ).toHaveText(/étape 3 sur 8 · Séance/);
+});
+
+/* Rien ne doit dépasser de l'écran d'un téléphone : ni page qui défile de côté, ni texte coupé */
+async function expectNothingOverflows(page: Page, screen: string) {
+  const overflowing = await page.evaluate(() => {
+    const width = document.documentElement.clientWidth;
+    return [...document.querySelectorAll<HTMLElement>('body *')]
+      .filter((element) => {
+        const box = element.getBoundingClientRect();
+        return box.width > 0 && (box.right > width + 1 || box.left < -1);
+      })
+      .map(
+        (element) =>
+          `${element.tagName.toLowerCase()} « ${(element.getAttribute('aria-label') ?? element.textContent ?? '').trim().slice(0, 40)} »`,
+      )
+      .slice(0, 5);
+  });
+  expect(overflowing, `ce qui dépasse sur l'écran « ${screen} »`).toEqual([]);
+}
+
+test('nothing overflows on a phone, from the home to the recall', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  await expectNothingOverflows(page, 'accueil');
+  await page.getByRole('button', { name: 'Un parfum' }).click();
+  await expectNothingOverflows(page, 'bienvenue');
+  await page.getByRole('button', { name: 'Commencer la séance' }).click();
+  await page.getByRole('button', { name: new RegExp(SEASIDE) }).click();
+  await talk(page, 2);
+  await expectNothingOverflows(page, 'séance');
+  if (!(await page.getByText(CLOSING).isVisible())) {
+    await page.getByLabel('Votre réponse').fill('De l’évasion et du calme');
+    await page.getByRole('button', { name: 'Envoyer' }).click();
+    await talk(page, 3);
+  }
+  await page.getByRole('button', { name: 'Voir mon brief' }).click();
+  await expectNothingOverflows(page, 'brief');
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
+  await expectNothingOverflows(page, 'profil');
+  await page.getByRole('button', { name: 'Passer cette étape' }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Votre parcours se fait en deux temps.',
+  );
+  await expectNothingOverflows(page, 'offres du plateau');
+  await page.getByRole('button', { name: /^Recevoir mon plateau/ }).click();
+  await expectNothingOverflows(page, 'validation par Karim');
+  await page
+    .getByRole('button', { name: 'Démo : Karim a validé le plateau' })
+    .click();
+  await expectNothingOverflows(page, 'livraison');
+  await page
+    .getByRole('button', {
+      name: 'Démo : le plateau est arrivé, je me reconnecte',
+    })
+    .click();
+  await expectNothingOverflows(page, 'reprise');
+  await page.getByRole('button', { name: /^Commencer maintenant/ }).click();
+  await expect(page.getByText(/fiole 1 sur/)).toBeVisible();
+  await expectNothingOverflows(page, 'fioles');
+  await smell(page, 'Je l’aime');
+  await expectNothingOverflows(page, 'feuille de composition');
+  await compose(page).click();
+  await expect(page.getByText('Pourquoi cette proposition')).toBeVisible();
+  await expectNothingOverflows(page, 'formule');
+  await page.getByRole('button', { name: /^Recevoir l’échantillon/ }).click();
+  await expect(page.getByText('prend forme.')).toBeVisible();
+  await expectNothingOverflows(page, 'suivi et devis');
+  await page
+    .getByRole('button', { name: 'Simuler la réception de l’échantillon' })
+    .click();
+  await page.getByRole('button', { name: 'Plus de fraîcheur' }).click();
+  await expectNothingOverflows(page, 'rappel');
+  await page.getByRole('button', { name: 'Léa · Mon espace' }).click();
+  await expect(page.getByText('Bonjour Léa.')).toBeVisible();
+  await expectNothingOverflows(page, 'espace client');
+  await page.getByRole('button', { name: 'Revenir à l’atelier' }).click();
+  await page.getByRole('button', { name: 'Espace conseiller' }).click();
+  await page
+    .getByRole('button', { name: /^Ouvrir le brief/ })
+    .first()
+    .click();
+  await expect(page.getByText(/^Suggestion :/)).toBeVisible();
+  await expectNothingOverflows(page, 'espace conseiller');
+});
+
+test('the guide the brand chose is the one it reads everywhere', async ({
+  page,
+}) => {
+  await enter(page, 'Un parfum', 'Victor');
+  await expect(page.getByText('La séance · avec Victor')).toBeVisible();
+  await page.getByRole('button', { name: 'Aide' }).click();
+  const help = page.getByRole('dialog', { name: 'Aide' });
+  await expect(help.getByText(/Posez votre question à Victor/)).toBeVisible();
+  // Aucun écran ne parle d'Aurore quand la marque a choisi Victor
+  await expect(page.getByText(/Aurore/)).toHaveCount(0);
+});
+
+test('a flavour brand reads flavour words, not perfume words', async ({
+  page,
+}) => {
+  await describe(page, 'Un arôme alimentaire', 'Un yaourt');
+  await page
+    .getByRole('button', { name: 'Établir mon profil gustatif' })
+    .click();
+  await expect(
+    page.getByRole('region', { name: 'Votre roue des saveurs' }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Passer cette étape' }).click();
+  await expect(page.getByText('Partir d’arômes existants')).toBeVisible();
+  await expect(page.getByText(/parfums existants|olfacti/)).toHaveCount(0);
+});
+
+test('the brand space does not promise a privacy the prototype lacks', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Léa · Mon espace' }).click();
+  await expect(page.getByText(/pas de comptes/)).toBeVisible();
+  await expect(page.getByText(/restent privées/)).toHaveCount(0);
+});
+
+test('going back from the tray keeps the profile and the same brief', async ({
+  page,
+}) => {
+  await describe(page, 'Un parfum', SEASIDE);
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
+  const answer = page.getByRole('button', { name: 'Le calme', exact: true });
+  await answer.click();
+  const count = async () =>
+    (await (await page.request.get('/api/briefs')).json()).briefs.length;
+  const offers = page.getByRole('heading', {
+    name: 'Votre parcours se fait en deux temps.',
+  });
+  await page.getByRole('button', { name: 'Voir mon plateau' }).click();
+  await expect(offers).toBeVisible();
+  const before = await count();
+  await page.getByRole('button', { name: 'Revenir au profil' }).click();
+
+  // La réponse est restée, et repartir ne crée pas un deuxième brief
+  await expect(answer).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Voir mon plateau' }).click();
+  await expect(offers).toBeVisible();
+  expect(await count()).toBe(before);
 });

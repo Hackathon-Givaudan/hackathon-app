@@ -1,6 +1,5 @@
 /* Le profil (écran 06 de la V3) : la marque répond à cinq questions à deux choix, sans rien sentir.
    Rien de caché : chaque réponse ajoute un mot du référentiel à son brief, et ce mot s'affiche. */
-import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import type { Universe } from '../api';
 import {
@@ -18,6 +17,9 @@ type Props = {
   universe: Universe;
   /* Ce qu'Aurore a entendu pendant la séance : « Produit : bougie. Ambiance : bord de mer. » */
   wishes: string;
+  /* Les réponses déjà données : elles restent si la marque revient sur cet écran */
+  answers: string[];
+  onAnswers: (answers: string[]) => void;
   busy: boolean;
   error: string;
   onSubmit: (wishes: string) => void;
@@ -27,6 +29,8 @@ type Props = {
 export function ProfileStep({
   universe,
   wishes,
+  answers,
+  onAnswers,
   busy,
   error,
   onSubmit,
@@ -38,7 +42,6 @@ export function ProfileStep({
   const duels = VOCABULARY[universe].duels.filter(
     ({ choices }) => !choices.some(({ adds }) => settled(adds)),
   );
-  const [answers, setAnswers] = useState<string[]>([]);
   const added = answers.filter(Boolean);
 
   if (busy) {
@@ -51,7 +54,7 @@ export function ProfileStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>Votre profil olfactif</p>
+      <p className={smallLabel}>Votre profil {VOCABULARY[universe].profile}</p>
       <h1 className="f-display mt-1 text-[44px] leading-[1.08] md:text-[52px]">
         On ne sent rien encore. On parle de vous.
       </h1>
@@ -75,7 +78,7 @@ export function ProfileStep({
                   onClick={() => {
                     const next = [...answers];
                     next[index] = next[index] === adds ? '' : adds;
-                    setAnswers(next);
+                    onAnswers(next);
                   }}
                   aria-pressed={answers[index] === adds}
                   className={cn(

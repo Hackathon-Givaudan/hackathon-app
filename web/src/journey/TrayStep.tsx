@@ -1,6 +1,6 @@
 /* Geste 2 : le plateau. La marque donne son avis sur chaque fiole, une par une,
    puis relit sa feuille de composition. Les fioles gardées deviennent ses notes validées. */
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import type { Note } from '../api';
 import {
@@ -53,6 +53,13 @@ export function TrayStep({
   onValidate,
   onBack,
 }: Props) {
+  /* Un double clic ne doit pas noter deux fioles : la suivante prend la place de la première sous le doigt */
+  const lastRated = useRef(0);
+  const rate = (noteId: string, opinion: Opinion) => {
+    if (Date.now() - lastRated.current < 350) return;
+    lastRated.current = Date.now();
+    onOpinion(noteId, opinion);
+  };
   const current = notes.find((note) => !opinions[note.id]);
   const kept = notes.filter(
     (note) => opinions[note.id] && opinions[note.id] !== 'no',
@@ -109,7 +116,7 @@ export function TrayStep({
               {CHOICES.map(([opinion, label]) => (
                 <button
                   key={opinion}
-                  onClick={() => onOpinion(current.id, opinion)}
+                  onClick={() => rate(current.id, opinion)}
                   className="min-h-12 border border-line-strong rounded-full px-5 text-[16px] hover:bg-soft"
                 >
                   {label}
@@ -176,7 +183,7 @@ export function TrayStep({
         )}
         <div className="mt-5">
           <button onClick={onBack} className={linkButton}>
-            Revenir au brief
+            Revenir au profil
           </button>
         </div>
 
@@ -253,7 +260,7 @@ export function TrayStep({
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>
-          Revenir au brief
+          Revenir au profil
         </button>
       </div>
       {kept.length === 0 && (

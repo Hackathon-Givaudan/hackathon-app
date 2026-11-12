@@ -1,10 +1,12 @@
-/* L'aide : la marque pose une question, Aurore répond avec une réponse validée, ou dit qu'elle ne peut pas */
+/* L'aide : la marque pose une question, son guide répond avec une réponse validée, ou dit qu'elle ne peut pas */
 import { useState } from 'react';
 import { Dialog } from '../shared/Dialog';
 import { answerTo, FAQ } from '../shared/faq';
 import { linkButton, primaryButton, smallLabel } from '../shared/ui';
 
-export function HelpDialog({ onClose }: { onClose: () => void }) {
+type Props = { guide: string; onClose: () => void };
+
+export function HelpDialog({ guide, onClose }: Props) {
   const [question, setQuestion] = useState('');
   const [asked, setAsked] = useState('');
 
@@ -16,7 +18,8 @@ export function HelpDialog({ onClose }: { onClose: () => void }) {
   return (
     <Dialog title="Aide" onClose={onClose}>
       <p className="mt-2 text-[15px] opacity-85">
-        Posez votre question à Aurore. Elle ne répond que sur votre projet.
+        Posez votre question à {guide}. La réponse ne porte que sur votre
+        projet.
       </p>
       <div className="mt-4 flex gap-2">
         <input

@@ -143,8 +143,11 @@ export function AdvisorView({ onBack }: { onBack: () => void }) {
                 Suggestion : {potential.suggestionLabel}
               </p>
               <p className="text-[15px] text-secondary">
-                {potential.favorable} critères favorables sur{' '}
-                {potential.criteria.length}. {potential.note}
+                {potential.favorable}{' '}
+                {potential.favorable > 1
+                  ? 'critères favorables'
+                  : 'critère favorable'}{' '}
+                sur {potential.criteria.length}. {potential.note}
               </p>
             </>
           )}

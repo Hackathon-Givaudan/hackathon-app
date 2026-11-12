@@ -38,12 +38,12 @@ export function readDetails(body: unknown): BriefDetails | string {
         return `Nombre invalide : ${field}`;
       }
       details[field] = value;
-    } else if (field in ONE) {
+    } else if (Object.hasOwn(ONE, field)) {
       if (typeof value !== 'string' || !ONE[field].includes(value)) {
         return `Valeur inconnue pour ${field}`;
       }
       details[field] = value;
-    } else if (field in MANY) {
+    } else if (Object.hasOwn(MANY, field)) {
       if (
         !Array.isArray(value) ||
         !distinct(value) ||

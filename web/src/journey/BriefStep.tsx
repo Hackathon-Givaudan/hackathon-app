@@ -131,6 +131,8 @@ export function toApiDetails(details: BriefDetails) {
 
 type Props = {
   guide: string;
+  /* « olfactif » pour un parfum, « gustatif » pour un arôme */
+  profile: string;
   /* « Produit : bougie. Ambiance : bord de mer. » */
   wishes: string;
   details: BriefDetails;
@@ -141,6 +143,7 @@ type Props = {
 
 export function BriefStep({
   guide,
+  profile,
   wishes,
   details,
   onDetails,
@@ -261,7 +264,7 @@ export function BriefStep({
 
       <div className="mt-8 flex flex-wrap items-center gap-5">
         <button onClick={onNext} className={primaryButton}>
-          Établir mon profil olfactif
+          Établir mon profil {profile}
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>
