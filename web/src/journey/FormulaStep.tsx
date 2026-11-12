@@ -14,6 +14,9 @@ type Props = {
   expert: string;
   /* Ce que veut dire chaque niveau, par exemple « Tête : ce que l'on sent en premier » */
   tiers: Record<string, string>;
+  /* Le nom que la marque donne à sa création */
+  name: string;
+  onName: (name: string) => void;
   busy: boolean;
   error: string;
   onAccept: () => void;
@@ -24,6 +27,8 @@ export function FormulaStep({
   formula,
   expert,
   tiers,
+  name,
+  onName,
   busy,
   error,
   onAccept,
@@ -65,6 +70,18 @@ export function FormulaStep({
       <p className="mono mt-3 text-[11px] opacity-80">
         Référence de notre banque ({formula.source}).
       </p>
+
+      <label className="mt-6 block max-w-md">
+        <span className={smallLabel}>Le nom de votre création</span>
+        <input
+          aria-label="Le nom de votre création"
+          value={name}
+          onChange={(event) => onName(event.target.value)}
+          maxLength={40}
+          placeholder={formula.name}
+          className="mt-1 min-h-12 w-full border border-white/50 bg-white/10 px-3 text-[16px] outline-none placeholder:text-white/65 focus:border-white"
+        />
+      </label>
 
       <div className="mt-6 flex flex-wrap items-center gap-5">
         <button onClick={onAccept} disabled={busy} className={primaryButton}>

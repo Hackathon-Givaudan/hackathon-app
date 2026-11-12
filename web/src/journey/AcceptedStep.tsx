@@ -1,46 +1,116 @@
-/* Fin du parcours : la demande d'échantillon est enregistrée, la marque sait ce qui suit */
+/* Le suivi : la demande est envoyée, la marque voit où en est son échantillon,
+   puis dit ce qu'elle en a pensé. Aucun échantillon ne part vraiment : la réception est simulée. */
+import { useState } from 'react';
 import type { Formula } from '../api';
-import { primaryButton, smallLabel } from '../shared/ui';
+import { cn, linkButton, primaryButton, smallLabel } from '../shared/ui';
 
-type Props = { formula: Formula; expert: string; onRestart: () => void };
+type Props = {
+  formula: Formula;
+  /* Le nom donné par la marque, sinon celui de la référence */
+  name: string;
+  expert: string;
+  onRestart: () => void;
+};
 
-export function AcceptedStep({ formula, expert, onRestart }: Props) {
-  const next = [
-    [
-      'Aujourd’hui',
-      'Votre projet et vos notes sont transmis : vous n’aurez rien à répéter.',
-    ],
-    ['Ensuite', `Un échantillon de ${formula.name} vous est préparé.`],
-    ['Après l’essai', `Votre ${expert} ajuste la formule avec vous si besoin.`],
-  ];
+const STAGES = [
+  'Composée',
+  'Demande envoyée',
+  'Échantillon reçu',
+  'Retour donné',
+];
+const ADJUSTMENTS = [
+  'Plus de fraîcheur',
+  'Plus de tenue',
+  'Plus de douceur',
+  'Elle me convient',
+];
+
+export function AcceptedStep({ formula, name, expert, onRestart }: Props) {
+  const [received, setReceived] = useState(false);
+  const [feedback, setFeedback] = useState('');
+  const reached = feedback ? 3 : received ? 2 : 1;
+
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>{formula.name}</p>
-      <h1 className="f-display mt-1 text-[52px] leading-[1.05] md:text-[64px]">
-        Votre demande est envoyée.
+      <p className={smallLabel}>{name}</p>
+      <h1 className="f-display mt-1 text-[48px] leading-[1.05] md:text-[60px]">
+        {received
+          ? 'Comment vit-elle chez vous ?'
+          : 'Votre demande est envoyée.'}
       </h1>
 
-      <ol className="mt-8 border-t border-white/45">
-        {next.map(([when, what], index) => (
+      <ol
+        aria-label="Suivi"
+        className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4"
+      >
+        {STAGES.map((stage, index) => (
           <li
-            key={when}
-            className="grid grid-cols-[32px_1fr] gap-x-3 border-b border-white/25 py-3 sm:grid-cols-[32px_130px_1fr]"
+            key={stage}
+            aria-current={index === reached ? 'step' : undefined}
+            className={cn(
+              'border-t-2 pt-2 text-sm',
+              index <= reached ? 'border-white' : 'border-white/25 opacity-55',
+            )}
           >
-            <span className="mono grid size-6 place-items-center border border-white/60 text-[11px]">
-              {index + 1}
-            </span>
-            <span className={smallLabel}>{when}</span>
-            <span className="col-start-2 text-[16px] sm:col-start-3">
-              {what}
-            </span>
+            <span className="mono mr-2 text-[11px]">{index + 1}</span>
+            {stage}
           </li>
         ))}
       </ol>
-      <p className="mono mt-3 text-[11px] opacity-80">
-        Prototype : aucun échantillon n’est réellement envoyé.
-      </p>
 
-      <button onClick={onRestart} className={`${primaryButton} mt-6`}>
+      {!received ? (
+        <>
+          <ul className="mt-6 border-t border-white/45 text-[16px]">
+            <li className="border-b border-white/25 py-3">
+              Votre projet et vos notes sont transmis : vous n’aurez rien à
+              répéter.
+            </li>
+            <li className="border-b border-white/25 py-3">
+              Un échantillon de {name} vous est préparé. Délai : [X].
+            </li>
+            <li className="border-b border-white/25 py-3">
+              Votre {expert} ajuste la formule avec vous après l’essai.
+            </li>
+          </ul>
+          <p className={`${smallLabel} mt-5`}>Vos matières</p>
+          <p className="mt-1 text-[15px] first-letter:uppercase">
+            {formula.notes.map(({ note }) => note.label).join(', ')}
+          </p>
+          <button
+            onClick={() => setReceived(true)}
+            className={`${primaryButton} mt-6`}
+          >
+            Simuler la réception de l’échantillon
+          </button>
+        </>
+      ) : feedback ? (
+        <p className="mt-6 text-[17px]">
+          Votre retour est noté. « {feedback} »
+        </p>
+      ) : (
+        <>
+          <p className="mt-5 text-[16px]">
+            Vous avez essayé votre échantillon. Que faut-il ajuster ?
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {ADJUSTMENTS.map((adjustment) => (
+              <button
+                key={adjustment}
+                onClick={() => setFeedback(adjustment)}
+                className="min-h-12 border border-white/45 px-4 text-[16px] hover:bg-white/10"
+              >
+                {adjustment}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+
+      <p className="mono mt-5 text-[11px] opacity-80">
+        Prototype : aucun échantillon n’est réellement envoyé, et le retour
+        n’est pas encore transmis au conseiller.
+      </p>
+      <button onClick={onRestart} className={`${linkButton} mt-3`}>
         Démarrer un autre projet
       </button>
     </div>

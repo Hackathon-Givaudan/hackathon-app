@@ -10,6 +10,10 @@ export type Question = {
   options: string[];
 };
 
+/* Une question du profil : deux réponses, chacune avec le mot du référentiel qu'elle ajoute */
+export type Duel = { question: string; choices: [Choice, Choice] };
+type Choice = { label: string; adds: string };
+
 export const VOCABULARY: Record<
   Universe,
   {
@@ -24,6 +28,8 @@ export const VOCABULARY: Record<
     tiers: Record<string, string>;
     /* Des projets types, pour qui ne sait pas par où commencer */
     examples: string[];
+    /* Le profil : cinq questions à deux choix. Chaque réponse ajoute un mot du référentiel au brief */
+    duels: Duel[];
     questions: Question[];
   }
 > = {
@@ -43,6 +49,43 @@ export const VOCABULARY: Record<
       'Une bougie pour un restaurant en bord de mer, fraîche et lumineuse',
       'Un savon premium pour un hôtel, élégant et apaisant',
       'Un diffuseur pour les soirées d’hiver, réconfortant',
+    ],
+    duels: [
+      {
+        question: 'Plutôt le matin ou le soir ?',
+        choices: [
+          { label: 'Le matin', adds: 'matin' },
+          { label: 'Le soir', adds: 'soirée' },
+        ],
+      },
+      {
+        question: 'Plutôt l’été ou l’hiver ?',
+        choices: [
+          { label: 'L’été', adds: 'été' },
+          { label: 'L’hiver', adds: 'hiver' },
+        ],
+      },
+      {
+        question: 'Plutôt le calme ou l’énergie ?',
+        choices: [
+          { label: 'Le calme', adds: 'calme' },
+          { label: 'L’énergie', adds: 'énergie' },
+        ],
+      },
+      {
+        question: 'Plutôt le réconfort ou l’évasion ?',
+        choices: [
+          { label: 'Le réconfort', adds: 'réconfort' },
+          { label: 'L’évasion', adds: 'évasion' },
+        ],
+      },
+      {
+        question: 'Plutôt l’élégance ou la joie ?',
+        choices: [
+          { label: 'L’élégance', adds: 'élégance' },
+          { label: 'La joie', adds: 'joie' },
+        ],
+      },
     ],
     questions: [
       {
@@ -95,6 +138,43 @@ export const VOCABULARY: Record<
       'Une boisson protéinée pour sportifs, gourmande et énergisante',
       'Un yaourt à la fraise pour le goûter, doux et gourmand',
       'Une glace pour l’été, très fraîche',
+    ],
+    duels: [
+      {
+        question: 'Plutôt au goûter ou au dessert ?',
+        choices: [
+          { label: 'Au goûter', adds: 'goûter' },
+          { label: 'Au dessert', adds: 'dessert' },
+        ],
+      },
+      {
+        question: 'Plutôt l’été ou l’hiver ?',
+        choices: [
+          { label: 'L’été', adds: 'été' },
+          { label: 'L’hiver', adds: 'hiver' },
+        ],
+      },
+      {
+        question: 'Plutôt la gourmandise ou la fraîcheur ?',
+        choices: [
+          { label: 'La gourmandise', adds: 'gourmandise' },
+          { label: 'La fraîcheur', adds: 'fraîcheur' },
+        ],
+      },
+      {
+        question: 'Plutôt le réconfort ou l’énergie ?',
+        choices: [
+          { label: 'Le réconfort', adds: 'réconfort' },
+          { label: 'L’énergie', adds: 'énergie' },
+        ],
+      },
+      {
+        question: 'Plutôt la joie ou la nostalgie ?',
+        choices: [
+          { label: 'La joie', adds: 'joie' },
+          { label: 'La nostalgie', adds: 'nostalgie' },
+        ],
+      },
     ],
     questions: [
       {
