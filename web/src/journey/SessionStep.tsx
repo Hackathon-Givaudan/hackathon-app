@@ -16,6 +16,8 @@ import { Analysing } from './Analysing';
 
 type Props = {
   universe: Universe;
+  /* Le prénom du guide choisi à la bienvenue */
+  guide: string;
   busy: boolean;
   error: string;
   onSubmit: (wishes: string) => void;
@@ -34,6 +36,7 @@ const KINDS: Record<Idea['kind'], string> = {
 
 export function SessionStep({
   universe,
+  guide,
   busy,
   error,
   onSubmit,
@@ -98,7 +101,7 @@ export function SessionStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>La séance · avec Aurore, parfumeuse IA</p>
+      <p className={smallLabel}>La séance · avec {guide}</p>
       <h1 className="f-display mt-1 text-[40px] leading-[1.08] md:text-[48px]">
         Parlez-nous de votre projet.
       </h1>
@@ -111,13 +114,13 @@ export function SessionStep({
             className={cn(
               'max-w-[46ch] text-[17px] leading-snug',
               line.who === 'brand' &&
-                'ml-auto border border-white/35 px-3 py-2',
+                'ml-auto border border-line-input px-3 py-2',
             )}
           >
             {line.who === 'aurore' ? `« ${line.text} »` : line.text}
           </li>
         ))}
-        {waiting && <li className="text-[15px] opacity-70">Aurore écoute…</li>}
+        {waiting && <li className="text-[15px] opacity-70">{guide} écoute…</li>}
       </ol>
 
       <div className="mt-4 flex gap-2">
@@ -127,7 +130,7 @@ export function SessionStep({
           onChange={(event) => setText(event.target.value)}
           onKeyDown={(event) => event.key === 'Enter' && send()}
           placeholder="Écrivez votre réponse…"
-          className="min-h-12 flex-1 border border-white/50 bg-white/10 px-3 text-[16px] outline-none placeholder:text-white/65 focus:border-white"
+          className="min-h-12 flex-1 border border-line-input bg-card rounded-md px-3 text-[16px] outline-none placeholder:text-muted focus:border-ink"
         />
         <button
           onClick={send}
@@ -147,7 +150,7 @@ export function SessionStep({
                 key={example}
                 onClick={() => void say(example)}
                 disabled={waiting}
-                className="min-h-11 border border-white/45 px-3 text-left text-[15px] hover:bg-white/10"
+                className="min-h-11 border border-line-strong rounded-full px-3 text-left text-[15px] hover:bg-soft"
               >
                 {example}
               </button>
@@ -163,11 +166,11 @@ export function SessionStep({
             Chaque idée que je retiens s’affiche ici, avec vos mots.
           </p>
         ) : (
-          <ul className="mt-2 border-t border-white/45">
+          <ul className="mt-2 border-t border-line-strong">
             {heard.map((idea) => (
               <li
                 key={idea.label}
-                className="flex items-start gap-3 border-b border-white/25 py-2"
+                className="flex items-start gap-3 border-b border-line py-2"
               >
                 <span className="flex-1">
                   <span className={smallLabel}>{KINDS[idea.kind]}</span>{' '}
@@ -183,7 +186,7 @@ export function SessionStep({
                     setHeard(heard.filter((kept) => kept.label !== idea.label))
                   }
                   aria-label={`Retirer ${idea.label}`}
-                  className="grid size-9 place-items-center hover:bg-white/10"
+                  className="grid size-9 place-items-center hover:bg-soft"
                 >
                   <X className="size-4" />
                 </button>

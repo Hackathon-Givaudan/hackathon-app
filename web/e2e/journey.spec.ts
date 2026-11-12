@@ -8,10 +8,17 @@ const CLOSING = "J'ai ce qu'il me faut";
 const talk = (page: Page, count: number) =>
   expect(page.locator('[data-who="aurore"]')).toHaveCount(count);
 
-/* La séance : part d'un exemple de projet et répond à Aurore jusqu'au bout */
-async function describe(page: Page, universe: string, example: string) {
+/* L'accueil, puis la bienvenue : le compte de Léa est prêt, la marque choisit son guide */
+async function enter(page: Page, universe: string, guide = 'Aurore') {
   await page.goto('/');
   await page.getByRole('button', { name: universe }).click();
+  await page.getByRole('button', { name: guide, exact: true }).click();
+  await page.getByRole('button', { name: 'Commencer la séance' }).click();
+}
+
+/* La séance : part d'un exemple de projet et répond à Aurore jusqu'au bout */
+async function describe(page: Page, universe: string, example: string) {
+  await enter(page, universe);
   await page.getByRole('button', { name: new RegExp(example) }).click();
   await talk(page, 2);
   // S'il manque encore une émotion, la marque la donne
@@ -39,6 +46,9 @@ const compose = (page: Page) =>
 async function reachTray(page: Page, universe: string, example: string) {
   await describe(page, universe, example);
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
+  await page
+    .getByRole('button', { name: 'Le plateau est arrivé, on commence' })
+    .click();
 }
 
 test('a perfume brand goes from its project to a sample request', async ({
@@ -51,6 +61,7 @@ test('a perfume brand goes from its project to a sample request', async ({
     'Voici votre brief.',
   );
   await expect(page.getByText('bord de mer')).toBeVisible();
+  // Le profil ne pose que les questions que la séance n'a pas tranchées
   for (const answer of [
     'Le soir',
     'L’été',
@@ -58,9 +69,13 @@ test('a perfume brand goes from its project to a sample request', async ({
     'L’évasion',
     'L’élégance',
   ]) {
-    await page.getByRole('button', { name: answer, exact: true }).click();
+    const choice = page.getByRole('button', { name: answer, exact: true });
+    if (await choice.isVisible()) await choice.click();
   }
   await page.getByRole('button', { name: 'Voir mon plateau' }).click();
+  await page
+    .getByRole('button', { name: 'Le plateau est arrivé, on commence' })
+    .click();
 
   // Le plateau : un avis par fiole
   await smell(page, 'Je l’aime');
@@ -86,8 +101,7 @@ test('a flavour brand follows the same journey with its own words', async ({
 test('aurore writes down what she hears, with the words of the brand', async ({
   page,
 }) => {
-  await page.goto('/');
-  await page.getByRole('button', { name: 'Un parfum' }).click();
+  await enter(page, 'Un parfum');
   await expect(page.getByText('Racontez-moi votre projet.')).toBeVisible();
 
   await page.getByLabel('Votre réponse').fill(SEASIDE);
@@ -100,8 +114,7 @@ test('aurore writes down what she hears, with the words of the brand', async ({
 });
 
 test('the brand can remove something aurore misheard', async ({ page }) => {
-  await page.goto('/');
-  await page.getByRole('button', { name: 'Un parfum' }).click();
+  await enter(page, 'Un parfum');
   await page.getByLabel('Votre réponse').fill(SEASIDE);
   await page.getByRole('button', { name: 'Envoyer' }).click();
   await talk(page, 2);
@@ -231,4 +244,43 @@ test('the profile does not ask again what the session already settled', async ({
   // La séance a entendu « hiver » : le profil ne redemande pas « l'été ou l'hiver »
   await expect(page.getByText('Plutôt le calme ou l’énergie ?')).toBeVisible();
   await expect(page.getByText('Plutôt l’été ou l’hiver ?')).toHaveCount(0);
+});
+
+test('the brand is welcomed and chooses its guide', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Un parfum' }).click();
+  await expect(page.getByText('Léa Martin')).toBeVisible();
+  await expect(page.getByText('Maison Lumen', { exact: true })).toBeVisible();
+
+  await page.getByRole('button', { name: 'Victor', exact: true }).click();
+  await page.getByRole('button', { name: 'Commencer la séance' }).click();
+  await expect(page.getByText('La séance · avec Victor')).toBeVisible();
+});
+
+test('the brand waits for its tray, then smells it', async ({ page }) => {
+  await describe(page, 'Un parfum', SEASIDE);
+  await page.getByRole('button', { name: 'Passer cette étape' }).click();
+
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Votre plateau arrive.',
+  );
+  await expect(page.getByText('En route')).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Le plateau est arrivé, on commence' })
+    .click();
+  await expect(page.getByText(/fiole 1 sur/)).toBeVisible();
+});
+
+test('the composition sheet fills as vials are kept', async ({ page }) => {
+  await reachTray(page, 'Un parfum', SEASIDE);
+  const sheet = page.getByRole('region', {
+    name: 'Votre feuille de composition',
+  });
+  await expect(
+    sheet.getByText('Aucune fiole gardée pour l’instant.'),
+  ).toBeVisible();
+
+  const first = await page.getByRole('heading', { level: 1 }).innerText();
+  await page.getByRole('button', { name: 'Je l’aime', exact: true }).click();
+  await expect(sheet.getByText(first, { exact: false })).toBeVisible();
 });
