@@ -265,7 +265,15 @@ export default function App() {
           </button>
         </div>
         {help && <HelpDialog onClose={() => setHelp(false)} />}
-        <ol aria-label="Étapes" className="flex">
+        <p className="sr-only" role="status" aria-label="Carnet d’atelier">
+          Carnet d’atelier · étape {stepIndex + 1} sur {STEPS.length} ·{' '}
+          {STEPS[stepIndex][1]}
+        </p>
+        <ol
+          aria-label="Carnet d’atelier"
+          title={`Carnet d’atelier · étape ${stepIndex + 1} sur ${STEPS.length}`}
+          className="flex"
+        >
           {STEPS.map(([id, label], index) => (
             <li
               key={id}
