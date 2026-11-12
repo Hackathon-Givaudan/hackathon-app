@@ -2,6 +2,7 @@
    elle choisit son guide, puis la séance commence. Écrans 02 et 03 du prototype du Product. */
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import type { Universe } from '../api';
 import { cn, linkButton, primaryButton, smallLabel } from '../shared/ui';
 
 export type Guide = 'Aurore' | 'Victor';
@@ -22,14 +23,40 @@ const GUIDES: [Guide, string][] = [
   ['Victor', 'Parfumeur IA : la même méthode, sous un autre prénom.'],
 ];
 
+/* Les produits de la maquette V3, avec leur contenant. Le choix est facultatif. */
+export const PRODUCTS: Record<Universe, [string, string, string][]> = {
+  parfum: [
+    ['Parfum', 'Flacon', 'un parfum'],
+    ['Bougie', 'Verre', 'une bougie'],
+    ['Lessive', 'Flacon', 'une lessive'],
+  ],
+  arome: [
+    ['Boisson', 'Bouteille', 'une boisson'],
+    ['Yaourt', 'Pot en verre', 'un yaourt'],
+    ['Sirop', 'Bouteille', 'un sirop'],
+  ],
+};
+
 type Props = {
+  universe: Universe;
+  /* « une bougie », ou rien si la marque laisse son guide le déduire */
+  product: string;
+  onProduct: (product: string) => void;
   guide: Guide;
   onGuide: (guide: Guide) => void;
   onStart: () => void;
   onBack: () => void;
 };
 
-export function WelcomeStep({ guide, onGuide, onStart, onBack }: Props) {
+export function WelcomeStep({
+  universe,
+  product,
+  onProduct,
+  guide,
+  onGuide,
+  onStart,
+  onBack,
+}: Props) {
   const [details, setDetails] = useState(false);
   return (
     <div className="mt-auto pb-6 pt-10">
@@ -85,9 +112,33 @@ export function WelcomeStep({ guide, onGuide, onStart, onBack }: Props) {
         ))}
       </div>
 
+      <h2 className="mt-8 text-[22px] font-semibold">Votre produit</h2>
+      <p className="mt-1 text-[15px] text-secondary">
+        Pas sûre ? {guide} le déduira de votre récit.
+      </p>
+      <div className="mt-3 grid gap-3 sm:grid-cols-3">
+        {PRODUCTS[universe].map(([name, container, said]) => (
+          <button
+            key={name}
+            onClick={() => onProduct(product === said ? '' : said)}
+            aria-label={name}
+            aria-pressed={product === said}
+            className={cn(
+              'min-h-20 border border-line-input rounded-xl bg-card px-4 py-3 text-left hover:bg-soft',
+              product === said && 'bg-selected ring-2 ring-accent',
+            )}
+          >
+            <span className="block text-[18px] font-semibold">{name}</span>
+            <span className="block text-[14px] text-secondary">
+              {container}
+            </span>
+          </button>
+        ))}
+      </div>
+
       <div className="mt-6 flex flex-wrap items-center gap-5">
         <button onClick={onStart} className={primaryButton}>
-          Commencer la séance
+          Commencer la séance écrite
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>

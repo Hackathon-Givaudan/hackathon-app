@@ -18,6 +18,8 @@ type Props = {
   universe: Universe;
   /* Le prénom du guide choisi à la bienvenue */
   guide: string;
+  /* Le produit choisi à la bienvenue (« une bougie »), ou rien */
+  product: string;
   busy: boolean;
   error: string;
   onSubmit: (wishes: string) => void;
@@ -25,6 +27,13 @@ type Props = {
 };
 
 type Line = { who: 'aurore' | 'brand'; text: string };
+
+/* La question du vocabulaire qui correspond à chaque sorte d'idée, pour proposer des réponses rapides */
+const ASKS: [Idea['kind'], string][] = [
+  ['usage', 'product'],
+  ['ambiance', 'mood'],
+  ['emotion', 'emotion'],
+];
 
 /* Le mot affiché pour chaque sorte d'idée, et repris dans le brief : « Produit : bougie. » */
 const KINDS: Record<Idea['kind'], string> = {
@@ -37,12 +46,13 @@ const KINDS: Record<Idea['kind'], string> = {
 export function SessionStep({
   universe,
   guide,
+  product,
   busy,
   error,
   onSubmit,
   onBack,
 }: Props) {
-  const { examples } = VOCABULARY[universe];
+  const { examples, questions } = VOCABULARY[universe];
   const [lines, setLines] = useState<Line[]>([]);
   const [heard, setHeard] = useState<Idea[]>([]);
   const [text, setText] = useState('');
@@ -69,7 +79,7 @@ export function SessionStep({
   useEffect(() => {
     if (opened.current) return;
     opened.current = true;
-    void say('');
+    void say(product ? `Mon produit : ${product}.` : '');
   }, []); // la séance s'ouvre une seule fois, à l'arrivée sur l'écran
 
   function send() {
@@ -98,10 +108,19 @@ export function SessionStep({
   }
 
   const started = lines.some((line) => line.who === 'brand');
+  /* Réponses rapides : des mots du référentiel pour la première sorte d'idée qui manque encore */
+  const missing = ASKS.find(
+    ([kind]) => !heard.some((idea) => idea.kind === kind),
+  );
+  const quick =
+    questions.find((question) => question.id === missing?.[1])?.options ?? [];
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>La séance · avec {guide}</p>
+      <p className={smallLabel}>
+        La séance · avec {guide}
+        {lines.length > 0 && ` · message ${lines.length} · environ 4 min`}
+      </p>
       <h1 className="f-display mt-1 text-[40px] leading-[1.08] md:text-[48px]">
         Parlez-nous de votre projet.
       </h1>
@@ -141,6 +160,23 @@ export function SessionStep({
         </button>
       </div>
 
+      {started && !waiting && quick.length > 0 && (
+        <div role="group" aria-label="Réponses rapides" className="mt-4">
+          <p className={smallLabel}>Réponses rapides</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {quick.slice(0, 4).map((option) => (
+              <button
+                key={option}
+                onClick={() => void say(option)}
+                className="min-h-11 rounded-full border border-line-strong px-4 text-[15px] first-letter:uppercase hover:bg-soft"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {!started && (
         <>
           <p className={cn(smallLabel, 'mt-4')}>Besoin d’inspiration ?</p>
@@ -159,11 +195,11 @@ export function SessionStep({
         </>
       )}
 
-      <section aria-label="Ce que j’entends" className="mt-6">
-        <h2 className={smallLabel}>Ce que j’entends</h2>
+      <section aria-label="Ce que je retiens" className="mt-6">
+        <h2 className={smallLabel}>Ce que je retiens</h2>
         {heard.length === 0 ? (
           <p className="mt-1 text-[15px] opacity-80">
-            Chaque idée que je retiens s’affiche ici, avec vos mots.
+            Tout vient de notre conversation. Une info à corriger ? Retirez-la.
           </p>
         ) : (
           <ul className="mt-2 border-t border-line-strong">

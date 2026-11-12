@@ -14,6 +14,7 @@ import { BottleBoundary } from './bottle/BottleBoundary';
 import type { Brief, Formula, Universe } from './api';
 import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
+import { BriefStep, type BriefDetails } from './journey/BriefStep';
 import { SessionStep } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
 import { DeliveryStep } from './journey/DeliveryStep';
@@ -34,6 +35,7 @@ type Step =
   | 'universe'
   | 'welcome'
   | 'describe'
+  | 'brief'
   | 'profile'
   | 'delivery'
   | 'notes'
@@ -43,7 +45,8 @@ const STEPS: [Step, string][] = [
   ['universe', 'Univers'],
   ['welcome', 'Bienvenue'],
   ['describe', 'Séance'],
-  ['profile', 'Brief'],
+  ['brief', 'Brief'],
+  ['profile', 'Profil'],
   ['notes', 'Plateau'],
   ['formula', 'Formule'],
   ['accepted', 'Demande'],
@@ -63,6 +66,9 @@ export default function App() {
   const [creationName, setCreationName] = useState('');
   const [help, setHelp] = useState(false);
   const [guide, setGuide] = useState<Guide>('Aurore');
+  /* Le produit choisi à la bienvenue, et ce que la marque complète dans son brief */
+  const [product, setProduct] = useState('');
+  const [details, setDetails] = useState<BriefDetails>({});
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const panel = useRef<HTMLElement>(null);
@@ -117,6 +123,8 @@ export default function App() {
     setOpinions({});
     setHeardWishes('');
     setCreationName('');
+    setProduct('');
+    setDetails({});
     setError('');
     setStep('universe');
   }
@@ -128,6 +136,7 @@ export default function App() {
     step === 'universe' ||
     step === 'welcome' ||
     step === 'describe' ||
+    step === 'brief' ||
     step === 'profile'
       ? []
       : step === 'notes'
@@ -164,6 +173,7 @@ export default function App() {
     step === 'universe' ||
     step === 'welcome' ||
     step === 'describe' ||
+    step === 'brief' ||
     step === 'profile';
   const bottleTitle = waiting
     ? 'Brief'
@@ -302,6 +312,9 @@ export default function App() {
             )}
             {step === 'welcome' && (
               <WelcomeStep
+                universe={universe}
+                product={product}
+                onProduct={setProduct}
                 guide={guide}
                 onGuide={setGuide}
                 onStart={() => setStep('describe')}
@@ -313,13 +326,24 @@ export default function App() {
                 key={universe}
                 universe={universe}
                 guide={guide}
+                product={product}
                 busy={busy}
                 error={error}
                 onSubmit={(wishes) => {
                   setHeardWishes(wishes);
-                  setStep('profile');
+                  setStep('brief');
                 }}
                 onBack={() => setStep('universe')}
+              />
+            )}
+            {step === 'brief' && (
+              <BriefStep
+                guide={guide}
+                wishes={heardWishes}
+                details={details}
+                onDetails={setDetails}
+                onNext={() => setStep('profile')}
+                onBack={() => setStep('describe')}
               />
             )}
             {step === 'profile' && (
@@ -329,7 +353,7 @@ export default function App() {
                 busy={busy}
                 error={error}
                 onSubmit={sendWishes}
-                onBack={() => setStep('describe')}
+                onBack={() => setStep('brief')}
               />
             )}
             {step === 'delivery' && brief && (
