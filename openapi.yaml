@@ -7,6 +7,8 @@ info:
     Il décrit les quatre gestes du parcours d'une marque :
     envoyer ses envies, valider les notes, recevoir une formule, l'accepter.
     Un `brief` porte tout le parcours d'une marque, de ses envies à la formule acceptée.
+    Autour de ces gestes : la fiche d'une matière, les précisions du brief,
+    le retour après essai, et ce que lit le conseiller.
 servers:
   - url: http://localhost:3000
     description: API locale, dans le dev container
@@ -15,6 +17,10 @@ security: []
 tags:
   - name: Parcours
     description: Les quatre gestes, dans l'ordre
+  - name: Atelier
+    description: Ce qui entoure les gestes, la fiche d'une matière, le brief complet, le retour
+  - name: Conseiller
+    description: Ce que lisent la marque dans son espace et le conseiller Givaudan
   - name: Santé
     description: État de l'API et de la base
 paths:
@@ -88,6 +94,28 @@ paths:
         '502':
           $ref: '#/components/responses/AiUnavailable'
   /api/briefs:
+    get:
+      tags: [Conseiller]
+      operationId: listBriefs
+      summary: Lister les briefs
+      description: |
+        Les cinquante briefs les plus récents, le plus récent d'abord.
+        Le prototype n'a pas de comptes : la liste est la même pour la marque
+        et pour le conseiller.
+      responses:
+        '200':
+          description: Les briefs
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [briefs]
+                properties:
+                  briefs:
+                    type: array
+                    maxItems: 50
+                    items:
+                      $ref: '#/components/schemas/Brief'
     post:
       tags: [Parcours]
       operationId: createBrief
@@ -131,6 +159,102 @@ paths:
                 $ref: '#/components/schemas/Brief'
         '404':
           $ref: '#/components/responses/NotFound'
+  /api/briefs/{briefId}/details:
+    put:
+      tags: [Atelier]
+      operationId: completeBrief
+      summary: Compléter le brief
+      description: |
+        Les précisions que la marque ajoute à son brief : budget, volume, cible,
+        pays de vente… Toutes sont facultatives. La route remplace l'ensemble
+        des précisions : un champ absent n'est pas renseigné. Elle reste ouverte
+        à tout moment du parcours.
+      parameters:
+        - $ref: '#/components/parameters/BriefId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BriefDetails'
+            example:
+              budgetPerKg: 80
+              target: grand_public
+              salesCountries: [france, union_europeenne]
+      responses:
+        '200':
+          description: Brief complété
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brief'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/briefs/{briefId}/potential:
+    get:
+      tags: [Conseiller]
+      operationId: getPotential
+      summary: Lire le potentiel d'un brief
+      description: |
+        Sept critères, chacun avec sa raison, et une suggestion pour le conseiller.
+        Le service Data/IA les calcule à la demande, par des règles écrites et sans
+        modèle, à partir des précisions du brief et de la formule proposée.
+        Rien n'est enregistré : c'est le conseiller qui décide.
+      parameters:
+        - $ref: '#/components/parameters/BriefId'
+      responses:
+        '200':
+          description: Le potentiel
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Potential'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '502':
+          $ref: '#/components/responses/AiUnavailable'
+  /api/briefs/{briefId}/feedback:
+    post:
+      tags: [Atelier]
+      operationId: giveFeedback
+      summary: Donner son retour après l'essai
+      description: |
+        La marque a essayé son échantillon et dit ce qu'il faut ajuster.
+        `parfait` ne se combine avec aucun autre ajustement.
+        Renvoyer la route remplace le retour précédent.
+      parameters:
+        - $ref: '#/components/parameters/BriefId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [adjustments]
+              properties:
+                adjustments:
+                  type: array
+                  minItems: 1
+                  uniqueItems: true
+                  items:
+                    $ref: '#/components/schemas/Adjustment'
+            example:
+              adjustments: [plus_de_fraicheur]
+      responses:
+        '200':
+          description: Retour enregistré
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brief'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
   /api/briefs/{briefId}/notes:
     put:
       tags: [Parcours]
@@ -211,6 +335,40 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
+  /api/materials/{noteId}:
+    get:
+      tags: [Atelier]
+      operationId: getMaterial
+      summary: Lire la fiche d'une matière
+      description: |
+        La fiche d'une note du plateau. Elle ne montre que ce qu'une source
+        confirme : un champ absent n'est pas documenté.
+      parameters:
+        - name: noteId
+          in: path
+          required: true
+          description: Identifiant de la note, celui de `Note.id`
+          schema:
+            type: string
+            pattern: '^[a-z0-9-]{1,100}$'
+          example: bergamote
+      responses:
+        '200':
+          description: La fiche
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Material'
+        '404':
+          description: Cette note n'a pas de fiche
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: Cette note n'a pas encore de fiche
+        '502':
+          $ref: '#/components/responses/AiUnavailable'
 components:
   parameters:
     BriefId:
@@ -275,7 +433,16 @@ components:
     Brief:
       type: object
       required:
-        [id, universe, wishes, status, proposedNotes, validatedNotes, createdAt]
+        [
+          id,
+          universe,
+          wishes,
+          status,
+          proposedNotes,
+          validatedNotes,
+          details,
+          createdAt,
+        ]
       properties:
         id:
           type: integer
@@ -295,9 +462,145 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Note'
+        details:
+          $ref: '#/components/schemas/BriefDetails'
+        formulaName:
+          type: string
+          description: Nom de la formule proposée. Absent avant le geste 3.
+        feedback:
+          type: array
+          description: Le retour après essai. Absent tant que la marque ne l'a pas donné.
+          items:
+            $ref: '#/components/schemas/Adjustment'
         createdAt:
           type: string
           format: date-time
+    BriefDetails:
+      type: object
+      additionalProperties: false
+      description: |
+        Les précisions du brief, toutes facultatives. Les valeurs permises sont
+        celles de `ia/data/modele_brief.json`, recopiées ici.
+      properties:
+        budgetPerKg:
+          type: number
+          minimum: 0
+          description: Budget visé, en euros par kilo
+        annualVolumeKg:
+          type: number
+          minimum: 0
+          description: Volume annuel, en kilos
+        projectType:
+          type: string
+          enum: [creation, reformulation, extension_gamme]
+        target:
+          type: string
+          enum: [clientele_boutiques, grand_public, hotellerie]
+        salesCountries:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            enum: [france, union_europeenne, royaume_uni, etats_unis, asie]
+        positioning:
+          type: string
+          enum: [accessible, premium, luxe]
+        objective:
+          type: string
+          enum: [se_differencier, fideliser, produit_signature]
+        competition:
+          type: string
+          enum: [seulement_givaudan, autres_fournisseurs, pas_decide]
+        relation:
+          type: string
+          enum: [direct, distributeur, ne_sait_pas]
+        commitments:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            enum: [naturel, vegan, sans_allergenes, matieres_durables]
+        constraints:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            enum: [delai_court, reglementation, cout_matieres]
+    Adjustment:
+      type: string
+      enum: [plus_de_fraicheur, plus_de_tenue, plus_doux, parfait]
+      description: Un ajustement demandé après l'essai, ou `parfait` s'il n'y en a aucun
+    Material:
+      type: object
+      required: [noteId, name]
+      description: La fiche d'une matière, telle que la Data l'a documentée
+      properties:
+        noteId:
+          type: string
+        name:
+          type: string
+        family:
+          type: string
+        tier:
+          type: string
+          description: Tête, Cœur ou Fond
+        description:
+          type: string
+        material:
+          type: string
+          description: La matière première, par exemple « zeste de Citrus bergamia »
+        origin:
+          type: string
+        obtained:
+          type: string
+          description: Le mode d'obtention
+        hold:
+          type: string
+          description: La tenue
+        pairsWith:
+          type: array
+          items:
+            type: string
+        vigilance:
+          type: string
+        sources:
+          type: array
+          items:
+            type: string
+            format: uri
+    Potential:
+      type: object
+      required: [criteria, favorable, suggestion, suggestionLabel, note]
+      description: Le potentiel d'un brief, une hypothèse que le conseiller valide
+      properties:
+        criteria:
+          type: array
+          items:
+            type: object
+            required: [id, label, status, reason]
+            properties:
+              id:
+                type: string
+              label:
+                type: string
+              status:
+                type: string
+                enum: [favorable, a_verifier, a_completer]
+              reason:
+                type: string
+                description: La raison, tirée du brief. Une valeur inconnue s'écrit « [X] ».
+        favorable:
+          type: integer
+          minimum: 0
+          description: Nombre de critères favorables
+        suggestion:
+          type: string
+          enum: [prioriser, orienter_banque, mettre_en_attente]
+        suggestionLabel:
+          type: string
+        note:
+          type: string
+          description: Le rappel que la décision revient au conseiller
     Formula:
       type: object
       required: [id, name, notes, explanation, source]
