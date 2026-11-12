@@ -1,0 +1,291 @@
+{
+  "projet": "G11 YAMA — Givaudan",
+  "livrable": "Prompt 9 - Fiches matières",
+  "version": "brouillon 0.3 - documenté partiellement",
+  "date_preparation": "2026-11-12",
+  "statut": "brouillon_a_valider",
+  "avertissement": "Aucune formule ni matière Givaudan identifiée. Les champs vides indiquent une information non établie. Les sources décrivent des notes ou matières génériques et non des spécifications fournisseur. Les engagements, accords et tenues non confirmés restent vides.",
+  "matieres": [
+    {
+      "id": "sel_marin",
+      "nom": "Sel marin",
+      "type": "accord",
+      "famille": "marin",
+      "position": null,
+      "origine": "Note fantaisie évoquant le sel et les embruns ; pas une extraction olfactive du sel de cuisine.",
+      "mode_obtention": "Accord olfactif recréé ; composition exacte non connue.",
+      "tenue": null,
+      "accords_conseilles": [
+        "accord marin",
+        "accord boisé",
+        "accord gourmand"
+      ],
+      "engagement": null,
+      "sources": [
+        {
+          "champs_documentes": [
+            "origine",
+            "accords_conseilles"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/salt/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        },
+        {
+          "champs_documentes": [
+            "mode_obtention"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/water/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "Position, tenue et composition dépendent de la formule exacte.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "bergamote",
+      "nom": "Bergamote",
+      "type": "matiere_naturelle_possible",
+      "famille": "hesperide",
+      "position": "tete",
+      "origine": "Fruit du bergamotier (Citrus bergamia), cultivé notamment en Calabre.",
+      "mode_obtention": "Huile essentielle obtenue à partir du zeste.",
+      "tenue": "courte",
+      "accords_conseilles": [],
+      "engagement": null,
+      "sources": [
+        {
+          "champs_documentes": [
+            "position",
+            "origine",
+            "mode_obtention"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/bergamot/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        },
+        {
+          "champs_documentes": [
+            "tenue"
+          ],
+          "url": "https://perfumesociety.org/discover-perfume/an-introduction/faq/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "Tenue courte : indication générale des notes de tête, non mesure de cette matière. Vérifier le type exact d’extrait et les exigences IFRA.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "citron_vert",
+      "nom": "Citron vert",
+      "type": "matiere_naturelle_possible",
+      "famille": "hesperide",
+      "position": "tete",
+      "origine": "Fruit de Citrus aurantifolia.",
+      "mode_obtention": "Expression du zeste ou distillation selon le type d’huile.",
+      "tenue": "courte",
+      "accords_conseilles": [],
+      "engagement": null,
+      "sources": [
+        {
+          "champs_documentes": [
+            "position",
+            "origine",
+            "mode_obtention"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/lime/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        },
+        {
+          "champs_documentes": [
+            "tenue"
+          ],
+          "url": "https://perfumesociety.org/discover-perfume/an-introduction/faq/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "Certaines huiles exprimées peuvent être phototoxiques ; leur usage doit être évalué selon la matière exacte.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "menthe_aquatique",
+      "nom": "Menthe aquatique",
+      "type": "accord",
+      "famille": "aromatique",
+      "position": null,
+      "origine": null,
+      "mode_obtention": null,
+      "tenue": null,
+      "accords_conseilles": [],
+      "engagement": null,
+      "sources": [],
+      "remarque": "Le terme désigne ici un accord prévu par Product : ne pas le confondre automatiquement avec une huile essentielle de Mentha aquatica. Composition à demander à Product/Tech.",
+      "statut": "a_documenter",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "fleur_oranger",
+      "nom": "Fleur d’oranger",
+      "type": "matiere_naturelle_possible",
+      "famille": "floral",
+      "position": null,
+      "origine": "Fleurs du bigaradier (Citrus aurantium).",
+      "mode_obtention": "Absolue de fleur d’oranger obtenue par extraction aux solvants ; le néroli est un produit distinct obtenu par distillation.",
+      "tenue": null,
+      "accords_conseilles": [],
+      "engagement": null,
+      "sources": [
+        {
+          "champs_documentes": [
+            "origine",
+            "mode_obtention"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/orange-blossom/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "Préciser si la fiche désigne une absolue, le néroli ou un accord reconstitué avant d’attribuer une position et une tenue.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "algue",
+      "nom": "Algue",
+      "type": "note_olfactive",
+      "famille": "marin",
+      "position": null,
+      "origine": null,
+      "mode_obtention": null,
+      "tenue": null,
+      "accords_conseilles": [],
+      "engagement": null,
+      "sources": [],
+      "remarque": "Espèce d’algue et forme de matière (extrait, absolue ou accord) non précisées : impossible d’affirmer origine, obtention ou engagement.",
+      "statut": "a_documenter",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "lavande",
+      "nom": "Lavande",
+      "type": "matiere_naturelle_possible",
+      "famille": "aromatique",
+      "position": null,
+      "origine": "Plantes du genre Lavandula, notamment Lavandula angustifolia.",
+      "mode_obtention": "Huile essentielle obtenue par distillation à la vapeur des parties florales.",
+      "tenue": null,
+      "accords_conseilles": [],
+      "engagement": null,
+      "sources": [
+        {
+          "champs_documentes": [
+            "origine",
+            "mode_obtention"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/lavender/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "Espèce et extrait exacts à confirmer ; position et tenue dépendent de la composition.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "bois_flotte",
+      "nom": "Bois flotté",
+      "type": "accord",
+      "famille": "boise",
+      "position": null,
+      "origine": "Note évocatrice du bois ayant séjourné en mer ; aucune essence botanique unique identifiée.",
+      "mode_obtention": null,
+      "tenue": null,
+      "accords_conseilles": [],
+      "engagement": null,
+      "sources": [
+        {
+          "champs_documentes": [
+            "famille",
+            "origine"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/driftwood/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "Le mode d’obtention et la tenue d’un accord dépendent de sa formule. Ne pas prétendre extraire un parfum du bois flotté.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "ambre_gris_substitut",
+      "nom": "Ambre gris (substitut)",
+      "type": "substitut",
+      "famille": "ambre",
+      "position": "fond",
+      "origine": "Exemple documenté de substitut : Ambroxan, molécule de parfumerie synthétique.",
+      "mode_obtention": "Synthèse chimique pour l’exemple Ambroxan ; procédé précis non documenté.",
+      "tenue": "longue",
+      "accords_conseilles": [],
+      "engagement": "synthese (exemple Ambroxan uniquement)",
+      "sources": [
+        {
+          "champs_documentes": [
+            "position",
+            "origine",
+            "tenue",
+            "engagement"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/ambroxan/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "La matière exacte n’a pas été choisie : Ambroxan n’est qu’un exemple de substitut, à faire confirmer par Product. Ne pas en déduire une certification sans origine animale.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    },
+    {
+      "id": "musc_blanc",
+      "nom": "Musc blanc",
+      "type": "note_olfactive",
+      "famille": null,
+      "position": "fond",
+      "origine": "Famille de notes musquées modernes généralement issue de molécules de synthèse.",
+      "mode_obtention": "Synthèse pour de nombreux muscs modernes ; substance exacte non précisée.",
+      "tenue": null,
+      "accords_conseilles": [],
+      "engagement": "synthese (cas fréquent, à confirmer pour l’ingrédient choisi)",
+      "sources": [
+        {
+          "champs_documentes": [
+            "origine",
+            "mode_obtention",
+            "engagement"
+          ],
+          "url": "https://perfumesociety.org/ingredients-post/musk/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        },
+        {
+          "champs_documentes": [
+            "position"
+          ],
+          "url": "https://perfumesociety.org/discover-perfume/an-introduction/faq/",
+          "date_consultation": "2026-11-12",
+          "statut": "source_consultee"
+        }
+      ],
+      "remarque": "Musc blanc est une description olfactive, pas une molécule unique ; ne pas attribuer une origine ou une propriété environnementale précise sans identification.",
+      "statut": "partiellement_documente",
+      "validation_expert": "en_attente"
+    }
+  ]
+}
