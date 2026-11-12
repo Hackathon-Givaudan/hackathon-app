@@ -1,0 +1,4 @@
+# ia-v3 : fichiers écrits par le pipeline et l'évaluation, et cas de référence protégés par leur empreinte SHA-256.
+# Les reformater changerait l'empreinte des cas, et le pipeline les réécrit à chaque exécution.
+ia-v3/data/
+ia-v3/evaluation/
