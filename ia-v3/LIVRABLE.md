@@ -1,6 +1,7 @@
 # Livrable Data/IA : preuves point par point
 
-Service : `ia-v3/` (modèle 3.0.0, qui reprend la V2 et ajoute le brief V3, les références proches et le potentiel). Ticket : #72.
+Service : `ia-v3/` (modèle 3.1.0 : la V2, plus le brief V3, les références proches, le potentiel et l'option Mistral). Ticket : #72.
+Les captures ont été prises avec la 3.0.0. Sans l'option Mistral, la 3.1.0 donne exactement les mêmes résultats.
 Toutes les vérifications ci-dessous ont été faites le 12/11/2026 ; les captures sont dans `docs/livrable/`.
 
 | # | Point demandé | Statut | Où le voir | Preuve |
@@ -9,7 +10,7 @@ Toutes les vérifications ci-dessous ont été faites le 12/11/2026 ; les captur
 | 2 | Pipeline de traitement fonctionnel | Fait | `pipeline/build_data.py`, `data/processed/rapport_qualite.json` | 0 erreur bloquante, test `test_pipeline.py` |
 | 3 | Modèle publié | Fait | `app/moteur.py`, branche `feature/data-ia-v3` | 10 commits, ce dossier |
 | 4 | Métriques et protocole de validation sur 30 cas | Fait | `evaluation/`, `docs/protocole_validation.md` | tous les seuils atteints |
-| 5 | API fonctionnelle renvoyant les résultats réels du modèle | Fait | `app/main.py`, `docs/openapi.json` | 23 routes, 21 tests sur 21 |
+| 5 | API fonctionnelle renvoyant les résultats réels du modèle | Fait | `app/main.py`, `docs/openapi.json` | 24 routes, 28 tests |
 
 ## 1. Données nettoyées et préparées
 
@@ -82,13 +83,13 @@ python evaluation/evaluate.py http://localhost:8000   # via l'API
 
 ```bash
 docker build -t data-ia .
-docker run --rm data-ia sh -c "pip install -q pytest httpx && python -m pytest -q tests"   # 21 passed
+docker run --rm data-ia sh -c "pip install -q pytest httpx && python -m pytest -q tests"   # 28 passed (21 au moment de la capture, en 3.0.0)
 docker run -p 8001:8000 data-ia                                                          # http://localhost:8001/docs
 ```
 
 Chaque route appelle directement `app/moteur.py`, sans aucune donnée simulée. Le contrat complet est dans `docs/openapi.json`.
 
-![21 tests passent](docs/livrable/5_tests_21_passed.png)
+![21 tests passent (3.0.0)](docs/livrable/5_tests_21_passed.png)
 ![Swagger, routes 1](docs/livrable/5_api_swagger_routes_1.jpg)
 ![Swagger, routes 2](docs/livrable/5_api_swagger_routes_2.jpg)
 
@@ -98,9 +99,14 @@ Chaque route appelle directement `app/moteur.py`, sans aucune donnée simulée. 
 ![Plateau de notes](docs/livrable/5_api_recommandation_plateau.jpg)
 ![3 références proches expliquées](docs/livrable/5_api_recommandation_references.jpg)
 
+## Option Mistral (3.1.0)
+
+Avec `"llm": true`, Mistral via Ollama (`mistral:7b`, ADR 0008) complète l'analyse du brief dans les listes du référentiel et reformule les explications d'Aurore. Les règles gardent la priorité, et s'il ne répond pas, on garde leur résultat. Détails : `README.md` et `docs/regles_metier.md` (section 14). Pour mesurer son apport sur les 30 cas : `python evaluation/evaluate.py --llm`.
+
 ## Ce qui reste à faire
 
 - Brancher `ia-v3` dans `compose.yaml` et `api/` à la place de l'ancien `ia/` (avec les Tech).
 - Remplacer la banque de références fictive par la vraie banque de Hamza, au même format.
+- Mesurer l'option Mistral sur une machine avec Ollama (`evaluate.py --llm`) avant de l'activer par défaut.
 - Faire relire les cas de référence par une personne extérieure et tester sur des briefs inédits.
 - Sous Windows, Smart App Control peut bloquer `pydantic_core` : lancer les tests avec Docker.

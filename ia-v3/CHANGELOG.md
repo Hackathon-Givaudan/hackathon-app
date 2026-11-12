@@ -1,5 +1,15 @@
 # Historique
 
+## 3.1.0 (12/11/2026) : option Mistral (Ollama)
+
+- `app/llm.py` : Mistral via Ollama (`mistral:7b`, ADR 0008), mêmes variables que `ia/` (`AI_BASE_URL`, `AI_MODEL`, `AI_API_KEY`) plus `AI_TIMEOUT`.
+- Option `llm` (désactivée par défaut) sur `/analyse-brief`, `/brief`, `/profil`, `/recommandation`, `/references`, `/potentiel` et `/notes/{id}/pourquoi`.
+- Analyse du brief complétée par le modèle dans des listes fermées ; les règles gardent la priorité ; ajouts marqués « Proposé par le modèle ».
+- Explications reformulées par le modèle à partir des faits validés : `commentaire_reformule`, `lien_reformule`, `reponse_reformulee`.
+- Repli sur les règles si le modèle ne répond pas ; bloc `llm` dans les réponses ; `GET /llm`.
+- `evaluation/evaluate.py --llm` : règles seules contre règles + Mistral, dans `resultats_llm.md`.
+- 28 tests (7 nouveaux, avec un faux serveur Ollama). Sans l'option, résultats identiques à la 3.0.0.
+
 ## 3.0.0 (12/11/2026) : alignement sur la maquette V3 et la story map
 
 - Brief V3 : 11 champs à compléter (budget au kilo, volume annuel, type de projet, cible, pays de vente, objectif, mise en concurrence, relation, contraintes…), complétude, modèle à télécharger et import.
