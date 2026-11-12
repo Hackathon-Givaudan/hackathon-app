@@ -1,0 +1,189 @@
+{
+  "projet": "G11 YAMA — Givaudan",
+  "livrable": "Prompt 5 - Référentiel des familles",
+  "version": "brouillon 0.1",
+  "date_preparation": "2026-11-12",
+  "avertissement": "Les six axes arômes sont choisis par Product pour l’interface; ils ne sont pas les six goûts fondamentaux. Frais, fruité et épicé sont des impressions sensorielles et non des goûts fondamentaux. Les descriptions et exemples sont des propositions pédagogiques à valider par des experts.",
+  "familles": [
+    {
+      "domaine": "parfum",
+      "id": "hesperide",
+      "nom": "Hespéridé",
+      "definition_simple": "Une sensation vive et fraîche qui rappelle les zestes d’agrumes.",
+      "exemples": [
+        "bergamote",
+        "citron",
+        "mandarine"
+      ],
+      "source_reference": "https://perfumesociety.org/discover-perfume/an-introduction/fragrance-families/",
+      "date_consultation": "2026-11-12",
+      "statut": "proposition à valider par parfumeur",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "parfum",
+      "id": "marin",
+      "nom": "Marin",
+      "definition_simple": "Une odeur qui évoque l’air de la mer et la fraîcheur de l’eau.",
+      "exemples": [
+        "accord marin",
+        "accord ozonique",
+        "algue"
+      ],
+      "source_reference": "https://img.perfumerflavorist.com/files/base/allured/all/document/2009/11/pf.PF_34_12_026_09.pdf",
+      "date_consultation": "2026-11-12",
+      "statut": "proposition à valider par parfumeur",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "parfum",
+      "id": "aromatique",
+      "nom": "Aromatique",
+      "definition_simple": "Une fraîcheur végétale qui rappelle les herbes du jardin.",
+      "exemples": [
+        "lavande",
+        "romarin",
+        "sauge"
+      ],
+      "source_reference": "https://img.perfumerflavorist.com/files/base/allured/all/document/2009/11/pf.PF_34_12_026_09.pdf",
+      "date_consultation": "2026-11-12",
+      "statut": "proposition à valider par parfumeur",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "parfum",
+      "id": "floral",
+      "nom": "Floral",
+      "definition_simple": "Une odeur qui rappelle un bouquet de fleurs.",
+      "exemples": [
+        "rose",
+        "jasmin",
+        "fleur d’oranger"
+      ],
+      "source_reference": "https://perfumesociety.org/discover-perfume/an-introduction/fragrance-families/",
+      "date_consultation": "2026-11-12",
+      "statut": "proposition à valider par parfumeur",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "parfum",
+      "id": "boise",
+      "nom": "Boisé",
+      "definition_simple": "Une odeur qui rappelle le bois, les arbres et parfois une forêt sèche.",
+      "exemples": [
+        "cèdre",
+        "santal",
+        "vétiver"
+      ],
+      "source_reference": "https://img.perfumerflavorist.com/files/base/allured/all/document/2009/11/pf.PF_34_12_026_09.pdf",
+      "date_consultation": "2026-11-12",
+      "statut": "proposition à valider par parfumeur",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "parfum",
+      "id": "ambre",
+      "nom": "Ambré",
+      "definition_simple": "Une impression chaude, douce et résineuse.",
+      "exemples": [
+        "labdanum",
+        "benjoin",
+        "vanille"
+      ],
+      "source_reference": "https://img.perfumerflavorist.com/files/base/allured/all/document/2009/11/pf.PF_34_12_026_09.pdf",
+      "date_consultation": "2026-11-12",
+      "statut": "proposition à valider par parfumeur",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "arome",
+      "id": "acide",
+      "nom": "Acide",
+      "definition_simple": "Une sensation vive et acidulée, comme lorsqu’on goûte un citron.",
+      "exemples": [
+        "citron",
+        "citron vert",
+        "vinaigre"
+      ],
+      "source_reference": "https://www.nidcd.nih.gov/health/taste-disorders",
+      "date_consultation": "2026-11-12",
+      "statut": "axe produit à valider par aromaticien",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "arome",
+      "id": "frais",
+      "nom": "Frais",
+      "definition_simple": "Une impression de fraîcheur en bouche ou au nez, parfois liée au menthol.",
+      "exemples": [
+        "menthe",
+        "menthol",
+        "concombre"
+      ],
+      "source_reference": "https://www.ncbi.nlm.nih.gov/books/NBK279408/",
+      "date_consultation": "2026-11-12",
+      "statut": "axe produit à valider par aromaticien",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "arome",
+      "id": "fruite",
+      "nom": "Fruité",
+      "definition_simple": "Un profil aromatique évoquant des fruits mûrs ou juteux.",
+      "exemples": [
+        "fraise",
+        "mangue",
+        "pêche"
+      ],
+      "source_reference": "https://www.ncbi.nlm.nih.gov/books/NBK279408/",
+      "date_consultation": "2026-11-12",
+      "statut": "axe produit à valider par aromaticien",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "arome",
+      "id": "sucre",
+      "nom": "Sucré",
+      "definition_simple": "Une impression sucrée et gourmande.",
+      "exemples": [
+        "sucre",
+        "miel",
+        "sirop d’érable"
+      ],
+      "source_reference": "https://www.nidcd.nih.gov/health/taste-disorders",
+      "date_consultation": "2026-11-12",
+      "statut": "axe produit à valider par aromaticien",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "arome",
+      "id": "umami",
+      "nom": "Umami",
+      "definition_simple": "Une saveur ronde et savoureuse qui rappelle notamment certains bouillons.",
+      "exemples": [
+        "tomate mûre",
+        "champignon",
+        "sauce soja"
+      ],
+      "source_reference": "https://www.nidcd.nih.gov/health/taste-disorders",
+      "date_consultation": "2026-11-12",
+      "statut": "axe produit à valider par aromaticien",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    },
+    {
+      "domaine": "arome",
+      "id": "epice",
+      "nom": "Épicé",
+      "definition_simple": "Une impression aromatique ou piquante évoquant les épices.",
+      "exemples": [
+        "gingembre",
+        "poivre",
+        "cannelle"
+      ],
+      "source_reference": "https://www.ncbi.nlm.nih.gov/books/NBK279408/",
+      "date_consultation": "2026-11-12",
+      "statut": "axe produit à valider par aromaticien",
+      "note": "Les exemples sont des illustrations pédagogiques, pas des formules ni une classification exclusive."
+    }
+  ]
+}
