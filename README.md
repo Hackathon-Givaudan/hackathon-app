@@ -27,16 +27,31 @@ Pour que le modèle de langage lise les envies, installez [Ollama](https://ollam
 ollama pull mistral:7b
 ```
 
+Si vous aviez déjà lancé une version précédente, supprimez d'abord le dossier `db/data/` : la table des briefs a deux colonnes de plus, et une ancienne base fait échouer le brief.
+
 Sans Ollama, la tranche fonctionne quand même : le service `ia/` cherche alors les mots de la marque dans le référentiel. Sous Linux, Ollama doit écouter sur toutes les interfaces (`OLLAMA_HOST=0.0.0.0`).
 
 ## Ce qui est simulé
 
-Le front, l'API, PostgreSQL, le service `ia/` et l'appel au modèle sont réels. Quatre choses ne le sont pas :
+Le parcours suit la maquette du Product : la marque échange par écrit avec son guide, relit son brief, précise son profil, donne son avis sur un plateau de notes, reçoit une formule, puis suit son échantillon. En face, le conseiller lit les briefs et leur potentiel.
+
+**Ce qui est réel.** Le front, l'API, PostgreSQL, le service `ia/` et l'appel au modèle. La séance : le modèle ne retient que des étiquettes de notre référentiel, et le code jette ce que la marque n'a pas dit. Le brief, ses précisions et le retour après essai, enregistrés en base. Les fiches matières, tirées des données de l'équipe Data, avec leurs sources. Le potentiel d'un brief : sept critères calculés par des règles écrites, sans modèle.
+
+**Ce qui est simulé, et dit à l'écran.**
 
 - La banque : 40 références écrites pour la démonstration, 20 parfums et 20 arômes, marquées « fictif démo » dans `ia/data/`. Aucune formule de Givaudan.
-- La formule proposée : la référence existante la plus proche des notes gardées, jamais une composition sur mesure. Ses parts sont égales par construction, parce que la banque ne donne pas de proportions : l'écran ne les affiche pas.
-- La demande d'échantillon : elle est enregistrée en base, rien n'est envoyé.
-- Les comptes : pas de connexion, un brief n'appartient à personne.
+- La formule proposée : la référence existante la plus proche des notes gardées, jamais une composition sur mesure. La banque ne donne pas de proportions : l'écran n'en affiche pas.
+- Le guide : Aurore et Victor sont le même service, seul le prénom change. L'échange est écrit, il n'y a pas de voix. Ses questions sont écrites dans le code, pas rédigées par le modèle.
+- Le compte : Léa, de Maison Lumen, est un faux compte. Il n'y a pas de connexion : l'espace de la marque et celui du conseiller montrent tous les briefs enregistrés, et sont ouverts à tous.
+- Le conseiller : Karim n'existe pas. Sa validation du plateau est un bouton « Démo ».
+- Le plateau : aucune fiole n'est envoyée. La livraison, le kit atelier et le créneau réservé sont des écrans, et l'avis sur chaque note se donne à l'écran.
+- Le devis et la commande : Givaudan n'a donné ni prix ni délai, ils s'écrivent `[X]`. Accepter le devis ou commander ne transmet rien.
+- L'échantillon : rien n'est envoyé, sa réception est un bouton.
+- La roue du profil : elle résume les mots du brief et les réponses. Elle n'oriente pas le plateau.
+
+**Ce qui reste une hypothèse.** Les fiches couvrent 39 des 78 notes de parfum, et une partie de leurs valeurs est estimée par l'équipe Data. Les règles du potentiel sont à valider avec Givaudan : le conseiller décide.
+
+**Ce que la maquette montre et que le code ne fait pas.** Trois références proches et deux versions d'une formule, la voix, l'import d'un document de brief, la séance en direct côté conseiller.
 
 ## Développer
 
