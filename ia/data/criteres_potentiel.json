@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "source": "liste des 7 critères : maquette V3 (écran Business 05) ; règles : hypothèse équipe Data, à valider avec Givaudan",
+  "date_source": "2026-11-12",
+  "seuils_inconnus": "Givaudan n'a pas donné de seuil de volume ni de budget : ils restent à [X].",
+  "criteres": [
+    {
+      "id": "cible",
+      "libelle": "Cible"
+    },
+    {
+      "id": "pays_vente",
+      "libelle": "Pays de vente"
+    },
+    {
+      "id": "volume",
+      "libelle": "Volume visé"
+    },
+    {
+      "id": "mise_en_concurrence",
+      "libelle": "Mise en concurrence"
+    },
+    {
+      "id": "faisabilite_reglementaire",
+      "libelle": "Faisabilité réglementaire"
+    },
+    {
+      "id": "produits_similaires",
+      "libelle": "Produits similaires dans la banque"
+    },
+    {
+      "id": "engagement_client",
+      "libelle": "Engagement du client"
+    }
+  ],
+  "decisions": {
+    "prioriser": "Prioriser le projet",
+    "orienter_banque": "Orienter vers les formules de la banque",
+    "mettre_en_attente": "Mettre en attente"
+  },
+  "delais": {
+    "banque": "environ un mois pour une formule de la banque",
+    "sur_mesure": "six mois en moyenne pour du sur-mesure",
+    "source": "réponses de Givaudan citées dans la maquette V3"
+  }
+}

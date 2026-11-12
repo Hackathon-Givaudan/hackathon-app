@@ -3,10 +3,13 @@
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 from .formula import propose_formula
+from .materials import find as find_material
 from .notes import propose_notes
+from .potential import CHOICES
+from .potential import evaluate as evaluate_potential
 from .references import REFERENCES
 from .session import next_turn
 
@@ -66,3 +69,47 @@ class TurnRequest(BaseModel):
 def session_turn(request: TurnRequest) -> dict:
     """Un échange de la séance : ce qu'Aurore répond, et ce qu'elle a entendu depuis le début."""
     return next_turn(request.universe, request.said, [idea.model_dump() for idea in request.heard])
+
+
+@app.get("/materials/{note_id}")
+def material(note_id: str) -> dict:
+    """La fiche matière d'une note : seulement ce qui est documenté."""
+    sheet = find_material(note_id)
+    if not sheet:
+        raise HTTPException(404, "Cette note n'a pas encore de fiche")
+    return sheet
+
+
+class PotentialRequest(BaseModel):
+    """Les champs du brief qui comptent pour le potentiel, tous facultatifs."""
+
+    target: str | None = None
+    salesCountries: list[str] = Field(default=[], max_length=10)
+    annualVolumeKg: float | None = Field(default=None, ge=0)
+    budgetPerKg: float | None = Field(default=None, ge=0)
+    competition: str | None = None
+    constraints: list[str] = Field(default=[], max_length=10)
+    commitments: list[str] = Field(default=[], max_length=10)
+    closestReference: str | None = Field(default=None, max_length=100)
+
+    @model_validator(mode="after")
+    def only_known_values(self):
+        # Une valeur hors des listes du brief est refusée plutôt que mal comprise
+        fields = {
+            "cible": [self.target],
+            "pays_vente": self.salesCountries,
+            "mise_en_concurrence": [self.competition],
+            "contraintes": self.constraints,
+            "engagements": self.commitments,
+        }
+        for field, values in fields.items():
+            unknown = [value for value in values if value and value not in CHOICES[field]]
+            if unknown:
+                raise ValueError(f"Valeur inconnue pour {field} : {', '.join(unknown)}")
+        return self
+
+
+@app.post("/potential")
+def potential(request: PotentialRequest) -> dict:
+    """Le potentiel d'un brief pour le conseiller : 7 critères et une suggestion."""
+    return evaluate_potential(request.model_dump())
