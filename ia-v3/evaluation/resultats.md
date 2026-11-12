@@ -1,8 +1,8 @@
 # Résultats sur les 30 cas de référence
 
-Cas : `evaluation/cas_reference.json` (empreinte SHA-256 `8fc80f201c02f4ce`). Date : 12/11/2026 12:10.
+Cas : `evaluation/cas_reference.json` (empreinte SHA-256 `8fc80f201c02f4ce`). Date : 12/11/2026 14:42.
 
-| Métrique | Seuil | V1 baseline (règles simples) | Modèle 3.0.0 |
+| Métrique | Seuil | V1 baseline (règles simples) | Modèle 3.1.0 |
 |---|---|---|---|
 | Famille dominante exacte | 60% | 80% (IC95 63% à 90%) OK | 80% (IC95 63% à 90%) OK |
 | Famille attendue dans le top 3 de la roue | 85% | 100% (IC95 89% à 100%) OK | 100% (IC95 89% à 100%) OK |
@@ -13,9 +13,9 @@ Cas : `evaluation/cas_reference.json` (empreinte SHA-256 `8fc80f201c02f4ce`). Da
 | Champ positionnement exact | 80% | 60% (IC95 42% à 75%) non atteint | 100% (IC95 89% à 100%) OK |
 | Champ intensité exact | 80% | 80% (IC95 63% à 90%) OK | 100% (IC95 89% à 100%) OK |
 | Champ engagements exact | 80% | 80% (IC95 63% à 90%) OK | 100% (IC95 89% à 100%) OK |
-| Latence p95 (ms) | < 5000 | 0.22 (médiane 0.17) | 2.58 (médiane 1.11) |
+| Latence p95 (ms) | < 5000 | 0.24 (médiane 0.19) | 1.18 (médiane 0.96) |
 
-## Détail Modèle 3.0.0 : cas en échec
+## Détail Modèle 3.1.0 : cas en échec
 
 | Cas | Famille attendue | Famille prédite | Notes manquantes | Champs faux |
 |---|---|---|---|---|

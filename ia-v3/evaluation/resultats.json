@@ -85,8 +85,8 @@
         }
       },
       "latence": {
-        "mediane_ms": 0.17,
-        "p95_ms": 0.22,
+        "mediane_ms": 0.19,
+        "p95_ms": 0.24,
         "seuil_ms": 5000,
         "atteint": true
       },
@@ -601,7 +601,7 @@
       ]
     },
     {
-      "modele": "Modèle 3.0.0",
+      "modele": "Modèle 3.1.0",
       "cas": 30,
       "metriques": {
         "famille_dominante_exacte": {
@@ -684,8 +684,8 @@
         }
       },
       "latence": {
-        "mediane_ms": 1.11,
-        "p95_ms": 2.58,
+        "mediane_ms": 0.96,
+        "p95_ms": 1.18,
         "seuil_ms": 5000,
         "atteint": true
       },

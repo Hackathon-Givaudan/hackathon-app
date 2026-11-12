@@ -1,6 +1,7 @@
 """Évaluation du modèle sur les 30 cas de référence, et comparaison V1 / V2.
 
 Usage :
+  python evaluation/evaluate.py --llm                 # règles seules contre règles + Mistral (Ollama lancé)
   python evaluation/evaluate.py                       # V1 et V2 en local (sans serveur)
   python evaluation/evaluate.py http://localhost:8000 # V2 via l'API qui tourne (mesure aussi le réseau)
 Écrit evaluation/resultats.json et evaluation/resultats.md.
@@ -190,7 +191,27 @@ def rapport_md(res: list[dict], empreinte: str) -> str:
     return "\n".join(l) + "\n"
 
 
+def main_llm():
+    """python evaluation/evaluate.py --llm : mêmes cas, règles seules contre règles + Mistral (Ollama doit tourner).
+    Écrit evaluation/resultats_llm.json et .md, sans toucher aux résultats officiels."""
+    from app import llm
+    etat = llm.etat()
+    if not etat["joignable"] or not etat["modele_installe"]:
+        sys.exit(etat["message"])
+    empreinte = hashlib.sha256(FICHIER_CAS.read_bytes()).hexdigest()[:16]
+    res = [evaluer(lambda b, r: moteur.recommander(b, r), f"Modèle {moteur.VERSION} (règles seules)"),
+           evaluer(lambda b, r: moteur.recommander(b, r, llm=True), f"Modèle {moteur.VERSION} + {llm.AI_MODEL}")]
+    v3 = evaluer_v3(lambda b, r: moteur.recommander(b, r, llm=True))
+    sortie = {"empreinte_cas": empreinte, "modele_llm": llm.AI_MODEL, "resultats": res, "v3": v3}
+    (RACINE / "evaluation" / "resultats_llm.json").write_text(json.dumps(sortie, ensure_ascii=False, indent=2), encoding="utf-8")
+    md = rapport_md(res, empreinte) + rapport_v3_md(v3)
+    (RACINE / "evaluation" / "resultats_llm.md").write_text(md, encoding="utf-8")
+    print(md)
+
+
 def main():
+    if "--llm" in sys.argv:
+        return main_llm()
     empreinte = hashlib.sha256(FICHIER_CAS.read_bytes()).hexdigest()[:16]
     res = [evaluer(recommander_v1, "V1 baseline (règles simples)")]
     if len(sys.argv) > 1:
