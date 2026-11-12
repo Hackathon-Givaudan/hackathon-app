@@ -41,6 +41,23 @@ Le pipeline historique Data/IA V3 a traité les données du référentiel olfact
 
 Les fiches comportent des informations documentaires sur les matières, leurs origines et leurs caractéristiques, lorsque ces informations sont disponibles.
 
+### Qualité avant / après le pipeline
+
+Ajout d'Ali. Fiche d'une note : `notes_base.json` seul (avant), puis `notes.json` produit par le pipeline (après).
+
+| Indicateur                             | Avant  | Après   |
+| -------------------------------------- | ------ | ------- |
+| Champs par fiche                       | 17     | 40      |
+| Famille V2 et couleur de l'écran       | 0 / 72 | 72 / 72 |
+| Origine, obtention, tenue, accords     | 0 / 72 | 72 / 72 |
+| Statut de l'origine (confirmée ou non) | 0 / 72 | 72 / 72 |
+| Engagements (naturel, vegan, durable)  | 0 / 72 | 72 / 72 |
+| Image libre avec auteur et licence     | 0 / 72 | 72 / 72 |
+| Allergènes connus                      | 0 / 72 | 28 / 72 |
+| Ambiances liées                        | 0 / 72 | 72 / 72 |
+
+Les 100 % viennent de la fusion des sources : chaque valeur garde son statut (« confirmée », « déduite de l'étage », « estimation équipe Data »), et le service `v2` n'affiche que ce qui est confirmé.
+
 ### Preuves
 
 [Données historiques V3](https://github.com/Hackathon-Givaudan/hackathon-app/tree/feature/data-ia-v3/ia-v3/data)
@@ -114,6 +131,20 @@ La documentation du service `v2` décrit :
 
 L'intégration au prototype a été confirmée par l'équipe Tech.
 
+### Pourquoi un moteur à règles : les mesures
+
+Ajout d'Ali.
+
+| Approche                                 | Qualité                                                          | Temps                       | Source                    |
+| ---------------------------------------- | ---------------------------------------------------------------- | --------------------------- | ------------------------- |
+| V1 : règles simples (baseline)           | 69 % des notes attendues dans le plateau (30 cas)                | 0,2 ms                      | `evaluation/resultats.md` |
+| Moteur V3 (règles)                       | 80 % des notes attendues dans le plateau (30 cas)                | 1,2 ms (p95)                | `evaluation/resultats.md` |
+| `qwen2.5:7b` sur PC sans carte graphique | 40 % des notes attendues (51 % sans IA), 0 note hors référentiel | **58 s** médian (seuil 5 s) | spike, PR #49             |
+| `mistral:7b` sur Mac M3 (service `ia/`)  | 9 envies sur 10                                                  | 4,4 s au pire               | ADR 0008                  |
+| Service `ia/` sans modèle                | 6 envies sur 10                                                  | 0,1 s                       | ADR 0008                  |
+
+Un modèle 7B est inutilisable sur les PC de l'équipe sans carte graphique : le moteur V3 fonctionne donc par règles, avec Mistral en option.
+
 ### Preuves
 
 [Modèle historique — app/moteur.py](https://github.com/Hackathon-Givaudan/hackathon-app/blob/feature/data-ia-v3/ia-v3/app/moteur.py)
@@ -153,6 +184,32 @@ Les résultats historiques ont été reproduits sur un deuxième ordinateur.
 
 Une évaluation complémentaire sur 10 cas V3 indique que la référence attendue apparaît dans les trois suggestions sur les dix cas existants.
 
+### Avant / après les corrections (30 cas)
+
+Ajout d'Ali. L'exécution 1 est la mesure de référence : 3 défauts ont ensuite été corrigés après avoir lu les erreurs (un nom en deux mots reconnu par son premier mot, les mots-clés cherchés en mots entiers, un format précis préféré à « marque de parfum »).
+
+| Métrique                                      | Seuil | V1        | Avant (2.0.0) | Après (3.1.0) |
+| --------------------------------------------- | ----- | --------- | ------------- | ------------- |
+| Famille dominante exacte                      | 60 %  | 80 %      | 80 %          | 80 %          |
+| Notes attendues retrouvées dans le plateau    | 50 %  | 69 %      | 79 %          | 80 %          |
+| Plateaux sans note interdite                  | 100 % | 97 %      | 100 %         | 100 %         |
+| Champ format exact                            | 80 %  | 0 %       | 97 %          | 100 %         |
+| Champs positionnement, intensité, engagements | 80 %  | 60 à 80 % | 100 %         | 100 %         |
+
+### Validation indépendante : 15 envies jamais vues
+
+Ajout d'Ali. Le jeu `ia/evaluation/envies.json` a été écrit par l'équipe du service `ia/` : le moteur V3 ne l'a jamais vu, et il a été mesuré sans rien modifier, ni avant ni après ([script](docs/livrable-data-g11/mesure_envies_independantes.py), [résultats](docs/livrable-data-g11/resultats_envies_independantes.json)). Règle de l'ADR 0008 : une envie est réussie si une des notes attendues est proposée.
+
+| Critère                                                     | Moteur V3 (3.1.0, règles) |
+| ----------------------------------------------------------- | ------------------------- |
+| Envies réussies, 6 meilleures notes                         | **1 / 10**                |
+| Envies réussies, plateau de 10                              | 2 / 10                    |
+| Envies dont une note attendue existe dans le référentiel V3 | 7 / 10                    |
+| Envies où aucun mot n'est reconnu                           | 5 / 10                    |
+| Textes hors sujet refusés                                   | **0 / 5**                 |
+
+D'où l'écart : 80 % sur les 30 cas écrits par l'équipe Data, 1 envie sur 10 sur le jeu indépendant. Le lexique reconnaît les notes et les familles nommées (« bougie fraîche et iodée »), pas les ambiances ni les usages (« une terrasse au soleil », « s'endormir sereinement ») : sur la moitié des envies, aucun mot n'est reconnu. Il n'a pas non plus de garde-fou : « xyz qsdf » reçoit un plateau. Le service `ia/` fait mieux sur ce jeu (6 / 10 sans modèle, 9 / 10 avec Mistral, ADR 0008) : c'est pourquoi il reste le service unique, avec les données et les règles du V3 reprises, pas son analyse du brief. Ces résultats ne sont pas corrigés.
+
 ### Reproduction
 
 Depuis `ia-v3/` :
@@ -173,7 +230,7 @@ Le livrable d'Ali documente ensuite 28 tests pour la version 3.1.0. Ces 28 tests
 
 ### Limites
 
-Les cas et les réponses attendues ont été préparés par l'équipe Data. Les métriques sont donc à compléter par des tests sur des briefs clients réellement indépendants.
+Les cas et les réponses attendues ont été préparés par l'équipe Data. Les métriques sont donc à compléter par des tests sur des briefs clients réellement indépendants. Un premier jeu indépendant est mesuré plus haut : 1 envie sur 10 réussie.
 
 Six divergences de famille dominante ont été analysées dans le rapport complémentaire.
 
@@ -323,7 +380,7 @@ La version historique 3.1.0 reste accessible séparément comme référence tech
 
 - Les références historiques utilisées pour la démonstration sont fictives.
 - Certaines familles olfactives sont peu représentées.
-- Une validation indépendante sur de nouveaux briefs est nécessaire.
+- Validation indépendante : 1 envie sur 10 réussie sur le premier jeu jamais vu (section 4). À compléter par de vrais briefs clients.
 - Les performances de l'option Mistral via Ollama doivent être évaluées séparément.
 - Les métriques de la V3 historique ne doivent pas être confondues avec celles du service V2.
 - Les données documentaires complémentaires nécessitent une validation métier avant leur utilisation définitive.
