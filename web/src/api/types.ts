@@ -22,7 +22,28 @@ export type Brief = {
   status: BriefStatus;
   proposedNotes: Note[];
   validatedNotes: Note[];
+  /* Les précisions du brief : budget, cible, pays… toutes facultatives */
+  details?: BriefDetails;
+  /* Absents tant qu'il n'y a ni formule ni retour après essai */
+  formulaName?: string;
+  feedback?: string[];
   createdAt: string;
+};
+
+export type BriefDetails = Record<string, number | string | string[]>;
+
+/* Le potentiel d'un brief pour le conseiller : sept critères et une suggestion */
+export type Potential = {
+  criteria: {
+    id: string;
+    label: string;
+    status: 'favorable' | 'a_verifier' | 'a_completer';
+    reason: string;
+  }[];
+  favorable: number;
+  suggestion: string;
+  suggestionLabel: string;
+  note: string;
 };
 
 export type Formula = {
@@ -67,4 +88,8 @@ export type Api = {
   acceptFormula(briefId: number): Promise<Brief>;
   /* null quand la note n'a pas encore de fiche */
   material(noteId: string): Promise<Material | null>;
+  completeBrief(briefId: number, details: BriefDetails): Promise<Brief>;
+  listBriefs(): Promise<Brief[]>;
+  potential(briefId: number): Promise<Potential>;
+  giveFeedback(briefId: number, adjustments: string[]): Promise<Brief>;
 };

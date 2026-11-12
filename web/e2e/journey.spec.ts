@@ -256,6 +256,14 @@ test('the brand names its creation and follows its sample', async ({
     .click();
   await page.getByRole('button', { name: 'Plus de fraîcheur' }).click();
   await expect(page.getByText('Votre retour est noté.')).toBeVisible();
+
+  // Le retour est enregistré : le conseiller le lit dans le brief
+  await expect
+    .poll(async () => {
+      const { briefs } = await (await page.request.get('/api/briefs')).json();
+      return briefs[0].feedback;
+    })
+    .toEqual(['plus_de_fraicheur']);
 });
 
 test('the profile does not ask again what the session already settled', async ({
@@ -342,10 +350,8 @@ test('each vial shows its material sheet, or says it is coming', async ({
 
   const sheet = page.getByRole('region', { name: 'Fiche matière' });
   await expect(sheet).toBeVisible();
-  // Une fiche documentée donne son origine ; sinon, elle est annoncée
-  await expect(
-    sheet.getByText(/Origine|Obtention|Fiche à venir/).first(),
-  ).toBeVisible();
+  // La première fiole, le sel marin, a une fiche documentée par la Data
+  await expect(sheet.getByText(/Origine|Obtention/).first()).toBeVisible();
 });
 
 test('the brand chooses its product before the session', async ({ page }) => {
@@ -412,4 +418,74 @@ test('a coffee break rests the nose halfway through the tray', async ({
   while (!(await pause.isVisible())) await love.click();
   await page.getByRole('button', { name: 'C’est reparti' }).click();
   await expect(love).toBeVisible();
+});
+
+/* Un parcours complet et court, jusqu'à la demande d'échantillon */
+async function orderSample(page: Page) {
+  await describe(page, 'Un parfum', SEASIDE);
+  await page.getByLabel('Budget visé au kilo').fill('120');
+  await page.getByLabel('Volume annuel').fill('500');
+  await page.getByRole('button', { name: 'Grand public' }).click();
+  await page.getByRole('button', { name: 'France', exact: true }).click();
+  await page
+    .getByRole('button', { name: 'Établir mon profil olfactif' })
+    .click();
+  await page.getByRole('button', { name: 'Passer cette étape' }).click();
+  await openKit(page);
+  await smell(page, 'Je l’aime');
+  await compose(page).click();
+  await page.getByRole('button', { name: /^Recevoir l’échantillon/ }).click();
+  await expect(page.getByText('prend forme.')).toBeVisible();
+}
+
+test('what the brand adds to its brief is saved with it', async ({ page }) => {
+  await orderSample(page);
+  const { briefs } = await (await page.request.get('/api/briefs')).json();
+  expect(briefs[0].details).toEqual({
+    budgetPerKg: 120,
+    annualVolumeKg: 500,
+    target: 'grand_public',
+    salesCountries: ['france'],
+  });
+});
+
+test('the brand finds its briefs and formulas in its space', async ({
+  page,
+}) => {
+  await orderSample(page);
+  await page.getByRole('button', { name: 'Léa · Mon espace' }).click();
+
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Bonjour Léa.',
+  );
+  const briefs = page.getByRole('region', { name: 'Mes briefs' });
+  await expect(briefs.getByText(/bord de mer/).first()).toBeVisible();
+  const formulas = page.getByRole('region', { name: 'Mes formules' });
+  await expect(formulas.getByRole('listitem').first()).toBeVisible();
+  await page.getByRole('button', { name: 'Revenir à l’atelier' }).click();
+  await expect(page.getByText('prend forme.')).toBeVisible();
+});
+
+test('the advisor reads the brief and its potential in seven criteria', async ({
+  page,
+}) => {
+  await orderSample(page);
+  await page.getByRole('button', { name: 'Espace conseiller' }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Tableau de bord',
+  );
+  await page
+    .getByRole('button', { name: /^Ouvrir le brief/ })
+    .first()
+    .click();
+
+  // Ce que la marque a précisé, puis les sept critères et une suggestion
+  const given = page.getByRole('region', { name: 'Précisions du brief' });
+  await expect(given.getByText('Grand public')).toBeVisible();
+  await expect(given.getByText('120 € / kg')).toBeVisible();
+  const criteria = page.getByRole('region', { name: 'Critères' });
+  await expect(criteria.getByRole('listitem')).toHaveCount(7);
+  await expect(criteria.getByText(/^Suggestion :/)).toBeVisible();
+  // Givaudan n'a pas donné de seuil de volume : il reste [X]
+  await expect(criteria.getByText(/seuil Givaudan \[X\]/)).toBeVisible();
 });

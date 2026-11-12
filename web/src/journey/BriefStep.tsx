@@ -6,66 +6,101 @@ import { cn, linkButton, primaryButton, smallLabel } from '../shared/ui';
 /* Ce que la marque a complété : un nombre, un choix, ou plusieurs choix */
 export type BriefDetails = Record<string, string | string[]>;
 
-type Field = { id: string; label: string; options: string[]; many?: boolean };
+/* Chaque choix : l'identifiant du contrat (openapi.yaml), puis le mot affiché */
+type Field = {
+  id: string;
+  label: string;
+  options: [string, string][];
+  many?: boolean;
+};
 
 /* Les neuf questions à choix de la maquette V3, dans son ordre et avec ses mots */
-const FIELDS: Field[] = [
+export const FIELDS: Field[] = [
   {
     id: 'projectType',
     label: 'Type de projet',
-    options: ['Création', 'Reformulation', 'Extension de gamme'],
+    options: [
+      ['creation', 'Création'],
+      ['reformulation', 'Reformulation'],
+      ['extension_gamme', 'Extension de gamme'],
+    ],
   },
   {
     id: 'target',
     label: 'Cible',
-    options: ['Clientèle de nos boutiques', 'Grand public', 'Hôtellerie'],
+    options: [
+      ['clientele_boutiques', 'Clientèle de nos boutiques'],
+      ['grand_public', 'Grand public'],
+      ['hotellerie', 'Hôtellerie'],
+    ],
   },
   {
     id: 'salesCountries',
     label: 'Pays de vente',
     options: [
-      'France',
-      'Union européenne',
-      'Royaume-Uni',
-      'États-Unis',
-      'Asie',
+      ['france', 'France'],
+      ['union_europeenne', 'Union européenne'],
+      ['royaume_uni', 'Royaume-Uni'],
+      ['etats_unis', 'États-Unis'],
+      ['asie', 'Asie'],
     ],
     many: true,
   },
   {
     id: 'positioning',
     label: 'Positionnement',
-    options: ['Accessible', 'Premium', 'Luxe'],
+    options: [
+      ['accessible', 'Accessible'],
+      ['premium', 'Premium'],
+      ['luxe', 'Luxe'],
+    ],
   },
   {
     id: 'objective',
     label: 'Objectif',
-    options: ['Se différencier', 'Fidéliser', 'Produit signature'],
+    options: [
+      ['se_differencier', 'Se différencier'],
+      ['fideliser', 'Fidéliser'],
+      ['produit_signature', 'Produit signature'],
+    ],
   },
   {
     id: 'competition',
     label: 'Mise en concurrence',
     options: [
-      'Seulement Givaudan',
-      'D’autres fournisseurs aussi',
-      'Pas encore décidé',
+      ['seulement_givaudan', 'Seulement Givaudan'],
+      ['autres_fournisseurs', 'D’autres fournisseurs aussi'],
+      ['pas_decide', 'Pas encore décidé'],
     ],
   },
   {
     id: 'relation',
     label: 'Relation',
-    options: ['En direct', 'Via un distributeur', 'Je ne sais pas'],
+    options: [
+      ['direct', 'En direct'],
+      ['distributeur', 'Via un distributeur'],
+      ['ne_sait_pas', 'Je ne sais pas'],
+    ],
   },
   {
     id: 'commitments',
     label: 'Engagements',
-    options: ['Naturel', 'Vegan', 'Sans allergènes', 'Matières durables'],
+    options: [
+      ['naturel', 'Naturel'],
+      ['vegan', 'Vegan'],
+      ['sans_allergenes', 'Sans allergènes'],
+      ['matieres_durables', 'Matières durables'],
+    ],
     many: true,
   },
   {
     id: 'constraints',
     label: 'Contraintes',
-    options: ['Délai court', 'Réglementation', 'Coût des matières'],
+    options: [
+      ['delai_court', 'Délai court'],
+      ['reglementation', 'Réglementation'],
+      ['cout_matieres', 'Coût des matières'],
+    ],
     many: true,
   },
 ];
@@ -74,6 +109,25 @@ const NUMBERS = [
   { id: 'annualVolumeKg', label: 'Volume annuel', unit: 'kg / an' },
 ];
 const TOTAL = FIELDS.length + NUMBERS.length;
+
+/* Le mot affiché pour une valeur du contrat : « etats_unis » → « États-Unis » */
+export function labelOf(fieldId: string, value: string): string {
+  const field = FIELDS.find(({ id }) => id === fieldId);
+  return field?.options.find(([id]) => id === value)?.[1] ?? value;
+}
+
+/* Ce que l'API attend : des nombres pour le budget et le volume, et rien de vide */
+export function toApiDetails(details: BriefDetails) {
+  const sent: Record<string, number | string | string[]> = {};
+  for (const [field, value] of Object.entries(details)) {
+    if (!value.length) continue;
+    const number = Number(String(value).replace(',', '.'));
+    if (NUMBERS.some(({ id }) => id === field)) {
+      if (Number.isFinite(number) && number >= 0) sent[field] = number;
+    } else sent[field] = value;
+  }
+  return sent;
+}
 
 type Props = {
   guide: string;
@@ -182,7 +236,7 @@ export function BriefStep({
             )}
           </legend>
           <div className="mt-2 flex flex-wrap gap-2">
-            {field.options.map((option) => {
+            {field.options.map(([option, text]) => {
               const current = details[field.id];
               const chosen = Array.isArray(current)
                 ? current.includes(option)
@@ -197,7 +251,7 @@ export function BriefStep({
                     chosen ? 'bg-selected ring-2 ring-accent' : 'hover:bg-soft',
                   )}
                 >
-                  {option}
+                  {text}
                 </button>
               );
             })}
@@ -215,8 +269,7 @@ export function BriefStep({
         </button>
       </div>
       <p className="mt-3 text-sm text-secondary">
-        Prototype : ces réponses restent sur cet écran. Dans le vrai service,
-        votre conseiller Givaudan reçoit le brief en même temps que vous.
+        Votre conseiller Givaudan reçoit ce brief en même temps que vous.
       </p>
     </div>
   );
