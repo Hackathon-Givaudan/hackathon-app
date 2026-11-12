@@ -1,4 +1,4 @@
-"""API du service Data/IA (modèle V2). Lancer : uvicorn app.main:app --port 8000 ; documentation sur /docs."""
+"""API du service Data/IA (modèle V3). Lancer : uvicorn app.main:app --port 8000 ; documentation sur /docs."""
 from __future__ import annotations
 
 import json
@@ -8,7 +8,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from app import moteur
+from app import llm, moteur
 
 Engagement = Literal["vegan", "naturel", "sans_allergenes", "matieres_durables"]
 Domaine = Literal["fragrances", "aromes"]
@@ -21,9 +21,15 @@ app = FastAPI(
     version=moteur.VERSION,
     description="Modèle V3 : brief écrit ou importé et duels du profil vers brief structuré, radar à 6 axes (9 familles), "
                 "plateau de 10 notes, 3 références proches expliquées, potentiel critère par critère et formule en deux versions. "
-                "Données sourcées et datées, sans LLM (latence de l'ordre de la milliseconde).",
+                "Données sourcées et datées. Par défaut sans LLM (latence de l'ordre de la milliseconde) ; "
+                "avec « llm »: true, Mistral via Ollama complète l'analyse du brief et reformule les explications "
+                "(ADR 0008), avec repli sur les règles s'il ne répond pas.",
 )
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+DESCRIPTION_LLM = ("Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel "
+                   "et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, "
+                   "le résultat des règles est renvoyé.")
 
 EXEMPLE_BRIEF = ("On ouvre un restaurant en bord de mer. On veut une bougie fraîche et iodée, "
                  "qui rappelle l'air du large. Prix accessible.")
@@ -31,6 +37,7 @@ EXEMPLE_BRIEF = ("On ouvre un restaurant en bord de mer. On veut une bougie fra�
 
 class BriefIn(BaseModel):
     brief: str = Field(..., examples=[EXEMPLE_BRIEF], description="Texte libre du client (transcription de la séance).")
+    llm: bool = Field(False, description=DESCRIPTION_LLM)
 
 
 class ProfilIn(BaseModel):
@@ -39,6 +46,7 @@ class ProfilIn(BaseModel):
     brief: str = Field("", description="Brief facultatif : les notes et familles citées complètent la roue.")
     ajustements: dict[str, int] = Field(default_factory=dict, examples=[{"marin": 1, "boise": -1}],
                                         description="Réglage à la main du radar : +1 ou -1 par axe (hesperide, marin, aromatique, floral, boise, ambre).")
+    llm: bool = Field(False, description=DESCRIPTION_LLM)
 
 
 class RecommandationIn(ProfilIn):
@@ -74,7 +82,12 @@ def accueil():
 
 @app.get("/sante", tags=["service"])
 def sante():
-    return {"statut": "ok", "version_modele": moteur.VERSION}
+    return {"statut": "ok", "version_modele": moteur.VERSION, "llm": {"modele": llm.AI_MODEL, "adresse": llm.AI_BASE_URL}}
+
+
+@app.get("/llm", tags=["service"], summary="Mistral (Ollama) est-il joignable et installé ?")
+def llm_etat():
+    return llm.etat()
 
 
 @app.get("/familles", tags=["référentiel"])
@@ -124,19 +137,19 @@ def kit():
 
 @app.post("/analyse-brief", tags=["séance"], summary="Champs entendus dans le brief, avec leur citation")
 def analyse_brief(corps: BriefIn):
-    return moteur.analyser_brief(corps.brief)
+    return moteur.analyser_brief(corps.brief, corps.llm)
 
 
 @app.post("/profil", tags=["profil"], summary="Roue olfactive à partir des réponses (et du brief)")
 def profil(corps: ProfilIn):
-    analyse = moteur.analyser_brief(corps.brief) if corps.brief else None
+    analyse = moteur.analyser_brief(corps.brief, corps.llm) if corps.brief else None
     return moteur.calculer_roue(corps.reponses, analyse, corps.ajustements)
 
 
 @app.post("/recommandation", tags=["offres"], summary="Roue, plateau de notes, 3 pistes et alertes")
 def recommandation(corps: RecommandationIn):
     return moteur.recommander(corps.brief, corps.reponses, list(corps.engagements), corps.format, corps.taille,
-                              corps.domaine, corps.ajustements)
+                              corps.domaine, corps.ajustements, corps.llm)
 
 
 @app.post("/variation", tags=["offres"], summary="Appliquer « plus frais », « moins boisé »… à des dosages")
@@ -174,7 +187,8 @@ def modele_brief():
 
 @app.post("/brief", tags=["séance"], summary="Brief V3 : ce qu'Aurore a entendu et les champs à compléter")
 def brief(corps: BriefIn):
-    return moteur.analyser_brief(corps.brief)["brief"]
+    a = moteur.analyser_brief(corps.brief, corps.llm)
+    return {**a["brief"], "llm": a["llm"]} if corps.llm else a["brief"]
 
 
 @app.post("/brief/import", tags=["séance"], summary="Importer un brief rempli à partir du modèle")
@@ -191,14 +205,14 @@ def banque_references(domaine: Optional[Domaine] = None):
 @app.post("/references", tags=["offres"], summary="3 références proches, expliquées par leur lien au projet")
 def references(corps: RecommandationIn):
     r = moteur.recommander(corps.brief, corps.reponses, list(corps.engagements), corps.format, corps.taille,
-                           corps.domaine, corps.ajustements)
+                           corps.domaine, corps.ajustements, corps.llm)
     return {"references_proches": r["references_proches"], "roue": r["roue"], "domaine": r["domaine"]}
 
 
 @app.post("/potentiel", tags=["espace business"], summary="Évaluation du potentiel, critère par critère (Business 05)")
 def potentiel(corps: RecommandationIn):
     r = moteur.recommander(corps.brief, corps.reponses, list(corps.engagements), corps.format, corps.taille,
-                           corps.domaine, corps.ajustements)
+                           corps.domaine, corps.ajustements, corps.llm)
     return {"potentiel": r["potentiel"], "brief": r["brief"], "references_proches": r["references_proches"]}
 
 
@@ -208,7 +222,7 @@ def formule(corps: FormuleIn):
 
 
 @app.get("/notes/{note_id}/pourquoi", tags=["aide"], summary="« Pourquoi cette note ? », avec ses sources")
-def pourquoi(note_id: str, brief: str = ""):
+def pourquoi(note_id: str, brief: str = "", llm: bool = Query(False, description=DESCRIPTION_LLM)):
     if note_id not in moteur.donnees()["par_id"]:
         raise HTTPException(404, f"Note inconnue : {note_id}.")
-    return moteur.expliquer_note(note_id, brief)
+    return moteur.expliquer_note(note_id, brief, llm)

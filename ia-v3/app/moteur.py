@@ -1,11 +1,15 @@
-"""Modèle V2 du service Data/IA : brief et réponses du profil vers roue, plateau de 10 notes et 3 pistes.
+"""Modèle V3 du service Data/IA : brief et réponses du profil vers brief structuré, roue, plateau, références et potentiel.
 
-Sans LLM : le spike #50 a montré qu'un modèle 7B sur CPU est trop lent (58 s) et moins bon que les règles.
 Le modèle combine :
   1. une analyse du brief par lexique (notes citées, familles, champs du brief avec leur citation) ;
-  2. les poids des 5 questions du profil ;
+  2. les poids des duels et des questions du profil ;
   3. une sélection de notes sous contraintes (engagements, format, étages, diversité des familles).
-Tout est déterministe : la même entrée donne toujours la même sortie.
+Par défaut, tout est déterministe : la même entrée donne toujours la même sortie, en quelques millisecondes.
+
+Option `llm=True` (voir app/llm.py) : Mistral via Ollama (ADR 0008) complète l'analyse du brief dans des listes
+fermées et reformule les explications d'Aurore. Les règles restent prioritaires, et sans réponse du modèle
+on garde le résultat des règles. L'option est désactivée par défaut : sur un PC sans GPU, un modèle 7B
+dépasse le seuil de 5 s (spike #50).
 """
 from __future__ import annotations
 
@@ -18,7 +22,9 @@ from collections import Counter
 from functools import lru_cache
 from pathlib import Path
 
-VERSION = "3.0.0"
+from app import llm as _llm
+
+VERSION = "3.1.0"
 RACINE = Path(__file__).resolve().parents[1]
 DATA = RACINE / "data" / "processed"
 FAMILLES = ["hesperidee", "aromatique", "verte", "marine", "iodee", "boisee", "ambree", "musquee", "florale"]
@@ -127,7 +133,7 @@ def _nie(texte_norm: str, pos: int, negations: list[str]) -> bool:
 
 
 # ------------------------------------------------------------------ 1. analyse du brief
-def analyser_brief(texte: str) -> dict:
+def analyser_brief(texte: str, llm: bool = False) -> dict:
     d = donnees()
     lex = d["lexique"]
     t = _norm(texte)
@@ -187,6 +193,9 @@ def analyser_brief(texte: str) -> dict:
         else:
             champs[champ] = None
     champs.update(_nombres(texte, t))
+    trace_llm = {"demande": False, "utilise": False}
+    if llm and texte.strip():
+        trace_llm = _llm.completer_analyse(texte, notes_citees, notes_rejetees, signaux, champs, d)
     fmt = (champs.get("format") or {}).get("valeur")
     if fmt in FORMATS_AROME or champs.get("domaine"):
         champs["domaine"] = {"valeur": "aromes", "citation": (champs.get("domaine") or champs["format"])["citation"], "statut": "Entendu"}
@@ -202,6 +211,7 @@ def analyser_brief(texte: str) -> dict:
         "modificateurs": dict(deltas),
         "champs": champs,
         "signaux_business": signaux_business,
+        "llm": trace_llm,
     }
 
 
@@ -560,9 +570,9 @@ def varier(notes_dosees: dict[str, float], demande: str) -> dict:
 # ------------------------------------------------------------------ point d'entrée principal
 def recommander(brief: str, reponses: list[str] | None = None, engagements: list[str] | None = None,
                 format_: str | None = None, taille: int = 10, domaine: str | None = None,
-                ajustements: dict | None = None) -> dict:
+                ajustements: dict | None = None, llm: bool = False) -> dict:
     t0 = time.perf_counter()
-    analyse = analyser_brief(brief or "")
+    analyse = analyser_brief(brief or "", llm)
     eng = set(engagements or []) | {e["valeur"] for e in analyse["champs"]["engagements"]}
     fmt = format_ or (analyse["champs"]["format"] or {}).get("valeur")
     dom = domaine or (analyse["champs"].get("domaine") or {}).get("valeur")
@@ -575,6 +585,17 @@ def recommander(brief: str, reponses: list[str] | None = None, engagements: list
     pistes = proposer_pistes(plateau["notes"], profil)
     refs = references_proches(profil, plateau["notes"], analyse, dom, fmt, eng, 3)
     alertes = plateau["alertes"] + [{"note": None, "message": f"Réponse inconnue ignorée : {r}"} for r in profil["reponses_inconnues"]]
+    commentaire_reformule, trace_reformulation = None, {"demande": False, "utilise": False}
+    if llm:
+        d = donnees()
+        top = ", ".join(f"{d['fam_par_id'][f]['nom'].lower()} ({profil['roue'][f]:.0f} %)"
+                        for f in profil["classement"][:3] if profil["roue"][f] > 0)
+        faits = {"profil": f"{profil['commentaire']} Familles dominantes : {top}." if top else profil["commentaire"]}
+        faits.update({r["id"]: " ".join(r["lien_au_projet"]) for r in refs})
+        textes, trace_reformulation = _llm.reformuler(faits, brief or "")
+        commentaire_reformule = textes.get("profil")
+        for r in refs:
+            r["lien_reformule"] = textes.get(r["id"])
     if "sans_allergenes" in eng:
         alertes.append({"note": None, "message": "Sans allergènes : les notes porteuses d'allergènes connus sont écartées ; "
                                                  "les autres doivent être vérifiées par le parfumeur (liste d'allergènes partielle)."})
@@ -588,6 +609,7 @@ def recommander(brief: str, reponses: list[str] | None = None, engagements: list
         "roue": profil["roue"],
         "radar": profil["radar"],
         "commentaire_profil": profil["commentaire"],
+        "commentaire_reformule": commentaire_reformule,
         "familles_classees": profil["classement"],
         "axes_cibles": profil["axes_cibles"],
         "plateau": plateau["notes"],
@@ -596,6 +618,7 @@ def recommander(brief: str, reponses: list[str] | None = None, engagements: list
         "references_proches": refs,
         "potentiel": evaluer_potentiel(analyse, refs, eng, plateau["notes"]),
         "parfums_proches": parfums_proches(profil["roue"]),
+        "llm": {"analyse": analyse["llm"], "reformulation": trace_reformulation},
         "duree_ms": round((time.perf_counter() - t0) * 1000, 2),
     }
 
@@ -748,7 +771,7 @@ def proposer_formule(avis: dict[str, str], domaine: str | None = None) -> dict:
 
 
 # ------------------------------------------------------------------ V3 : aide (« Pourquoi cette note ? »)
-def expliquer_note(note_id: str, brief: str = "") -> dict:
+def expliquer_note(note_id: str, brief: str = "", llm: bool = False) -> dict:
     d = donnees()
     n = d["par_id"][note_id]
     analyse = analyser_brief(brief) if brief else None
@@ -757,7 +780,7 @@ def expliquer_note(note_id: str, brief: str = "") -> dict:
     if analyse:
         cite = next((c for c in analyse["notes_citees"] if c["id"] == note_id), None)
         if cite:
-            phrases.insert(0, f"Vous l'avez évoquée : « {cite['citation']} »")
+            phrases.insert(0, f"Vous l'avez évoquée : « {cite['citation']} »" if cite["citation"] else "Vous l'avez évoquée.")
             sources.insert(0, "votre brief")
         else:
             fam = analyse["familles_detectees"]
@@ -767,4 +790,9 @@ def expliquer_note(note_id: str, brief: str = "") -> dict:
     phrases.append(f"Elle s'accorde avec {', '.join(d['par_id'][a]['nom_fr'] for a in n['accords'])}.")
     if n["origine_statut"].startswith("confirm"):
         phrases.append(f"Origine : {n['origine']}.")
-    return {"note": note_id, "reponse": " ".join(phrases), "sources": sources + ["votre conseiller pour toute précision"]}
+    res = {"note": note_id, "reponse": " ".join(phrases), "sources": sources + ["votre conseiller pour toute précision"]}
+    if llm:
+        textes, trace = _llm.reformuler({"reponse": res["reponse"]}, brief)
+        res["reponse_reformulee"] = textes.get("reponse")
+        res["llm"] = trace
+    return res
