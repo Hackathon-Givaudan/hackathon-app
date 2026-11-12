@@ -1,0 +1,291 @@
+[
+ {
+  "id": "garrigue_cigales",
+  "titre": "Garrigue en plein soleil",
+  "description": "Midi en Provence : chant continu des cigales, air sec et chaud, odeur de zestes et d'herbes chauffées par le soleil.",
+  "notes": [
+   "bergamote",
+   "citron",
+   "orange_douce",
+   "mandarine",
+   "petitgrain",
+   "figue",
+   "romarin",
+   "thym",
+   "lavande",
+   "basilic",
+   "sauge_sclaree"
+  ],
+  "image": "a_garrigue",
+  "son": "garrigue_cigales",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "jardin_aube",
+  "titre": "Jardin de roses à l'aube",
+  "description": "Premières lueurs, rosée sur les pétales, chant des oiseaux qui s'éveillent. Floral frais, lumineux, encore humide.",
+  "notes": [
+   "rose",
+   "pivoine",
+   "muguet",
+   "violette",
+   "magnolia"
+  ],
+  "image": "a_jardin_roses",
+  "son": "jardin_aube",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "sous_bois_pluie",
+  "titre": "Sous-bois sous la pluie",
+  "description": "Pluie fine sur les feuilles, terre mouillée, mousse et racines. Boisé humide et terreux.",
+  "notes": [
+   "vetiver",
+   "patchouli",
+   "mousse_chene",
+   "galbanum"
+  ],
+  "image": "a_sous_bois",
+  "son": "sous_bois_pluie",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "feu_de_bois",
+  "titre": "Veillée au coin du feu",
+  "description": "Crépitement des bûches, chaleur sur la peau, fumée douce. Boisé fumé, ambré et vanillé.",
+  "notes": [
+   "gaiac",
+   "oud",
+   "cedre",
+   "benjoin",
+   "vanille",
+   "tonka"
+  ],
+  "image": "a_feu",
+  "son": "feu_de_bois",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "souk_epices",
+  "titre": "Marché aux épices",
+  "description": "Foule, voix des marchands, étals colorés. Épices chaudes et piquantes, safran, agrumes confits.",
+  "notes": [
+   "cannelle",
+   "cardamome",
+   "clou_girofle",
+   "safran",
+   "poivre_noir",
+   "gingembre"
+  ],
+  "image": "a_souk",
+  "son": "souk_epices",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "comptoir_cafe",
+  "titre": "Comptoir de café",
+  "description": "Sifflement de la machine à expresso, tasses qui s'entrechoquent. Torréfié, cacaoté, légèrement caramélisé.",
+  "notes": [
+   "cafe",
+   "cacao",
+   "caramel",
+   "amande"
+  ],
+  "image": "a_cafe",
+  "son": "comptoir_cafe",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "nuit_ete",
+  "titre": "Nuit d'été au jardin",
+  "description": "Grillons dans l'air tiède, fleurs blanches qui s'ouvrent à la nuit. Capiteux, sensuel, crémeux.",
+  "notes": [
+   "jasmin",
+   "tubereuse",
+   "fleur_oranger",
+   "ylang_ylang"
+  ],
+  "image": "a_nuit",
+  "son": "nuit_ete",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "plage_tropicale",
+  "titre": "Plage tropicale",
+  "description": "Vagues régulières sur le sable chaud, air salé. Solaire, lacté, notes marines et fruits exotiques.",
+  "notes": [
+   "noix_coco",
+   "ananas",
+   "mangue",
+   "ambre_gris",
+   "embruns"
+  ],
+  "image": "a_plage",
+  "son": "plage_tropicale",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "orage_ete",
+  "titre": "Orage d'été en forêt",
+  "description": "Tonnerre au loin, grosses gouttes sur le sol chaud : odeur de pétrichor, vert et minéral.",
+  "notes": [
+   "vetiver",
+   "galbanum",
+   "cypres",
+   "the_vert"
+  ],
+  "image": "a_orage",
+  "son": "orage_ete",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "ruisseau_frais",
+  "titre": "Ruisseau de montagne",
+  "description": "Eau claire qui court sur les pierres, fraîcheur immédiate. Aqueux, mentholé, vert.",
+  "notes": [
+   "menthe",
+   "eucalyptus",
+   "concombre",
+   "citron_vert",
+   "pamplemousse"
+  ],
+  "image": "a_ruisseau",
+  "son": "ruisseau_frais",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "foret_vent",
+  "titre": "Forêt de conifères dans le vent",
+  "description": "Rafales dans les branches, aiguilles et résine. Boisé sec, résineux, balsamique.",
+  "notes": [
+   "pin",
+   "cypres",
+   "cedre"
+  ],
+  "image": "a_coniferes",
+  "son": "foret_vent",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "verger_abeilles",
+  "titre": "Verger en fleurs",
+  "description": "Bourdonnement des abeilles autour des fleurs et des fruits mûrs. Fruité juteux, miellé.",
+  "notes": [
+   "pomme",
+   "poire",
+   "peche",
+   "cerise",
+   "framboise",
+   "fraise",
+   "cassis",
+   "miel",
+   "fleur_oranger"
+  ],
+  "image": "a_verger",
+  "son": "verger_abeilles",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "temple_meditation",
+  "titre": "Temple et méditation",
+  "description": "Résonance d'un bol chantant, calme absolu, fumée d'encens. Résineux, boisé crémeux, mystique.",
+  "notes": [
+   "encens",
+   "santal",
+   "oud",
+   "labdanum"
+  ],
+  "image": "a_temple",
+  "son": "temple_meditation",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "jungle_humide",
+  "titre": "Forêt tropicale",
+  "description": "Végétation dense, oiseaux et insectes, chaleur humide. Fleurs exotiques et fruits mûrs.",
+  "notes": [
+   "ylang_ylang",
+   "mangue",
+   "ananas",
+   "osmanthus"
+  ],
+  "image": "a_jungle",
+  "son": "jungle_humide",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "neige_fraiche",
+  "titre": "Marche dans la neige",
+  "description": "Crissement des pas dans la neige, air glacé qui pique le nez. Fraîcheur extrême, mentholée et résineuse.",
+  "notes": [
+   "menthe",
+   "eucalyptus",
+   "pin"
+  ],
+  "image": "a_neige",
+  "son": "neige_fraiche",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "ceremonie_the",
+  "titre": "Pause thé",
+  "description": "Eau chaude versée dans la tasse, vapeur légère. Thé vert, notes florales douces, calme.",
+  "notes": [
+   "the_vert",
+   "osmanthus",
+   "bergamote",
+   "yuzu"
+  ],
+  "image": "a_the",
+  "son": "ceremonie_the",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "linge_brise",
+  "titre": "Linge propre dans la brise",
+  "description": "Carillon qui tinte au vent, draps qui sèchent dehors. Propre, doux, musqué, aérien.",
+  "notes": [
+   "musc",
+   "muguet",
+   "iris",
+   "fleur_oranger",
+   "ambrette"
+  ],
+  "image": "a_linge",
+  "son": "linge_brise",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ },
+ {
+  "id": "cote_bretonne",
+  "titre": "Côte bretonne à marée basse",
+  "description": "Petites vagues sur les rochers, goémon découvert, vent salé. Marin, iodé, minéral.",
+  "notes": [
+   "algue",
+   "embruns",
+   "sel_marin",
+   "criste_marine",
+   "ambre_gris"
+  ],
+  "image": "a_cote",
+  "son": "cote_bretonne",
+  "source_description": "texte rédigé par l'équipe Data",
+  "date_source": "2026-11-12"
+ }
+]

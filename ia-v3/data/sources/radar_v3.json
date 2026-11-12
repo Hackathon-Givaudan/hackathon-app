@@ -1,0 +1,53 @@
+{
+ "source": "maquette Givaudan L'Atelier V3, écran Voix 06 (radar à 6 axes)",
+ "date_source": "2026-11-12",
+ "axes": [
+  {
+   "id": "hesperide",
+   "nom": "Hespéridé"
+  },
+  {
+   "id": "marin",
+   "nom": "Marin"
+  },
+  {
+   "id": "aromatique",
+   "nom": "Aromatique"
+  },
+  {
+   "id": "floral",
+   "nom": "Floral"
+  },
+  {
+   "id": "boise",
+   "nom": "Boisé"
+  },
+  {
+   "id": "ambre",
+   "nom": "Ambré"
+  }
+ ],
+ "regroupement": {
+  "hesperide": [
+   "hesperidee"
+  ],
+  "marin": [
+   "marine",
+   "iodee"
+  ],
+  "aromatique": [
+   "aromatique",
+   "verte"
+  ],
+  "floral": [
+   "florale",
+   "musquee"
+  ],
+  "boise": [
+   "boisee"
+  ],
+  "ambre": [
+   "ambree"
+  ]
+ }
+}

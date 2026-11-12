@@ -1,0 +1,1839 @@
+{
+ "bergamote": {
+  "famille": "hesperidee",
+  "facette": "zestée",
+  "origine": "Calabre, Italie",
+  "origine_cles": [
+   "Calabre"
+  ],
+  "origine_confirmee_par_source": [
+   "Calabre"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Bergamote",
+  "obtention": "expression à froid du zeste",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "lavande",
+   "fleur_oranger",
+   "the_vert"
+  ],
+  "description_client": "Fraîche, lumineuse, légèrement amère. Elle ouvre le parfum puis s'efface.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "citron": {
+  "famille": "hesperidee",
+  "facette": "acidulée",
+  "origine": "Sicile (Italie), Argentine, Espagne",
+  "origine_cles": [
+   "Sicile",
+   "Argentine"
+  ],
+  "origine_confirmee_par_source": [
+   "Sicile",
+   "Argentine"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Citron",
+  "obtention": "expression à froid du zeste",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "menthe",
+   "basilic",
+   "gingembre"
+  ],
+  "description_client": "Vive et acidulée. Elle donne un éclat de propreté immédiat.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "orange_douce": {
+  "famille": "hesperidee",
+  "facette": "juteuse",
+  "origine": "Brésil, États-Unis (Floride)",
+  "origine_cles": [
+   "Brésil"
+  ],
+  "origine_confirmee_par_source": [
+   "Brésil"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Orange_(fruit)",
+  "obtention": "expression à froid du zeste",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "cannelle",
+   "vanille",
+   "fleur_oranger"
+  ],
+  "description_client": "Juteuse et ensoleillée. Elle apporte une gaieté douce.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "pamplemousse": {
+  "famille": "hesperidee",
+  "facette": "amère",
+  "origine": "États-Unis, Chine, Afrique du Sud",
+  "origine_cles": [
+   "Floride",
+   "Chine"
+  ],
+  "origine_confirmee_par_source": [
+   "Floride",
+   "Chine"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Citrus_%C3%97paradisi",
+  "obtention": "expression à froid du zeste",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "poivre_noir",
+   "vetiver",
+   "menthe"
+  ],
+  "description_client": "Tonique et légèrement amère. Elle réveille la tête du parfum.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "mandarine": {
+  "famille": "hesperidee",
+  "facette": "sucrée",
+  "origine": "Chine, Italie (Sicile), Brésil",
+  "origine_cles": [
+   "Chine"
+  ],
+  "origine_confirmee_par_source": [
+   "Chine"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Mandarine",
+  "obtention": "expression à froid du zeste",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "vanille",
+   "fleur_oranger",
+   "ambrette"
+  ],
+  "description_client": "Douce et sucrée. Plus ronde et plus tendre que l'orange.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "citron_vert": {
+  "famille": "hesperidee",
+  "facette": "verte",
+  "origine": "Inde, Brésil, Mexique",
+  "origine_cles": [
+   "Brésil",
+   "Inde"
+  ],
+  "origine_confirmee_par_source": [
+   "Brésil",
+   "Inde"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Lime_(fruit)",
+  "obtention": "expression à froid ou distillation du zeste",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "menthe",
+   "noix_coco",
+   "gingembre"
+  ],
+  "description_client": "Acide et verte. Elle évoque les boissons fraîches et les tropiques.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "yuzu": {
+  "famille": "hesperidee",
+  "facette": "florale",
+  "origine": "Japon, Corée, Chine",
+  "origine_cles": [
+   "Japon"
+  ],
+  "origine_confirmee_par_source": [
+   "Japon"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Yuzu",
+  "obtention": "expression à froid du zeste",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "the_vert",
+   "osmanthus",
+   "cedre"
+  ],
+  "description_client": "Zestée et florale à la fois. Un agrume délicat venu du Japon.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "petitgrain": {
+  "famille": "hesperidee",
+  "facette": "verte",
+  "origine": "Paraguay",
+  "origine_cles": [
+   "Paraguay"
+  ],
+  "origine_confirmee_par_source": [
+   "Paraguay"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Petit-grain",
+  "obtention": "distillation à la vapeur d'eau des feuilles",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "lavande",
+   "bergamote",
+   "fleur_oranger"
+  ],
+  "description_client": "Verte et légèrement boisée. La fraîcheur des feuilles de bigaradier.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "rose": {
+  "famille": "florale",
+  "facette": "rosée",
+  "origine": "Bulgarie, Turquie, Maroc, Grasse (France)",
+  "origine_cles": [
+   "Bulgarie"
+  ],
+  "origine_confirmee_par_source": [
+   "Bulgarie"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Rose_(fleur)",
+  "obtention": "distillation (essence) ou extraction aux solvants (absolue)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "patchouli",
+   "oud",
+   "framboise"
+  ],
+  "description_client": "Pétale frais, miellé et poudré. La reine des fleurs, intemporelle.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "jasmin": {
+  "famille": "florale",
+  "facette": "fleur blanche",
+  "origine": "Inde, Égypte, Grasse (France)",
+  "origine_cles": [
+   "Inde",
+   "Égypte"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde",
+   "Égypte"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Jasminum_grandiflorum",
+  "obtention": "extraction aux solvants (absolue)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "santal",
+   "fleur_oranger",
+   "vanille"
+  ],
+  "description_client": "Solaire et sensuelle. Une fleur blanche intense, presque fruitée.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "fleur_oranger": {
+  "famille": "florale",
+  "facette": "fleur blanche",
+  "origine": "Tunisie, Maroc",
+  "origine_cles": [
+   "Tunisie",
+   "Maroc"
+  ],
+  "origine_confirmee_par_source": [
+   "Tunisie",
+   "Maroc"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Fleur_d%27oranger",
+  "obtention": "distillation (néroli) ou extraction aux solvants (absolue)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "bergamote",
+   "musc",
+   "miel"
+  ],
+  "description_client": "Lumineuse et miellée. Elle rappelle la douceur et la propreté.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "tubereuse": {
+  "famille": "florale",
+  "facette": "fleur blanche",
+  "origine": "Inde",
+  "origine_cles": [
+   "Inde"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Tub%C3%A9reuse",
+  "obtention": "extraction aux solvants (absolue)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "jasmin",
+   "noix_coco",
+   "santal"
+  ],
+  "description_client": "Crémeuse et capiteuse. Une fleur blanche très présente.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "ylang_ylang": {
+  "famille": "florale",
+  "facette": "exotique",
+  "origine": "Comores, Madagascar (Nosy Be)",
+  "origine_cles": [
+   "Comores",
+   "Madagascar"
+  ],
+  "origine_confirmee_par_source": [
+   "Comores",
+   "Madagascar"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Ylang-ylang",
+  "obtention": "distillation à la vapeur d'eau des fleurs",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "vanille",
+   "santal",
+   "noix_coco"
+  ],
+  "description_client": "Crémeuse et solaire, avec une pointe de banane. Une fleur des îles.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "iris": {
+  "famille": "florale",
+  "facette": "poudrée",
+  "origine": "Toscane (Italie), Maroc",
+  "origine_cles": [
+   "Toscane",
+   "Florence"
+  ],
+  "origine_confirmee_par_source": [
+   "Florence"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Iris_(genre_v%C3%A9g%C3%A9tal)",
+  "obtention": "distillation des rhizomes séchés (beurre d'iris)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "violette",
+   "cedre",
+   "musc"
+  ],
+  "description_client": "Poudrée, beurrée, un peu terreuse. Très élégante et rare.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "violette": {
+  "famille": "florale",
+  "facette": "poudrée",
+  "origine": "Grasse et Toulouse (France), Égypte (feuilles)",
+  "origine_cles": [
+   "Toulouse"
+  ],
+  "origine_confirmee_par_source": [
+   "Toulouse"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Violette_de_Toulouse",
+  "obtention": "extraction aux solvants (absolue de feuilles) ou synthèse (ionones)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "iris",
+   "framboise",
+   "musc"
+  ],
+  "description_client": "Poudrée et douce comme un bonbon. La feuille ajoute du vert.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "muguet": {
+  "famille": "florale",
+  "facette": "verte",
+  "origine": "accord reconstitué (la fleur ne donne pas d'essence)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Muguet_de_mai",
+  "obtention": "synthèse (accord reconstitué)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "rose",
+   "pivoine",
+   "musc"
+  ],
+  "description_client": "Fraîche, verte et printanière. Un accord, car la fleur ne se distille pas.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "pivoine": {
+  "famille": "florale",
+  "facette": "rosée",
+  "origine": "accord reconstitué",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Pivoine",
+  "obtention": "synthèse (accord reconstitué)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "rose",
+   "framboise",
+   "musc"
+  ],
+  "description_client": "Rosée, fraîche et aérienne. Une fleur légère et joyeuse.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "magnolia": {
+  "famille": "florale",
+  "facette": "fleur blanche",
+  "origine": "Chine",
+  "origine_cles": [
+   "Chine"
+  ],
+  "origine_confirmee_par_source": [
+   "Chine"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Magnolia",
+  "obtention": "distillation des fleurs ou accord",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "bergamote",
+   "the_vert",
+   "musc"
+  ],
+  "description_client": "Crémeuse et citronnée. Une fleur blanche lumineuse.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "osmanthus": {
+  "famille": "florale",
+  "facette": "fruitée",
+  "origine": "Chine (Guilin)",
+  "origine_cles": [
+   "Chine"
+  ],
+  "origine_confirmee_par_source": [
+   "Chine"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Olivier_odorant",
+  "obtention": "extraction aux solvants (absolue)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "the_vert",
+   "peche",
+   "jasmin"
+  ],
+  "description_client": "Abricotée et miellée, avec un fond de thé. Une fleur chinoise précieuse.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "pomme": {
+  "famille": "verte",
+  "facette": "fruitée",
+  "origine": "accord ou arôme",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Pomme",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "poire",
+   "cannelle",
+   "the_vert"
+  ],
+  "description_client": "Croquante et verte. Une fraîcheur gourmande et simple.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "poire": {
+  "famille": "verte",
+  "facette": "fruitée",
+  "origine": "accord ou arôme",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Poire",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "pomme",
+   "vanille",
+   "musc"
+  ],
+  "description_client": "Juteuse et aqueuse. Un fruit doux et désaltérant.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "peche": {
+  "famille": "florale",
+  "facette": "fruitée",
+  "origine": "accord ou arôme (lactones)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/P%C3%AAche_(fruit)",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "osmanthus",
+   "jasmin",
+   "musc"
+  ],
+  "description_client": "Veloutée et juteuse. Un fruit doux à la peau duveteuse.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "framboise": {
+  "famille": "florale",
+  "facette": "fruitée",
+  "origine": "accord ou arôme (cétone de framboise)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Framboise",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "rose",
+   "violette",
+   "vanille"
+  ],
+  "description_client": "Acidulée et sucrée. Un fruit rouge gourmand et joyeux.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "fraise": {
+  "famille": "florale",
+  "facette": "fruitée",
+  "origine": "accord ou arôme",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Fraise",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "vanille",
+   "menthe",
+   "poivre_noir"
+  ],
+  "description_client": "Sucrée et confiturée. Un fruit rouge très gourmand.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cassis": {
+  "famille": "verte",
+  "facette": "fruitée",
+  "origine": "Bourgogne (France)",
+  "origine_cles": [
+   "Bourgogne"
+  ],
+  "origine_confirmee_par_source": [
+   "Bourgogne"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Cassis_(fruit)",
+  "obtention": "extraction aux solvants (absolue de bourgeons)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "rose",
+   "pamplemousse",
+   "cedre"
+  ],
+  "description_client": "Acidulé, vert et un peu sauvage. Le bourgeon apporte du mordant.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "ananas": {
+  "famille": "florale",
+  "facette": "fruitée",
+  "origine": "accord ou arôme",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Ananas",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "noix_coco",
+   "citron_vert",
+   "vanille"
+  ],
+  "description_client": "Tropicale et acidulée. Un fruit éclatant et solaire.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "mangue": {
+  "famille": "florale",
+  "facette": "fruitée",
+  "origine": "accord ou arôme",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Mangue",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "noix_coco",
+   "gingembre",
+   "ylang_ylang"
+  ],
+  "description_client": "Charnue et tropicale. Un fruit mûr et généreux.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "figue": {
+  "famille": "verte",
+  "facette": "fruitée",
+  "origine": "accord (fruit et feuille)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Figue",
+  "obtention": "synthèse (accord)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "cedre",
+   "noix_coco",
+   "the_vert"
+  ],
+  "description_client": "Lactée et verte, avec la sève de la feuille. Un été méditerranéen.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cerise": {
+  "famille": "florale",
+  "facette": "fruitée",
+  "origine": "accord ou arôme (benzaldéhyde)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Cerise",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "amande",
+   "vanille",
+   "rose"
+  ],
+  "description_client": "Sucrée et amandée. Une griotte gourmande.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "noix_coco": {
+  "famille": "ambree",
+  "facette": "lactée",
+  "origine": "accord ou arôme (lactones)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Noix_de_coco",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "vanille",
+   "ylang_ylang",
+   "ananas"
+  ],
+  "description_client": "Lactée, crémeuse et solaire. L'odeur des vacances.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "menthe": {
+  "famille": "aromatique",
+  "facette": "mentholée",
+  "origine": "États-Unis (Oregon, Washington), Inde",
+  "origine_cles": [
+   "États-Unis",
+   "Inde"
+  ],
+  "origine_confirmee_par_source": [
+   "États-Unis",
+   "Inde"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Menthe_poivr%C3%A9e",
+  "obtention": "distillation à la vapeur d'eau des feuilles",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "citron",
+   "basilic",
+   "the_vert"
+  ],
+  "description_client": "Glaciale et herbacée. Une fraîcheur immédiate.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "basilic": {
+  "famille": "aromatique",
+  "facette": "anisée",
+  "origine": "Inde, Égypte, Vietnam",
+  "origine_cles": [
+   "Inde",
+   "Égypte"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde",
+   "Égypte"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Basilic_(plante)",
+  "obtention": "distillation à la vapeur d'eau des feuilles",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "citron",
+   "menthe",
+   "poivre_noir"
+  ],
+  "description_client": "Anisé et herbacé. Une herbe de cuisine fraîche et vive.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "romarin": {
+  "famille": "aromatique",
+  "facette": "camphrée",
+  "origine": "Tunisie, Maroc, Espagne",
+  "origine_cles": [
+   "Maroc",
+   "Espagne"
+  ],
+  "origine_confirmee_par_source": [
+   "Maroc",
+   "Espagne"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Romarin",
+  "obtention": "distillation à la vapeur d'eau des sommités",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "lavande",
+   "citron",
+   "pin"
+  ],
+  "description_client": "Camphré et herbacé. La garrigue méditerranéenne.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "lavande": {
+  "famille": "aromatique",
+  "facette": "florale",
+  "origine": "Provence (France), Bulgarie",
+  "origine_cles": [
+   "Provence"
+  ],
+  "origine_confirmee_par_source": [
+   "Provence"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Lavandula_angustifolia",
+  "obtention": "distillation à la vapeur d'eau des sommités fleuries",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "bergamote",
+   "tonka",
+   "romarin"
+  ],
+  "description_client": "Herbacée, propre et douce. Le grand classique de la Provence.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "thym": {
+  "famille": "aromatique",
+  "facette": "sèche",
+  "origine": "Bassin méditerranéen (Provence, Espagne, Maroc)",
+  "origine_cles": [
+   "Méditerran",
+   "Provence"
+  ],
+  "origine_confirmee_par_source": [
+   "Méditerran",
+   "Provence"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Thymus_vulgaris",
+  "obtention": "distillation à la vapeur d'eau des feuilles",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "romarin",
+   "citron",
+   "lavande"
+  ],
+  "description_client": "Sec, chaud et herbacé. Une plante de garrigue intense.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "sauge_sclaree": {
+  "famille": "aromatique",
+  "facette": "ambrée",
+  "origine": "France, Russie, Bulgarie",
+  "origine_cles": [
+   "France",
+   "Russie"
+  ],
+  "origine_confirmee_par_source": [
+   "France"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Sauge_sclar%C3%A9e",
+  "obtention": "distillation à la vapeur d'eau des sommités",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "lavande",
+   "bergamote",
+   "labdanum"
+  ],
+  "description_client": "Herbacée et légèrement ambrée. Une note de liaison chaleureuse.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "the_vert": {
+  "famille": "verte",
+  "facette": "aqueuse",
+  "origine": "accord (infusion)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Th%C3%A9_vert",
+  "obtention": "synthèse (accord) ou extrait",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "bergamote",
+   "yuzu",
+   "osmanthus"
+  ],
+  "description_client": "Vert, aqueux et apaisant. La sérénité d'une tasse de thé.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "galbanum": {
+  "famille": "verte",
+  "facette": "résineuse",
+  "origine": "Iran",
+  "origine_cles": [
+   "Iran"
+  ],
+  "origine_confirmee_par_source": [
+   "Iran"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/F%C3%A9rule_gommeuse",
+  "obtention": "distillation à la vapeur d'eau de la résine",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "iris",
+   "cypres",
+   "violette"
+  ],
+  "description_client": "Vert intense et amer. Une sève coupante.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "eucalyptus": {
+  "famille": "aromatique",
+  "facette": "camphrée",
+  "origine": "Chine, Australie, Portugal, Espagne",
+  "origine_cles": [
+   "Australie"
+  ],
+  "origine_confirmee_par_source": [
+   "Australie"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Eucalyptus_globulus",
+  "obtention": "distillation à la vapeur d'eau des feuilles",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "menthe",
+   "pin",
+   "citron"
+  ],
+  "description_client": "Camphré et mentholé. Une fraîcheur qui dégage.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "concombre": {
+  "famille": "verte",
+  "facette": "aqueuse",
+  "origine": "accord ou arôme",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Concombre",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "the_vert",
+   "menthe",
+   "citron_vert"
+  ],
+  "description_client": "Aqueux et vert. Une fraîcheur très légère.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cedre": {
+  "famille": "boisee",
+  "facette": "sèche",
+  "origine": "Maroc (Atlas), États-Unis (Virginie)",
+  "origine_cles": [
+   "Maroc",
+   "Atlas"
+  ],
+  "origine_confirmee_par_source": [
+   "Maroc",
+   "Atlas"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/C%C3%A8dre",
+  "obtention": "distillation à la vapeur d'eau du bois",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "iris",
+   "vetiver",
+   "bergamote"
+  ],
+  "description_client": "Sec et boisé, comme un crayon taillé. Une base solide.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "Cedrus atlantica est classé en danger par l'UICN : préférer le cèdre de Virginie.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Cedrus_atlantica",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "santal": {
+  "famille": "boisee",
+  "facette": "crémeuse",
+  "origine": "Inde (Mysore), Australie, Nouvelle-Calédonie",
+  "origine_cles": [
+   "Inde",
+   "Mysore"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde",
+   "Mysore"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Santalum_album",
+  "obtention": "distillation à la vapeur d'eau du bois de coeur",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "jasmin",
+   "rose",
+   "vanille"
+  ],
+  "description_client": "Crémeux, lacté et velouté. Un bois doux et enveloppant.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "Santalum album est classé vulnérable par l'UICN : préférer un santal d'origine contrôlée.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Santalum_album",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "vetiver": {
+  "famille": "boisee",
+  "facette": "terreuse",
+  "origine": "Haïti, Indonésie (Java), La Réunion",
+  "origine_cles": [
+   "Haïti"
+  ],
+  "origine_confirmee_par_source": [
+   "Haïti"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/V%C3%A9tiver",
+  "obtention": "distillation à la vapeur d'eau des racines",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "pamplemousse",
+   "cedre",
+   "iris"
+  ],
+  "description_client": "Terreux, fumé et vert. La racine qui sent la terre mouillée.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "patchouli": {
+  "famille": "boisee",
+  "facette": "terreuse",
+  "origine": "Indonésie (Sulawesi)",
+  "origine_cles": [
+   "Indonésie"
+  ],
+  "origine_confirmee_par_source": [
+   "Indonésie"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Patchouli",
+  "obtention": "distillation à la vapeur d'eau des feuilles séchées",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "rose",
+   "vanille",
+   "cacao"
+  ],
+  "description_client": "Terreux et profond, presque chocolaté. Une signature forte.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "oud": {
+  "famille": "boisee",
+  "facette": "résineuse",
+  "origine": "Asie du Sud-Est, Inde (Assam)",
+  "origine_cles": [
+   "Assam",
+   "Inde"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Calambac",
+  "obtention": "hydrodistillation du bois infecté",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "rose",
+   "safran",
+   "encens"
+  ],
+  "description_client": "Fumé, animal et résineux. Un bois rare et intense.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "Les espèces d'Aquilaria sont inscrites à l'annexe II de la CITES : exiger une origine de culture.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Calambac",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "pin": {
+  "famille": "boisee",
+  "facette": "résineuse",
+  "origine": "Europe du Nord, Autriche",
+  "origine_cles": [
+   "Europe"
+  ],
+  "origine_confirmee_par_source": [
+   "Europe"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Pin_sylvestre",
+  "obtention": "distillation à la vapeur d'eau des aiguilles",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "eucalyptus",
+   "romarin",
+   "cedre"
+  ],
+  "description_client": "Résineux, frais et balsamique. Une forêt en hiver.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cypres": {
+  "famille": "boisee",
+  "facette": "résineuse",
+  "origine": "France (Provence), Espagne",
+  "origine_cles": [
+   "Provence"
+  ],
+  "origine_confirmee_par_source": [
+   "Provence"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Cupressus_sempervirens",
+  "obtention": "distillation à la vapeur d'eau des rameaux",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "galbanum",
+   "lavande",
+   "cedre"
+  ],
+  "description_client": "Résineux, vert et sec. Le paysage méditerranéen.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "mousse_chene": {
+  "famille": "boisee",
+  "facette": "mousse",
+  "origine": "Balkans, Maroc",
+  "origine_cles": [
+   "Balkans",
+   "Yougoslavie",
+   "Maroc"
+  ],
+  "origine_confirmee_par_source": [
+   "Yougoslavie",
+   "Maroc"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Evernia_prunastri",
+  "obtention": "extraction aux solvants (absolue)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "bergamote",
+   "patchouli",
+   "rose"
+  ],
+  "description_client": "Sous-bois humide, terreux et iodé. La base des chypres.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "Contient des allergènes (atranol) : usage encadré, choisir une version à faible teneur.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Evernia_prunastri",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "gaiac": {
+  "famille": "boisee",
+  "facette": "fumée",
+  "origine": "Paraguay, Argentine (Gran Chaco)",
+  "origine_cles": [
+   "Paraguay"
+  ],
+  "origine_confirmee_par_source": [
+   "Paraguay"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Plectrocarpa_sarmientoi",
+  "obtention": "distillation à la vapeur d'eau du bois",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "rose",
+   "vanille",
+   "encens"
+  ],
+  "description_client": "Fumé et doux, avec une pointe de rose sèche. Un bois apaisant.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "Bulnesia sarmientoi est inscrit à l'annexe II de la CITES : exiger les certificats.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Plectrocarpa_sarmientoi",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "vanille": {
+  "famille": "ambree",
+  "facette": "gourmande",
+  "origine": "Madagascar, Mexique, Tahiti",
+  "origine_cles": [
+   "Madagascar"
+  ],
+  "origine_confirmee_par_source": [
+   "Madagascar"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Vanille",
+  "obtention": "extraction aux solvants (absolue) ou au CO2 des gousses",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "tonka",
+   "santal",
+   "benjoin"
+  ],
+  "description_client": "Sucrée, crémeuse et réconfortante. La douceur absolue.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "tonka": {
+  "famille": "ambree",
+  "facette": "gourmande",
+  "origine": "Venezuela, Brésil",
+  "origine_cles": [
+   "Venezuela",
+   "Brésil"
+  ],
+  "origine_confirmee_par_source": [
+   "Venezuela",
+   "Brésil"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/F%C3%A8ve_tonka",
+  "obtention": "extraction aux solvants (absolue) des fèves",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "lavande",
+   "vanille",
+   "cafe"
+  ],
+  "description_client": "Amandée, avec un air de foin et de caramel. Chaleureuse et douce.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "benjoin": {
+  "famille": "ambree",
+  "facette": "balsamique",
+  "origine": "Laos (Siam), Indonésie (Sumatra)",
+  "origine_cles": [
+   "Laos",
+   "Sumatra"
+  ],
+  "origine_confirmee_par_source": [
+   "Laos",
+   "Sumatra"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Benjoin",
+  "obtention": "résinoïde (extraction de la résine)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/R%C3%A9sino%C3%AFde",
+  "accords": [
+   "vanille",
+   "encens",
+   "labdanum"
+  ],
+  "description_client": "Résineux et vanillé. Un baume chaud et rassurant.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "labdanum": {
+  "famille": "ambree",
+  "facette": "ambrée",
+  "origine": "Espagne (Andalousie)",
+  "origine_cles": [
+   "Espagne"
+  ],
+  "origine_confirmee_par_source": [
+   "Espagne"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Ciste",
+  "obtention": "extraction de la gomme (résinoïde, absolue)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/R%C3%A9sino%C3%AFde",
+  "accords": [
+   "vanille",
+   "benjoin",
+   "sauge_sclaree"
+  ],
+  "description_client": "Ambré, cuiré et résineux. Le coeur des accords ambrés.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "encens": {
+  "famille": "ambree",
+  "facette": "balsamique",
+  "origine": "Somalie, Oman, Yémen",
+  "origine_cles": [
+   "Somalie",
+   "Oman"
+  ],
+  "origine_confirmee_par_source": [
+   "Somalie",
+   "Oman"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Encens_(r%C3%A9sine_oliban)",
+  "obtention": "distillation à la vapeur d'eau de la résine",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "oud",
+   "cedre",
+   "labdanum"
+  ],
+  "description_client": "Fumé, citronné et mystique. L'odeur des lieux de recueillement.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "Arbre à encens suivi par l'UICN : demander la traçabilité de la résine.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Arbre_%C3%A0_encens",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "musc": {
+  "famille": "musquee",
+  "facette": "propre",
+  "origine": "molécules de synthèse",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Musc",
+  "obtention": "synthèse (muscs macrocycliques)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "fleur_oranger",
+   "iris",
+   "poire"
+  ],
+  "description_client": "Propre, doux, comme une peau tiède ou du linge frais.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "ambre_gris": {
+  "famille": "ambree",
+  "facette": "marine",
+  "origine": "océans (concrétion échouée) ou synthèse (ambroxan)",
+  "origine_cles": [
+   "cachalot"
+  ],
+  "origine_confirmee_par_source": [
+   "cachalot"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Ambre_gris",
+  "obtention": "teinture de la concrétion, ou synthèse",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "labdanum",
+   "algue",
+   "musc"
+  ],
+  "description_client": "Salé, marin et lumineux. Une chaleur minérale.",
+  "naturel": true,
+  "vegan": false,
+  "vigilance": "Origine animale (cachalot, espèce protégée) : utiliser l'ambroxan de synthèse pour une formule vegan.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Ambre_gris",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cannelle": {
+  "famille": "ambree",
+  "facette": "épicée",
+  "origine": "Sri Lanka, Madagascar",
+  "origine_cles": [
+   "Sri Lanka"
+  ],
+  "origine_confirmee_par_source": [
+   "Sri Lanka"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Cannelle",
+  "obtention": "distillation à la vapeur d'eau de l'écorce",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "orange_douce",
+   "vanille",
+   "clou_girofle"
+  ],
+  "description_client": "Chaude, sucrée et piquante. L'épice des desserts d'hiver.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "poivre_noir": {
+  "famille": "aromatique",
+  "facette": "épicée",
+  "origine": "Côte de Malabar (Inde), Vietnam, Indonésie",
+  "origine_cles": [
+   "Malabar"
+  ],
+  "origine_confirmee_par_source": [
+   "Malabar"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Poivrier_noir",
+  "obtention": "distillation à la vapeur d'eau des baies",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "pamplemousse",
+   "cedre",
+   "rose"
+  ],
+  "description_client": "Piquant et sec. Une étincelle épicée en tête.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cardamome": {
+  "famille": "aromatique",
+  "facette": "épicée",
+  "origine": "Inde, Sri Lanka, Guatemala",
+  "origine_cles": [
+   "Inde",
+   "Sri Lanka"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde",
+   "Sri Lanka"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Cardamome",
+  "obtention": "distillation à la vapeur d'eau des graines",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "cafe",
+   "rose",
+   "bergamote"
+  ],
+  "description_client": "Fraîche, camphrée et épicée. Une épice élégante.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "clou_girofle": {
+  "famille": "ambree",
+  "facette": "épicée",
+  "origine": "Madagascar, Indonésie, Tanzanie (Zanzibar)",
+  "origine_cles": [
+   "Madagascar",
+   "Zanzibar",
+   "Indonésie"
+  ],
+  "origine_confirmee_par_source": [
+   "Zanzibar",
+   "Indonésie"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Clou_de_girofle",
+  "obtention": "distillation à la vapeur d'eau des boutons",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "cannelle",
+   "orange_douce",
+   "rose"
+  ],
+  "description_client": "Chaud, piquant et médicinal. Une épice très puissante.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "gingembre": {
+  "famille": "aromatique",
+  "facette": "épicée",
+  "origine": "Inde, Chine, Nigeria",
+  "origine_cles": [
+   "Inde",
+   "Chine"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde",
+   "Chine"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Gingembre",
+  "obtention": "distillation ou extraction au CO2 des rhizomes",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "citron",
+   "citron_vert",
+   "cardamome"
+  ],
+  "description_client": "Piquant, citronné et vif. Une épice qui pétille.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "safran": {
+  "famille": "ambree",
+  "facette": "épicée",
+  "origine": "Iran, Espagne, Inde (Cachemire)",
+  "origine_cles": [
+   "Iran"
+  ],
+  "origine_confirmee_par_source": [
+   "Iran"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Safran_(%C3%A9pice)",
+  "obtention": "extraction des stigmates (ou synthèse, safranal)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "oud",
+   "rose",
+   "vanille"
+  ],
+  "description_client": "Cuiré, miellé, un peu métallique. Une épice précieuse.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cafe": {
+  "famille": "ambree",
+  "facette": "gourmande",
+  "origine": "Brésil, Vietnam, Éthiopie",
+  "origine_cles": [
+   "Brésil"
+  ],
+  "origine_confirmee_par_source": [
+   "Brésil"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Caf%C3%A9",
+  "obtention": "extraction au CO2 des grains torréfiés",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "vanille",
+   "cardamome",
+   "cacao"
+  ],
+  "description_client": "Torréfié, amer et grillé. Un réveil gourmand.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "cacao": {
+  "famille": "ambree",
+  "facette": "gourmande",
+  "origine": "Côte d'Ivoire, Ghana",
+  "origine_cles": [
+   "Côte d'Ivoire"
+  ],
+  "origine_confirmee_par_source": [
+   "Côte d'Ivoire"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Cacao",
+  "obtention": "extraction aux solvants ou au CO2 des fèves",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "patchouli",
+   "vanille",
+   "cafe"
+  ],
+  "description_client": "Chocolaté, amer et poudré. Une gourmandise sombre.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "caramel": {
+  "famille": "ambree",
+  "facette": "gourmande",
+  "origine": "accord ou arôme (maltol, furanéol)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Caramel",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "vanille",
+   "tonka",
+   "cafe"
+  ],
+  "description_client": "Sucré, brûlé et beurré. Une gourmandise régressive.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "miel": {
+  "famille": "ambree",
+  "facette": "gourmande",
+  "origine": "accord, ou absolue de cire d'abeille",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Miel",
+  "obtention": "synthèse (accord) ou absolue de cire",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "fleur_oranger",
+   "tonka",
+   "rose"
+  ],
+  "description_client": "Miellé, cireux et chaud. Une douceur un peu animale.",
+  "naturel": true,
+  "vegan": false,
+  "vigilance": "L'absolue de cire d'abeille est d'origine animale : utiliser un accord miel de synthèse pour une formule vegan.",
+  "source_vigilance": "https://fr.wikipedia.org/wiki/Miel",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "amande": {
+  "famille": "ambree",
+  "facette": "gourmande",
+  "origine": "accord ou arôme (benzaldéhyde)",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Amande",
+  "obtention": "synthèse (accord) ou arôme",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "cerise",
+   "vanille",
+   "tonka"
+  ],
+  "description_client": "Amandée, comme la pâte d'amande. Douce et gourmande.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "algue": {
+  "famille": "marine",
+  "facette": "marine",
+  "origine": "Bretagne (France) pour les algues brunes, ou accord",
+  "origine_cles": [
+   "Bretagne"
+  ],
+  "origine_confirmee_par_source": [
+   "Bretagne"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Algue",
+  "obtention": "extraction aux solvants (absolue) ou synthèse (accord)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "ambre_gris",
+   "criste_marine",
+   "citron"
+  ],
+  "description_client": "Marine, verte et salée. L'odeur de la côte à marée basse.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "embruns": {
+  "famille": "marine",
+  "facette": "aquatique",
+  "origine": "molécule de synthèse",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Calone",
+  "obtention": "synthèse (Calone, accord)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "bergamote",
+   "algue",
+   "musc"
+  ],
+  "description_client": "Fraîche et aérienne. Le vent salé qui vient de la mer.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "sel_marin": {
+  "famille": "iodee",
+  "facette": "saline",
+  "origine": "accord reconstitué",
+  "origine_cles": [],
+  "origine_confirmee_par_source": [],
+  "source_origine": "https://fr.wikipedia.org/wiki/Chlorure_de_sodium",
+  "obtention": "synthèse (accord)",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Parfum",
+  "accords": [
+   "ambre_gris",
+   "algue",
+   "pamplemousse"
+  ],
+  "description_client": "Minérale et salée, comme une peau au retour de la plage.",
+  "naturel": false,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "criste_marine": {
+  "famille": "iodee",
+  "facette": "verte",
+  "origine": "côtes de l'Atlantique et de la Méditerranée (France)",
+  "origine_cles": [
+   "Atlantique",
+   "Méditerranée"
+  ],
+  "origine_confirmee_par_source": [
+   "Atlantique",
+   "Méditerranée"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Criste_marine",
+  "obtention": "distillation à la vapeur d'eau des parties aériennes",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "algue",
+   "citron",
+   "cypres"
+  ],
+  "description_client": "Iodée, verte et citronnée. Une plante des falaises au bord de la mer.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ },
+ "ambrette": {
+  "famille": "musquee",
+  "facette": "végétale",
+  "origine": "Inde, Équateur, Madagascar",
+  "origine_cles": [
+   "Inde"
+  ],
+  "origine_confirmee_par_source": [
+   "Inde"
+  ],
+  "source_origine": "https://fr.wikipedia.org/wiki/Ambrette",
+  "obtention": "distillation à la vapeur d'eau des graines",
+  "source_obtention": "https://fr.wikipedia.org/wiki/Huile_essentielle",
+  "accords": [
+   "musc",
+   "iris",
+   "poire"
+  ],
+  "description_client": "Musquée, douce, avec une pointe de poire. Le musc des plantes.",
+  "naturel": true,
+  "vegan": true,
+  "vigilance": "",
+  "source_vigilance": "",
+  "statut_accords": "proposition équipe Data, à valider",
+  "date_source": "2026-11-12"
+ }
+}

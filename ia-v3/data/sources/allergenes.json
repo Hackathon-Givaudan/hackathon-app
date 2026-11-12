@@ -1,0 +1,108 @@
+{
+ "source": "Règlement (CE) n° 1223/2009, annexe III (substances à déclarer) ; composition des matières : connaissance courante, à confirmer avec la fiche du fournisseur",
+ "source_url": "https://eur-lex.europa.eu/eli/reg/2009/1223/oj",
+ "date_source": "2026-11-12",
+ "statut": "liste partielle : seules les matières naturelles dont un allergène majeur est bien connu sont renseignées ; les accords dépendent de leur formule",
+ "allergenes_par_note": {
+  "bergamote": [
+   "limonène",
+   "linalol"
+  ],
+  "citron": [
+   "limonène",
+   "citral"
+  ],
+  "orange_douce": [
+   "limonène"
+  ],
+  "pamplemousse": [
+   "limonène"
+  ],
+  "mandarine": [
+   "limonène"
+  ],
+  "citron_vert": [
+   "limonène",
+   "citral"
+  ],
+  "yuzu": [
+   "limonène"
+  ],
+  "petitgrain": [
+   "linalol",
+   "limonène"
+  ],
+  "rose": [
+   "citronellol",
+   "géraniol",
+   "eugénol"
+  ],
+  "jasmin": [
+   "benzoate de benzyle",
+   "linalol"
+  ],
+  "fleur_oranger": [
+   "linalol",
+   "limonène",
+   "farnésol"
+  ],
+  "tubereuse": [
+   "benzoate de benzyle"
+  ],
+  "ylang_ylang": [
+   "linalol",
+   "benzoate de benzyle",
+   "géraniol"
+  ],
+  "lavande": [
+   "linalol"
+  ],
+  "basilic": [
+   "linalol"
+  ],
+  "romarin": [
+   "limonène"
+  ],
+  "thym": [
+   "linalol"
+  ],
+  "menthe": [
+   "limonène"
+  ],
+  "eucalyptus": [
+   "limonène"
+  ],
+  "sauge_sclaree": [
+   "linalol"
+  ],
+  "cannelle": [
+   "cinnamal",
+   "eugénol"
+  ],
+  "clou_girofle": [
+   "eugénol",
+   "isoeugénol"
+  ],
+  "tonka": [
+   "coumarine"
+  ],
+  "mousse_chene": [
+   "extrait d'Evernia prunastri"
+  ],
+  "benjoin": [
+   "benzoate de benzyle",
+   "alcool benzylique"
+  ],
+  "cardamome": [
+   "linalol",
+   "limonène"
+  ],
+  "gingembre": [
+   "citral"
+  ],
+  "poivre_noir": [
+   "limonène",
+   "linalol"
+  ]
+ }
+}

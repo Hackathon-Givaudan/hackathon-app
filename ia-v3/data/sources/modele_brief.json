@@ -1,0 +1,136 @@
+{
+ "version": "3.0",
+ "source": "maquette Givaudan L'Atelier V3, écran Voix 05 (Brief)",
+ "date_source": "2026-11-12",
+ "entendu": [
+  {
+   "id": "produit",
+   "libelle": "Produit"
+  },
+  {
+   "id": "univers",
+   "libelle": "Univers"
+  },
+  {
+   "id": "emotions",
+   "libelle": "Émotions et sensations"
+  },
+  {
+   "id": "usage",
+   "libelle": "Usage"
+  },
+  {
+   "id": "inspiration",
+   "libelle": "Inspiration"
+  }
+ ],
+ "a_completer": [
+  {
+   "id": "budget_kilo",
+   "libelle": "Budget visé au kilo",
+   "type": "nombre",
+   "unite": "€/kg",
+   "aide": "Un ordre de grandeur suffit"
+  },
+  {
+   "id": "volume_annuel",
+   "libelle": "Volume annuel",
+   "type": "nombre",
+   "unite": "kg/an",
+   "aide": "Un ordre de grandeur suffit"
+  },
+  {
+   "id": "type_projet",
+   "libelle": "Type de projet",
+   "type": "choix",
+   "valeurs": {
+    "creation": "Création",
+    "reformulation": "Reformulation",
+    "extension_gamme": "Extension de gamme"
+   }
+  },
+  {
+   "id": "cible",
+   "libelle": "Cible",
+   "type": "choix",
+   "valeurs": {
+    "clientele_boutiques": "Clientèle de nos boutiques",
+    "grand_public": "Grand public",
+    "hotellerie": "Hôtellerie"
+   }
+  },
+  {
+   "id": "pays_vente",
+   "libelle": "Pays de vente",
+   "type": "choix_multiple",
+   "valeurs": {
+    "france": "France",
+    "union_europeenne": "Union européenne",
+    "royaume_uni": "Royaume-Uni",
+    "etats_unis": "États-Unis",
+    "asie": "Asie"
+   }
+  },
+  {
+   "id": "positionnement",
+   "libelle": "Positionnement",
+   "type": "choix",
+   "valeurs": {
+    "accessible": "Accessible",
+    "premium": "Premium",
+    "luxe": "Luxe"
+   }
+  },
+  {
+   "id": "objectif",
+   "libelle": "Objectif",
+   "type": "choix",
+   "valeurs": {
+    "se_differencier": "Se différencier",
+    "fideliser": "Fidéliser",
+    "produit_signature": "Produit signature"
+   }
+  },
+  {
+   "id": "mise_en_concurrence",
+   "libelle": "Mise en concurrence",
+   "type": "choix",
+   "valeurs": {
+    "seulement_givaudan": "Seulement Givaudan",
+    "autres_fournisseurs": "D'autres fournisseurs aussi",
+    "pas_decide": "Pas encore décidé"
+   }
+  },
+  {
+   "id": "relation",
+   "libelle": "Relation",
+   "type": "choix",
+   "valeurs": {
+    "direct": "En direct",
+    "distributeur": "Via un distributeur",
+    "ne_sait_pas": "Je ne sais pas"
+   }
+  },
+  {
+   "id": "engagements",
+   "libelle": "Engagements",
+   "type": "choix_multiple",
+   "valeurs": {
+    "naturel": "Naturel",
+    "vegan": "Vegan",
+    "sans_allergenes": "Sans allergènes",
+    "matieres_durables": "Matières durables"
+   }
+  },
+  {
+   "id": "contraintes",
+   "libelle": "Contraintes",
+   "type": "choix_multiple",
+   "valeurs": {
+    "delai_court": "Délai court",
+    "reglementation": "Réglementation",
+    "cout_matieres": "Coût des matières"
+   }
+  }
+ ]
+}
