@@ -39,3 +39,19 @@ test('an answer that is not JSON gives a message the brand can read', async () =
     'Le service ne répond pas, réessayez.',
   );
 });
+
+test('a material sheet is asked by its note id', async () => {
+  apiAnswers(200, '{"noteId": "bergamote", "name": "Bergamote"}');
+
+  expect((await httpApi.material('bergamote'))?.name).toBe('Bergamote');
+  expect(fetch).toHaveBeenCalledWith(
+    '/api/materials/bergamote',
+    expect.objectContaining({ method: 'GET' }),
+  );
+});
+
+test('a note without a sheet is not an error', async () => {
+  apiAnswers(404, '{"error": "Cette note n’a pas encore de fiche"}');
+
+  expect(await httpApi.material('vanille-imaginaire')).toBeNull();
+});
