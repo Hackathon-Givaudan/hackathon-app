@@ -1,0 +1,372 @@
+{
+  "version": "1.0",
+  "date_source": "2026-11-12",
+  "source": "questions et poids rédigés par l'équipe Data, à valider par Product (ton et visuels)",
+  "regle": "Chaque réponse ajoute ses poids aux familles (1 = famille principale, 0,5 = famille secondaire). La roue est la somme des poids, ramenée à 100 %.",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "image",
+      "intitule": "Quel paysage ressemble le plus à votre projet ?",
+      "options": [
+        {
+          "id": "q1_cote",
+          "libelle": "Une côte rocheuse",
+          "media": {
+            "type": "image_ambiance",
+            "cle": "a_cote"
+          },
+          "poids": {
+            "marine": 1,
+            "iodee": 0.5
+          }
+        },
+        {
+          "id": "q1_garrigue",
+          "libelle": "La garrigue au soleil",
+          "media": {
+            "type": "image_ambiance",
+            "cle": "a_garrigue"
+          },
+          "poids": {
+            "aromatique": 1,
+            "hesperidee": 0.5
+          }
+        },
+        {
+          "id": "q1_roses",
+          "libelle": "Un jardin de roses",
+          "media": {
+            "type": "image_ambiance",
+            "cle": "a_jardin_roses"
+          },
+          "poids": {
+            "florale": 1,
+            "verte": 0.5
+          }
+        },
+        {
+          "id": "q1_foret",
+          "libelle": "Une forêt de conifères",
+          "media": {
+            "type": "image_ambiance",
+            "cle": "a_coniferes"
+          },
+          "poids": {
+            "boisee": 1,
+            "aromatique": 0.5
+          }
+        },
+        {
+          "id": "q1_souk",
+          "libelle": "Un marché aux épices",
+          "media": {
+            "type": "image_ambiance",
+            "cle": "a_souk"
+          },
+          "poids": {
+            "ambree": 1,
+            "aromatique": 0.5
+          }
+        },
+        {
+          "id": "q1_linge",
+          "libelle": "Du linge qui sèche au soleil",
+          "media": {
+            "type": "image_ambiance",
+            "cle": "a_linge"
+          },
+          "poids": {
+            "musquee": 1,
+            "florale": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "son",
+      "intitule": "Quel son vous apaise le plus ?",
+      "options": [
+        {
+          "id": "q2_vagues",
+          "libelle": "Des vagues sur les rochers",
+          "media": {
+            "type": "son_ambiance",
+            "cle": "cote_bretonne"
+          },
+          "poids": {
+            "marine": 1,
+            "iodee": 0.5
+          }
+        },
+        {
+          "id": "q2_oiseaux",
+          "libelle": "Les oiseaux à l'aube",
+          "media": {
+            "type": "son_ambiance",
+            "cle": "jardin_aube"
+          },
+          "poids": {
+            "florale": 1,
+            "verte": 0.5
+          }
+        },
+        {
+          "id": "q2_pluie",
+          "libelle": "La pluie sur les feuilles",
+          "media": {
+            "type": "son_ambiance",
+            "cle": "sous_bois_pluie"
+          },
+          "poids": {
+            "verte": 1,
+            "boisee": 0.5
+          }
+        },
+        {
+          "id": "q2_feu",
+          "libelle": "Un feu de bois",
+          "media": {
+            "type": "son_ambiance",
+            "cle": "feu_de_bois"
+          },
+          "poids": {
+            "ambree": 1,
+            "boisee": 0.5
+          }
+        },
+        {
+          "id": "q2_carillon",
+          "libelle": "Un carillon dans la brise",
+          "media": {
+            "type": "son_ambiance",
+            "cle": "linge_brise"
+          },
+          "poids": {
+            "musquee": 1,
+            "florale": 0.5
+          }
+        },
+        {
+          "id": "q2_bol",
+          "libelle": "Un bol chantant",
+          "media": {
+            "type": "son_ambiance",
+            "cle": "temple_meditation"
+          },
+          "poids": {
+            "boisee": 1,
+            "ambree": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mot",
+      "intitule": "Quel mot décrit le mieux votre marque ?",
+      "options": [
+        {
+          "id": "q3_petillante",
+          "libelle": "Pétillante",
+          "poids": {
+            "hesperidee": 1,
+            "aromatique": 0.5
+          }
+        },
+        {
+          "id": "q3_naturelle",
+          "libelle": "Naturelle",
+          "poids": {
+            "verte": 1,
+            "aromatique": 0.5
+          }
+        },
+        {
+          "id": "q3_elegante",
+          "libelle": "Élégante",
+          "poids": {
+            "florale": 1,
+            "musquee": 0.5
+          }
+        },
+        {
+          "id": "q3_libre",
+          "libelle": "Libre",
+          "poids": {
+            "marine": 1,
+            "hesperidee": 0.5
+          }
+        },
+        {
+          "id": "q3_chaleureuse",
+          "libelle": "Chaleureuse",
+          "poids": {
+            "ambree": 1,
+            "boisee": 0.5
+          }
+        },
+        {
+          "id": "q3_authentique",
+          "libelle": "Authentique",
+          "poids": {
+            "boisee": 1,
+            "aromatique": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "image",
+      "intitule": "Quelle matière aimeriez-vous sentir en premier ?",
+      "options": [
+        {
+          "id": "q4_citron",
+          "libelle": "Un zeste de citron",
+          "media": {
+            "type": "image_note",
+            "cle": "citron"
+          },
+          "poids": {
+            "hesperidee": 1
+          }
+        },
+        {
+          "id": "q4_rose",
+          "libelle": "Un pétale de rose",
+          "media": {
+            "type": "image_note",
+            "cle": "rose"
+          },
+          "poids": {
+            "florale": 1
+          }
+        },
+        {
+          "id": "q4_the",
+          "libelle": "Des feuilles de thé",
+          "media": {
+            "type": "image_note",
+            "cle": "the_vert"
+          },
+          "poids": {
+            "verte": 1
+          }
+        },
+        {
+          "id": "q4_lavande",
+          "libelle": "Un brin de lavande",
+          "media": {
+            "type": "image_note",
+            "cle": "lavande"
+          },
+          "poids": {
+            "aromatique": 1
+          }
+        },
+        {
+          "id": "q4_cedre",
+          "libelle": "Un copeau de cèdre",
+          "media": {
+            "type": "image_note",
+            "cle": "cedre"
+          },
+          "poids": {
+            "boisee": 1
+          }
+        },
+        {
+          "id": "q4_vanille",
+          "libelle": "Une gousse de vanille",
+          "media": {
+            "type": "image_note",
+            "cle": "vanille"
+          },
+          "poids": {
+            "ambree": 1
+          }
+        },
+        {
+          "id": "q4_ambrette",
+          "libelle": "Du coton doux",
+          "media": {
+            "type": "image_note",
+            "cle": "musc"
+          },
+          "poids": {
+            "musquee": 1
+          }
+        },
+        {
+          "id": "q4_algue",
+          "libelle": "Une algue",
+          "media": {
+            "type": "image_note",
+            "cle": "algue"
+          },
+          "poids": {
+            "iodee": 1,
+            "marine": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mot",
+      "intitule": "À quel moment imaginez-vous votre création ?",
+      "options": [
+        {
+          "id": "q5_matin_ete",
+          "libelle": "Un matin d'été",
+          "poids": {
+            "hesperidee": 1,
+            "marine": 0.5
+          }
+        },
+        {
+          "id": "q5_jardin",
+          "libelle": "Une journée au jardin",
+          "poids": {
+            "florale": 1,
+            "verte": 0.5
+          }
+        },
+        {
+          "id": "q5_foret",
+          "libelle": "Une balade en forêt",
+          "poids": {
+            "boisee": 1,
+            "verte": 0.5
+          }
+        },
+        {
+          "id": "q5_soiree_hiver",
+          "libelle": "Une soirée d'hiver",
+          "poids": {
+            "ambree": 1,
+            "boisee": 0.5
+          }
+        },
+        {
+          "id": "q5_moment_soi",
+          "libelle": "Un moment pour soi",
+          "poids": {
+            "musquee": 1,
+            "florale": 0.5
+          }
+        },
+        {
+          "id": "q5_mer",
+          "libelle": "Un week-end au bord de la mer",
+          "poids": {
+            "marine": 1,
+            "iodee": 1
+          }
+        }
+      ]
+    }
+  ]
+}

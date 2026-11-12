@@ -1,0 +1,595 @@
+{
+  "version": "1.0",
+  "date_source": "2026-11-12",
+  "source": "lexique rédigé par l'équipe Data (vocabulaire courant des briefs), à enrichir avec de vrais verbatims",
+  "familles": {
+    "hesperidee": [
+      "agrume",
+      "agrumes",
+      "zest*",
+      "hespérid*",
+      "acidulé",
+      "pétillant"
+    ],
+    "aromatique": [
+      "aromatique",
+      "herbes",
+      "garrigue",
+      "épicé frais",
+      "herbes de provence"
+    ],
+    "verte": [
+      "vert",
+      "verte",
+      "végétal",
+      "feuille",
+      "feuillage",
+      "herbe coupée",
+      "nature",
+      "désaltérant"
+    ],
+    "marine": [
+      "mer",
+      "marin",
+      "marine",
+      "océan",
+      "large",
+      "embrun",
+      "plage",
+      "voile",
+      "nautique",
+      "bord de mer",
+      "aquatique"
+    ],
+    "iodee": [
+      "iodé",
+      "iodée",
+      "salé",
+      "sel",
+      "algue",
+      "thalasso",
+      "marée",
+      "goémon",
+      "minéral"
+    ],
+    "boisee": [
+      "bois",
+      "boisé",
+      "boisée",
+      "forêt",
+      "terreux",
+      "racine",
+      "sous-bois",
+      "bibliothèque",
+      "bitume",
+      "urbain"
+    ],
+    "ambree": [
+      "ambré",
+      "ambrée",
+      "chaud",
+      "chaleureu*",
+      "gourmand",
+      "sucré",
+      "épicé",
+      "épice",
+      "oriental",
+      "résine",
+      "résineux",
+      "cocooning",
+      "noël",
+      "hiver",
+      "temple",
+      "dessert",
+      "ganache",
+      "bonbon"
+    ],
+    "musquee": [
+      "musc",
+      "musqué",
+      "propre",
+      "linge",
+      "coton",
+      "peau",
+      "doux",
+      "douce",
+      "douceur",
+      "lessive",
+      "adoucissant",
+      "oreiller",
+      "dormir"
+    ],
+    "florale": [
+      "fleur",
+      "floral",
+      "florale",
+      "bouquet",
+      "romantique",
+      "poudré",
+      "poudrée",
+      "fleuriste",
+      "fruits rouges",
+      "fruité",
+      "fruits exotiques",
+      "sensuel"
+    ]
+  },
+  "synonymes_notes": {
+    "néroli": "fleur_oranger",
+    "neroli": "fleur_oranger",
+    "petit grain": "petitgrain",
+    "sapin": "pin",
+    "coco": "noix_coco",
+    "orange": "orange_douce",
+    "girofle": "clou_girofle",
+    "poivre": "poivre_noir",
+    "thé vert": "the_vert",
+    "the vert": "the_vert",
+    "oudh": "oud",
+    "agarwood": "oud",
+    "tonka": "tonka",
+    "sel marin": "sel_marin",
+    "sel": "sel_marin",
+    "algues": "algue",
+    "embruns": "embruns",
+    "embrun": "embruns",
+    "miellée": "miel",
+    "miellé": "miel",
+    "musc blanc": "musc",
+    "café": "cafe",
+    "chocolat": "cacao",
+    "ylang": "ylang_ylang",
+    "pêche": "peche",
+    "lime": "citron_vert",
+    "ambre gris": "ambre_gris",
+    "encens": "encens",
+    "oliban": "encens",
+    "vétiver": "vetiver",
+    "eucalyptus": "eucalyptus",
+    "criste": "criste_marine",
+    "fenouil marin": "criste_marine",
+    "cèdre": "cedre",
+    "gingembre": "gingembre",
+    "cannelle": "cannelle",
+    "fraises": "fraise",
+    "framboises": "framboise",
+    "cerises": "cerise",
+    "pommes": "pomme",
+    "poires": "poire",
+    "mangues": "mangue"
+  },
+  "negations": [
+    "pas de",
+    "pas d'",
+    "sans",
+    "je n'aime pas",
+    "on n'aime pas",
+    "éviter",
+    "évitez",
+    "surtout pas",
+    "plutôt que",
+    "moins de"
+  ],
+  "modificateurs": {
+    "plus frais": {
+      "fraicheur": 1
+    },
+    "très frais": {
+      "fraicheur": 1
+    },
+    "frais": {
+      "fraicheur": 0.5
+    },
+    "fraîche": {
+      "fraicheur": 0.5
+    },
+    "fraîcheur": {
+      "fraicheur": 0.5
+    },
+    "moins boisé": {
+      "boise": -1
+    },
+    "plus boisé": {
+      "boise": 1
+    },
+    "plus chaud": {
+      "chaleur": 1
+    },
+    "moins sucré": {
+      "douceur": -1
+    },
+    "plus doux": {
+      "douceur": 1
+    },
+    "léger": {
+      "intensite": -1
+    },
+    "légère": {
+      "intensite": -1
+    },
+    "intense": {
+      "intensite": 1
+    },
+    "sillage": {
+      "intensite": 1
+    }
+  },
+  "champs": {
+    "positionnement": {
+      "accessible": [
+        "accessible",
+        "abordable",
+        "petit prix",
+        "budget serré",
+        "grande distribution",
+        "prix doux"
+      ],
+      "premium": [
+        "premium",
+        "haut de gamme",
+        "qualitatif"
+      ],
+      "luxe": [
+        "luxe",
+        "prestige",
+        "exclusif",
+        "haute parfumerie"
+      ]
+    },
+    "engagements": {
+      "vegan": [
+        "vegan",
+        "végan",
+        "végane",
+        "sans origine animale",
+        "aucun ingrédient d'origine animale"
+      ],
+      "naturel": [
+        "naturel",
+        "naturelle",
+        "naturels",
+        "naturelles",
+        "bio",
+        "biologique"
+      ],
+      "matieres_durables": [
+        "durable",
+        "durables",
+        "traçable",
+        "traçables",
+        "responsable",
+        "éco-conçu",
+        "upcycl*"
+      ],
+      "sans_allergenes": [
+        "sans allergènes",
+        "sans allergène",
+        "hypoallergénique*"
+      ]
+    },
+    "intensite": {
+      "legere": [
+        "léger",
+        "légère",
+        "discret",
+        "discrète",
+        "subtil",
+        "délicat"
+      ],
+      "intense": [
+        "intense",
+        "puissant",
+        "sillage",
+        "capiteux"
+      ]
+    },
+    "format": {
+      "eau_de_toilette": [
+        "eau de toilette"
+      ],
+      "parfum": [
+        "eau de parfum",
+        "parfum",
+        "cologne",
+        "extrait"
+      ],
+      "bougie": [
+        "bougie",
+        "bougies"
+      ],
+      "diffuseur": [
+        "diffuseur",
+        "diffusé",
+        "diffusée",
+        "signature olfactive"
+      ],
+      "brume": [
+        "brume",
+        "spray d'oreiller"
+      ],
+      "savon": [
+        "savon",
+        "savons",
+        "savonnerie"
+      ],
+      "soin": [
+        "après-rasage",
+        "déodorant",
+        "crème",
+        "lotion",
+        "soin",
+        "gel douche"
+      ],
+      "produit_entretien": [
+        "lessive",
+        "adoucissant",
+        "nettoyant",
+        "entretien"
+      ],
+      "arome_boisson": [
+        "limonade",
+        "boisson",
+        "cocktail",
+        "thé glacé",
+        "sirop",
+        "soda",
+        "bière"
+      ],
+      "arome_alimentaire": [
+        "bonbon",
+        "confiserie",
+        "ganache",
+        "sorbet",
+        "glace",
+        "gâteau",
+        "biscuit",
+        "yaourt",
+        "pâtisserie",
+        "chocolat"
+      ]
+    },
+    "lieu": {
+      "restaurant": [
+        "restaurant"
+      ],
+      "hotel": [
+        "hôtel"
+      ],
+      "spa": [
+        "spa",
+        "thalasso",
+        "yoga"
+      ],
+      "boutique": [
+        "boutique",
+        "concept-store",
+        "magasin",
+        "fleuriste"
+      ],
+      "maison": [
+        "chambre",
+        "salon",
+        "salle de bain",
+        "maison"
+      ],
+      "bureau": [
+        "bureau"
+      ]
+    },
+    "moment": {
+      "matin": [
+        "matin"
+      ],
+      "soir": [
+        "soir",
+        "soirée",
+        "nuit"
+      ],
+      "ete": [
+        "été",
+        "estival"
+      ],
+      "hiver": [
+        "hiver",
+        "noël"
+      ],
+      "quotidien": [
+        "tous les jours",
+        "quotidien"
+      ]
+    },
+    "type_projet": {
+      "creation": [
+        "création",
+        "créer",
+        "nouveau produit"
+      ],
+      "reformulation": [
+        "reformul*"
+      ],
+      "extension_gamme": [
+        "étendre notre gamme",
+        "extension de gamme",
+        "élargir notre gamme",
+        "compléter notre gamme"
+      ]
+    },
+    "cible": {
+      "hotellerie": [
+        "hôtel",
+        "hôtels",
+        "hôtellerie"
+      ],
+      "grand_public": [
+        "grand public",
+        "grande distribution"
+      ],
+      "clientele_boutiques": [
+        "nos boutiques",
+        "en boutique",
+        "notre boutique",
+        "clientèle"
+      ]
+    },
+    "pays_vente": {
+      "france": [
+        "france"
+      ],
+      "union_europeenne": [
+        "union européenne",
+        "europe",
+        "ue"
+      ],
+      "royaume_uni": [
+        "royaume-uni",
+        "angleterre",
+        "grande-bretagne"
+      ],
+      "etats_unis": [
+        "états-unis",
+        "usa",
+        "amérique du nord"
+      ],
+      "asie": [
+        "asie",
+        "japon",
+        "chine",
+        "corée"
+      ]
+    },
+    "mise_en_concurrence": {
+      "pas_decide": [
+        "pas encore décidé",
+        "pas décidé",
+        "on ne sait pas encore si on consulte"
+      ],
+      "seulement_givaudan": [
+        "seulement avec givaudan",
+        "uniquement avec givaudan",
+        "que givaudan",
+        "exclusivement avec givaudan"
+      ],
+      "autres_fournisseurs": [
+        "autres fournisseurs",
+        "consulte aussi",
+        "consultons aussi",
+        "appel d'offres",
+        "mise en concurrence",
+        "en concurrence",
+        "autres maisons"
+      ]
+    },
+    "relation": {
+      "ne_sait_pas": [
+        "ne sais pas encore si",
+        "ne sait pas encore si",
+        "je ne sais pas",
+        "on ne sait pas"
+      ],
+      "distributeur": [
+        "distributeur",
+        "grossiste"
+      ],
+      "direct": [
+        "en direct",
+        "directement"
+      ]
+    },
+    "objectif": {
+      "se_differencier": [
+        "se différencier",
+        "nous différencier",
+        "se démarquer"
+      ],
+      "fideliser": [
+        "fidéliser",
+        "fidélité",
+        "fidélisation"
+      ],
+      "produit_signature": [
+        "produit signature",
+        "signature de la maison"
+      ]
+    },
+    "contraintes": {
+      "delai_court": [
+        "délai court",
+        "délais courts",
+        "rapidement",
+        "au plus vite",
+        "urgent",
+        "aller vite",
+        "vite"
+      ],
+      "reglementation": [
+        "réglementation",
+        "réglementaire",
+        "conformité"
+      ],
+      "cout_matieres": [
+        "coût des matières",
+        "coût matière",
+        "prix des matières",
+        "coût"
+      ]
+    },
+    "domaine": {
+      "aromes": [
+        "arôme",
+        "arômes",
+        "aromatisation",
+        "alimentaire"
+      ]
+    }
+  },
+  "signaux_business": {
+    "gamme": [
+      "gamme",
+      "collection",
+      "et un",
+      "plusieurs produits"
+    ],
+    "calendrier": [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre",
+      "printemps",
+      "2026",
+      "2027"
+    ],
+    "volume": [
+      "boutiques",
+      "points de vente",
+      "unités",
+      "grande distribution",
+      "franchise"
+    ]
+  },
+  "regle_motifs": "un mot est cherché comme mot entier (pluriel accepté) ; un motif terminé par * est cherché comme début de mot",
+  "champs_multiples": [
+    "engagements",
+    "pays_vente",
+    "contraintes"
+  ],
+  "priorite_champs": {
+    "mise_en_concurrence": [
+      "pas_decide",
+      "seulement_givaudan",
+      "autres_fournisseurs"
+    ],
+    "relation": [
+      "ne_sait_pas",
+      "distributeur",
+      "direct"
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "date_source": "2026-11-12",
+  "source": "format des duels : maquette V3 (écran Voix 06) ; duels et poids rédigés par l'équipe Data, à valider par Product",
+  "regle": "Chaque duel propose 2 choix, en images, en sons ou en mots. Le choix ajoute ses poids aux familles ; le radar regroupe les 9 familles en 6 axes.",
+  "duels": [
+    {
+      "id": "d1",
+      "intitule": "Le soir, après la plage, vous préférez…",
+      "options": [
+        {
+          "id": "d1_a",
+          "libelle": "Une brise iodée",
+          "detail": "Le large, le sel sur la peau",
+          "image": "a_cote",
+          "son": "cote_bretonne",
+          "mot": "Une brise iodée",
+          "poids": {
+            "marine": 1,
+            "iodee": 0.5
+          }
+        },
+        {
+          "id": "d1_b",
+          "libelle": "Un bois chauffé au soleil",
+          "detail": "Le ponton en fin de journée",
+          "image": "a_coniferes",
+          "son": "foret_vent",
+          "mot": "Un bois chauffé au soleil",
+          "poids": {
+            "boisee": 1,
+            "ambree": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "intitule": "Le matin, vous ouvrez la fenêtre sur…",
+      "options": [
+        {
+          "id": "d2_a",
+          "libelle": "Un jardin de roses",
+          "detail": "La rosée sur les pétales",
+          "image": "a_jardin_roses",
+          "son": "jardin_aube",
+          "mot": "Un jardin de roses",
+          "poids": {
+            "florale": 1,
+            "verte": 0.5
+          }
+        },
+        {
+          "id": "d2_b",
+          "libelle": "La garrigue au soleil",
+          "detail": "Romarin, thym, cigales",
+          "image": "a_garrigue",
+          "son": "garrigue_cigales",
+          "mot": "La garrigue au soleil",
+          "poids": {
+            "aromatique": 1,
+            "hesperidee": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "intitule": "Pour un moment à vous, plutôt…",
+      "options": [
+        {
+          "id": "d3_a",
+          "libelle": "Un zeste qui pétille",
+          "detail": "Une eau fraîche et vive",
+          "image": "a_ruisseau",
+          "son": "ruisseau_frais",
+          "mot": "Un zeste qui pétille",
+          "poids": {
+            "hesperidee": 1,
+            "verte": 0.5
+          }
+        },
+        {
+          "id": "d3_b",
+          "libelle": "Une couverture près du feu",
+          "detail": "Chaleur et douceur",
+          "image": "a_feu",
+          "son": "feu_de_bois",
+          "mot": "Une couverture près du feu",
+          "poids": {
+            "ambree": 1,
+            "boisee": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "d4",
+      "intitule": "Votre marque ressemble plutôt à…",
+      "options": [
+        {
+          "id": "d4_a",
+          "libelle": "Une côte sauvage",
+          "detail": "Vent, rochers, embruns",
+          "image": "f_iodee",
+          "son": "plage_tropicale",
+          "mot": "Une côte sauvage",
+          "poids": {
+            "iodee": 1,
+            "marine": 0.5
+          }
+        },
+        {
+          "id": "d4_b",
+          "libelle": "Un marché aux épices",
+          "detail": "Couleurs, chaleur, voyage",
+          "image": "a_souk",
+          "son": "souk_epices",
+          "mot": "Un marché aux épices",
+          "poids": {
+            "ambree": 1,
+            "aromatique": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "d5",
+      "intitule": "Dans votre salle de bain idéale, ça sent…",
+      "options": [
+        {
+          "id": "d5_a",
+          "libelle": "Le linge propre",
+          "detail": "Coton, peau, douceur",
+          "image": "a_linge",
+          "son": "linge_brise",
+          "mot": "Le linge propre",
+          "poids": {
+            "musquee": 1,
+            "florale": 0.5
+          }
+        },
+        {
+          "id": "d5_b",
+          "libelle": "Le bois et la mousse",
+          "detail": "Une cabane en forêt",
+          "image": "a_sous_bois",
+          "son": "sous_bois_pluie",
+          "mot": "Le bois et la mousse",
+          "poids": {
+            "boisee": 1,
+            "verte": 0.5
+          }
+        }
+      ]
+    }
+  ]
+}

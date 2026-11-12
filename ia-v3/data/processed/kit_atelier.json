@@ -1,0 +1,218 @@
+{
+  "version": "3.0.0",
+  "taille": 30,
+  "regle": "notes les plus citées comme accords, sans vigilance, vegan, au moins 2 par famille, équilibre des étages",
+  "statut": "proposition, à valider par Hamza et Product",
+  "notes": [
+    {
+      "id": "bergamote",
+      "nom": "Bergamote",
+      "famille": "hesperidee",
+      "etage": "tete",
+      "citee_comme_accord": 10
+    },
+    {
+      "id": "citron",
+      "nom": "Citron",
+      "famille": "hesperidee",
+      "etage": "tete",
+      "citee_comme_accord": 8
+    },
+    {
+      "id": "lavande",
+      "nom": "Lavande",
+      "famille": "aromatique",
+      "etage": "tete",
+      "citee_comme_accord": 7
+    },
+    {
+      "id": "menthe",
+      "nom": "Menthe poivrée",
+      "famille": "aromatique",
+      "etage": "tete",
+      "citee_comme_accord": 7
+    },
+    {
+      "id": "the_vert",
+      "nom": "Thé vert",
+      "famille": "verte",
+      "etage": "coeur",
+      "citee_comme_accord": 8
+    },
+    {
+      "id": "poire",
+      "nom": "Poire",
+      "famille": "verte",
+      "etage": "tete",
+      "citee_comme_accord": 3
+    },
+    {
+      "id": "algue",
+      "nom": "Algue",
+      "famille": "marine",
+      "etage": "fond",
+      "citee_comme_accord": 4
+    },
+    {
+      "id": "embruns",
+      "nom": "Embruns (accord marin)",
+      "famille": "marine",
+      "etage": "tete",
+      "citee_comme_accord": 0
+    },
+    {
+      "id": "criste_marine",
+      "nom": "Criste marine",
+      "famille": "iodee",
+      "etage": "tete",
+      "citee_comme_accord": 1
+    },
+    {
+      "id": "sel_marin",
+      "nom": "Sel marin (accord)",
+      "famille": "iodee",
+      "etage": "coeur",
+      "citee_comme_accord": 0
+    },
+    {
+      "id": "patchouli",
+      "nom": "Patchouli",
+      "famille": "boisee",
+      "etage": "fond",
+      "citee_comme_accord": 3
+    },
+    {
+      "id": "cypres",
+      "nom": "Cyprès",
+      "famille": "boisee",
+      "etage": "coeur",
+      "citee_comme_accord": 2
+    },
+    {
+      "id": "vanille",
+      "nom": "Vanille",
+      "famille": "ambree",
+      "etage": "fond",
+      "citee_comme_accord": 22
+    },
+    {
+      "id": "noix_coco",
+      "nom": "Noix de coco",
+      "famille": "ambree",
+      "etage": "fond",
+      "citee_comme_accord": 6
+    },
+    {
+      "id": "musc",
+      "nom": "Musc blanc",
+      "famille": "musquee",
+      "etage": "fond",
+      "citee_comme_accord": 11
+    },
+    {
+      "id": "ambrette",
+      "nom": "Ambrette",
+      "famille": "musquee",
+      "etage": "fond",
+      "citee_comme_accord": 1
+    },
+    {
+      "id": "rose",
+      "nom": "Rose",
+      "famille": "florale",
+      "etage": "coeur",
+      "citee_comme_accord": 15
+    },
+    {
+      "id": "fleur_oranger",
+      "nom": "Fleur d'oranger",
+      "famille": "florale",
+      "etage": "coeur",
+      "citee_comme_accord": 7
+    },
+    {
+      "id": "iris",
+      "nom": "Iris",
+      "famille": "florale",
+      "etage": "coeur",
+      "citee_comme_accord": 6
+    },
+    {
+      "id": "tonka",
+      "nom": "Fève tonka",
+      "famille": "ambree",
+      "etage": "fond",
+      "citee_comme_accord": 5
+    },
+    {
+      "id": "cafe",
+      "nom": "Café",
+      "famille": "ambree",
+      "etage": "coeur",
+      "citee_comme_accord": 4
+    },
+    {
+      "id": "jasmin",
+      "nom": "Jasmin",
+      "famille": "florale",
+      "etage": "coeur",
+      "citee_comme_accord": 4
+    },
+    {
+      "id": "labdanum",
+      "nom": "Labdanum",
+      "famille": "ambree",
+      "etage": "fond",
+      "citee_comme_accord": 4
+    },
+    {
+      "id": "pamplemousse",
+      "nom": "Pamplemousse",
+      "famille": "hesperidee",
+      "etage": "tete",
+      "citee_comme_accord": 4
+    },
+    {
+      "id": "cannelle",
+      "nom": "Cannelle",
+      "famille": "ambree",
+      "etage": "coeur",
+      "citee_comme_accord": 3
+    },
+    {
+      "id": "citron_vert",
+      "nom": "Citron vert",
+      "famille": "hesperidee",
+      "etage": "tete",
+      "citee_comme_accord": 3
+    },
+    {
+      "id": "gingembre",
+      "nom": "Gingembre",
+      "famille": "aromatique",
+      "etage": "tete",
+      "citee_comme_accord": 3
+    },
+    {
+      "id": "osmanthus",
+      "nom": "Osmanthus",
+      "famille": "florale",
+      "etage": "coeur",
+      "citee_comme_accord": 3
+    },
+    {
+      "id": "benjoin",
+      "nom": "Benjoin",
+      "famille": "ambree",
+      "etage": "fond",
+      "citee_comme_accord": 2
+    },
+    {
+      "id": "cacao",
+      "nom": "Cacao",
+      "famille": "ambree",
+      "etage": "fond",
+      "citee_comme_accord": 2
+    }
+  ]
+}

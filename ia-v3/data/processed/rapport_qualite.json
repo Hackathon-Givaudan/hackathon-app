@@ -1,0 +1,50 @@
+{
+  "notes": 72,
+  "familles": 9,
+  "ambiances": 18,
+  "notes_par_famille": {
+    "hesperidee": 8,
+    "florale": 17,
+    "verte": 7,
+    "ambree": 15,
+    "aromatique": 10,
+    "boisee": 9,
+    "musquee": 2,
+    "marine": 2,
+    "iodee": 2
+  },
+  "notes_par_etage": {
+    "tete": 30,
+    "coeur": 23,
+    "fond": 19
+  },
+  "notes_naturelles": 53,
+  "notes_non_vegan": [
+    "ambre_gris",
+    "miel"
+  ],
+  "notes_avec_vigilance": [
+    "cedre",
+    "santal",
+    "oud",
+    "mousse_chene",
+    "gaiac",
+    "encens",
+    "ambre_gris",
+    "miel"
+  ],
+  "notes_avec_allergenes_connus": 28,
+  "references_fictives": 34,
+  "duels": 5,
+  "origines": {
+    "confirmée par la source": 47,
+    "confirmée en partie": 5,
+    "accord ou synthèse": 20
+  },
+  "bloquants": [],
+  "avertissements": [
+    "famille marine : seulement 2 note(s)",
+    "famille iodee : seulement 2 note(s)",
+    "famille musquee : seulement 2 note(s)"
+  ]
+}

@@ -1,0 +1,1271 @@
+[
+  {
+    "id": "REF-F01",
+    "nom": "Marée haute",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "embruns",
+        "bergamote"
+      ],
+      "coeur": [
+        "sel_marin",
+        "criste_marine"
+      ],
+      "fond": [
+        "algue",
+        "ambre_gris"
+      ]
+    },
+    "ambiance": "cote_bretonne",
+    "description": "Eau de parfum marine et iodée, l'air du large sur une peau salée.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "marine": 2,
+      "hesperidee": 1,
+      "iodee": 2,
+      "ambree": 1
+    },
+    "famille_principale": "marine",
+    "vegan": false,
+    "naturel": false,
+    "durable": false,
+    "allergenes_connus": [
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F02",
+    "nom": "Ponton au couchant",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "pamplemousse",
+        "embruns"
+      ],
+      "coeur": [
+        "sel_marin",
+        "cypres"
+      ],
+      "fond": [
+        "cedre",
+        "vetiver"
+      ]
+    },
+    "ambiance": "cote_bretonne",
+    "description": "Marin et boisé : le bois du ponton chauffé par le soleil du soir.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "marine": 1,
+      "iodee": 1,
+      "boisee": 3
+    },
+    "famille_principale": "boisee",
+    "vegan": true,
+    "naturel": false,
+    "durable": false,
+    "allergenes_connus": [
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-F03",
+    "nom": "Bougie Large",
+    "domaine": "fragrances",
+    "produit": "bougie",
+    "notes": {
+      "tete": [
+        "citron",
+        "embruns"
+      ],
+      "coeur": [
+        "sel_marin",
+        "muguet"
+      ],
+      "fond": [
+        "musc",
+        "algue"
+      ]
+    },
+    "ambiance": "cote_bretonne",
+    "description": "Bougie fraîche et marine pour une pièce lumineuse.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "marine": 2,
+      "iodee": 1,
+      "florale": 1,
+      "musquee": 1
+    },
+    "famille_principale": "marine",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-F04",
+    "nom": "Jardin de mai",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "bergamote",
+        "poire"
+      ],
+      "coeur": [
+        "pivoine",
+        "rose",
+        "muguet"
+      ],
+      "fond": [
+        "musc"
+      ]
+    },
+    "ambiance": "jardin_aube",
+    "description": "Floral frais et printanier, un bouquet après la rosée.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "verte": 1,
+      "florale": 3,
+      "musquee": 1
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citronellol",
+      "eugénol",
+      "géraniol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F05",
+    "nom": "Poudre d'iris",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "mandarine"
+      ],
+      "coeur": [
+        "iris",
+        "violette",
+        "rose"
+      ],
+      "fond": [
+        "musc",
+        "ambrette"
+      ]
+    },
+    "ambiance": "linge_brise",
+    "description": "Floral poudré, élégant et doux.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "florale": 3,
+      "musquee": 2
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citronellol",
+      "eugénol",
+      "géraniol",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-F06",
+    "nom": "Nuit blanche",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "bergamote"
+      ],
+      "coeur": [
+        "jasmin",
+        "tubereuse",
+        "ylang_ylang"
+      ],
+      "fond": [
+        "santal",
+        "vanille"
+      ]
+    },
+    "ambiance": "nuit_ete",
+    "description": "Floral blanc, solaire et sensuel, pour le soir.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "florale": 3,
+      "boisee": 1,
+      "ambree": 1
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": true,
+    "durable": false,
+    "allergenes_connus": [
+      "benzoate de benzyle",
+      "géraniol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F07",
+    "nom": "Fleur d'oranger et miel",
+    "domaine": "fragrances",
+    "produit": "savon",
+    "notes": {
+      "tete": [
+        "mandarine"
+      ],
+      "coeur": [
+        "fleur_oranger"
+      ],
+      "fond": [
+        "miel",
+        "musc"
+      ]
+    },
+    "ambiance": "verger_abeilles",
+    "description": "Savon doux et miellé à la fleur d'oranger.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "florale": 1,
+      "ambree": 1,
+      "musquee": 1
+    },
+    "famille_principale": "hesperidee",
+    "vegan": false,
+    "naturel": false,
+    "durable": false,
+    "allergenes_connus": [
+      "farnésol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F08",
+    "nom": "Cologne d'antan",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "bergamote",
+        "citron",
+        "petitgrain"
+      ],
+      "coeur": [
+        "fleur_oranger",
+        "lavande"
+      ],
+      "fond": [
+        "musc"
+      ]
+    },
+    "ambiance": "garrigue_cigales",
+    "description": "Eau de Cologne classique, hespéridée et lumineuse.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 3,
+      "florale": 1,
+      "aromatique": 1,
+      "musquee": 1
+    },
+    "famille_principale": "hesperidee",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "farnésol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F09",
+    "nom": "Zeste du matin",
+    "domaine": "fragrances",
+    "produit": "eau_de_toilette",
+    "notes": {
+      "tete": [
+        "pamplemousse",
+        "citron_vert",
+        "poivre_noir"
+      ],
+      "coeur": [
+        "the_vert"
+      ],
+      "fond": [
+        "vetiver",
+        "cedre"
+      ]
+    },
+    "ambiance": "ruisseau_frais",
+    "description": "Eau de toilette fraîche et tonique, agrumes et vétiver.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 2,
+      "aromatique": 1,
+      "verte": 1,
+      "boisee": 2
+    },
+    "famille_principale": "hesperidee",
+    "vegan": true,
+    "naturel": false,
+    "durable": false,
+    "allergenes_connus": [
+      "citral",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F10",
+    "nom": "Garrigue",
+    "domaine": "fragrances",
+    "produit": "diffuseur",
+    "notes": {
+      "tete": [
+        "romarin",
+        "thym",
+        "bergamote"
+      ],
+      "coeur": [
+        "lavande",
+        "sauge_sclaree"
+      ],
+      "fond": [
+        "cypres"
+      ]
+    },
+    "ambiance": "garrigue_cigales",
+    "description": "Diffuseur aromatique, la Provence en plein soleil.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 4,
+      "hesperidee": 1,
+      "boisee": 1
+    },
+    "famille_principale": "aromatique",
+    "vegan": true,
+    "naturel": true,
+    "durable": true,
+    "allergenes_connus": [
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F11",
+    "nom": "Lavande et tonka",
+    "domaine": "fragrances",
+    "produit": "brume",
+    "notes": {
+      "tete": [
+        "lavande",
+        "bergamote"
+      ],
+      "coeur": [
+        "fleur_oranger"
+      ],
+      "fond": [
+        "tonka",
+        "musc"
+      ]
+    },
+    "ambiance": "linge_brise",
+    "description": "Brume douce et apaisante pour le coucher.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 1,
+      "hesperidee": 1,
+      "florale": 1,
+      "ambree": 1,
+      "musquee": 1
+    },
+    "famille_principale": "aromatique",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "coumarine",
+      "farnésol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F12",
+    "nom": "Forêt d'altitude",
+    "domaine": "fragrances",
+    "produit": "diffuseur",
+    "notes": {
+      "tete": [
+        "eucalyptus",
+        "pin"
+      ],
+      "coeur": [
+        "cypres"
+      ],
+      "fond": [
+        "cedre",
+        "mousse_chene"
+      ]
+    },
+    "ambiance": "neige_fraiche",
+    "description": "Résineux et frais, une forêt de montagne en hiver.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 1,
+      "boisee": 4
+    },
+    "famille_principale": "boisee",
+    "vegan": true,
+    "naturel": true,
+    "durable": false,
+    "allergenes_connus": [
+      "extrait d'Evernia prunastri",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-F13",
+    "nom": "Bibliothèque",
+    "domaine": "fragrances",
+    "produit": "bougie",
+    "notes": {
+      "tete": [
+        "poivre_noir"
+      ],
+      "coeur": [
+        "cypres"
+      ],
+      "fond": [
+        "patchouli",
+        "vetiver",
+        "benjoin",
+        "cedre"
+      ]
+    },
+    "ambiance": "feu_de_bois",
+    "description": "Bougie boisée et chaude, vieux livres et bois ciré.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 1,
+      "boisee": 4,
+      "ambree": 1
+    },
+    "famille_principale": "boisee",
+    "vegan": true,
+    "naturel": true,
+    "durable": false,
+    "allergenes_connus": [
+      "alcool benzylique",
+      "benzoate de benzyle",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F14",
+    "nom": "Temple",
+    "domaine": "fragrances",
+    "produit": "bougie",
+    "notes": {
+      "tete": [
+        "poivre_noir"
+      ],
+      "coeur": [
+        "encens"
+      ],
+      "fond": [
+        "labdanum",
+        "benjoin",
+        "santal"
+      ]
+    },
+    "ambiance": "temple_meditation",
+    "description": "Bougie résineuse et apaisante, fumée d'encens.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 1,
+      "ambree": 3,
+      "boisee": 1
+    },
+    "famille_principale": "ambree",
+    "vegan": true,
+    "naturel": true,
+    "durable": false,
+    "allergenes_connus": [
+      "alcool benzylique",
+      "benzoate de benzyle",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F15",
+    "nom": "Oud rose",
+    "domaine": "fragrances",
+    "produit": "bougie",
+    "notes": {
+      "tete": [
+        "framboise"
+      ],
+      "coeur": [
+        "rose",
+        "safran"
+      ],
+      "fond": [
+        "oud",
+        "patchouli"
+      ]
+    },
+    "ambiance": "souk_epices",
+    "description": "Bougie intense et luxueuse, rose et bois d'oud.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "florale": 2,
+      "ambree": 1,
+      "boisee": 2
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": false,
+    "allergenes_connus": [
+      "citronellol",
+      "eugénol",
+      "géraniol"
+    ]
+  },
+  {
+    "id": "REF-F16",
+    "nom": "Noël épicé",
+    "domaine": "fragrances",
+    "produit": "bougie",
+    "notes": {
+      "tete": [
+        "orange_douce",
+        "pin"
+      ],
+      "coeur": [
+        "cannelle",
+        "clou_girofle"
+      ],
+      "fond": [
+        "vanille",
+        "benjoin"
+      ]
+    },
+    "ambiance": "feu_de_bois",
+    "description": "Orange, épices et sapin : les fêtes d'hiver.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "boisee": 1,
+      "ambree": 4
+    },
+    "famille_principale": "ambree",
+    "vegan": true,
+    "naturel": true,
+    "durable": true,
+    "allergenes_connus": [
+      "alcool benzylique",
+      "benzoate de benzyle",
+      "cinnamal",
+      "eugénol",
+      "isoeugénol",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-F17",
+    "nom": "Café crème",
+    "domaine": "fragrances",
+    "produit": "bougie",
+    "notes": {
+      "tete": [
+        "cardamome"
+      ],
+      "coeur": [
+        "cafe"
+      ],
+      "fond": [
+        "vanille",
+        "cacao",
+        "tonka"
+      ]
+    },
+    "ambiance": "comptoir_cafe",
+    "description": "Bougie gourmande, café torréfié et vanille.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 1,
+      "ambree": 4
+    },
+    "famille_principale": "ambree",
+    "vegan": true,
+    "naturel": true,
+    "durable": true,
+    "allergenes_connus": [
+      "coumarine",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F18",
+    "nom": "Linge frais",
+    "domaine": "fragrances",
+    "produit": "produit_entretien",
+    "notes": {
+      "tete": [
+        "citron",
+        "pomme"
+      ],
+      "coeur": [
+        "muguet",
+        "fleur_oranger"
+      ],
+      "fond": [
+        "musc",
+        "ambrette"
+      ]
+    },
+    "ambiance": "linge_brise",
+    "description": "Parfum de lessive propre et doux.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "verte": 1,
+      "florale": 2,
+      "musquee": 2
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "farnésol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F19",
+    "nom": "Coco solaire",
+    "domaine": "fragrances",
+    "produit": "brume",
+    "notes": {
+      "tete": [
+        "ananas",
+        "bergamote"
+      ],
+      "coeur": [
+        "ylang_ylang",
+        "fleur_oranger"
+      ],
+      "fond": [
+        "noix_coco",
+        "vanille"
+      ]
+    },
+    "ambiance": "plage_tropicale",
+    "description": "Brume solaire, noix de coco et fleurs des îles.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "florale": 3,
+      "hesperidee": 1,
+      "ambree": 2
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "benzoate de benzyle",
+      "farnésol",
+      "géraniol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F20",
+    "nom": "Thé blanc",
+    "domaine": "fragrances",
+    "produit": "diffuseur",
+    "notes": {
+      "tete": [
+        "bergamote",
+        "yuzu"
+      ],
+      "coeur": [
+        "the_vert",
+        "osmanthus"
+      ],
+      "fond": [
+        "musc"
+      ]
+    },
+    "ambiance": "ceremonie_the",
+    "description": "Diffuseur zen et léger, thé et agrumes.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 2,
+      "verte": 1,
+      "florale": 1,
+      "musquee": 1
+    },
+    "famille_principale": "hesperidee",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F21",
+    "nom": "Barbier",
+    "domaine": "fragrances",
+    "produit": "soin",
+    "notes": {
+      "tete": [
+        "bergamote",
+        "poivre_noir"
+      ],
+      "coeur": [
+        "lavande"
+      ],
+      "fond": [
+        "cedre",
+        "vetiver",
+        "tonka"
+      ]
+    },
+    "ambiance": "foret_vent",
+    "description": "Après-rasage boisé, épicé et aromatique.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "aromatique": 2,
+      "boisee": 2,
+      "ambree": 1
+    },
+    "famille_principale": "aromatique",
+    "vegan": true,
+    "naturel": true,
+    "durable": false,
+    "allergenes_connus": [
+      "coumarine",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F22",
+    "nom": "Menthe glaciale",
+    "domaine": "fragrances",
+    "produit": "soin",
+    "notes": {
+      "tete": [
+        "menthe",
+        "citron",
+        "eucalyptus"
+      ],
+      "coeur": [
+        "lavande"
+      ],
+      "fond": [
+        "vetiver"
+      ]
+    },
+    "ambiance": "ruisseau_frais",
+    "description": "Déodorant très frais, menthe et citron.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 3,
+      "hesperidee": 1,
+      "boisee": 1
+    },
+    "famille_principale": "aromatique",
+    "vegan": true,
+    "naturel": true,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F23",
+    "nom": "Pluie urbaine",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "poivre_noir",
+        "galbanum"
+      ],
+      "coeur": [
+        "iris"
+      ],
+      "fond": [
+        "vetiver",
+        "patchouli"
+      ]
+    },
+    "ambiance": "orage_ete",
+    "description": "Vert et terreux, la pluie sur le bitume.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 1,
+      "verte": 1,
+      "florale": 1,
+      "boisee": 2
+    },
+    "famille_principale": "boisee",
+    "vegan": true,
+    "naturel": true,
+    "durable": true,
+    "allergenes_connus": [
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-F24",
+    "nom": "Chypre moderne",
+    "domaine": "fragrances",
+    "produit": "parfum",
+    "notes": {
+      "tete": [
+        "bergamote"
+      ],
+      "coeur": [
+        "rose",
+        "cassis"
+      ],
+      "fond": [
+        "patchouli",
+        "mousse_chene"
+      ]
+    },
+    "ambiance": "sous_bois_pluie",
+    "description": "Chypre fruité, rose et patchouli sur fond moussu.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 1,
+      "florale": 1,
+      "verte": 1,
+      "boisee": 2
+    },
+    "famille_principale": "boisee",
+    "vegan": true,
+    "naturel": true,
+    "durable": false,
+    "allergenes_connus": [
+      "citronellol",
+      "eugénol",
+      "extrait d'Evernia prunastri",
+      "géraniol",
+      "limonène",
+      "linalol"
+    ]
+  },
+  {
+    "id": "REF-A01",
+    "nom": "Limonade citron gingembre",
+    "domaine": "aromes",
+    "produit": "arome_boisson",
+    "notes": {
+      "tete": [
+        "citron",
+        "citron_vert",
+        "gingembre"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "ruisseau_frais",
+    "description": "Arôme pétillant et acidulé pour boissons.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "hesperidee": 2,
+      "aromatique": 1
+    },
+    "famille_principale": "hesperidee",
+    "vegan": true,
+    "naturel": true,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-A02",
+    "nom": "Thé glacé pêche",
+    "domaine": "aromes",
+    "produit": "arome_boisson",
+    "notes": {
+      "tete": [
+        "the_vert",
+        "peche",
+        "citron"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "ceremonie_the",
+    "description": "Arôme thé vert et pêche, désaltérant.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "verte": 1,
+      "florale": 1,
+      "hesperidee": 1
+    },
+    "famille_principale": "verte",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-A03",
+    "nom": "Cocktail iodé",
+    "domaine": "aromes",
+    "produit": "arome_boisson",
+    "notes": {
+      "tete": [
+        "criste_marine",
+        "sel_marin",
+        "citron",
+        "concombre"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "cote_bretonne",
+    "description": "Arôme salin et citronné pour cocktail.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "iodee": 2,
+      "hesperidee": 1,
+      "verte": 1
+    },
+    "famille_principale": "iodee",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-A04",
+    "nom": "Fruits rouges",
+    "domaine": "aromes",
+    "produit": "arome_alimentaire",
+    "notes": {
+      "tete": [
+        "fraise",
+        "framboise",
+        "cerise",
+        "vanille"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "verger_abeilles",
+    "description": "Arôme fruits rouges gourmand pour confiserie.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "florale": 3,
+      "ambree": 1
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": []
+  },
+  {
+    "id": "REF-A05",
+    "nom": "Ganache cacao caramel",
+    "domaine": "aromes",
+    "produit": "arome_alimentaire",
+    "notes": {
+      "tete": [
+        "cacao",
+        "caramel",
+        "tonka",
+        "vanille"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "comptoir_cafe",
+    "description": "Arôme chocolaté et caramélisé pour ganache.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "ambree": 4
+    },
+    "famille_principale": "ambree",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "coumarine"
+    ]
+  },
+  {
+    "id": "REF-A06",
+    "nom": "Sorbet mangue citron vert",
+    "domaine": "aromes",
+    "produit": "arome_alimentaire",
+    "notes": {
+      "tete": [
+        "mangue",
+        "citron_vert",
+        "ananas"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "plage_tropicale",
+    "description": "Arôme exotique et acidulé pour glaces.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "florale": 2,
+      "hesperidee": 1
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-A07",
+    "nom": "Boisson exotique",
+    "domaine": "aromes",
+    "produit": "arome_boisson",
+    "notes": {
+      "tete": [
+        "ananas",
+        "mangue",
+        "noix_coco",
+        "citron_vert"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "jungle_humide",
+    "description": "Arôme fruits tropicaux pour boissons.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "florale": 2,
+      "ambree": 1,
+      "hesperidee": 1
+    },
+    "famille_principale": "florale",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-A08",
+    "nom": "Pain d'épices",
+    "domaine": "aromes",
+    "produit": "arome_alimentaire",
+    "notes": {
+      "tete": [
+        "cannelle",
+        "clou_girofle",
+        "orange_douce",
+        "miel"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "feu_de_bois",
+    "description": "Arôme épicé et miellé pour biscuits.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "ambree": 3,
+      "hesperidee": 1
+    },
+    "famille_principale": "ambree",
+    "vegan": false,
+    "naturel": true,
+    "durable": false,
+    "allergenes_connus": [
+      "cinnamal",
+      "eugénol",
+      "isoeugénol",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-A09",
+    "nom": "Mojito",
+    "domaine": "aromes",
+    "produit": "arome_boisson",
+    "notes": {
+      "tete": [
+        "menthe",
+        "citron_vert"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "ruisseau_frais",
+    "description": "Arôme menthe et citron vert.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "aromatique": 1,
+      "hesperidee": 1
+    },
+    "famille_principale": "aromatique",
+    "vegan": true,
+    "naturel": true,
+    "durable": true,
+    "allergenes_connus": [
+      "citral",
+      "limonène"
+    ]
+  },
+  {
+    "id": "REF-A10",
+    "nom": "Amande cerise",
+    "domaine": "aromes",
+    "produit": "arome_alimentaire",
+    "notes": {
+      "tete": [
+        "amande",
+        "cerise",
+        "vanille"
+      ],
+      "coeur": [],
+      "fond": []
+    },
+    "ambiance": "verger_abeilles",
+    "description": "Arôme amande et griotte pour pâtisserie.",
+    "statut": "référence fictive pour la démonstration, à remplacer par la banque Givaudan",
+    "source": "équipe Data G11",
+    "date_source": "2026-11-12",
+    "familles": {
+      "ambree": 2,
+      "florale": 1
+    },
+    "famille_principale": "ambree",
+    "vegan": true,
+    "naturel": false,
+    "durable": true,
+    "allergenes_connus": []
+  }
+]
