@@ -49,7 +49,7 @@ export function AcceptedStep({ formula, name, expert, onRestart }: Props) {
             aria-current={index === reached ? 'step' : undefined}
             className={cn(
               'border-t-2 pt-2 text-sm',
-              index <= reached ? 'border-white' : 'border-white/25 opacity-55',
+              index <= reached ? 'border-ink' : 'border-line opacity-55',
             )}
           >
             <span className="mono mr-2 text-[11px]">{index + 1}</span>
@@ -60,15 +60,15 @@ export function AcceptedStep({ formula, name, expert, onRestart }: Props) {
 
       {!received ? (
         <>
-          <ul className="mt-6 border-t border-white/45 text-[16px]">
-            <li className="border-b border-white/25 py-3">
+          <ul className="mt-6 border-t border-line-strong text-[16px]">
+            <li className="border-b border-line py-3">
               Votre projet et vos notes sont transmis : vous n’aurez rien à
               répéter.
             </li>
-            <li className="border-b border-white/25 py-3">
+            <li className="border-b border-line py-3">
               Un échantillon de {name} vous est préparé. Délai : [X].
             </li>
-            <li className="border-b border-white/25 py-3">
+            <li className="border-b border-line py-3">
               Votre {expert} ajuste la formule avec vous après l’essai.
             </li>
           </ul>
@@ -97,7 +97,7 @@ export function AcceptedStep({ formula, name, expert, onRestart }: Props) {
               <button
                 key={adjustment}
                 onClick={() => setFeedback(adjustment)}
-                className="min-h-12 border border-white/45 px-4 text-[16px] hover:bg-white/10"
+                className="min-h-12 border border-line-strong px-4 text-[16px] hover:bg-soft"
               >
                 {adjustment}
               </button>

@@ -24,7 +24,7 @@ export function HelpDialog({ onClose }: { onClose: () => void }) {
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
           onKeyDown={(event) => event.key === 'Enter' && ask(question)}
-          className="min-h-12 flex-1 border border-white/50 bg-white/10 px-3 text-[16px] outline-none focus:border-white"
+          className="min-h-12 flex-1 border border-line-input bg-card px-3 text-[16px] outline-none focus:border-ink"
         />
         <button onClick={() => ask(question)} className={primaryButton}>
           Demander

@@ -67,15 +67,15 @@ export function UniverseStep({
       </button>
       {guide && (
         <Dialog title="Comment ça marche" onClose={() => setGuide(false)}>
-          <ol className="mt-4 border-t border-white/45">
+          <ol className="mt-4 border-t border-line-strong">
             {STAGES.map(([stage, text], index) => (
               <li
                 key={stage}
-                className="grid grid-cols-[28px_1fr] gap-x-3 border-b border-white/25 py-3"
+                className="grid grid-cols-[28px_1fr] gap-x-3 border-b border-line py-3"
               >
                 <span className="mono text-[12px] opacity-80">{index + 1}</span>
                 <span>
-                  <span className="f-display block text-[22px] leading-tight">
+                  <span className="font-semibold block text-[22px] leading-tight">
                     {stage}
                   </span>
                   <span className="block text-[15px] opacity-85">{text}</span>
@@ -93,7 +93,7 @@ export function UniverseStep({
         {ORGAN.map((matter) => (
           <li key={matter} className="group flex flex-col items-center">
             <span
-              className="block h-14 w-6 rounded-b-md border border-white/45 transition-transform group-hover:-translate-y-1.5"
+              className="block h-14 w-6 rounded-b-md border border-line-strong transition-transform group-hover:-translate-y-1.5"
               style={{
                 background: `linear-gradient(to top, ${noteColor(matter)} 68%, transparent 68%)`,
               }}
@@ -105,17 +105,19 @@ export function UniverseStep({
         ))}
       </ul>
 
-      <ol className="mt-10 grid gap-6 border-t border-white/45 pt-5 sm:grid-cols-3">
+      <ol className="mt-10 grid gap-6 border-t border-line-strong pt-5 sm:grid-cols-3">
         {PROMISE.map(([title, text], index) => (
           <li key={title}>
             <p className={smallLabel}>Étape {index + 1}</p>
-            <p className="f-display mt-1 text-[26px] leading-tight">{title}</p>
+            <p className="font-semibold mt-1 text-[26px] leading-tight">
+              {title}
+            </p>
             <p className="mt-1 text-[15px] opacity-85">{text}</p>
           </li>
         ))}
       </ol>
 
-      <h2 className="f-display mt-12 text-[34px] leading-tight">
+      <h2 className="font-semibold mt-12 text-[34px] leading-tight">
         Que créez-vous&nbsp;?
       </h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -123,10 +125,10 @@ export function UniverseStep({
           <button
             key={universe}
             onClick={() => onChoose(universe)}
-            className="group flex min-h-28 items-center justify-between gap-4 border border-white/45 px-5 text-left hover:bg-white/10"
+            className="group flex min-h-28 items-center justify-between gap-4 border border-line-strong px-5 text-left hover:bg-soft"
           >
             <span>
-              <span className="f-display block text-[32px] leading-tight">
+              <span className="font-semibold block text-[32px] leading-tight">
                 {VOCABULARY[universe].label}
               </span>
               <span className="block text-sm opacity-80">

@@ -56,17 +56,17 @@ export function ProfileStep({
       </h1>
       <p className="mt-3 text-[17px] leading-snug">{wishes}</p>
 
-      <h2 className="f-display mt-8 text-[28px] leading-tight">
+      <h2 className="font-semibold mt-8 text-[28px] leading-tight">
         Précisez vos goûts, en cinq questions
       </h2>
       <p className="mt-1 text-[15px] opacity-85">
         Chaque réponse ajoute un mot à votre brief. Vous pouvez en laisser.
       </p>
-      <ol className="mt-4 border-t border-white/45">
+      <ol className="mt-4 border-t border-line-strong">
         {duels.map(({ question, choices }, index) => (
           <li
             key={question}
-            className="grid items-center gap-2 border-b border-white/25 py-3 sm:grid-cols-[1fr_auto]"
+            className="grid items-center gap-2 border-b border-line py-3 sm:grid-cols-[1fr_auto]"
           >
             <span className="text-[16px]">{question}</span>
             <span className="flex gap-2">
@@ -80,10 +80,10 @@ export function ProfileStep({
                   }}
                   aria-pressed={answers[index] === adds}
                   className={cn(
-                    'min-h-11 border border-white/45 px-3 text-[15px]',
+                    'min-h-11 border border-line-strong px-3 text-[15px]',
                     answers[index] === adds
-                      ? 'bg-[#F2ECF0] text-[#22101F]'
-                      : 'hover:bg-white/10',
+                      ? 'bg-selected ring-2 ring-accent'
+                      : 'hover:bg-soft',
                   )}
                 >
                   {label}

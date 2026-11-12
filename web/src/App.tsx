@@ -159,7 +159,7 @@ export default function App() {
       : (formula?.name ?? '');
 
   useEffect(() => {
-    document.title = 'Sillage, concept étudiant pour Givaudan';
+    document.title = 'Givaudan · L’atelier, concept étudiant';
   }, []);
 
   /* Entrée douce du titre à chaque écran */
@@ -188,11 +188,14 @@ export default function App() {
 
   return (
     <div className="f-root ink relative isolate flex min-h-svh flex-col overflow-x-clip">
-      <header className="flex flex-wrap items-end justify-between gap-x-10 gap-y-2 px-5 pt-5 md:px-10">
+      <header className="flex flex-wrap items-end justify-between gap-x-10 gap-y-2 border-b border-line bg-card px-5 pt-5 md:px-10">
         <div className="pb-4">
-          <p className="f-display text-[30px] leading-none">Sillage</p>
-          <p className="mono mt-1.5 text-[10px]">
-            Concept étudiant pour Givaudan
+          <p className="text-[22px] font-semibold leading-none tracking-tight">
+            Givaudan{' '}
+            <span className="font-normal text-accent-text">L’atelier</span>
+          </p>
+          <p className="mt-1.5 text-[12px] text-muted">
+            Concept étudiant, sans lien officiel avec Givaudan
           </p>
         </div>
         <button
@@ -209,8 +212,8 @@ export default function App() {
               aria-current={index === stepIndex ? 'step' : undefined}
               className={cn(
                 'flex h-14 items-center border-b-2 px-3 text-sm md:px-5',
-                index === stepIndex ? 'border-[#ECE9EF]' : 'border-transparent',
-                index > stepIndex && 'text-[#C4B7C2]',
+                index === stepIndex ? 'border-accent' : 'border-transparent',
+                index > stepIndex && 'text-muted',
               )}
             >
               <span className="mono mr-2 text-[11px]">{index + 1}</span>
@@ -222,7 +225,7 @@ export default function App() {
 
       <div className={cn('grid flex-1', chosen && 'lg:grid-cols-2')}>
         {chosen && (
-          <aside className="flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
+          <aside className="stage flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
             <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
               <BottleBoundary>
                 <Suspense fallback={null}>
@@ -253,7 +256,7 @@ export default function App() {
 
         <main
           ref={panel}
-          className="flex min-w-0 flex-col bg-[#1B0C19]/45 px-5 md:px-10"
+          className="flex min-w-0 flex-col bg-card px-5 md:px-10"
         >
           <div
             className={cn(
