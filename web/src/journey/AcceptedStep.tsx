@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api';
 import type { Formula } from '../api';
+import { of } from '../shared/french';
 import { cn, linkButton, primaryButton, smallLabel } from '../shared/ui';
 
 type Props = {
@@ -19,7 +20,7 @@ type Props = {
 
 const STAGES = [
   'Composée',
-  'Demande envoyée',
+  'Demande enregistrée',
   'Échantillon reçu',
   'Retour donné',
 ];
@@ -141,7 +142,7 @@ export function AcceptedStep({
               répéter.
             </li>
             <li className="border-b border-line py-3">
-              Un échantillon de {name} vous est préparé. Délai : [X].
+              Un échantillon {of(name)} vous est préparé. Délai : [X].
             </li>
             <li className="border-b border-line py-3">
               Votre {expert} ajuste la formule avec vous après l’essai.

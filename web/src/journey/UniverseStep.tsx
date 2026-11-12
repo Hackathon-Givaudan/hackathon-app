@@ -58,8 +58,7 @@ export function UniverseStep({
         De votre idée à un échantillon.
       </h1>
       <p className="mt-4 max-w-[46ch] text-[18px] leading-snug">
-        Décrivez votre projet avec vos mots. Aucun terme technique, environ deux
-        minutes.
+        Décrivez votre projet avec vos mots, sans aucun terme technique.
       </p>
 
       <button onClick={() => setGuide(true)} className={`${linkButton} mt-3`}>

@@ -353,6 +353,8 @@ test('each vial shows its material sheet, or says it is coming', async ({
   await expect(sheet).toBeVisible();
   // La première fiole, le sel marin, a une fiche documentée par la Data
   await expect(sheet.getByText(/Origine|Obtention/).first()).toBeVisible();
+  // La famille est celle de la note (iodée), pas celle de la référence qui la contient
+  await expect(sheet.getByText('Iodée')).toBeVisible();
 });
 
 test('the brand chooses its product before the session', async ({ page }) => {
@@ -498,6 +500,8 @@ test('the profile wheel follows the brief and each answer', async ({
   // Le brief parle de bord de mer : la roue penche déjà vers le marin
   const wheel = page.getByRole('region', { name: 'Votre roue olfactive' });
   await expect(wheel.getByRole('status')).toContainText('marin');
+  // Rien n'a été dit sur les agrumes : la roue ne les cite pas
+  await expect(wheel.getByRole('status')).not.toContainText('hespéridé');
   // Deux réponses chaudes, et la roue penche vers l'ambré
   await page.getByRole('button', { name: 'L’hiver', exact: true }).click();
   await page.getByRole('button', { name: 'Le réconfort', exact: true }).click();
@@ -692,4 +696,56 @@ test('the tray offers only what the journey then delivers', async ({
   ).toBeVisible();
   // Pas d'offre « parfums existants » : la suite fait sentir des notes, pas des parfums finis
   await expect(page.getByText(/existants/)).toHaveCount(0);
+});
+
+test('going back to the session finds the conversation as it was', async ({
+  page,
+}) => {
+  await describe(page, 'Un parfum', SEASIDE);
+  await page.getByRole('button', { name: 'Reprendre la séance' }).click();
+
+  // Les échanges et ce que le guide a retenu sont toujours là
+  await expect(page.getByText(new RegExp(SEASIDE)).first()).toBeVisible();
+  const heard = page.getByRole('region', { name: 'Ce que je retiens' });
+  await expect(heard.getByText('bougie', { exact: true })).toBeVisible();
+  await expect(page.getByText(CLOSING)).toBeVisible();
+});
+
+test('removing an idea reopens the conversation', async ({ page }) => {
+  await enter(page, 'Un parfum');
+  await page.getByRole('button', { name: new RegExp(SEASIDE) }).click();
+  await expect(page.getByText(CLOSING)).toBeVisible();
+  const heard = page.getByRole('region', { name: 'Ce que je retiens' });
+  await heard.getByRole('button', { name: 'Retirer bougie' }).click();
+
+  // Le guide ne dit plus qu'il a tout : il redemande ce qui manque
+  await expect(page.getByLabel('Votre réponse')).toHaveAttribute(
+    'placeholder',
+    'Écrivez votre réponse…',
+  );
+  await expect(
+    page.getByRole('group', { name: 'Réponses rapides' }),
+  ).toBeVisible();
+  await expect(page.locator('[data-who="aurore"]').last()).toContainText(
+    'retiré',
+  );
+});
+
+test('the wording stays true and correct along the demo path', async ({
+  page,
+}) => {
+  await page.goto('/');
+  // Le parcours prend plus de deux minutes : l'accueil ne le promet pas
+  await expect(page.getByText(/deux\s+minutes/)).toHaveCount(0);
+
+  await reachTray(page, 'Un parfum', SEASIDE);
+  await smell(page, 'Je l’aime');
+  await compose(page).click();
+  // « d'Écume Saline », pas « de Écume Saline »
+  const sample = page.getByRole('button', { name: /^Recevoir l’échantillon/ });
+  await expect(sample).not.toHaveText(/ de [AEÉÈIOUH]/);
+  await sample.click();
+  await expect(page.getByText(/chantillon de [AEÉÈIOUH]/)).toHaveCount(0);
+  // La demande est enregistrée en base : l'écran ne dit pas qu'elle est envoyée
+  await expect(page.getByText('Demande enregistrée')).toBeVisible();
 });

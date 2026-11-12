@@ -20,6 +20,8 @@ type Props = {
   guide: string;
   /* Le produit choisi à la bienvenue (« une bougie »), ou rien */
   product: string;
+  saved?: SavedSession;
+  onSave: (session: SavedSession) => void;
   busy: boolean;
   error: string;
   onSubmit: (wishes: string) => void;
@@ -28,12 +30,26 @@ type Props = {
 
 type Line = { who: 'aurore' | 'brand'; text: string };
 
+/* La séance telle que la marque l'a laissée : elle la retrouve en revenant du brief */
+export type SavedSession = { lines: Line[]; heard: Idea[]; done: boolean };
+
 /* La question du vocabulaire qui correspond à chaque sorte d'idée, pour proposer des réponses rapides */
 const ASKS: [Idea['kind'], string][] = [
   ['usage', 'product'],
   ['ambiance', 'mood'],
   ['emotion', 'emotion'],
 ];
+
+/* L'ordre dans lequel le guide liste ce qu'il a retenu */
+const ORDER: Idea['kind'][] = ['usage', 'ambiance', 'emotion', 'sensation'];
+
+/* La question dont la réponse manque encore. Une sensation répond à la question de l'émotion, comme côté service. */
+function missingIn(heard: Idea[]): string | undefined {
+  const has = (kind: Idea['kind']) => heard.some((idea) => idea.kind === kind);
+  return ASKS.find(
+    ([kind]) => !has(kind) && !(kind === 'emotion' && has('sensation')),
+  )?.[1];
+}
 
 /* Le mot affiché pour chaque sorte d'idée, et repris dans le brief : « Produit : bougie. » */
 const KINDS: Record<Idea['kind'], string> = {
@@ -47,20 +63,27 @@ export function SessionStep({
   universe,
   guide,
   product,
+  saved,
+  onSave,
   busy,
   error,
   onSubmit,
   onBack,
 }: Props) {
   const { examples, questions } = VOCABULARY[universe];
-  const [lines, setLines] = useState<Line[]>([]);
-  const [heard, setHeard] = useState<Idea[]>([]);
+  const [lines, setLines] = useState<Line[]>(saved?.lines ?? []);
+  const [heard, setHeard] = useState<Idea[]>(saved?.heard ?? []);
   const [text, setText] = useState('');
   const [waiting, setWaiting] = useState(false);
   const [failure, setFailure] = useState('');
   /* Le guide a de quoi rédiger le brief : la suite est facultative */
-  const [done, setDone] = useState(false);
-  const opened = useRef(false);
+  const [done, setDone] = useState(saved?.done ?? false);
+  /* Une séance retrouvée ne se rouvre pas */
+  const opened = useRef(Boolean(saved?.lines.length));
+
+  useEffect(() => {
+    onSave({ lines, heard, done });
+  }, [lines, heard, done, onSave]);
 
   /* Envoie ce que dit la marque (rien, pour ouvrir la séance) et ajoute la réponse d'Aurore */
   async function say(said: string) {
@@ -74,6 +97,11 @@ export function SessionStep({
       setLines((all) => [...all, { who: 'aurore', text: turn.reply }]);
     } catch (problem) {
       setFailure(problem instanceof Error ? problem.message : String(problem));
+      // Le message n'est pas parti : il revient dans le champ, pour ne pas apparaître deux fois au nouvel essai
+      if (said) {
+        setLines((all) => all.slice(0, -1));
+        setText(said);
+      }
     } finally {
       setWaiting(false);
     }
@@ -112,11 +140,30 @@ export function SessionStep({
 
   const started = lines.some((line) => line.who === 'brand');
   /* Réponses rapides : des mots du référentiel pour la première sorte d'idée qui manque encore */
-  const missing = ASKS.find(
-    ([kind]) => !heard.some((idea) => idea.kind === kind),
-  );
   const quick =
-    questions.find((question) => question.id === missing?.[1])?.options ?? [];
+    questions.find((question) => question.id === missingIn(heard))?.options ??
+    [];
+  /* Ce que le guide a retenu, toujours dans le même ordre : le produit, l'ambiance, puis l'émotion */
+  const shown = [...heard].sort(
+    (a, b) => ORDER.indexOf(a.kind) - ORDER.indexOf(b.kind),
+  );
+
+  /* La marque retire une idée : le guide le dit, et la conversation reprend s'il lui manque quelque chose */
+  function remove(label: string) {
+    const kept = heard.filter((idea) => idea.label !== label);
+    const reopened = missingIn(kept) !== undefined;
+    setHeard(kept);
+    setDone(!reopened);
+    setLines((all) => [
+      ...all,
+      {
+        who: 'aurore',
+        text: reopened
+          ? 'C’est retiré. Dites-m’en plus, ou choisissez une réponse rapide.'
+          : 'C’est retiré.',
+      },
+    ]);
+  }
 
   return (
     <div className="mt-auto pb-6 pt-10">
@@ -145,6 +192,7 @@ export function SessionStep({
       <div className="mt-4 flex gap-2">
         <input
           aria-label="Votre réponse"
+          maxLength={2000}
           value={text}
           onChange={(event) => setText(event.target.value)}
           onKeyDown={(event) => event.key === 'Enter' && send()}
@@ -164,7 +212,7 @@ export function SessionStep({
         </button>
       </div>
 
-      {started && !waiting && quick.length > 0 && (
+      {started && !waiting && !done && quick.length > 0 && (
         <div role="group" aria-label="Réponses rapides" className="mt-4">
           <p className={smallLabel}>Réponses rapides</p>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -207,7 +255,7 @@ export function SessionStep({
           </p>
         ) : (
           <ul className="mt-2 border-t border-line-strong">
-            {heard.map((idea) => (
+            {shown.map((idea) => (
               <li
                 key={idea.label}
                 className="flex items-start gap-3 border-b border-line py-2"
@@ -222,9 +270,7 @@ export function SessionStep({
                   </span>
                 </span>
                 <button
-                  onClick={() =>
-                    setHeard(heard.filter((kept) => kept.label !== idea.label))
-                  }
+                  onClick={() => remove(idea.label)}
                   aria-label={`Retirer ${idea.label}`}
                   className="grid size-9 place-items-center hover:bg-soft"
                 >
