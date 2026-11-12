@@ -15,26 +15,17 @@
       "origine": "Note fantaisie évoquant le sel et les embruns ; pas une extraction olfactive du sel de cuisine.",
       "mode_obtention": "Accord olfactif recréé ; composition exacte non connue.",
       "tenue": null,
-      "accords_conseilles": [
-        "accord marin",
-        "accord boisé",
-        "accord gourmand"
-      ],
+      "accords_conseilles": ["accord marin", "accord boisé", "accord gourmand"],
       "engagement": null,
       "sources": [
         {
-          "champs_documentes": [
-            "origine",
-            "accords_conseilles"
-          ],
+          "champs_documentes": ["origine", "accords_conseilles"],
           "url": "https://perfumesociety.org/ingredients-post/salt/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
         },
         {
-          "champs_documentes": [
-            "mode_obtention"
-          ],
+          "champs_documentes": ["mode_obtention"],
           "url": "https://perfumesociety.org/ingredients-post/water/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
@@ -57,25 +48,19 @@
       "engagement": null,
       "sources": [
         {
-          "champs_documentes": [
-            "position",
-            "origine",
-            "mode_obtention"
-          ],
+          "champs_documentes": ["position", "origine", "mode_obtention"],
           "url": "https://perfumesociety.org/ingredients-post/bergamot/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
         },
         {
-          "champs_documentes": [
-            "tenue"
-          ],
+          "champs_documentes": ["tenue"],
           "url": "https://perfumesociety.org/discover-perfume/an-introduction/faq/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
         }
       ],
-      "remarque": "Tenue courte : indication générale des notes de tête, non mesure de cette matière. Vérifier le type exact d’extrait et les exigences IFRA.",
+      "remarque": "Position habituelle : note de t?te. Dans le fichier parfums.csv, la bergamote appara?t en t?te pour Savon d'Atelier, Figuier et Bois Noble, mais en c?ur pour ?cume Saline. Cette diff?rence d?pend du profil de chaque r?f?rence et reste ? valider par Product.",
       "statut": "partiellement_documente",
       "validation_expert": "en_attente"
     },
@@ -92,19 +77,13 @@
       "engagement": null,
       "sources": [
         {
-          "champs_documentes": [
-            "position",
-            "origine",
-            "mode_obtention"
-          ],
+          "champs_documentes": ["position", "origine", "mode_obtention"],
           "url": "https://perfumesociety.org/ingredients-post/lime/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
         },
         {
-          "champs_documentes": [
-            "tenue"
-          ],
+          "champs_documentes": ["tenue"],
           "url": "https://perfumesociety.org/discover-perfume/an-introduction/faq/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
@@ -143,10 +122,7 @@
       "engagement": null,
       "sources": [
         {
-          "champs_documentes": [
-            "origine",
-            "mode_obtention"
-          ],
+          "champs_documentes": ["origine", "mode_obtention"],
           "url": "https://perfumesociety.org/ingredients-post/orange-blossom/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
@@ -185,10 +161,7 @@
       "engagement": null,
       "sources": [
         {
-          "champs_documentes": [
-            "origine",
-            "mode_obtention"
-          ],
+          "champs_documentes": ["origine", "mode_obtention"],
           "url": "https://perfumesociety.org/ingredients-post/lavender/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
@@ -211,10 +184,7 @@
       "engagement": null,
       "sources": [
         {
-          "champs_documentes": [
-            "famille",
-            "origine"
-          ],
+          "champs_documentes": ["famille", "origine"],
           "url": "https://perfumesociety.org/ingredients-post/driftwood/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
@@ -226,7 +196,7 @@
     },
     {
       "id": "ambre_gris_substitut",
-      "nom": "Ambre gris (substitut)",
+      "nom": "Ambre gris",
       "type": "substitut",
       "famille": "ambre",
       "position": "fond",
@@ -237,12 +207,7 @@
       "engagement": "synthese (exemple Ambroxan uniquement)",
       "sources": [
         {
-          "champs_documentes": [
-            "position",
-            "origine",
-            "tenue",
-            "engagement"
-          ],
+          "champs_documentes": ["position", "origine", "tenue", "engagement"],
           "url": "https://perfumesociety.org/ingredients-post/ambroxan/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
@@ -256,7 +221,7 @@
       "id": "musc_blanc",
       "nom": "Musc blanc",
       "type": "note_olfactive",
-      "famille": null,
+      "famille": "musquee",
       "position": "fond",
       "origine": "Famille de notes musquées modernes généralement issue de molécules de synthèse.",
       "mode_obtention": "Synthèse pour de nombreux muscs modernes ; substance exacte non précisée.",
@@ -265,19 +230,13 @@
       "engagement": "synthese (cas fréquent, à confirmer pour l’ingrédient choisi)",
       "sources": [
         {
-          "champs_documentes": [
-            "origine",
-            "mode_obtention",
-            "engagement"
-          ],
+          "champs_documentes": ["origine", "mode_obtention", "engagement"],
           "url": "https://perfumesociety.org/ingredients-post/musk/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
         },
         {
-          "champs_documentes": [
-            "position"
-          ],
+          "champs_documentes": ["position"],
           "url": "https://perfumesociety.org/discover-perfume/an-introduction/faq/",
           "date_consultation": "2026-11-12",
           "statut": "source_consultee"
