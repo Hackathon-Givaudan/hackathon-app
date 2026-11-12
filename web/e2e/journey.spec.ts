@@ -45,6 +45,9 @@ const compose = (page: Page) =>
 /* De l'accueil au plateau, sans répondre aux questions du profil */
 async function reachTray(page: Page, universe: string, example: string) {
   await describe(page, universe, example);
+  await page
+    .getByRole('button', { name: 'Établir mon profil olfactif' })
+    .click();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
   await page
     .getByRole('button', { name: 'Le plateau est arrivé, on commence' })
@@ -56,11 +59,14 @@ test('a perfume brand goes from its project to a sample request', async ({
 }) => {
   await describe(page, 'Un parfum', SEASIDE);
 
-  // Le brief : ce qu'Aurore a entendu, puis cinq questions à deux choix
+  // Le brief : ce qu'Aurore a entendu, et ce qu'il reste à compléter
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'Voici votre brief.',
   );
   await expect(page.getByText('bord de mer')).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Établir mon profil olfactif' })
+    .click();
   // Le profil ne pose que les questions que la séance n'a pas tranchées
   for (const answer of [
     'Le soir',
@@ -108,7 +114,7 @@ test('aurore writes down what she hears, with the words of the brand', async ({
   await page.getByRole('button', { name: 'Envoyer' }).click();
   await talk(page, 2);
 
-  const heard = page.getByRole('region', { name: 'Ce que j’entends' });
+  const heard = page.getByRole('region', { name: 'Ce que je retiens' });
   await expect(heard.getByText('bord de mer', { exact: true })).toBeVisible();
   await expect(heard.getByText(`« ${SEASIDE} »`).first()).toBeVisible();
 });
@@ -119,7 +125,7 @@ test('the brand can remove something aurore misheard', async ({ page }) => {
   await page.getByRole('button', { name: 'Envoyer' }).click();
   await talk(page, 2);
 
-  const heard = page.getByRole('region', { name: 'Ce que j’entends' });
+  const heard = page.getByRole('region', { name: 'Ce que je retiens' });
   await heard.getByRole('button', { name: 'Retirer bougie' }).click();
   await expect(heard.getByText('bougie', { exact: true })).toHaveCount(0);
 });
@@ -240,6 +246,9 @@ test('the profile does not ask again what the session already settled', async ({
   page,
 }) => {
   await describe(page, 'Un parfum', 'Un diffuseur pour les soirées d’hiver');
+  await page
+    .getByRole('button', { name: 'Établir mon profil olfactif' })
+    .click();
 
   // La séance a entendu « hiver » : le profil ne redemande pas « l'été ou l'hiver »
   await expect(page.getByText('Plutôt le calme ou l’énergie ?')).toBeVisible();
@@ -259,6 +268,9 @@ test('the brand is welcomed and chooses its guide', async ({ page }) => {
 
 test('the brand waits for its tray, then smells it', async ({ page }) => {
   await describe(page, 'Un parfum', SEASIDE);
+  await page
+    .getByRole('button', { name: 'Établir mon profil olfactif' })
+    .click();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
@@ -296,4 +308,38 @@ test('each vial shows its material sheet, or says it is coming', async ({
   await expect(
     sheet.getByText(/Origine|Obtention|Fiche à venir/).first(),
   ).toBeVisible();
+});
+
+test('the brand chooses its product before the session', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Un parfum' }).click();
+  await page.getByRole('button', { name: 'Bougie', exact: true }).click();
+  await page.getByRole('button', { name: 'Commencer la séance' }).click();
+
+  // Le produit choisi ouvre la séance : Aurore l'a déjà retenu
+  const heard = page.getByRole('region', { name: 'Ce que je retiens' });
+  await expect(heard.getByText('bougie', { exact: true })).toBeVisible();
+});
+
+test('quick replies answer aurore in one click', async ({ page }) => {
+  await enter(page, 'Un parfum');
+  await page.getByLabel('Votre réponse').fill('Une bougie');
+  await page.getByRole('button', { name: 'Envoyer' }).click();
+  await talk(page, 2);
+
+  const quick = page.getByRole('group', { name: 'Réponses rapides' });
+  await quick.getByRole('button').first().click();
+  await talk(page, 3);
+});
+
+test('the brief says what is left to complete', async ({ page }) => {
+  await describe(page, 'Un parfum', SEASIDE);
+
+  const progress = page.getByRole('status', { name: 'Brief complété' });
+  await expect(progress).toHaveText(/0 sur 11/);
+  await page.getByLabel('Budget visé au kilo').fill('120');
+  await page.getByRole('button', { name: 'Grand public' }).click();
+  await page.getByRole('button', { name: 'France', exact: true }).click();
+  await page.getByRole('button', { name: 'Asie', exact: true }).click();
+  await expect(progress).toHaveText(/3 sur 11/);
 });

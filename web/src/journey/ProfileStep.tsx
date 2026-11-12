@@ -1,4 +1,4 @@
-/* Le brief et le profil : la marque relit ce qu'Aurore a entendu, puis répond à cinq questions à deux choix.
+/* Le profil (écran 06 de la V3) : la marque répond à cinq questions à deux choix, sans rien sentir.
    Rien de caché : chaque réponse ajoute un mot du référentiel à son brief, et ce mot s'affiche. */
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
@@ -50,13 +50,11 @@ export function ProfileStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>Rédigé par Aurore pendant la séance</p>
+      <p className={smallLabel}>Votre profil olfactif</p>
       <h1 className="f-display mt-1 text-[44px] leading-[1.08] md:text-[52px]">
-        Voici votre brief.
+        On ne sent rien encore. On parle de vous.
       </h1>
-      <p className="mt-3 text-[17px] leading-snug">{wishes}</p>
-
-      <h2 className="font-semibold mt-8 text-[28px] leading-tight">
+      <h2 className="font-semibold mt-6 text-[24px] leading-tight">
         Précisez vos goûts, en cinq questions
       </h2>
       <p className="mt-1 text-[15px] opacity-85">
@@ -117,7 +115,7 @@ export function ProfileStep({
           Passer cette étape
         </button>
         <button onClick={onBack} className={linkButton}>
-          Reprendre la séance
+          Revenir au brief
         </button>
       </div>
       {error && <p className={errorText}>{error}</p>}
