@@ -1,0 +1,79 @@
+note_id,note,fraicheur,chaleur,source
+aldehydes,aldéhydes,4,1,"estimation : pétillant, savonneux"
+algue,algue,3,1,fiche algue
+amande,amande,1,3,fiche amande
+ambre,ambre,0,5,estimation : accord ambré : résines et vanille
+ambre-gris,ambre gris,1,3,fiche ambre_gris
+ambrette,ambrette,1,2,fiche ambrette
+ananas,ananas,3,2,fiche ananas
+baie-de-genievre,baie de genièvre,4,1,"estimation : résineux, vif"
+baie-rose,baie rose,3,2,"estimation : poivré, fruité"
+benjoin,benjoin,0,5,fiche benjoin
+bergamote,bergamote,5,1,fiche bergamote
+bois,bois,1,3,estimation : boisé générique
+bois-blond,bois blond,2,2,estimation : boisé léger
+bois-clair,bois clair,2,2,estimation : boisé léger
+bois-flotte,bois flotté,3,1,"estimation : boisé sec, marin"
+bois-fume,bois fumé,0,4,"estimation : boisé, fumé"
+cade,cade,0,4,"estimation : fumé, goudronné"
+caramel,caramel,0,4,fiche caramel
+cardamome,cardamome,3,2,fiche cardamome
+cedre,cèdre,1,2,fiche cedre
+ciste,ciste,1,4,"estimation : résineux, ambré"
+citron,citron,5,0,fiche citron
+citron-vert,citron vert,5,0,fiche citron_vert
+coco,coco,1,3,"fiche noix_coco (Noix de coco), même matière"
+coton,coton,3,1,"estimation : propre, doux"
+cuir,cuir,0,4,"estimation : animal, fumé"
+cuir-doux,cuir doux,1,3,estimation : cuir adouci
+elemi,élémi,4,1,estimation : résine citronnée
+epices-douces,épices douces,0,4,"estimation : cannelle, muscade"
+feuille-de-figuier,feuille de figuier,4,1,"estimation : vert, laiteux"
+feuille-verte,feuille verte,5,0,"estimation : vert, coupé"
+feve-tonka,fève tonka,0,4,fiche tonka
+fleur-d-oranger,fleur d'oranger,3,2,fiche fleur_oranger
+fleur-de-coton,fleur de coton,4,1,"estimation : propre, aldéhydé"
+fleur-de-tiare,fleur de tiaré,1,3,"estimation : solaire, crémeux"
+foin,foin,1,3,"estimation : sec, coumariné"
+fougere,fougère,3,2,"estimation : lavande, mousse, coumarine"
+framboise,framboise,3,1,fiche framboise
+gingembre,gingembre,4,2,fiche gingembre
+iris,iris,1,2,fiche iris
+jasmin,jasmin,1,3,fiche jasmin
+jasmin-leger,jasmin léger,2,2,estimation : jasmin allégé
+lait-de-figue,lait de figue,1,3,"estimation : lacté, doux"
+lavande,lavande,4,1,fiche lavande
+litchi,litchi,4,1,"estimation : fruité, aqueux"
+mandarine,mandarine,4,1,fiche mandarine
+menthe,menthe,5,0,"fiche menthe (Menthe poivrée), même matière"
+menthe-aquatique,menthe aquatique,5,0,"estimation : mentholé, aquatique"
+mousse,mousse,2,2,"fiche mousse_chene (Mousse de chêne), même matière"
+musc,musc,2,2,"fiche musc (Musc blanc), même matière"
+musc-blanc,musc blanc,2,2,fiche musc
+musc-poudre,musc poudré,1,3,"estimation : musc, poudré"
+neroli,néroli,4,1,"estimation : fleur d'oranger distillée, vive"
+noix-de-coco,noix de coco,1,3,fiche noix_coco
+orange-douce,orange douce,4,1,fiche orange_douce
+oud-doux,oud doux,0,4,estimation : oud adouci
+ozone,ozone,5,0,"estimation : air, aquatique"
+pamplemousse,pamplemousse,5,0,fiche pamplemousse
+patchouli,patchouli,0,4,fiche patchouli
+patchouli-doux,patchouli doux,0,3,estimation : patchouli adouci
+pivoine,pivoine,3,1,fiche pivoine
+poire,poire,4,0,fiche poire
+poivre-noir,poivre noir,2,3,fiche poivre_noir
+poivre-rose,poivre rose,3,2,"estimation : poivré, fruité"
+romarin,romarin,4,1,fiche romarin
+rose,rose,2,2,fiche rose
+rose-legere,rose légère,3,1,estimation : rose fraîche
+safran,safran,0,4,fiche safran
+santal,santal,0,4,fiche santal
+santal-cremeux,santal crémeux,0,4,"estimation : santal, lacté"
+sauge,sauge,3,2,"fiche sauge_sclaree (Sauge sclarée), même matière"
+sel-marin,sel marin,3,1,fiche sel_marin
+the-vert,thé vert,4,0,fiche the_vert
+thym,thym,3,2,fiche thym
+tubereuse,tubéreuse,0,4,fiche tubereuse
+vanille,vanille,0,4,fiche vanille
+vetiver,vétiver,2,2,fiche vetiver
+yuzu,yuzu,5,0,fiche yuzu
