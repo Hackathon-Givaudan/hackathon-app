@@ -39,7 +39,7 @@ export function FormulaStep({
 }: Props) {
   /* Les notes regroupées par niveau, dans l'ordre où la formule les donne */
   const levels = [...new Set(formula.notes.map(({ note }) => note.family))];
-  /* L'IFRA et la tenue sur peau ne concernent que les parfums */
+  /* L'IFRA ne concerne que les parfums */
   const flavour = expert === 'aromaticien';
 
   return (
@@ -97,12 +97,13 @@ export function FormulaStep({
             `Validée par un ${expert} Givaudan`,
             flavour ? 'Équilibre et dosages' : 'Équilibre, tenue et dosages',
           ],
-          flavour
-            ? ['Testée dans votre produit', 'Goût et stabilité dans le temps']
-            : [
-                'Testée sur peau et en flacon',
-                'Tenue, sillage et stabilité dans le temps',
-              ],
+          // « Dans votre produit » : une bougie ou une lessive ne se teste pas sur peau
+          [
+            'Testée dans votre produit',
+            flavour
+              ? 'Goût et stabilité dans le temps'
+              : 'Tenue et stabilité dans le temps',
+          ],
           [
             'Contrôlée pour vos pays de vente',
             `${flavour ? 'Réglementation alimentaire' : 'Normes IFRA et réglementation'} : ${countries.join(', ') || '[X]'}`,

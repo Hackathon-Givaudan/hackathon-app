@@ -59,7 +59,8 @@ export function ProfileStep({
         On ne sent rien encore. On parle de vous.
       </h1>
       <h2 className="font-semibold mt-6 text-[24px] leading-tight">
-        Précisez vos goûts, en cinq questions
+        Précisez vos goûts, en {duels.length}{' '}
+        {duels.length > 1 ? 'questions' : 'question'}
       </h2>
       <p className="mt-1 text-[15px] opacity-85">
         Chaque réponse ajoute un mot à votre brief. Vous pouvez en laisser.

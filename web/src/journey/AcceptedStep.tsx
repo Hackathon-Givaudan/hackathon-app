@@ -192,9 +192,7 @@ export function AcceptedStep({
               aria-pressed={asked}
               className={cn(pill, asked && 'bg-selected')}
             >
-              {asked
-                ? 'Question envoyée à Karim'
-                : 'Poser une question à Karim'}
+              {asked ? 'Question notée' : 'Poser une question à Karim'}
             </button>
           </div>
           <p className="mt-3 max-w-[56ch] text-sm text-secondary">
@@ -259,9 +257,7 @@ export function AcceptedStep({
                 aria-pressed={ordered}
                 className={cn(primaryButton, 'mt-4')}
               >
-                {ordered
-                  ? 'Commande transmise à Karim'
-                  : 'Commander cette version'}
+                {ordered ? 'Commande notée' : 'Commander cette version'}
               </button>
             </>
           )}

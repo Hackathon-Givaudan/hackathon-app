@@ -72,6 +72,10 @@ test('a perfume brand goes from its project to a sample request', async ({
     'Voici votre brief.',
   );
   await expect(page.getByText('bord de mer')).toBeVisible();
+  // Aurore a dit qu'elle avait de quoi rédiger : le brief ne dit donc pas qu'il manque quelque chose
+  await expect(page.getByText('Ce qu’Aurore a entendu')).toBeVisible();
+  await expect(page.getByText(/Rien n’est obligatoire/)).toBeVisible();
+  await expect(page.getByText(/Il manque/)).toHaveCount(0);
   await page.getByRole('button', { name: /^Établir mon profil/ }).click();
   // Le profil ne pose que les questions que la séance n'a pas tranchées
   for (const answer of [
@@ -252,6 +256,11 @@ test('the brand names its creation and follows its sample', async ({
     .click();
   await page.getByRole('button', { name: 'Plus de fraîcheur' }).click();
   await expect(page.getByText('Votre retour est noté.')).toBeVisible();
+  await page.getByRole('button', { name: 'Commander cette version' }).click();
+  await expect(
+    page.getByRole('button', { name: 'Commande notée' }),
+  ).toBeVisible();
+  await expect(page.getByText(/transmise à Karim/)).toHaveCount(0);
 
   // Le retour est enregistré : le conseiller le lit dans le brief
   await expect
@@ -371,7 +380,7 @@ test('quick replies answer aurore in one click', async ({ page }) => {
 test('the brief says what is left to complete', async ({ page }) => {
   await describe(page, 'Un parfum', SEASIDE);
 
-  const progress = page.getByRole('status', { name: 'Brief complété' });
+  const progress = page.getByRole('status', { name: 'Précisions données' });
   await expect(progress).toHaveText(/0 sur 11/);
   await page.getByLabel('Budget visé au kilo').fill('120');
   await page.getByRole('button', { name: 'Grand public' }).click();
@@ -480,7 +489,7 @@ test('the advisor reads the brief and its potential in seven criteria', async ({
   await expect(criteria.getByText(/seuil Givaudan \[X\]/)).toBeVisible();
 });
 
-test('the profile wheel leans with the brand and can be shaped by hand', async ({
+test('the profile wheel follows the brief and each answer', async ({
   page,
 }) => {
   await describe(page, 'Un parfum', SEASIDE);
@@ -489,11 +498,12 @@ test('the profile wheel leans with the brand and can be shaped by hand', async (
   // Le brief parle de bord de mer : la roue penche déjà vers le marin
   const wheel = page.getByRole('region', { name: 'Votre roue olfactive' });
   await expect(wheel.getByRole('status')).toContainText('marin');
-  // La marque la retouche à la main
-  for (let click = 0; click < 5; click++) {
-    await wheel.getByRole('button', { name: 'Plus de Boisé' }).click();
-  }
-  await expect(wheel.getByRole('status')).toContainText('boisé');
+  // Deux réponses chaudes, et la roue penche vers l'ambré
+  await page.getByRole('button', { name: 'L’hiver', exact: true }).click();
+  await page.getByRole('button', { name: 'Le réconfort', exact: true }).click();
+  await expect(wheel.getByRole('status')).toContainText('ambré');
+  // Aucun bouton ne prétend régler la roue à la main
+  await expect(wheel.getByRole('button')).toHaveCount(0);
 });
 
 test('the workshop notebook says where the brand is', async ({ page }) => {
@@ -604,6 +614,11 @@ test('the guide the brand chose is the one it reads everywhere', async ({
 test('a flavour brand reads flavour words, not perfume words', async ({
   page,
 }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Un arôme alimentaire' }).click();
+  await expect(page.getByText(/Aromaticienne IA/)).toBeVisible();
+  await expect(page.getByText(/Parfumeu/)).toHaveCount(0);
+
   await describe(page, 'Un arôme alimentaire', 'Un yaourt');
   await page
     .getByRole('button', { name: 'Établir mon profil gustatif' })
@@ -612,8 +627,10 @@ test('a flavour brand reads flavour words, not perfume words', async ({
     page.getByRole('region', { name: 'Votre roue des saveurs' }),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
-  await expect(page.getByText('Partir d’arômes existants')).toBeVisible();
-  await expect(page.getByText(/parfums existants|olfacti/)).toHaveCount(0);
+  await expect(
+    page.getByRole('button', { name: /^Recevoir mon plateau/ }),
+  ).toBeVisible();
+  await expect(page.getByText(/parfum|olfacti/i)).toHaveCount(0);
 });
 
 test('the brand space does not promise a privacy the prototype lacks', async ({
@@ -647,4 +664,32 @@ test('going back from the tray keeps the profile and the same brief', async ({
   await page.getByRole('button', { name: 'Voir mon plateau' }).click();
   await expect(offers).toBeVisible();
   expect(await count()).toBe(before);
+});
+
+test('the 3D stage appears only when there is something to show', async ({
+  page,
+}) => {
+  // Pendant la séance, rien à montrer : pas de flacon vide qui prend la moitié de l'écran
+  await enter(page, 'Un parfum');
+  await expect(page.locator('aside.stage')).toHaveCount(0);
+
+  // Au plateau, les fioles sont là
+  await reachTray(page, 'Un parfum', SEASIDE);
+  await expect(page.locator('aside.stage')).toHaveCount(1);
+});
+
+test('the tray offers only what the journey then delivers', async ({
+  page,
+}) => {
+  await describe(page, 'Un parfum', SEASIDE);
+  await page.getByRole('button', { name: /^Établir mon profil/ }).click();
+  await page.getByRole('button', { name: 'Passer cette étape' }).click();
+  await expect(
+    page.getByRole('button', { name: /Recevoir un plateau sur mesure/ }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: /Utiliser mon kit atelier/ }),
+  ).toBeVisible();
+  // Pas d'offre « parfums existants » : la suite fait sentir des notes, pas des parfums finis
+  await expect(page.getByText(/existants/)).toHaveCount(0);
 });
