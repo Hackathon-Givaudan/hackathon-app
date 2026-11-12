@@ -65,6 +65,7 @@ def material(note_id: str) -> dict:
 class PotentialRequest(BaseModel):
     """Les champs du brief qui comptent pour le potentiel, tous facultatifs."""
 
+    universe: Universe = "parfum"
     target: str | None = None
     salesCountries: list[str] = Field(default=[], max_length=10)
     annualVolumeKg: float | None = Field(default=None, ge=0)
