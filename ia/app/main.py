@@ -53,24 +53,6 @@ def formula(request: FormulaRequest) -> dict:
     return found
 
 
-class Idea(BaseModel):
-    kind: Literal["usage", "ambiance", "emotion", "sensation"]
-    label: str = Field(max_length=100)
-    quote: str = Field(max_length=200)
-
-
-class TurnRequest(BaseModel):
-    universe: Universe
-    said: str = Field(max_length=2000)  # vide pour ouvrir la séance
-    heard: list[Idea] = Field(default=[], max_length=50)
-
-
-@app.post("/session/turn")
-def session_turn(request: TurnRequest) -> dict:
-    """Un échange de la séance : ce qu'Aurore répond, et ce qu'elle a entendu depuis le début."""
-    return next_turn(request.universe, request.said, [idea.model_dump() for idea in request.heard])
-
-
 @app.get("/materials/{note_id}")
 def material(note_id: str) -> dict:
     """La fiche matière d'une note : seulement ce qui est documenté."""
@@ -113,3 +95,21 @@ class PotentialRequest(BaseModel):
 def potential(request: PotentialRequest) -> dict:
     """Le potentiel d'un brief pour le conseiller : 7 critères et une suggestion."""
     return evaluate_potential(request.model_dump())
+
+
+class Idea(BaseModel):
+    kind: Literal["usage", "ambiance", "emotion", "sensation"]
+    label: str = Field(max_length=100)
+    quote: str = Field(max_length=200)
+
+
+class TurnRequest(BaseModel):
+    universe: Universe
+    said: str = Field(max_length=2000)  # vide pour ouvrir la séance
+    heard: list[Idea] = Field(default=[], max_length=50)
+
+
+@app.post("/session/turn")
+def session_turn(request: TurnRequest) -> dict:
+    """Un échange de la séance : ce qu'Aurore répond, et ce qu'elle a entendu depuis le début."""
+    return next_turn(request.universe, request.said, [idea.model_dump() for idea in request.heard])
