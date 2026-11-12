@@ -67,11 +67,11 @@ def test_wishes_typed_without_accents_are_still_recognised():
     assert "orange-douce" in [note["id"] for note in found]
 
 
-def test_a_product_and_a_wish_both_get_notes():
-    # Une glace pour l'été, fraîche : une référence faite pour la glace d'abord, puis des notes fraîches
+def test_the_wish_weighs_more_than_the_product():
+    # Une glace pour l'été, fraîche : des notes fraîches, pas le caramel qui « convient pour une glace »
     found = notes.propose_notes("arome", "Produit : glace. Ambiance : été. Émotion : fraîcheur.")
-    assert found[0]["reason"] == "Convient pour : glace"
-    assert "Évoque « fraîcheur »" in {note["reason"] for note in found}
+    assert "caramel" not in [note["id"] for note in found]
+    assert all(note["reason"].startswith("Évoque") for note in found)
 
 
 def test_the_longest_wording_wins():
@@ -96,8 +96,8 @@ def test_the_words_of_the_brand_are_kept_when_the_model_answers(monkeypatch):
 
 
 def test_a_reference_made_for_the_product_comes_first(monkeypatch):
-    # Ticket #58 : « confiance » est rare, mais Rose et Poivre n'est pas faite pour une lessive
-    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: ["lessive", "parfum", "douceur", "confiance"])
-    found = notes.propose_notes("parfum", "On lance une lessive pour bébé, quelque chose de doux qui rassure.")
-    assert found[0]["family"] == "Musquée"  # Linge Propre, la seule référence prévue pour la lessive
-    assert found[0]["reason"] == "Convient pour : lessive"
+    # Ticket #58 : le produit départage. Linge Propre évoque « propreté » et est faite pour la lessive
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: ["lessive", "propreté", "douceur", "confiance"])
+    found = notes.propose_notes("parfum", "On lance une lessive pour bébé, que ça sente le propre.")
+    assert found[0]["family"] == "Musquée"
+    assert found[0]["reason"] == "Évoque « propreté »"

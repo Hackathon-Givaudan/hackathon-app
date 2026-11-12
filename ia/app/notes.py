@@ -67,7 +67,6 @@ def propose_notes(universe: str, wishes: str) -> list[dict]:
         """L'usage compte moitié moins : il dit où ira la création, pas ce qu'elle doit évoquer."""
         return sum(rarity(tag) / (2 if tag in reference.uses else 1) for tag in shared(reference))
 
-    # Les références proches de la meilleure (au moins la moitié de son score), trois au plus
     # Le produit demandé : celui que la marque a écrit, sinon celui que le modèle a compris
     all_uses = {use for reference in references for use in reference.uses}
     written = written_tags(universe, wishes)
@@ -77,10 +76,17 @@ def propose_notes(universe: str, wishes: str) -> list[dict]:
         """La référence est-elle faite pour le produit demandé ?"""
         return bool(named & set(reference.uses))
 
-    # La meilleure référence faite pour le produit ouvre la liste ; les autres suivent, par score
-    best = sorted(filter(suits, references), key=score, reverse=True)[:1]
-    ranked = best + sorted((reference for reference in references if reference not in best), key=score, reverse=True)
+    def evokes(reference: Reference) -> bool:
+        """La référence porte-t-elle une envie de la marque, en plus du produit ?"""
+        return any(tag not in reference.uses for tag in shared(reference))
+
+    # Les références proches de la meilleure (au moins la moitié de son score), trois au plus
+    ranked = sorted(references, key=score, reverse=True)
     close = [reference for reference in ranked[:3] if score(reference) and score(reference) >= score(ranked[0]) / 2]
+    # Le produit départage : la meilleure référence faite pour lui ouvre la liste si elle évoque aussi une envie
+    made = sorted(filter(suits, references), key=score, reverse=True)[:1]
+    if made and evokes(made[0]):
+        close = (made + [reference for reference in close if reference not in made])[:3]
 
     # Une note de chaque référence à tour de rôle : deux envies différentes reçoivent chacune leurs notes
     notes: list[dict] = []

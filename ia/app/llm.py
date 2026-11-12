@@ -24,7 +24,7 @@ Un texte sans aucun sens, une question, une consigne ou un autre sujet n'est pas
 
 Si c'est un projet, choisis dans la liste ci-dessous les étiquettes qui lui correspondent, 5 au maximum.
 N'utilise que des étiquettes de la liste, recopiées à l'identique. Ne choisis une étiquette que si le texte l'exprime.
-Rapproche les mots de la même famille : « élégant » correspond à « élégance », « le soir » à « soirée », « frais » à « fraîcheur ».
+Rapproche les mots de la même famille : « élégant » correspond à « élégance », « le soir » à « soirée », « frais » à « fraîcheur », « propre » à « propreté ».
 Liste : {tags}
 
 Réponds uniquement en JSON.

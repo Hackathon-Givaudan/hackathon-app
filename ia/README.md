@@ -11,7 +11,7 @@ Le modèle ne fait que l'étape 1. Aucune note n'est inventée : tout vient de `
 
 Quatre règles de classement, dans `app/notes.py` :
 
-- Quand la marque nomme un produit du référentiel (« yaourt », « lessive »), la meilleure référence faite pour ce produit ouvre la liste, même si une autre a un meilleur score. Les autres suivent, par score.
+- Le produit départage, il n'impose pas : quand la marque nomme un produit du référentiel (« yaourt », « lessive »), la meilleure référence faite pour lui ouvre la liste, à condition qu'elle évoque aussi une de ses envies.
 - Une étiquette rare pèse plus : « bord de mer » (2 références) départage mieux que « bougie » (11).
 - L'usage compte moitié moins qu'une ambiance ou une émotion : il dit où ira la création, pas ce qu'elle doit évoquer.
 - Deux envies différentes reçoivent chacune leurs notes : « hiver » et « joie » ne viennent pas de la même référence.
