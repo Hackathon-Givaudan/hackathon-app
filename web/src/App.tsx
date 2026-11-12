@@ -244,7 +244,7 @@ export default function App() {
                 index > stepIndex && 'text-muted',
               )}
             >
-              <span className="mono mr-2 text-[11px]">{index + 1}</span>
+              <span className="mr-2 text-[12px] text-muted">{index + 1}</span>
               {label}
             </li>
           ))}
@@ -272,7 +272,7 @@ export default function App() {
                 </Suspense>
               </BottleBoundary>
             </div>
-            <p className="mono text-[11px] opacity-80">
+            <p className="text-[13px] opacity-80">
               {step === 'notes'
                 ? 'Votre plateau, une fiole à la fois.'
                 : layers.length === 0

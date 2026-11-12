@@ -24,7 +24,7 @@ function VialMesh({ vial, x }: { vial: Vial; x: number }) {
       <mesh>
         <cylinderGeometry args={[0.24, 0.24, 1.3, 48]} />
         <meshPhysicalMaterial
-          color="#F4EEF2"
+          color="#FAF8F5"
           transparent
           opacity={faded ? 0.12 : 0.28}
           roughness={0.08}
@@ -43,7 +43,7 @@ function VialMesh({ vial, x }: { vial: Vial; x: number }) {
       {/* Le bouchon */}
       <mesh position={[0, 0.78, 0]}>
         <cylinderGeometry args={[0.15, 0.15, 0.26, 32]} />
-        <meshStandardMaterial color="#17090F" metalness={0.6} roughness={0.3} />
+        <meshStandardMaterial color="#1D1B18" metalness={0.6} roughness={0.3} />
       </mesh>
     </group>
   );
@@ -67,7 +67,7 @@ export default function Tray3D({ vials }: { vials: Vial[] }) {
         ))}
         <mesh position={[0, -0.76, 0]}>
           <boxGeometry args={[width + 1.2, 0.14, 1.3]} />
-          <meshStandardMaterial color="#3A2A36" roughness={0.6} />
+          <meshStandardMaterial color="#6B4A36" roughness={0.6} />
         </mesh>
       </group>
     </Canvas>

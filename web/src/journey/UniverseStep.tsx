@@ -73,7 +73,9 @@ export function UniverseStep({
                 key={stage}
                 className="grid grid-cols-[28px_1fr] gap-x-3 border-b border-line py-3"
               >
-                <span className="mono text-[12px] opacity-80">{index + 1}</span>
+                <span className="text-[13px] font-semibold text-accent-text">
+                  {index + 1}
+                </span>
                 <span>
                   <span className="font-semibold block text-[22px] leading-tight">
                     {stage}
@@ -90,7 +92,7 @@ export function UniverseStep({
       <div
         role="group"
         aria-label="Quelques matières de l’orgue du parfumeur"
-        className="mt-8 max-w-xl border border-line bg-soft px-6 pt-5"
+        className="mt-8 max-w-xl rounded-xl border border-line bg-soft px-6 pt-5"
       >
         {[ORGAN.slice(0, 4), ORGAN.slice(4)].map((shelf, row) => (
           <div key={row} className="mb-6">
@@ -134,7 +136,7 @@ export function UniverseStep({
           <button
             key={universe}
             onClick={() => onChoose(universe)}
-            className="group flex min-h-28 items-center justify-between gap-4 border border-line-strong px-5 text-left hover:bg-soft"
+            className="group flex min-h-28 items-center justify-between gap-4 border border-line-strong rounded-xl px-5 text-left hover:bg-soft"
           >
             <span>
               <span className="font-semibold block text-[32px] leading-tight">

@@ -130,7 +130,7 @@ export function SessionStep({
           onChange={(event) => setText(event.target.value)}
           onKeyDown={(event) => event.key === 'Enter' && send()}
           placeholder="Écrivez votre réponse…"
-          className="min-h-12 flex-1 border border-line-input bg-card px-3 text-[16px] outline-none placeholder:text-muted focus:border-ink"
+          className="min-h-12 flex-1 border border-line-input bg-card rounded-md px-3 text-[16px] outline-none placeholder:text-muted focus:border-ink"
         />
         <button
           onClick={send}
@@ -150,7 +150,7 @@ export function SessionStep({
                 key={example}
                 onClick={() => void say(example)}
                 disabled={waiting}
-                className="min-h-11 border border-line-strong px-3 text-left text-[15px] hover:bg-soft"
+                className="min-h-11 border border-line-strong rounded-full px-3 text-left text-[15px] hover:bg-soft"
               >
                 {example}
               </button>

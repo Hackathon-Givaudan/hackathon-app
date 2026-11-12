@@ -67,7 +67,7 @@ export function FormulaStep({
           </div>
         ))}
       </dl>
-      <p className="mono mt-3 text-[11px] opacity-80">
+      <p className="mt-3 text-[13px] text-muted">
         Référence de notre banque ({formula.source}).
       </p>
 
@@ -79,7 +79,7 @@ export function FormulaStep({
           onChange={(event) => onName(event.target.value)}
           maxLength={40}
           placeholder={formula.name}
-          className="mt-1 min-h-12 w-full border border-line-input bg-card px-3 text-[16px] outline-none placeholder:text-muted focus:border-ink"
+          className="mt-1 min-h-12 w-full rounded-md border border-line-input bg-card rounded-md px-3 text-[16px] outline-none placeholder:text-muted focus:border-ink"
         />
       </label>
 

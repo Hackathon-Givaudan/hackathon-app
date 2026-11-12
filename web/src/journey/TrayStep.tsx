@@ -74,7 +74,7 @@ export function TrayStep({
             <button
               key={opinion}
               onClick={() => onOpinion(current.id, opinion)}
-              className="min-h-12 border border-line-strong px-5 text-[16px] hover:bg-soft"
+              className="min-h-12 border border-line-strong rounded-full px-5 text-[16px] hover:bg-soft"
             >
               {label}
             </button>

@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/hanken-grotesk';
 @import '@fontsource-variable/bodoni-moda';
-@import '@fontsource/ibm-plex-mono/400.css';
 
 /* Les couleurs du design system « Givaudan L'Atelier V2 » du Product.
    Tons neutres, un seul accent bronze. Les fioles et le flacon gardent une scène sombre. */
@@ -21,7 +20,6 @@
   --color-accent: #9c7a4d;
   --color-accent-text: #7a5e3a;
   --color-danger: #9b3b2f;
-  --color-stage: #22101f;
   --color-wood: #6b4a36;
   --color-wood-deep: #3a2a22;
 }
@@ -38,10 +36,10 @@ body {
   background:
     radial-gradient(
       ellipse 60% 55% at 50% 45%,
-      oklch(0.36 0.07 330 / 0.55),
+      rgb(176 141 87 / 0.28),
       transparent 70%
     ),
-    var(--color-stage);
+    var(--color-ink);
   color: var(--color-on-ink);
 }
 .f-root {
@@ -55,10 +53,7 @@ body {
   font-family: 'Bodoni Moda Variable', Didot, serif;
   font-weight: 500;
 }
-.mono {
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-variant-numeric: tabular-nums;
-}
+
 .tnum {
   font-variant-numeric: tabular-nums;
 }

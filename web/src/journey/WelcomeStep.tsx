@@ -72,7 +72,7 @@ export function WelcomeStep({ guide, onGuide, onStart, onBack }: Props) {
             aria-label={name}
             aria-pressed={guide === name}
             className={cn(
-              'min-h-24 border border-line-input bg-card px-4 py-3 text-left hover:bg-soft',
+              'min-h-24 border border-line-input rounded-xl bg-card px-4 py-3 text-left hover:bg-soft',
               guide === name && 'bg-selected ring-2 ring-accent',
             )}
           >

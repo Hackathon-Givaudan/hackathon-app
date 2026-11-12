@@ -15,7 +15,7 @@ export function Dialog({ title, onClose, children }: Props) {
         aria-modal="true"
         aria-label={title}
         onClick={(event) => event.stopPropagation()}
-        className="max-h-[90svh] w-full max-w-xl overflow-auto border border-line-strong bg-card p-6"
+        className="max-h-[90svh] w-full max-w-xl overflow-auto rounded-xl border border-line bg-card p-6 shadow-xl"
       >
         <div className="flex items-start justify-between gap-4">
           <h2 className="font-semibold text-[30px] leading-tight">{title}</h2>

@@ -52,7 +52,7 @@ export function AcceptedStep({ formula, name, expert, onRestart }: Props) {
               index <= reached ? 'border-ink' : 'border-line opacity-55',
             )}
           >
-            <span className="mono mr-2 text-[11px]">{index + 1}</span>
+            <span className="mr-2 text-[12px] text-muted">{index + 1}</span>
             {stage}
           </li>
         ))}
@@ -97,7 +97,7 @@ export function AcceptedStep({ formula, name, expert, onRestart }: Props) {
               <button
                 key={adjustment}
                 onClick={() => setFeedback(adjustment)}
-                className="min-h-12 border border-line-strong px-4 text-[16px] hover:bg-soft"
+                className="min-h-12 border border-line-strong rounded-full px-4 text-[16px] hover:bg-soft"
               >
                 {adjustment}
               </button>
@@ -106,7 +106,7 @@ export function AcceptedStep({ formula, name, expert, onRestart }: Props) {
         </>
       )}
 
-      <p className="mono mt-5 text-[11px] opacity-80">
+      <p className="mt-5 text-[13px] text-muted">
         Prototype : aucun échantillon n’est réellement envoyé, et le retour
         n’est pas encore transmis au conseiller.
       </p>

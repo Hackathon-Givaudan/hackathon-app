@@ -80,7 +80,7 @@ export function ProfileStep({
                   }}
                   aria-pressed={answers[index] === adds}
                   className={cn(
-                    'min-h-11 border border-line-strong px-3 text-[15px]',
+                    'min-h-11 border border-line-strong rounded-full px-3 text-[15px]',
                     answers[index] === adds
                       ? 'bg-selected ring-2 ring-accent'
                       : 'hover:bg-soft',
