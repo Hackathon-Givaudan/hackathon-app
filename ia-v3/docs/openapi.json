@@ -1,1 +1,883 @@
-{"openapi":"3.1.0","info":{"title":"Givaudan L'Atelier : service Data/IA","description":"Modèle V3 : brief écrit ou importé et duels du profil vers brief structuré, radar à 6 axes (9 familles), plateau de 10 notes, 3 références proches expliquées, potentiel critère par critère et formule en deux versions. Données sourcées et datées. Par défaut sans LLM (latence de l'ordre de la milliseconde) ; avec « llm »: true, Mistral via Ollama complète l'analyse du brief et reformule les explications (ADR 0008), avec repli sur les règles s'il ne répond pas.","version":"3.1.0"},"paths":{"/":{"get":{"tags":["service"],"summary":"Accueil","operationId":"accueil__get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/sante":{"get":{"tags":["service"],"summary":"Sante","operationId":"sante_sante_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/llm":{"get":{"tags":["service"],"summary":"Mistral (Ollama) est-il joignable et installé ?","operationId":"llm_etat_llm_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/familles":{"get":{"tags":["référentiel"],"summary":"Familles","operationId":"familles_familles_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/notes":{"get":{"tags":["référentiel"],"summary":"Notes","operationId":"notes_notes_get","parameters":[{"name":"famille","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Famille"}},{"name":"etage","in":"query","required":false,"schema":{"anyOf":[{"enum":["tete","coeur","fond"],"type":"string"},{"type":"null"}],"title":"Etage"}},{"name":"vegan","in":"query","required":false,"schema":{"anyOf":[{"type":"boolean"},{"type":"null"}],"title":"Vegan"}},{"name":"naturel","in":"query","required":false,"schema":{"anyOf":[{"type":"boolean"},{"type":"null"}],"title":"Naturel"}},{"name":"durable","in":"query","required":false,"schema":{"anyOf":[{"type":"boolean"},{"type":"null"}],"title":"Durable"}},{"name":"usage","in":"query","required":false,"schema":{"anyOf":[{"enum":["parfum","arome"],"type":"string"},{"type":"null"}],"description":"Notes utilisables pour ce domaine","title":"Usage"},"description":"Notes utilisables pour ce domaine"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/notes/{note_id}":{"get":{"tags":["référentiel"],"summary":"Fiche matière","operationId":"fiche_notes__note_id__get","parameters":[{"name":"note_id","in":"path","required":true,"schema":{"type":"string","title":"Note Id"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/ambiances":{"get":{"tags":["référentiel"],"summary":"Ambiances","operationId":"ambiances_ambiances_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/questions":{"get":{"tags":["profil"],"summary":"Les 5 questions du profil (images, sons, mots)","operationId":"questions_questions_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/kit":{"get":{"tags":["offres"],"summary":"Kit atelier : 30 notes de base","operationId":"kit_kit_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/analyse-brief":{"post":{"tags":["séance"],"summary":"Champs entendus dans le brief, avec leur citation","operationId":"analyse_brief_analyse_brief_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/BriefIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/profil":{"post":{"tags":["profil"],"summary":"Roue olfactive à partir des réponses (et du brief)","operationId":"profil_profil_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProfilIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/recommandation":{"post":{"tags":["offres"],"summary":"Roue, plateau de notes, 3 pistes et alertes","operationId":"recommandation_recommandation_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RecommandationIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/variation":{"post":{"tags":["offres"],"summary":"Appliquer « plus frais », « moins boisé »… à des dosages","operationId":"variation_variation_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/VariationIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/parfums-proches":{"post":{"tags":["offres"],"summary":"Parfums existants les plus proches d'une roue","operationId":"proches_parfums_proches_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RoueIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/metriques":{"get":{"tags":["service"],"summary":"Résultats de la dernière évaluation sur les 30 cas","operationId":"metriques_metriques_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/duels":{"get":{"tags":["profil"],"summary":"Les 5 duels du profil V3 (images, sons ou mots)","operationId":"duels_duels_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/modele-brief":{"get":{"tags":["séance"],"summary":"Modèle de brief à télécharger, remplir et réimporter","operationId":"modele_brief_modele_brief_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/brief":{"post":{"tags":["séance"],"summary":"Brief V3 : ce qu'Aurore a entendu et les champs à compléter","operationId":"brief_brief_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/BriefIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/brief/import":{"post":{"tags":["séance"],"summary":"Importer un brief rempli à partir du modèle","operationId":"brief_import_brief_import_post","requestBody":{"content":{"application/json":{"schema":{"additionalProperties":true,"type":"object","title":"Document"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/banque-references":{"get":{"tags":["référentiel"],"summary":"Banque de références (fictive pour la démonstration)","operationId":"banque_references_banque_references_get","parameters":[{"name":"domaine","in":"query","required":false,"schema":{"anyOf":[{"enum":["fragrances","aromes"],"type":"string"},{"type":"null"}],"title":"Domaine"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/references":{"post":{"tags":["offres"],"summary":"3 références proches, expliquées par leur lien au projet","operationId":"references_references_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RecommandationIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/potentiel":{"post":{"tags":["espace business"],"summary":"Évaluation du potentiel, critère par critère (Business 05)","operationId":"potentiel_potentiel_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/RecommandationIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/formule":{"post":{"tags":["offres"],"summary":"Deux versions de formule à partir des fioles aimées","operationId":"formule_formule_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/FormuleIn"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/notes/{note_id}/pourquoi":{"get":{"tags":["aide"],"summary":"« Pourquoi cette note ? », avec ses sources","operationId":"pourquoi_notes__note_id__pourquoi_get","parameters":[{"name":"note_id","in":"path","required":true,"schema":{"type":"string","title":"Note Id"}},{"name":"brief","in":"query","required":false,"schema":{"type":"string","default":"","title":"Brief"}},{"name":"llm","in":"query","required":false,"schema":{"type":"boolean","description":"Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.","default":false,"title":"Llm"},"description":"Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé."}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}}},"components":{"schemas":{"BriefIn":{"properties":{"brief":{"type":"string","title":"Brief","description":"Texte libre du client (transcription de la séance).","examples":["On ouvre un restaurant en bord de mer. On veut une bougie fraîche et iodée, qui rappelle l'air du large. Prix accessible."]},"llm":{"type":"boolean","title":"Llm","description":"Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.","default":false}},"type":"object","required":["brief"],"title":"BriefIn"},"FormuleIn":{"properties":{"avis":{"additionalProperties":{"type":"string","enum":["aime","un_peu","pas_pour_moi","rappelle","ne_sait_pas"]},"type":"object","title":"Avis","description":"Ce que la marque a dit de chaque fiole (étape « On sent ensemble »).","examples":[{"algue":"un_peu","bergamote":"aime","cedre":"aime","embruns":"aime","musc":"pas_pour_moi"}]},"domaine":{"anyOf":[{"type":"string","enum":["fragrances","aromes"]},{"type":"null"}],"title":"Domaine"}},"type":"object","required":["avis"],"title":"FormuleIn"},"HTTPValidationError":{"properties":{"detail":{"items":{"$ref":"#/components/schemas/ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"},"ProfilIn":{"properties":{"reponses":{"items":{"type":"string"},"type":"array","title":"Reponses","description":"Choix des duels (GET /duels) ou options des questions V2 (GET /questions).","examples":[["d1_a","d2_b","d3_a","d4_a","d5_a"]]},"brief":{"type":"string","title":"Brief","description":"Brief facultatif : les notes et familles citées complètent la roue.","default":""},"ajustements":{"additionalProperties":{"type":"integer"},"type":"object","title":"Ajustements","description":"Réglage à la main du radar : +1 ou -1 par axe (hesperide, marin, aromatique, floral, boise, ambre).","examples":[{"boise":-1,"marin":1}]},"llm":{"type":"boolean","title":"Llm","description":"Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.","default":false}},"type":"object","title":"ProfilIn"},"RecommandationIn":{"properties":{"reponses":{"items":{"type":"string"},"type":"array","title":"Reponses","description":"Choix des duels (GET /duels) ou options des questions V2 (GET /questions).","examples":[["d1_a","d2_b","d3_a","d4_a","d5_a"]]},"brief":{"type":"string","title":"Brief","default":"","examples":["On ouvre un restaurant en bord de mer. On veut une bougie fraîche et iodée, qui rappelle l'air du large. Prix accessible."]},"ajustements":{"additionalProperties":{"type":"integer"},"type":"object","title":"Ajustements","description":"Réglage à la main du radar : +1 ou -1 par axe (hesperide, marin, aromatique, floral, boise, ambre).","examples":[{"boise":-1,"marin":1}]},"engagements":{"items":{"type":"string","enum":["vegan","naturel","sans_allergenes","matieres_durables"]},"type":"array","title":"Engagements","description":"S'ajoutent à ceux entendus dans le brief."},"format":{"anyOf":[{"type":"string","enum":["parfum","eau_de_toilette","bougie","diffuseur","brume","soin","savon","produit_entretien","arome_boisson","arome_alimentaire"]},{"type":"null"}],"title":"Format","description":"Si absent, le format entendu dans le brief est utilisé."},"domaine":{"anyOf":[{"type":"string","enum":["fragrances","aromes"]},{"type":"null"}],"title":"Domaine","description":"Fragrances ou Arômes, choisi à l'entrée. Si absent, déduit du brief."},"taille":{"type":"integer","maximum":30.0,"minimum":3.0,"title":"Taille","description":"Nombre de notes du plateau.","default":10},"llm":{"type":"boolean","title":"Llm","description":"Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.","default":false}},"type":"object","title":"RecommandationIn"},"RoueIn":{"properties":{"roue":{"additionalProperties":{"type":"number"},"type":"object","title":"Roue","description":"Roue en pourcentage par famille (sortie de /profil)."},"n":{"type":"integer","maximum":50.0,"minimum":1.0,"title":"N","default":10}},"type":"object","required":["roue"],"title":"RoueIn"},"ValidationError":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"},"input":{"title":"Input"},"ctx":{"type":"object","title":"Context"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"VariationIn":{"properties":{"dosages":{"additionalProperties":{"type":"number"},"type":"object","title":"Dosages","examples":[{"bergamote":20,"cedre":30,"fleur_oranger":30,"vetiver":20}]},"demande":{"type":"string","title":"Demande","examples":["moins boisé"]}},"type":"object","required":["dosages","demande"],"title":"VariationIn"}}}}
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Givaudan L'Atelier : service Data/IA",
+    "description": "Modèle V3 : brief écrit ou importé et duels du profil vers brief structuré, radar à 6 axes (9 familles), plateau de 10 notes, 3 références proches expliquées, potentiel critère par critère et formule en deux versions. Données sourcées et datées. Par défaut sans LLM (latence de l'ordre de la milliseconde) ; avec « llm »: true, Mistral via Ollama complète l'analyse du brief et reformule les explications (ADR 0008), avec repli sur les règles s'il ne répond pas.",
+    "version": "3.1.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["service"],
+        "summary": "Accueil",
+        "operationId": "accueil__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/sante": {
+      "get": {
+        "tags": ["service"],
+        "summary": "Sante",
+        "operationId": "sante_sante_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/llm": {
+      "get": {
+        "tags": ["service"],
+        "summary": "Mistral (Ollama) est-il joignable et installé ?",
+        "operationId": "llm_etat_llm_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/familles": {
+      "get": {
+        "tags": ["référentiel"],
+        "summary": "Familles",
+        "operationId": "familles_familles_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/notes": {
+      "get": {
+        "tags": ["référentiel"],
+        "summary": "Notes",
+        "operationId": "notes_notes_get",
+        "parameters": [
+          {
+            "name": "famille",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "title": "Famille"
+            }
+          },
+          {
+            "name": "etage",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                { "enum": ["tete", "coeur", "fond"], "type": "string" },
+                { "type": "null" }
+              ],
+              "title": "Etage"
+            }
+          },
+          {
+            "name": "vegan",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+              "title": "Vegan"
+            }
+          },
+          {
+            "name": "naturel",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+              "title": "Naturel"
+            }
+          },
+          {
+            "name": "durable",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+              "title": "Durable"
+            }
+          },
+          {
+            "name": "usage",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                { "enum": ["parfum", "arome"], "type": "string" },
+                { "type": "null" }
+              ],
+              "description": "Notes utilisables pour ce domaine",
+              "title": "Usage"
+            },
+            "description": "Notes utilisables pour ce domaine"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/{note_id}": {
+      "get": {
+        "tags": ["référentiel"],
+        "summary": "Fiche matière",
+        "operationId": "fiche_notes__note_id__get",
+        "parameters": [
+          {
+            "name": "note_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "title": "Note Id" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ambiances": {
+      "get": {
+        "tags": ["référentiel"],
+        "summary": "Ambiances",
+        "operationId": "ambiances_ambiances_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/questions": {
+      "get": {
+        "tags": ["profil"],
+        "summary": "Les 5 questions du profil (images, sons, mots)",
+        "operationId": "questions_questions_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/kit": {
+      "get": {
+        "tags": ["offres"],
+        "summary": "Kit atelier : 30 notes de base",
+        "operationId": "kit_kit_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/analyse-brief": {
+      "post": {
+        "tags": ["séance"],
+        "summary": "Champs entendus dans le brief, avec leur citation",
+        "operationId": "analyse_brief_analyse_brief_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BriefIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profil": {
+      "post": {
+        "tags": ["profil"],
+        "summary": "Roue olfactive à partir des réponses (et du brief)",
+        "operationId": "profil_profil_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ProfilIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recommandation": {
+      "post": {
+        "tags": ["offres"],
+        "summary": "Roue, plateau de notes, 3 pistes et alertes",
+        "operationId": "recommandation_recommandation_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RecommandationIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/variation": {
+      "post": {
+        "tags": ["offres"],
+        "summary": "Appliquer « plus frais », « moins boisé »… à des dosages",
+        "operationId": "variation_variation_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/VariationIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parfums-proches": {
+      "post": {
+        "tags": ["offres"],
+        "summary": "Parfums existants les plus proches d'une roue",
+        "operationId": "proches_parfums_proches_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RoueIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/metriques": {
+      "get": {
+        "tags": ["service"],
+        "summary": "Résultats de la dernière évaluation sur les 30 cas",
+        "operationId": "metriques_metriques_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/duels": {
+      "get": {
+        "tags": ["profil"],
+        "summary": "Les 5 duels du profil V3 (images, sons ou mots)",
+        "operationId": "duels_duels_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/modele-brief": {
+      "get": {
+        "tags": ["séance"],
+        "summary": "Modèle de brief à télécharger, remplir et réimporter",
+        "operationId": "modele_brief_modele_brief_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
+    },
+    "/brief": {
+      "post": {
+        "tags": ["séance"],
+        "summary": "Brief V3 : ce qu'Aurore a entendu et les champs à compléter",
+        "operationId": "brief_brief_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BriefIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/brief/import": {
+      "post": {
+        "tags": ["séance"],
+        "summary": "Importer un brief rempli à partir du modèle",
+        "operationId": "brief_import_brief_import_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Document"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banque-references": {
+      "get": {
+        "tags": ["référentiel"],
+        "summary": "Banque de références (fictive pour la démonstration)",
+        "operationId": "banque_references_banque_references_get",
+        "parameters": [
+          {
+            "name": "domaine",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                { "enum": ["fragrances", "aromes"], "type": "string" },
+                { "type": "null" }
+              ],
+              "title": "Domaine"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/references": {
+      "post": {
+        "tags": ["offres"],
+        "summary": "3 références proches, expliquées par leur lien au projet",
+        "operationId": "references_references_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RecommandationIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/potentiel": {
+      "post": {
+        "tags": ["espace business"],
+        "summary": "Évaluation du potentiel, critère par critère (Business 05)",
+        "operationId": "potentiel_potentiel_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RecommandationIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/formule": {
+      "post": {
+        "tags": ["offres"],
+        "summary": "Deux versions de formule à partir des fioles aimées",
+        "operationId": "formule_formule_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/FormuleIn" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/{note_id}/pourquoi": {
+      "get": {
+        "tags": ["aide"],
+        "summary": "« Pourquoi cette note ? », avec ses sources",
+        "operationId": "pourquoi_notes__note_id__pourquoi_get",
+        "parameters": [
+          {
+            "name": "note_id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "title": "Note Id" }
+          },
+          {
+            "name": "brief",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "default": "", "title": "Brief" }
+          },
+          {
+            "name": "llm",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.",
+              "default": false,
+              "title": "Llm"
+            },
+            "description": "Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BriefIn": {
+        "properties": {
+          "brief": {
+            "type": "string",
+            "title": "Brief",
+            "description": "Texte libre du client (transcription de la séance).",
+            "examples": [
+              "On ouvre un restaurant en bord de mer. On veut une bougie fraîche et iodée, qui rappelle l'air du large. Prix accessible."
+            ]
+          },
+          "llm": {
+            "type": "boolean",
+            "title": "Llm",
+            "description": "Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": ["brief"],
+        "title": "BriefIn"
+      },
+      "FormuleIn": {
+        "properties": {
+          "avis": {
+            "additionalProperties": {
+              "type": "string",
+              "enum": [
+                "aime",
+                "un_peu",
+                "pas_pour_moi",
+                "rappelle",
+                "ne_sait_pas"
+              ]
+            },
+            "type": "object",
+            "title": "Avis",
+            "description": "Ce que la marque a dit de chaque fiole (étape « On sent ensemble »).",
+            "examples": [
+              {
+                "algue": "un_peu",
+                "bergamote": "aime",
+                "cedre": "aime",
+                "embruns": "aime",
+                "musc": "pas_pour_moi"
+              }
+            ]
+          },
+          "domaine": {
+            "anyOf": [
+              { "type": "string", "enum": ["fragrances", "aromes"] },
+              { "type": "null" }
+            ],
+            "title": "Domaine"
+          }
+        },
+        "type": "object",
+        "required": ["avis"],
+        "title": "FormuleIn"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": { "$ref": "#/components/schemas/ValidationError" },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ProfilIn": {
+        "properties": {
+          "reponses": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Reponses",
+            "description": "Choix des duels (GET /duels) ou options des questions V2 (GET /questions).",
+            "examples": [["d1_a", "d2_b", "d3_a", "d4_a", "d5_a"]]
+          },
+          "brief": {
+            "type": "string",
+            "title": "Brief",
+            "description": "Brief facultatif : les notes et familles citées complètent la roue.",
+            "default": ""
+          },
+          "ajustements": {
+            "additionalProperties": { "type": "integer" },
+            "type": "object",
+            "title": "Ajustements",
+            "description": "Réglage à la main du radar : +1 ou -1 par axe (hesperide, marin, aromatique, floral, boise, ambre).",
+            "examples": [{ "boise": -1, "marin": 1 }]
+          },
+          "llm": {
+            "type": "boolean",
+            "title": "Llm",
+            "description": "Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ProfilIn"
+      },
+      "RecommandationIn": {
+        "properties": {
+          "reponses": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Reponses",
+            "description": "Choix des duels (GET /duels) ou options des questions V2 (GET /questions).",
+            "examples": [["d1_a", "d2_b", "d3_a", "d4_a", "d5_a"]]
+          },
+          "brief": {
+            "type": "string",
+            "title": "Brief",
+            "default": "",
+            "examples": [
+              "On ouvre un restaurant en bord de mer. On veut une bougie fraîche et iodée, qui rappelle l'air du large. Prix accessible."
+            ]
+          },
+          "ajustements": {
+            "additionalProperties": { "type": "integer" },
+            "type": "object",
+            "title": "Ajustements",
+            "description": "Réglage à la main du radar : +1 ou -1 par axe (hesperide, marin, aromatique, floral, boise, ambre).",
+            "examples": [{ "boise": -1, "marin": 1 }]
+          },
+          "engagements": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "vegan",
+                "naturel",
+                "sans_allergenes",
+                "matieres_durables"
+              ]
+            },
+            "type": "array",
+            "title": "Engagements",
+            "description": "S'ajoutent à ceux entendus dans le brief."
+          },
+          "format": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "parfum",
+                  "eau_de_toilette",
+                  "bougie",
+                  "diffuseur",
+                  "brume",
+                  "soin",
+                  "savon",
+                  "produit_entretien",
+                  "arome_boisson",
+                  "arome_alimentaire"
+                ]
+              },
+              { "type": "null" }
+            ],
+            "title": "Format",
+            "description": "Si absent, le format entendu dans le brief est utilisé."
+          },
+          "domaine": {
+            "anyOf": [
+              { "type": "string", "enum": ["fragrances", "aromes"] },
+              { "type": "null" }
+            ],
+            "title": "Domaine",
+            "description": "Fragrances ou Arômes, choisi à l'entrée. Si absent, déduit du brief."
+          },
+          "taille": {
+            "type": "integer",
+            "maximum": 30.0,
+            "minimum": 3.0,
+            "title": "Taille",
+            "description": "Nombre de notes du plateau.",
+            "default": 10
+          },
+          "llm": {
+            "type": "boolean",
+            "title": "Llm",
+            "description": "Faire appel à Mistral (Ollama) : il complète l'analyse du brief dans les listes du référentiel et reformule les explications. Plus lent (plusieurs secondes sans GPU). Si le modèle ne répond pas, le résultat des règles est renvoyé.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "RecommandationIn"
+      },
+      "RoueIn": {
+        "properties": {
+          "roue": {
+            "additionalProperties": { "type": "number" },
+            "type": "object",
+            "title": "Roue",
+            "description": "Roue en pourcentage par famille (sortie de /profil)."
+          },
+          "n": {
+            "type": "integer",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "N",
+            "default": 10
+          }
+        },
+        "type": "object",
+        "required": ["roue"],
+        "title": "RoueIn"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": { "anyOf": [{ "type": "string" }, { "type": "integer" }] },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": { "type": "string", "title": "Message" },
+          "type": { "type": "string", "title": "Error Type" },
+          "input": { "title": "Input" },
+          "ctx": { "type": "object", "title": "Context" }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      },
+      "VariationIn": {
+        "properties": {
+          "dosages": {
+            "additionalProperties": { "type": "number" },
+            "type": "object",
+            "title": "Dosages",
+            "examples": [
+              {
+                "bergamote": 20,
+                "cedre": 30,
+                "fleur_oranger": 30,
+                "vetiver": 20
+              }
+            ]
+          },
+          "demande": {
+            "type": "string",
+            "title": "Demande",
+            "examples": ["moins boisé"]
+          }
+        },
+        "type": "object",
+        "required": ["dosages", "demande"],
+        "title": "VariationIn"
+      }
+    }
+  }
+}

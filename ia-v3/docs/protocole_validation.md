@@ -4,15 +4,15 @@
 
 Les seuils ont été fixés avant la première exécution. Ils sont dans `evaluation/evaluate.py` (`SEUILS`).
 
-| Métrique | Définition | Seuil |
-|---|---|---|
-| Famille dominante exacte | la 1re famille de la roue est la famille attendue | 60 % |
-| Famille attendue dans le top 3 | la famille attendue est dans les 3 premières de la roue | 85 % |
-| Notes retrouvées | part des notes attendues présentes dans le plateau de 10 (moyenne sur les cas) | 50 % |
-| Bonne famille dans les 3 pistes | une des 3 pistes est menée par la famille attendue | 85 % |
-| Respect des contraintes | aucun plateau ne contient de note interdite par les engagements du cas | 100 % |
-| Champs du brief | format, positionnement, intensité, engagements identiques à l'attendu (une absence attendue doit rester absente) | 80 % chacun |
-| Latence | p95 du temps de réponse | < 5 s |
+| Métrique                        | Définition                                                                                                       | Seuil       |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
+| Famille dominante exacte        | la 1re famille de la roue est la famille attendue                                                                | 60 %        |
+| Famille attendue dans le top 3  | la famille attendue est dans les 3 premières de la roue                                                          | 85 %        |
+| Notes retrouvées                | part des notes attendues présentes dans le plateau de 10 (moyenne sur les cas)                                   | 50 %        |
+| Bonne famille dans les 3 pistes | une des 3 pistes est menée par la famille attendue                                                               | 85 %        |
+| Respect des contraintes         | aucun plateau ne contient de note interdite par les engagements du cas                                           | 100 %       |
+| Champs du brief                 | format, positionnement, intensité, engagements identiques à l'attendu (une absence attendue doit rester absente) | 80 % chacun |
+| Latence                         | p95 du temps de réponse                                                                                          | < 5 s       |
 
 Pour les taux, on donne l'intervalle de confiance à 95 % (Wilson) : avec 30 cas, un 80 % veut dire « entre 63 % et 90 % ».
 
