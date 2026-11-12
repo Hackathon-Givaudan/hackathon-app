@@ -242,9 +242,11 @@ export default function App() {
               </BottleBoundary>
             </div>
             <p className="mono text-[11px] opacity-80">
-              {layers.length === 0
-                ? `Le ${object} se remplit avec vos mots.`
-                : layers.map((layer) => layer.n).join(' · ')}
+              {step === 'notes'
+                ? 'Votre plateau, une fiole à la fois.'
+                : layers.length === 0
+                  ? `Le ${object} se remplit avec vos mots.`
+                  : layers.map((layer) => layer.n).join(' · ')}
             </p>
           </aside>
         )}

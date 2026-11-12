@@ -31,7 +31,12 @@ export function ProfileStep({
   onSubmit,
   onBack,
 }: Props) {
-  const { duels } = VOCABULARY[universe];
+  /* Une question déjà tranchée pendant la séance n'est pas reposée : « hiver » entendu, pas d'« été ou hiver » */
+  const settled = (word: string) =>
+    new RegExp(`(^|[^\\p{L}])${word}([^\\p{L}]|$)`, 'iu').test(wishes);
+  const duels = VOCABULARY[universe].duels.filter(
+    ({ choices }) => !choices.some(({ adds }) => settled(adds)),
+  );
   const [answers, setAnswers] = useState<string[]>([]);
   const added = answers.filter(Boolean);
 

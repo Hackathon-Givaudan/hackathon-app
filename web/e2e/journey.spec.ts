@@ -222,3 +222,13 @@ test('the brand names its creation and follows its sample', async ({
   await page.getByRole('button', { name: 'Plus de fraîcheur' }).click();
   await expect(page.getByText('Votre retour est noté.')).toBeVisible();
 });
+
+test('the profile does not ask again what the session already settled', async ({
+  page,
+}) => {
+  await describe(page, 'Un parfum', 'Un diffuseur pour les soirées d’hiver');
+
+  // La séance a entendu « hiver » : le profil ne redemande pas « l'été ou l'hiver »
+  await expect(page.getByText('Plutôt le calme ou l’énergie ?')).toBeVisible();
+  await expect(page.getByText('Plutôt l’été ou l’hiver ?')).toHaveCount(0);
+});
