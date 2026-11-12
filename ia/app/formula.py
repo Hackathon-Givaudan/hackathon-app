@@ -5,10 +5,11 @@ Tout est déterministe. Un rédacteur (le modèle) peut proposer l'explication, 
 que si elle ne cite aucune note absente de la formule ; sinon la phrase construite ici la remplace.
 """
 
+import csv
 from collections.abc import Callable
 
 from .notes import mentions
-from .references import REFERENCES, Reference, slug
+from .references import DATA_DIR, REFERENCES, Reference, slug
 
 # Reçoit les faits de la formule, renvoie une explication, ou None s'il ne répond pas
 Writer = Callable[[dict], str | None]
@@ -35,6 +36,63 @@ def closest(universe: str, wishes: str, note_ids: list[str]) -> Reference | None
 
     best = max(REFERENCES[universe], key=lambda reference: (kept(reference), wanted_uses(reference)))
     return best if kept(best) else None
+
+
+def kept_in(reference: Reference, note_ids: list[str]) -> list[str]:
+    """Les notes validées par la marque que la référence contient."""
+    return [label for label in reference.notes if slug(label) in note_ids]
+
+
+def nearby(universe: str, wishes: str, note_ids: list[str]) -> list[dict]:
+    """Jusqu'à trois références proches, la proposée en premier. Même classement que `closest`."""
+
+    def rank(reference: Reference) -> tuple[int, int]:
+        return (len(kept_in(reference, note_ids)), sum(mentions(wishes, use) for use in reference.uses))
+
+    ranked = sorted(REFERENCES[universe], key=rank, reverse=True)
+    return [
+        {
+            "id": reference.id,
+            "name": reference.name,
+            "family": reference.family,
+            "shared": kept_in(reference, note_ids),
+            "why": f"Contient {listed(kept_in(reference, note_ids))}.",
+        }
+        for reference in ranked[:3]
+        if kept_in(reference, note_ids)
+    ]
+
+
+def load_axes() -> dict[str, tuple[int, int]]:
+    """La fraîcheur et la chaleur de chaque note de parfum, estimées par l'équipe Data (data/axes_notes.csv)."""
+    with (DATA_DIR / "axes_notes.csv").open(encoding="utf-8") as file:
+        return {row["note_id"]: (int(row["fraicheur"]), int(row["chaleur"])) for row in csv.DictReader(file)}
+
+
+AXES = load_axes()
+
+
+def versions(universe: str, reference: Reference, note_ids: list[str]) -> list[dict]:
+    """Deux versions de la formule : plus fraîche, plus chaude. La règle est dans data/deux_versions.md.
+
+    On part des notes validées que la formule contient, sinon de toute la formule. Chaque version met en avant
+    deux notes : les plus fraîches, ou les plus chaudes. À égalité, l'ordre alphabétique de l'identifiant.
+    Pas de dosage : les proportions sont fixées par le parfumeur. Les arômes n'ont pas ces axes.
+    """
+    if universe != "parfum":
+        return []
+    kept = kept_in(reference, note_ids)
+    base = kept if len(kept) >= 2 else list(reference.notes)
+
+    def accent(axis: int) -> list[str]:
+        return sorted(base, key=lambda label: (-AXES.get(slug(label), (0, 0))[axis], slug(label)))[:2]
+
+    fresher, warmer = accent(0), accent(1)
+    found = [{"id": "A", "title": "Version A, plus fraîche", "accent": fresher, "why": f"Met en avant {listed(fresher)}."}]
+    # Si les deux accents sont les mêmes, une seule version est possible
+    if set(warmer) != set(fresher):
+        found.append({"id": "B", "title": "Version B, plus chaude", "accent": warmer, "why": f"Met en avant {listed(warmer)}."})
+    return found
 
 
 def explain(reference: Reference, note_ids: list[str], rejected_note_ids: list[str]) -> str:
@@ -86,6 +144,8 @@ def propose_formula(
         ],
         "explanation": explain(reference, note_ids, rejected_note_ids or []),
         "source": reference.source,
+        "nearby": nearby(universe, wishes, note_ids),
+        "versions": versions(universe, reference, note_ids),
     }
     written = write(formula) if write else None
     if written and cites_only(written, reference, universe):

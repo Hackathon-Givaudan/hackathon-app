@@ -19,6 +19,9 @@ type Props = {
   onName: (name: string) => void;
   /* Les pays de vente donnés dans le brief, pour le contrôle réglementaire */
   countries: string[];
+  /* La version que la marque garde : « A » ou « B » */
+  version: string;
+  onVersion: (version: string) => void;
   busy: boolean;
   error: string;
   onAccept: () => void;
@@ -32,6 +35,8 @@ export function FormulaStep({
   name,
   onName,
   countries,
+  version,
+  onVersion,
   busy,
   error,
   onAccept,
@@ -75,6 +80,68 @@ export function FormulaStep({
       <p className="mt-3 text-[13px] text-muted">
         Référence de notre banque ({formula.source}).
       </p>
+
+      {formula.versions && formula.versions.length > 0 && (
+        <section aria-label="Deux versions" className="mt-8">
+          <h2 className="text-[20px] font-semibold">
+            Deux versions. Gardez la vôtre.
+          </h2>
+          <p className="text-[15px] text-secondary">
+            Les mêmes notes, un accent différent. Pas de dosage : les
+            proportions sont fixées par votre {expert}.
+          </p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            {formula.versions.map((choice) => (
+              <button
+                key={choice.id}
+                onClick={() => onVersion(choice.id)}
+                aria-pressed={version === choice.id}
+                className={cn(
+                  'rounded-xl border border-line-input bg-card px-4 py-3 text-left hover:bg-soft',
+                  version === choice.id && 'bg-selected ring-2 ring-accent',
+                )}
+              >
+                <span className="block text-[18px] font-semibold">
+                  {choice.title}
+                </span>
+                <span className="block text-[15px] text-secondary">
+                  {choice.why}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {formula.nearby && formula.nearby.length > 0 && (
+        <section aria-label="Références proches" className="mt-8">
+          <h2 className="text-[20px] font-semibold">
+            {formula.nearby.length > 1
+              ? `${formula.nearby.length} références proches dans la banque`
+              : 'La référence proche dans la banque'}
+          </h2>
+          <ul className="mt-2 border-t border-line-strong">
+            {formula.nearby.map((reference, index) => (
+              <li
+                key={reference.id}
+                className="grid gap-x-4 border-b border-line py-2 sm:grid-cols-[200px_1fr]"
+              >
+                <span className="font-semibold">
+                  {reference.name}
+                  {index === 0 && (
+                    <span className="ml-2 text-sm font-normal text-accent-text">
+                      proposée
+                    </span>
+                  )}
+                </span>
+                <span className="text-secondary">
+                  Famille {reference.family.toLowerCase()}. {reference.why}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <label className="mt-6 block max-w-md">
         <span className={smallLabel}>Le nom de votre création</span>

@@ -52,6 +52,16 @@ export type Formula = {
   notes: { note: Note; share: number }[];
   explanation: string;
   source: string;
+  /* Jusqu'à trois références proches, la proposée en premier */
+  nearby?: {
+    id: string;
+    name: string;
+    family: string;
+    shared: string[];
+    why: string;
+  }[];
+  /* Deux versions pour un parfum : plus fraîche, plus chaude. Vide pour un arôme */
+  versions?: { id: string; title: string; accent: string[]; why: string }[];
 };
 
 /* Les quatre gestes du parcours */

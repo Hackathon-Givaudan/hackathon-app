@@ -73,6 +73,8 @@ export default function App() {
   const [formula, setFormula] = useState<Formula | null>(null);
   /* Le nom que la marque donne à sa création */
   const [creationName, setCreationName] = useState('');
+  /* La version de la formule que la marque garde */
+  const [version, setVersion] = useState('A');
   const [help, setHelp] = useState(false);
   const [guide, setGuide] = useState<Guide>('Aurore');
   /* Le produit choisi à la bienvenue, et ce que la marque complète dans son brief */
@@ -148,6 +150,7 @@ export default function App() {
     setOpinions({});
     setHeardWishes('');
     setCreationName('');
+    setVersion('A');
     setProduct('');
     setDetails({});
     setProfileAnswers([]);
@@ -455,6 +458,8 @@ export default function App() {
                       )
                     : []
                 }
+                version={version}
+                onVersion={setVersion}
                 busy={busy}
                 error={error}
                 onAccept={acceptFormula}
@@ -468,6 +473,10 @@ export default function App() {
                 expert={expert}
                 guide={guide}
                 briefId={brief?.id}
+                version={
+                  formula.versions?.find((choice) => choice.id === version)
+                    ?.title
+                }
                 onRestart={restart}
               />
             )}

@@ -18,7 +18,7 @@ def test_validated_notes_lead_to_the_closest_reference():
 
 def test_the_formula_has_the_fields_of_the_contract():
     formula = propose_formula("parfum", "Une bougie, bord de mer", ["sel-marin"])
-    assert set(formula) == {"id", "name", "notes", "explanation", "source"}
+    assert set(formula) == {"id", "name", "notes", "explanation", "source", "nearby", "versions"}
     for item in formula["notes"]:
         assert set(item) == {"note", "share"}
         assert set(item["note"]) == {"id", "label", "family"}
@@ -91,3 +91,29 @@ def test_the_route_answers_422_when_no_reference_holds_the_notes():
 def test_the_route_refuses_an_empty_list_of_notes():
     response = client.post("/formula", json={"universe": "parfum", "wishes": "Une bougie", "noteIds": []})
     assert response.status_code == 422
+
+
+def test_three_nearby_references_start_with_the_proposed_one():
+    formula = propose_formula("parfum", "", ["sel-marin", "algue", "bergamote"])
+    nearby = formula["nearby"]
+    assert nearby[0]["id"] == formula["id"]
+    assert 1 <= len(nearby) <= 3 and len({reference["id"] for reference in nearby}) == len(nearby)
+    # Chacune dit ce qu'elle partage avec les notes gardées
+    assert all(reference["shared"] and reference["why"] for reference in nearby)
+
+
+def test_two_versions_follow_the_rule_of_the_data_team():
+    # L'exemple de ia/data/deux_versions.md : DEMO-F-012
+    kept = ["feuille-de-figuier", "bergamote", "lait-de-figue", "cedre", "coco"]
+    formula = propose_formula("parfum", "", kept)
+    assert formula["id"] == "DEMO-F-012"
+    fresher, warmer = formula["versions"]
+    assert fresher["accent"] == ["bergamote", "feuille de figuier"]
+    assert warmer["accent"] == ["coco", "lait de figue"]
+
+
+def test_a_flavour_formula_has_no_versions():
+    # Les axes fraîcheur et chaleur n'existent que pour les parfums
+    reference = REFERENCES["arome"][0]
+    formula = propose_formula("arome", "", [slug(label) for label in reference.notes])
+    assert formula["versions"] == []
