@@ -38,6 +38,55 @@ paths:
                   db:
                     type: string
                     description: Version de PostgreSQL
+  /api/session/turn:
+    post:
+      tags: [Parcours]
+      operationId: sessionTurn
+      summary: 'La séance : un échange avec Aurore'
+      description: |
+        La marque dit quelque chose, Aurore répond et dit ce qu'elle a entendu.
+        L'API ne garde pas la séance : le front renvoie à chaque échange ce qui
+        a déjà été entendu. Un `said` vide ouvre la séance. Quand `done` est vrai,
+        Aurore a de quoi rédiger le brief, que le front crée par le geste 1.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [universe, said]
+              properties:
+                universe:
+                  $ref: '#/components/schemas/Universe'
+                said:
+                  type: string
+                  maxLength: 2000
+                heard:
+                  type: array
+                  maxItems: 50
+                  items:
+                    $ref: '#/components/schemas/Idea'
+      responses:
+        '200':
+          description: La réponse d'Aurore
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [reply, heard, done]
+                properties:
+                  reply:
+                    type: string
+                  heard:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Idea'
+                  done:
+                    type: boolean
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '502':
+          $ref: '#/components/responses/AiUnavailable'
   /api/briefs:
     post:
       tags: [Parcours]
@@ -181,6 +230,22 @@ components:
       enum:
         [notes_proposed, notes_validated, formula_proposed, formula_accepted]
       description: Où en est le parcours. Chaque geste fait avancer d'un état.
+    Idea:
+      type: object
+      required: [kind, label, quote]
+      description: Une idée retenue par Aurore pendant la séance
+      properties:
+        kind:
+          type: string
+          enum: [usage, ambiance, emotion, sensation]
+        label:
+          type: string
+          maxLength: 100
+          description: L'étiquette du référentiel, par exemple « bord de mer »
+        quote:
+          type: string
+          maxLength: 200
+          description: La phrase de la marque dont l'idée vient
     BriefInput:
       type: object
       required: [universe, wishes]

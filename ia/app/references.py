@@ -16,6 +16,7 @@ COLUMNS = {
         "tiers": {"Tête": "notes_de_tete", "Cœur": "notes_de_coeur", "Fond": "notes_de_fond"},
         "tags": ["ambiances", "emotions"],
         "uses": "usages_compatibles",
+        "kinds": {"ambiances": "ambiance", "emotions": "emotion"},
     },
     "arome": {
         "file": "aromes.csv",
@@ -23,6 +24,7 @@ COLUMNS = {
         "tiers": {"Dominante": "note_dominante", "Secondaires": "notes_secondaires", "Finale": "finale_en_bouche"},
         "tags": ["moments_de_consommation", "sensations", "emotions"],
         "uses": "applications_compatibles",
+        "kinds": {"moments_de_consommation": "ambiance", "sensations": "sensation", "emotions": "emotion"},
     },
 }
 
@@ -75,3 +77,20 @@ REFERENCES = {universe: load(universe) for universe in COLUMNS}
 def all_tags(universe: str) -> list[str]:
     """Toutes les étiquettes connues d'un univers, sans doublon : le vocabulaire imposé au modèle."""
     return sorted({tag for reference in REFERENCES[universe] for tag in reference.tags})
+
+
+def load_kinds(universe: str) -> dict[str, str]:
+    """La catégorie de chaque étiquette : usage, ambiance, émotion ou sensation. À égalité, l'usage l'emporte."""
+    columns = COLUMNS[universe]
+    kinds: dict[str, str] = {}
+    with open(DATA_DIR / columns["file"], encoding="utf-8") as file:
+        for row in csv.DictReader(file):
+            for column, kind in columns["kinds"].items():
+                for tag in split(row[column]):
+                    kinds.setdefault(tag, kind)
+            for tag in split(row[columns["uses"]]):
+                kinds[tag] = "usage"
+    return kinds
+
+
+KINDS = {universe: load_kinds(universe) for universe in COLUMNS}

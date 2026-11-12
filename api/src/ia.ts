@@ -119,3 +119,49 @@ export async function proposeFormula(
   if (!isFormula(data)) throw new IaError(502, UNAVAILABLE);
   return data;
 }
+
+/* Une idée retenue par Aurore, avec la phrase de la marque dont elle vient */
+export type Idea = {
+  kind: 'usage' | 'ambiance' | 'emotion' | 'sensation';
+  label: string;
+  quote: string;
+};
+
+export type Turn = { reply: string; heard: Idea[]; done: boolean };
+
+const KINDS = ['usage', 'ambiance', 'emotion', 'sensation'];
+/* Bornes de ce que le front renvoie à chaque échange : une séance ne retient que quelques idées */
+export const MAX_HEARD = 50;
+const MAX_LABEL = 100;
+const MAX_QUOTE = 200;
+
+export function isIdea(value: unknown): value is Idea {
+  return (
+    isRecord(value) &&
+    typeof value.kind === 'string' &&
+    KINDS.includes(value.kind) &&
+    typeof value.label === 'string' &&
+    value.label.length <= MAX_LABEL &&
+    typeof value.quote === 'string' &&
+    value.quote.length <= MAX_QUOTE
+  );
+}
+
+/* Un échange de la séance : ce qu'Aurore répond, et ce qu'elle a entendu */
+export async function sessionTurn(
+  universe: Universe,
+  said: string,
+  heard: Idea[],
+): Promise<Turn> {
+  const data = await call('/session/turn', { universe, said, heard });
+  if (
+    !isRecord(data) ||
+    typeof data.reply !== 'string' ||
+    typeof data.done !== 'boolean' ||
+    !Array.isArray(data.heard) ||
+    !data.heard.every(isIdea)
+  ) {
+    throw new IaError(502, UNAVAILABLE);
+  }
+  return { reply: data.reply, heard: data.heard, done: data.done };
+}

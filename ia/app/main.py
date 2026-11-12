@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 from .formula import propose_formula
 from .notes import propose_notes
 from .references import REFERENCES
+from .session import next_turn
 
 app = FastAPI(title="Service Data/IA", version="0.1.0")
 
@@ -47,3 +48,21 @@ def formula(request: FormulaRequest) -> dict:
     if not found:
         raise HTTPException(422, "Aucune référence ne contient ces notes")
     return found
+
+
+class Idea(BaseModel):
+    kind: Literal["usage", "ambiance", "emotion", "sensation"]
+    label: str = Field(max_length=100)
+    quote: str = Field(max_length=200)
+
+
+class TurnRequest(BaseModel):
+    universe: Universe
+    said: str = Field(max_length=2000)  # vide pour ouvrir la séance
+    heard: list[Idea] = Field(default=[], max_length=50)
+
+
+@app.post("/session/turn")
+def session_turn(request: TurnRequest) -> dict:
+    """Un échange de la séance : ce qu'Aurore répond, et ce qu'elle a entendu depuis le début."""
+    return next_turn(request.universe, request.said, [idea.model_dump() for idea in request.heard])

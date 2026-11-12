@@ -34,7 +34,17 @@ export type Formula = {
 };
 
 /* Les quatre gestes du parcours */
+/* Une idée retenue par Aurore, avec la phrase de la marque dont elle vient */
+export type Idea = {
+  kind: 'usage' | 'ambiance' | 'emotion' | 'sensation';
+  label: string;
+  quote: string;
+};
+
+export type Turn = { reply: string; heard: Idea[]; done: boolean };
+
 export type Api = {
+  sessionTurn(universe: Universe, said: string, heard: Idea[]): Promise<Turn>;
   createBrief(universe: Universe, wishes: string): Promise<Brief>;
   validateNotes(briefId: number, noteIds: string[]): Promise<Brief>;
   proposeFormula(briefId: number): Promise<Formula>;

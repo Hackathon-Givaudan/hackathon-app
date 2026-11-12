@@ -84,3 +84,20 @@ def test_the_model_verdict_is_final_even_if_a_word_matches(monkeypatch):
     # « voiture » est une étiquette, mais le modèle a jugé que ce texte ne décrit aucun projet
     monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: [])
     assert notes.propose_notes("parfum", "ma voiture est en panne") == []
+
+
+def test_the_words_of_the_brand_are_kept_when_the_model_answers(monkeypatch):
+    # Ticket #58 : le modèle répond « gourmand », la marque avait choisi « gourmandise »
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: ["dessert", "gourmand", "yaourt"])
+    found = notes.propose_notes("arome", "Produit : yaourt. Ambiance : dessert. Émotion : gourmandise.")
+    assert found[0]["family"] == "Vanillé"  # Vanille Bourbon Douce : dessert, gourmandise et yaourt
+    kept = notes.find_tags("arome", "Produit : yaourt. Ambiance : dessert. Émotion : gourmandise.")
+    assert {"gourmandise", "gourmand"} <= set(kept)  # le mot de la marque reste, celui du modèle s'ajoute
+
+
+def test_a_reference_made_for_the_product_comes_first(monkeypatch):
+    # Ticket #58 : le produit départage. Linge Propre évoque « propreté » et est faite pour la lessive
+    monkeypatch.setattr(notes, "pick_tags", lambda wishes, tags: ["lessive", "propreté", "douceur", "confiance"])
+    found = notes.propose_notes("parfum", "On lance une lessive pour bébé, que ça sente le propre.")
+    assert found[0]["family"] == "Musquée"
+    assert found[0]["reason"] == "Évoque « propreté »"
