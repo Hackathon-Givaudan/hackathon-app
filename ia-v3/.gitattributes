@@ -1,0 +1,4 @@
+# Garder les fins de ligne LF : sinon l empreinte SHA-256 des cas de reference change sous Windows
+* text=auto eol=lf
+*.png binary
+*.jpg binary
