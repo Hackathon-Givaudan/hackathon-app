@@ -55,3 +55,15 @@ def test_an_empty_brief_is_put_on_hold():
 def test_the_route_refuses_a_value_outside_the_lists():
     assert client.post("/potential", json=STRONG).status_code == 200
     assert client.post("/potential", json={"target": "martiens"}).status_code == 422
+
+
+def test_a_flavour_brief_is_not_checked_like_a_perfume():
+    # L'IFRA ne concerne que les parfums, et un arôme est vérifié par un aromaticien
+    flavour = {**STRONG, "universe": "arome", "commitments": ["sans_allergenes"]}
+    reason = by_id(evaluate(flavour))["faisabilite_reglementaire"]["reason"]
+    assert "IFRA" not in reason and "parfumeur" not in reason
+    assert "aromaticien" in reason
+
+
+def test_a_perfume_brief_keeps_the_ifra_check():
+    assert "IFRA" in by_id(evaluate(STRONG))["faisabilite_reglementaire"]["reason"]
