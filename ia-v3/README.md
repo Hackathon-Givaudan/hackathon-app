@@ -12,6 +12,7 @@ Aligné sur la maquette V3 de Yasmina (« Parcours L'Atelier ») et sur la story
 Par défaut, pas de LLM : le spike #50 a montré qu'un modèle 7B sur CPU met 58 s par requête pour un seuil de 5 s. Les règles répondent en quelques millisecondes.
 
 **Option Mistral (3.1.0).** Avec `"llm": true` dans le corps de la requête (ou `?llm=true` pour `/notes/{id}/pourquoi`), Mistral via Ollama (`mistral:7b`, ADR 0008) :
+
 - complète l'analyse du brief : notes, familles et champs que le lexique a ratés, choisis **uniquement** dans les listes du référentiel. Les règles gardent la priorité, et chaque ajout est marqué « Proposé par le modèle » ;
 - reformule les explications d'Aurore à partir des faits validés : `commentaire_reformule`, `lien_reformule` pour chaque référence, `reponse_reformulee` pour « Pourquoi cette note ? ».
 
@@ -53,45 +54,45 @@ Résultats dans `evaluation/resultats.md` et `evaluation/resultats.json`, servis
 
 30 cas de référence (profil et plateau) :
 
-| Métrique | Seuil | V1 (règles simples) | Modèle 3.1.0 (règles, sans Mistral) |
-|---|---|---|---|
-| Famille dominante exacte | 60 % | 80 % | 80 % |
-| Notes attendues retrouvées dans le plateau | 50 % | 69 % | 80 % |
-| Plateaux sans note interdite | 100 % | 97 % | 100 % |
-| Champs du brief exacts | 80 % | 0 à 80 % | 100 % |
-| Latence p95 via l'API | < 5 s | | 4 ms |
+| Métrique                                   | Seuil | V1 (règles simples) | Modèle 3.1.0 (règles, sans Mistral) |
+| ------------------------------------------ | ----- | ------------------- | ----------------------------------- |
+| Famille dominante exacte                   | 60 %  | 80 %                | 80 %                                |
+| Notes attendues retrouvées dans le plateau | 50 %  | 69 %                | 80 %                                |
+| Plateaux sans note interdite               | 100 % | 97 %                | 100 %                               |
+| Champs du brief exacts                     | 80 %  | 0 à 80 %            | 100 %                               |
+| Latence p95 via l'API                      | < 5 s |                     | 4 ms                                |
 
 10 cas V3 (brief et références) : 100 % des 12 champs exacts, bonne référence dans les 3 propositions 100 % (au hasard : 34 %). Ces chiffres sont optimistes : le lexique des nouveaux champs a été écrit après les cas. Il faut des briefs que l'équipe Data n'a pas vus (voir `docs/protocole_validation.md`).
 
 ## Ce que la story map attend de la Data, et où c'est
 
-| Story map (ligne MVP) | Endpoint |
-|---|---|
-| Choisir Fragrances ou Arômes dès l'entrée | `domaine` dans `POST /recommandation` |
-| Voir le brief se remplir et corriger une info | `POST /brief`, `GET /modele-brief`, `POST /brief/import` |
-| Donner un ordre de grandeur de budget et de volume | champs `budget_kilo`, `volume_annuel` |
-| Conseiller : recevoir la demande avec le potentiel estimé | `POST /potentiel` |
-| Recevoir 3 références proches, expliquées (moment décisif) | `POST /references` |
-| Demander son plateau en un clic | `POST /recommandation` (plateau de 10) |
+| Story map (ligne MVP)                                                        | Endpoint                                                                     |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Choisir Fragrances ou Arômes dès l'entrée                                    | `domaine` dans `POST /recommandation`                                        |
+| Voir le brief se remplir et corriger une info                                | `POST /brief`, `GET /modele-brief`, `POST /brief/import`                     |
+| Donner un ordre de grandeur de budget et de volume                           | champs `budget_kilo`, `volume_annuel`                                        |
+| Conseiller : recevoir la demande avec le potentiel estimé                    | `POST /potentiel`                                                            |
+| Recevoir 3 références proches, expliquées (moment décisif)                   | `POST /references`                                                           |
+| Demander son plateau en un clic                                              | `POST /recommandation` (plateau de 10)                                       |
 | Plus tard : profil en duels, fiche matière, sentir les fioles, deux versions | `GET /duels`, `GET /notes/{id}`, `POST /formule`, `GET /notes/{id}/pourquoi` |
 
 ## Endpoints
 
-| Méthode | Chemin | Rôle |
-|---|---|---|
-| GET | `/sante`, `/metriques` | état du service, résultats de l'évaluation |
-| GET | `/llm` | Mistral (Ollama) joignable et installé ? |
-| GET | `/familles`, `/notes`, `/notes/{id}`, `/ambiances` | référentiel : 9 familles, 72 fiches matières, 18 ambiances |
-| GET | `/duels`, `/questions` | 5 duels du profil V3 (images, sons, mots) ; questions V2 |
-| GET | `/modele-brief` | modèle de brief à télécharger et remplir |
-| POST | `/brief`, `/brief/import`, `/analyse-brief` | brief structuré à partir du texte, ou d'un modèle rempli |
-| POST | `/profil` | roue (9 familles), radar (6 axes), commentaire ; accepte les réglages à la main |
-| POST | `/recommandation` | tout : brief, radar, plateau, 3 pistes, 3 références, potentiel, alertes |
-| POST | `/references`, `/potentiel` | les 3 références expliquées ; le potentiel critère par critère |
-| POST | `/formule`, `/variation` | deux versions à partir des fioles aimées ; « plus frais », « moins boisé » |
-| GET | `/notes/{id}/pourquoi` | réponse de l'aide avec ses sources |
-| GET | `/banque-references`, `/kit` | banque de références (fictive) ; kit de 30 notes |
-| POST | `/parfums-proches` | banque de parfums existants de Hamza, quand elle sera branchée |
+| Méthode | Chemin                                             | Rôle                                                                            |
+| ------- | -------------------------------------------------- | ------------------------------------------------------------------------------- |
+| GET     | `/sante`, `/metriques`                             | état du service, résultats de l'évaluation                                      |
+| GET     | `/llm`                                             | Mistral (Ollama) joignable et installé ?                                        |
+| GET     | `/familles`, `/notes`, `/notes/{id}`, `/ambiances` | référentiel : 9 familles, 72 fiches matières, 18 ambiances                      |
+| GET     | `/duels`, `/questions`                             | 5 duels du profil V3 (images, sons, mots) ; questions V2                        |
+| GET     | `/modele-brief`                                    | modèle de brief à télécharger et remplir                                        |
+| POST    | `/brief`, `/brief/import`, `/analyse-brief`        | brief structuré à partir du texte, ou d'un modèle rempli                        |
+| POST    | `/profil`                                          | roue (9 familles), radar (6 axes), commentaire ; accepte les réglages à la main |
+| POST    | `/recommandation`                                  | tout : brief, radar, plateau, 3 pistes, 3 références, potentiel, alertes        |
+| POST    | `/references`, `/potentiel`                        | les 3 références expliquées ; le potentiel critère par critère                  |
+| POST    | `/formule`, `/variation`                           | deux versions à partir des fioles aimées ; « plus frais », « moins boisé »      |
+| GET     | `/notes/{id}/pourquoi`                             | réponse de l'aide avec ses sources                                              |
+| GET     | `/banque-references`, `/kit`                       | banque de références (fictive) ; kit de 30 notes                                |
+| POST    | `/parfums-proches`                                 | banque de parfums existants de Hamza, quand elle sera branchée                  |
 
 Contrat complet : `docs/openapi.json`.
 

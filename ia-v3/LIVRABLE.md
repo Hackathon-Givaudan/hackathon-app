@@ -4,13 +4,13 @@ Service : `ia-v3/` (modèle 3.1.0 : la V2, plus le brief V3, les références pr
 Les captures ont été prises avec la 3.0.0. Sans l'option Mistral, la 3.1.0 donne exactement les mêmes résultats.
 Toutes les vérifications ci-dessous ont été faites le 12/11/2026 ; les captures sont dans `docs/livrable/`.
 
-| # | Point demandé | Statut | Où le voir | Preuve |
-|---|---|---|---|---|
-| 1 | Données nettoyées et préparées | Fait | `data/sources/` → `data/processed/`, `docs/donnees.md` | 72 notes, 9 familles, 18 ambiances, chaque donnée avec sa source et sa date |
-| 2 | Pipeline de traitement fonctionnel | Fait | `pipeline/build_data.py`, `data/processed/rapport_qualite.json` | 0 erreur bloquante, test `test_pipeline.py` |
-| 3 | Modèle publié | Fait | `app/moteur.py`, branche `feature/data-ia-v3` | 10 commits, ce dossier |
-| 4 | Métriques et protocole de validation sur 30 cas | Fait | `evaluation/`, `docs/protocole_validation.md` | tous les seuils atteints |
-| 5 | API fonctionnelle renvoyant les résultats réels du modèle | Fait | `app/main.py`, `docs/openapi.json` | 24 routes, 28 tests |
+| #   | Point demandé                                             | Statut | Où le voir                                                      | Preuve                                                                      |
+| --- | --------------------------------------------------------- | ------ | --------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| 1   | Données nettoyées et préparées                            | Fait   | `data/sources/` → `data/processed/`, `docs/donnees.md`          | 72 notes, 9 familles, 18 ambiances, chaque donnée avec sa source et sa date |
+| 2   | Pipeline de traitement fonctionnel                        | Fait   | `pipeline/build_data.py`, `data/processed/rapport_qualite.json` | 0 erreur bloquante, test `test_pipeline.py`                                 |
+| 3   | Modèle publié                                             | Fait   | `app/moteur.py`, branche `feature/data-ia-v3`                   | 10 commits, ce dossier                                                      |
+| 4   | Métriques et protocole de validation sur 30 cas           | Fait   | `evaluation/`, `docs/protocole_validation.md`                   | tous les seuils atteints                                                    |
+| 5   | API fonctionnelle renvoyant les résultats réels du modèle | Fait   | `app/main.py`, `docs/openapi.json`                              | 24 routes, 28 tests                                                         |
 
 ## 1. Données nettoyées et préparées
 
@@ -61,13 +61,13 @@ Le modèle est dans `app/moteur.py`, sans LLM : le spike #50 a montré qu'un mod
 
 Les 30 cas (`evaluation/cas_reference.json`, empreinte SHA-256 `8fc80f201c02f4ce`) ont été rédigés avant la première exécution, et les seuils ont été fixés avant aussi. Le protocole, les résultats avant et après corrections, les biais et les limites sont dans `docs/protocole_validation.md`.
 
-| Métrique | Seuil | V1 (règles simples) | Modèle 3.0.0 |
-|---|---|---|---|
-| Famille dominante exacte | 60 % | 80 % | 80 % |
-| Notes attendues retrouvées dans le plateau | 50 % | 69 % | 80 % |
-| Plateaux sans note interdite | 100 % | 97 % | 100 % |
-| Champs du brief exacts | 80 % | 0 à 80 % | 100 % |
-| Latence p95 | < 5 s | 0,2 ms | 2,6 ms |
+| Métrique                                   | Seuil | V1 (règles simples) | Modèle 3.0.0 |
+| ------------------------------------------ | ----- | ------------------- | ------------ |
+| Famille dominante exacte                   | 60 %  | 80 %                | 80 %         |
+| Notes attendues retrouvées dans le plateau | 50 %  | 69 %                | 80 %         |
+| Plateaux sans note interdite               | 100 % | 97 %                | 100 %        |
+| Champs du brief exacts                     | 80 %  | 0 à 80 %            | 100 %        |
+| Latence p95                                | < 5 s | 0,2 ms              | 2,6 ms       |
 
 Plus 10 cas V3 : 100 % des champs du brief exacts, et la bonne référence est dans les 3 propositions dans 100 % des cas (contre 34 % au hasard). Limite connue : le lexique a été écrit par l'équipe qui a rédigé les cas, donc ces chiffres sont optimistes. Il faut maintenant des briefs que l'équipe Data n'a pas vus.
 
