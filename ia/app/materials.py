@@ -5,10 +5,16 @@ que ce qui est confirmé par une source : un fait déduit ou vide reste hors de 
 """
 
 import json
+import re
 
 from .references import DATA_DIR, slug
 
 TIERS = {"tete": "Tête", "coeur": "Cœur", "fond": "Fond"}
+
+
+def note_id(name: str) -> str:
+    """« Sel marin (accord) » devient « sel-marin » : la précision entre parenthèses ne fait pas l'identifiant."""
+    return slug(re.sub(r"\s*\(.*?\)", "", name))
 
 
 def confirmed(note: dict, field: str) -> bool:
@@ -18,7 +24,7 @@ def confirmed(note: dict, field: str) -> bool:
 def sheet(note: dict, names: dict[str, str]) -> dict:
     """Une note d'Ali devient une fiche, avec nos identifiants et sans champ vide."""
     found = {
-        "noteId": slug(note["nom_fr"]),
+        "noteId": note_id(note["nom_fr"]),
         "name": note["nom_fr"],
         "family": note.get("famille_nom"),
         "tier": TIERS.get(note.get("etage")),
@@ -37,11 +43,11 @@ def sheet(note: dict, names: dict[str, str]) -> dict:
 def load() -> dict[str, dict]:
     notes = json.loads((DATA_DIR / "notes_atelier.json").read_text(encoding="utf-8"))["notes"]
     names = {note["id"]: note["nom_fr"] for note in notes}
-    return {slug(note["nom_fr"]): sheet(note, names) for note in notes}
+    return {note_id(note["nom_fr"]): sheet(note, names) for note in notes}
 
 
 SHEETS = load()
 
 
-def find(note_id: str) -> dict | None:
-    return SHEETS.get(note_id)
+def find(wanted: str) -> dict | None:
+    return SHEETS.get(wanted)
