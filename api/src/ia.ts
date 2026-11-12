@@ -21,7 +21,7 @@ export type Formula = {
 /* Une erreur du service, déjà traduite dans le code HTTP que l'API renvoie */
 export class IaError extends Error {
   constructor(
-    readonly status: 400 | 502,
+    readonly status: 400 | 404 | 502,
     message: string,
   ) {
     super(message);
@@ -60,7 +60,8 @@ function isFormula(value: unknown): value is Formula {
   );
 }
 
-async function call(path: string, body: unknown): Promise<unknown> {
+/* Sans corps, l'appel est un GET */
+async function call(path: string, body?: unknown): Promise<unknown> {
   // Lu à chaque appel : api/.env est chargé après l'import de ce fichier
   const baseUrl = process.env.DATA_AI_URL;
   if (!baseUrl) throw new IaError(502, UNAVAILABLE);
@@ -68,9 +69,10 @@ async function call(path: string, body: unknown): Promise<unknown> {
   let response: Response;
   try {
     response = await fetch(`${baseUrl}${path}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      method: body === undefined ? 'GET' : 'POST',
+      headers:
+        body === undefined ? undefined : { 'Content-Type': 'application/json' },
+      body: body === undefined ? undefined : JSON.stringify(body),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
   } catch {
@@ -88,6 +90,7 @@ async function call(path: string, body: unknown): Promise<unknown> {
         : 'Rien ne correspond à cette demande',
     );
   }
+  if (response.status === 404) throw new IaError(404, 'Introuvable');
   if (!response.ok) throw new IaError(502, UNAVAILABLE);
   return data;
 }
@@ -164,4 +167,65 @@ export async function sessionTurn(
     throw new IaError(502, UNAVAILABLE);
   }
   return { reply: data.reply, heard: data.heard, done: data.done };
+}
+
+/* La fiche d'une matière, telle que le service la donne : seuls noteId et name sont sûrs */
+export type Material = { noteId: string; name: string } & Record<
+  string,
+  unknown
+>;
+
+/* La fiche d'une note, ou null si la Data ne l'a pas documentée */
+export async function getMaterial(noteId: string): Promise<Material | null> {
+  let data: unknown;
+  try {
+    data = await call(`/materials/${encodeURIComponent(noteId)}`);
+  } catch (error) {
+    if (error instanceof IaError && error.status === 404) return null;
+    throw error;
+  }
+  if (
+    !isRecord(data) ||
+    typeof data.noteId !== 'string' ||
+    typeof data.name !== 'string'
+  ) {
+    throw new IaError(502, UNAVAILABLE);
+  }
+  return data as Material;
+}
+
+export type Potential = {
+  criteria: { id: string; label: string; status: string; reason: string }[];
+  favorable: number;
+  suggestion: string;
+  suggestionLabel: string;
+  note: string;
+};
+
+function isPotential(value: unknown): value is Potential {
+  return (
+    isRecord(value) &&
+    Number.isInteger(value.favorable) &&
+    typeof value.suggestion === 'string' &&
+    typeof value.suggestionLabel === 'string' &&
+    typeof value.note === 'string' &&
+    Array.isArray(value.criteria) &&
+    value.criteria.every(
+      (item) =>
+        isRecord(item) &&
+        typeof item.id === 'string' &&
+        typeof item.label === 'string' &&
+        typeof item.status === 'string' &&
+        typeof item.reason === 'string',
+    )
+  );
+}
+
+/* Le potentiel d'un brief : sept critères calculés par des règles écrites, sans modèle */
+export async function getPotential(
+  brief: Record<string, unknown>,
+): Promise<Potential> {
+  const data = await call('/potential', brief);
+  if (!isPotential(data)) throw new IaError(502, UNAVAILABLE);
+  return data;
 }
