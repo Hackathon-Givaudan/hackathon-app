@@ -4,11 +4,17 @@ import express, {
   type Response,
 } from 'express';
 import pg from 'pg';
+import { readDetails, readFeedback, type BriefDetails } from './details.js';
 import {
+  getMaterial,
+  getPotential,
   IaError,
   isRecord,
   proposeFormula,
   proposeNotes,
+  sessionTurn,
+  isIdea,
+  MAX_HEARD,
   type Formula,
   type Note,
   type Universe,
@@ -37,6 +43,8 @@ type BriefRow = {
   proposed_notes: Note[];
   validated_notes: Note[];
   formula: Formula | null;
+  details: BriefDetails;
+  feedback: string[] | null;
   created_at: Date;
 };
 
@@ -53,6 +61,10 @@ function toBrief(row: BriefRow) {
     status: row.status,
     proposedNotes: row.proposed_notes,
     validatedNotes: row.validated_notes,
+    details: row.details,
+    // Absents tant qu'il n'y a ni formule ni retour
+    formulaName: row.formula?.name,
+    feedback: row.feedback ?? undefined,
     createdAt: row.created_at.toISOString(),
   };
 }
@@ -100,9 +112,86 @@ app.post('/api/briefs', async (req, res) => {
   res.status(201).json(toBrief(rows[0]));
 });
 
+/* La séance avec Aurore : un échange. L'API ne garde rien, le front renvoie ce qui a été entendu */
+app.post('/api/session/turn', async (req, res) => {
+  const body: unknown = req.body;
+  const universe = isRecord(body) ? body.universe : undefined;
+  const said = isRecord(body) && typeof body.said === 'string' ? body.said : '';
+  const heard: unknown[] =
+    isRecord(body) && Array.isArray(body.heard) ? body.heard : [];
+  if (universe !== 'parfum' && universe !== 'arome') {
+    return fail(res, 400, 'Univers inconnu : parfum ou arome');
+  }
+  if (said.length > 2000 || heard.length > MAX_HEARD || !heard.every(isIdea)) {
+    return fail(res, 400, 'Échange invalide');
+  }
+  res.json(await sessionTurn(universe, said.trim(), heard.filter(isIdea)));
+});
+
+/* La fiche d'une matière, relayée depuis le service Data/IA */
+app.get('/api/materials/:noteId', async (req, res) => {
+  const noteId = req.params.noteId;
+  if (!/^[a-z0-9-]{1,100}$/.test(noteId)) {
+    return fail(res, 404, 'Cette note n’a pas encore de fiche');
+  }
+  const material = await getMaterial(noteId);
+  if (!material) return fail(res, 404, 'Cette note n’a pas encore de fiche');
+  res.json(material);
+});
+
+/* Les cinquante briefs les plus récents : la même liste pour la marque et pour le conseiller */
+app.get('/api/briefs', async (_req, res) => {
+  const { rows } = await db.query<BriefRow>(
+    'SELECT * FROM briefs ORDER BY created_at DESC, id DESC LIMIT 50',
+  );
+  res.json({ briefs: rows.map(toBrief) });
+});
+
 app.get('/api/briefs/:briefId', async (req, res) => {
   const brief = await findBrief(req, res);
   if (brief) res.json(toBrief(brief));
+});
+
+/* Compléter le brief : la route remplace l'ensemble des précisions */
+app.put('/api/briefs/:briefId/details', async (req, res) => {
+  const details = readDetails(req.body);
+  if (typeof details === 'string') return fail(res, 400, details);
+  const brief = await findBrief(req, res);
+  if (!brief) return;
+  const { rows } = await db.query<BriefRow>(
+    'UPDATE briefs SET details = $1::jsonb WHERE id = $2 RETURNING *',
+    [JSON.stringify(details), brief.id],
+  );
+  res.json(toBrief(rows[0]));
+});
+
+/* Le potentiel du brief pour le conseiller : calculé à la demande, rien n'est enregistré */
+app.get('/api/briefs/:briefId/potential', async (req, res) => {
+  const brief = await findBrief(req, res);
+  if (!brief) return;
+  res.json(
+    await getPotential({
+      universe: brief.universe,
+      ...brief.details,
+      closestReference: brief.formula?.name,
+    }),
+  );
+});
+
+/* Le retour après l'essai : renvoyer la route remplace le retour précédent */
+app.post('/api/briefs/:briefId/feedback', async (req, res) => {
+  const feedback = readFeedback(req.body);
+  if (typeof feedback === 'string') return fail(res, 400, feedback);
+  const brief = await findBrief(req, res);
+  if (!brief) return;
+  if (brief.status !== 'formula_accepted') {
+    return fail(res, 409, 'Demandez d’abord votre échantillon');
+  }
+  const { rows } = await db.query<BriefRow>(
+    'UPDATE briefs SET feedback = $1::jsonb WHERE id = $2 RETURNING *',
+    [JSON.stringify(feedback), brief.id],
+  );
+  res.json(toBrief(rows[0]));
 });
 
 /* Geste 2 : valider les notes */

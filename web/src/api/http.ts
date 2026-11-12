@@ -1,5 +1,5 @@
 /* Appels réels à l'API, route par route, comme dans openapi.yaml */
-import type { Api, Brief, Formula } from './types';
+import type { Api, Brief, Formula, Material, Potential, Turn } from './types';
 
 async function call<T>(
   method: string,
@@ -14,12 +14,17 @@ async function call<T>(
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    throw new Error(data.error ?? 'Le service ne répond pas, réessayez.');
+    throw Object.assign(
+      new Error(data.error ?? 'Le service ne répond pas, réessayez.'),
+      { status: response.status },
+    );
   }
   return data as T;
 }
 
 export const httpApi: Api = {
+  sessionTurn: (universe, said, heard) =>
+    call<Turn>('POST', '/session/turn', { universe, said, heard }),
   createBrief: (universe, wishes) =>
     call<Brief>('POST', '/briefs', { universe, wishes }),
   validateNotes: (briefId, noteIds) =>
@@ -28,4 +33,20 @@ export const httpApi: Api = {
     call<Formula>('POST', `/briefs/${briefId}/formula`),
   acceptFormula: (briefId) =>
     call<Brief>('POST', `/briefs/${briefId}/formula/acceptance`),
+  material: (noteId) =>
+    call<Material>('GET', `/materials/${encodeURIComponent(noteId)}`).catch(
+      (error: Error & { status?: number }) => {
+        // Une note sans fiche n'est pas une panne : l'écran dit « fiche à venir »
+        if (error.status === 404) return null;
+        throw error;
+      },
+    ),
+  completeBrief: (briefId, details) =>
+    call<Brief>('PUT', `/briefs/${briefId}/details`, details),
+  listBriefs: () =>
+    call<{ briefs: Brief[] }>('GET', '/briefs').then(({ briefs }) => briefs),
+  potential: (briefId) =>
+    call<Potential>('GET', `/briefs/${briefId}/potential`),
+  giveFeedback: (briefId, adjustments) =>
+    call<Brief>('POST', `/briefs/${briefId}/feedback`, { adjustments }),
 };

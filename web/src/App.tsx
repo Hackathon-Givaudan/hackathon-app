@@ -14,37 +14,80 @@ import { BottleBoundary } from './bottle/BottleBoundary';
 import type { Brief, Formula, Universe } from './api';
 import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
-import { DescribeStep } from './journey/DescribeStep';
+import {
+  BriefStep,
+  labelOf,
+  toApiDetails,
+  type BriefDetails,
+} from './journey/BriefStep';
+import { AdvisorView } from './spaces/AdvisorView';
+import { SpaceView } from './spaces/SpaceView';
+import { SessionStep } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
-import { NotesStep } from './journey/NotesStep';
+import { DeliveryStep } from './journey/DeliveryStep';
+import { HelpDialog } from './journey/HelpDialog';
+import { ACCOUNT, WelcomeStep, type Guide } from './journey/WelcomeStep';
+import { ProfileStep } from './journey/ProfileStep';
+import { TrayStep, type Opinion } from './journey/TrayStep';
 import { UniverseStep } from './journey/UniverseStep';
 import type { Layer } from './bottle/Bottle3D';
+import type { Vial } from './bottle/Tray3D';
 import { VOCABULARY } from './shared/vocabulary';
 import { cn } from './shared/ui';
 
 const Bottle3D = lazy(() => import('./bottle/Bottle3D'));
+const Tray3D = lazy(() => import('./bottle/Tray3D'));
 
-type Step = 'universe' | 'describe' | 'notes' | 'formula' | 'accepted';
+type Step =
+  | 'universe'
+  | 'welcome'
+  | 'describe'
+  | 'brief'
+  | 'profile'
+  | 'delivery'
+  | 'notes'
+  | 'formula'
+  | 'accepted';
 const STEPS: [Step, string][] = [
   ['universe', 'Univers'],
-  ['describe', 'Projet'],
-  ['notes', 'Récapitulatif'],
-  ['formula', 'Proposition'],
+  ['welcome', 'Bienvenue'],
+  ['describe', 'Séance'],
+  ['brief', 'Brief'],
+  ['profile', 'Profil'],
+  ['notes', 'Plateau'],
+  ['formula', 'Formule'],
   ['accepted', 'Demande'],
 ];
 
 export default function App() {
   const [step, setStep] = useState<Step>('universe');
+  /* L'atelier, ou l'un des deux espaces : celui de la marque, celui du conseiller */
+  const [view, setView] = useState<'journey' | 'space' | 'advisor'>('journey');
   const [universe, setUniverse] = useState<Universe>('parfum');
   const [brief, setBrief] = useState<Brief | null>(null);
-  const [keptIds, setKeptIds] = useState<string[]>([]);
+  /* Ce qu'Aurore a entendu pendant la séance, avant le profil */
+  const [heardWishes, setHeardWishes] = useState('');
+  /* L'avis de la marque sur chaque fiole de son plateau */
+  const [opinions, setOpinions] = useState<Record<string, Opinion>>({});
+  const keptIds = Object.keys(opinions).filter((id) => opinions[id] !== 'no');
   const [formula, setFormula] = useState<Formula | null>(null);
+  /* Le nom que la marque donne à sa création */
+  const [creationName, setCreationName] = useState('');
+  const [help, setHelp] = useState(false);
+  const [guide, setGuide] = useState<Guide>('Aurore');
+  /* Le produit choisi à la bienvenue, et ce que la marque complète dans son brief */
+  const [product, setProduct] = useState('');
+  const [details, setDetails] = useState<BriefDetails>({});
+  /* Les réponses du profil, gardées si la marque revient en arrière */
+  const [profileAnswers, setProfileAnswers] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const panel = useRef<HTMLElement>(null);
-  const { expert, object, lid, noteHelp, tiers } = VOCABULARY[universe];
+  const { expert, object, lid, noteHelp, tiers, profile, existing } =
+    VOCABULARY[universe];
   /* Tant que la marque n'a pas dit ce qu'elle crée, on ne montre ni flacon ni pot */
   const chosen = step !== 'universe';
+  const onTray = (step === 'notes' || step === 'delivery') && brief;
 
   /* Lance un geste : état d'attente, puis résultat ou message d'erreur */
   async function run(gesture: () => Promise<void>) {
@@ -66,10 +109,18 @@ export default function App() {
 
   const sendWishes = (wishes: string) =>
     run(async () => {
-      const created = await api.createBrief(universe, wishes);
-      setBrief(created);
-      setKeptIds(created.proposedNotes.map((note) => note.id));
-      setStep('notes');
+      /* Revenir en arrière puis repartir sans rien changer ne crée pas un deuxième brief */
+      const same = brief?.wishes === wishes.trim() ? brief : null;
+      const created = same ?? (await api.createBrief(universe, wishes));
+      /* Les précisions données à l'écran du brief partent avec lui : le conseiller les lit */
+      const sent = toApiDetails(details);
+      setBrief(
+        Object.keys(sent).length
+          ? await api.completeBrief(created.id, sent)
+          : created,
+      );
+      if (!same) setOpinions({});
+      setStep('delivery');
     });
 
   const validateNotes = () =>
@@ -89,7 +140,12 @@ export default function App() {
   function restart() {
     setBrief(null);
     setFormula(null);
-    setKeptIds([]);
+    setOpinions({});
+    setHeardWishes('');
+    setCreationName('');
+    setProduct('');
+    setDetails({});
+    setProfileAnswers([]);
     setError('');
     setStep('universe');
   }
@@ -98,7 +154,11 @@ export default function App() {
   const kept =
     brief?.proposedNotes.filter((note) => keptIds.includes(note.id)) ?? [];
   const layers: Layer[] =
-    step === 'universe' || step === 'describe'
+    step === 'universe' ||
+    step === 'welcome' ||
+    step === 'describe' ||
+    step === 'brief' ||
+    step === 'profile'
       ? []
       : step === 'notes'
         ? kept.slice(0, 5).map((note) => ({
@@ -114,7 +174,28 @@ export default function App() {
               p: share,
               c: noteColor(note.label),
             }));
-  const waiting = step === 'universe' || step === 'describe';
+  /* Le plateau en 3D : la fiole en cours se soulève, les écartées s'estompent */
+  const firstUnsmelled = brief?.proposedNotes.find(
+    (note) => !opinions[note.id],
+  );
+  const vials: Vial[] = (brief?.proposedNotes ?? []).map((note) => ({
+    label: note.label,
+    color: noteColor(note.label),
+    state:
+      note === firstUnsmelled
+        ? 'current'
+        : !opinions[note.id]
+          ? 'waiting'
+          : opinions[note.id] === 'no'
+            ? 'left'
+            : 'kept',
+  }));
+  const waiting =
+    step === 'universe' ||
+    step === 'welcome' ||
+    step === 'describe' ||
+    step === 'brief' ||
+    step === 'profile';
   const bottleTitle = waiting
     ? 'Brief'
     : step === 'notes'
@@ -127,7 +208,7 @@ export default function App() {
       : (formula?.name ?? '');
 
   useEffect(() => {
-    document.title = 'Sillage, concept étudiant pour Givaudan';
+    document.title = 'Givaudan · L’atelier, concept étudiant';
   }, []);
 
   /* Entrée douce du titre à chaque écran */
@@ -152,63 +233,117 @@ export default function App() {
     };
   }, [step]);
 
-  const stepIndex = STEPS.findIndex(([id]) => id === step);
+  /* L'attente du plateau fait partie de l'étape « Plateau » */
+  const stepIndex = STEPS.findIndex(
+    ([id]) => id === (step === 'delivery' ? 'notes' : step),
+  );
 
   return (
     <div className="f-root ink relative isolate flex min-h-svh flex-col overflow-x-clip">
-      <header className="flex flex-wrap items-end justify-between gap-x-10 gap-y-2 px-5 pt-5 md:px-10">
+      <header className="flex flex-wrap items-end justify-between gap-x-10 gap-y-2 border-b border-line bg-card px-5 pt-5 md:px-10">
         <div className="pb-4">
-          <p className="f-display text-[30px] leading-none">Sillage</p>
-          <p className="mono mt-1.5 text-[10px]">
-            Concept étudiant pour Givaudan
+          <p className="text-[22px] font-semibold leading-none tracking-tight">
+            Givaudan{' '}
+            <span className="font-normal text-accent-text">L’atelier</span>
+          </p>
+          <p className="mt-1.5 text-[12px] text-muted">
+            Concept étudiant, sans lien officiel avec Givaudan
           </p>
         </div>
-        <ol aria-label="Étapes" className="flex">
+        <div className="order-last flex h-14 items-center gap-4">
+          <button
+            onClick={() => setView('space')}
+            className="h-11 px-1 text-sm underline underline-offset-4"
+          >
+            {ACCOUNT.name.split(' ')[0]} · Mon espace
+          </button>
+          <button
+            onClick={() => setView('advisor')}
+            className="h-11 px-1 text-sm underline underline-offset-4"
+          >
+            Espace conseiller
+          </button>
+          <button
+            onClick={() => setHelp(true)}
+            className="h-11 px-1 text-sm underline underline-offset-4"
+          >
+            Aide
+          </button>
+        </div>
+        {help && <HelpDialog guide={guide} onClose={() => setHelp(false)} />}
+        {/* Sur un petit écran, les huit étapes ne tiennent pas en ligne : le carnet dit seulement où l'on est */}
+        <p
+          role="status"
+          aria-label="Carnet d’atelier"
+          className="order-last w-full pb-3 text-sm text-secondary lg:sr-only"
+        >
+          Carnet d’atelier · étape {stepIndex + 1} sur {STEPS.length} ·{' '}
+          <span className="font-medium text-ink">{STEPS[stepIndex][1]}</span>
+        </p>
+        <ol
+          aria-label="Carnet d’atelier"
+          title={`Carnet d’atelier · étape ${stepIndex + 1} sur ${STEPS.length}`}
+          className="hidden lg:flex"
+        >
           {STEPS.map(([id, label], index) => (
             <li
               key={id}
               aria-current={index === stepIndex ? 'step' : undefined}
               className={cn(
                 'flex h-14 items-center border-b-2 px-3 text-sm md:px-5',
-                index === stepIndex ? 'border-[#ECE9EF]' : 'border-transparent',
-                index > stepIndex && 'text-[#C4B7C2]',
+                index === stepIndex ? 'border-accent' : 'border-transparent',
+                index > stepIndex && 'text-muted',
               )}
             >
-              <span className="mono mr-2 text-[11px]">{index + 1}</span>
+              <span className="mr-2 text-[12px] text-muted">{index + 1}</span>
               {label}
             </li>
           ))}
         </ol>
       </header>
 
-      <div className={cn('grid flex-1', chosen && 'lg:grid-cols-2')}>
+      {view === 'space' && <SpaceView onBack={() => setView('journey')} />}
+      {view === 'advisor' && <AdvisorView onBack={() => setView('journey')} />}
+      <div
+        className={cn(
+          'grid flex-1',
+          chosen && 'lg:grid-cols-2',
+          view !== 'journey' && 'hidden',
+        )}
+      >
         {chosen && (
-          <aside className="flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
+          <aside className="stage flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
             <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
               <BottleBoundary>
                 <Suspense fallback={null}>
-                  <Bottle3D
-                    layers={layers}
-                    title={bottleTitle}
-                    sub={bottleCaption}
-                    spinKey={step}
-                    focus={null}
-                    lid={lid}
-                  />
+                  {onTray ? (
+                    <Tray3D vials={vials} />
+                  ) : (
+                    <Bottle3D
+                      layers={layers}
+                      title={bottleTitle}
+                      sub={bottleCaption}
+                      spinKey={step}
+                      focus={null}
+                      lid={lid}
+                    />
+                  )}
                 </Suspense>
               </BottleBoundary>
             </div>
-            <p className="mono text-[11px] opacity-80">
-              {layers.length === 0
-                ? `Le ${object} se remplit avec vos mots.`
-                : layers.map((layer) => layer.n).join(' · ')}
+            <p className="text-[13px] opacity-80">
+              {step === 'notes'
+                ? 'Votre plateau, une fiole à la fois.'
+                : layers.length === 0
+                  ? `Le ${object} se remplit avec vos mots.`
+                  : layers.map((layer) => layer.n).join(' · ')}
             </p>
           </aside>
         )}
 
         <main
           ref={panel}
-          className="flex min-w-0 flex-col bg-[#1B0C19]/45 px-5 md:px-10"
+          className="flex min-w-0 flex-col bg-card px-5 md:px-10"
         >
           <div
             className={cn(
@@ -220,37 +355,82 @@ export default function App() {
               <UniverseStep
                 onChoose={(chosen) => {
                   setUniverse(chosen);
-                  setStep('describe');
+                  setStep('welcome');
                 }}
               />
             )}
-            {step === 'describe' && (
-              <DescribeStep
-                key={universe}
+            {step === 'welcome' && (
+              <WelcomeStep
                 universe={universe}
-                busy={busy}
-                error={error}
-                onSubmit={sendWishes}
+                product={product}
+                onProduct={setProduct}
+                guide={guide}
+                onGuide={setGuide}
+                onStart={() => setStep('describe')}
                 onBack={() => setStep('universe')}
               />
             )}
+            {step === 'describe' && (
+              <SessionStep
+                key={universe}
+                universe={universe}
+                guide={guide}
+                product={product}
+                busy={busy}
+                error={error}
+                onSubmit={(wishes) => {
+                  setHeardWishes(wishes);
+                  setStep('brief');
+                }}
+                onBack={() => setStep('universe')}
+              />
+            )}
+            {step === 'brief' && (
+              <BriefStep
+                guide={guide}
+                profile={profile}
+                wishes={heardWishes}
+                details={details}
+                onDetails={setDetails}
+                onNext={() => setStep('profile')}
+                onBack={() => setStep('describe')}
+              />
+            )}
+            {step === 'profile' && (
+              <ProfileStep
+                universe={universe}
+                wishes={heardWishes}
+                answers={profileAnswers}
+                onAnswers={setProfileAnswers}
+                busy={busy}
+                error={error}
+                onSubmit={sendWishes}
+                onBack={() => setStep('brief')}
+              />
+            )}
+            {step === 'delivery' && brief && (
+              <DeliveryStep
+                vials={brief.proposedNotes.length}
+                guide={guide}
+                existing={existing}
+                onArrived={() => setStep('notes')}
+                onBack={() => setStep('profile')}
+              />
+            )}
             {step === 'notes' && brief && (
-              <NotesStep
-                wishes={brief.wishes}
-                noteHelp={noteHelp}
+              <TrayStep
                 notes={brief.proposedNotes}
-                keptIds={keptIds}
-                onToggle={(id) =>
-                  setKeptIds((ids) =>
-                    ids.includes(id)
-                      ? ids.filter((kept) => kept !== id)
-                      : [...ids, id],
-                  )
+                opinions={opinions}
+                onOpinion={(id, opinion) =>
+                  setOpinions((all) => ({ ...all, [id]: opinion }))
                 }
+                noteHelp={noteHelp}
+                guide={guide}
+                expert={expert}
                 busy={busy}
                 error={error}
                 onValidate={validateNotes}
-                onBack={() => setStep('describe')}
+                onBack={() => setStep('profile')}
               />
             )}
             {step === 'formula' && formula && (
@@ -258,6 +438,15 @@ export default function App() {
                 formula={formula}
                 expert={expert}
                 tiers={tiers}
+                name={creationName}
+                onName={setCreationName}
+                countries={
+                  Array.isArray(details.salesCountries)
+                    ? details.salesCountries.map((country) =>
+                        labelOf('salesCountries', country),
+                      )
+                    : []
+                }
                 busy={busy}
                 error={error}
                 onAccept={acceptFormula}
@@ -267,7 +456,10 @@ export default function App() {
             {step === 'accepted' && formula && (
               <AcceptedStep
                 formula={formula}
+                name={creationName.trim() || formula.name}
                 expert={expert}
+                guide={guide}
+                briefId={brief?.id}
                 onRestart={restart}
               />
             )}

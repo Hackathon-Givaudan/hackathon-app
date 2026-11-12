@@ -43,7 +43,7 @@ function roundedPlane(w: number, d: number, r: number) {
   s.quadraticCurveTo(x, y, x + r, y);
   return new THREE.ShapeGeometry(s, 16);
 }
-const GLASS_BG = new THREE.Color('#6A4A66');
+const GLASS_BG = new THREE.Color('#C9BFB2');
 
 function Label({ title, sub }: { title: string; sub: string }) {
   const { canvas, tex } = useMemo(() => {
@@ -61,16 +61,16 @@ function Label({ title, sub }: { title: string; sub: string }) {
       if (!live) return;
       const g = canvas.getContext('2d')!;
       g.setTransform(2, 0, 0, 2, 0, 0);
-      g.fillStyle = '#F2ECF0';
+      g.fillStyle = '#FAF8F5';
       g.fillRect(0, 0, 768, 480);
-      g.strokeStyle = '#22101F';
+      g.strokeStyle = '#1D1B18';
       g.lineWidth = 2;
       g.strokeRect(20, 20, 728, 440);
-      g.fillStyle = '#22101F';
+      g.fillStyle = '#1D1B18';
       g.textAlign = 'center';
       g.font = "600 124px 'Bodoni Moda Variable', Didot, serif";
       g.fillText(title, 384, 250);
-      g.font = "400 38px 'IBM Plex Mono', monospace";
+      g.font = "500 34px 'Hanken Grotesk Variable', sans-serif";
       g.fillText(sub, 384, 345);
       tex.needsUpdate = true;
     };
@@ -143,7 +143,7 @@ function Bottle({
     Array.from({ length: SLOTS }, () => ({
       h: 0,
       d: 0,
-      color: new THREE.Color('#B9AEBF'),
+      color: new THREE.Color('#D8D0C4'),
     })),
   );
   const first = useRef(true);
@@ -158,7 +158,7 @@ function Bottle({
     const bottomUp = [...layers].reverse();
     slots.current.forEach((s, i) => {
       const l = bottomUp[i];
-      const c = new THREE.Color(l?.c ?? '#B9AEBF');
+      const c = new THREE.Color(l?.c ?? '#D8D0C4');
       gsap.to(s, {
         h: l ? l.p / Math.max(total, 100) : 0,
         duration: 1.2,
@@ -261,7 +261,7 @@ function Bottle({
             1024 * (1 - (total * FILL) / INNER_H),
           );
           let cum = 0;
-          const shade = new THREE.Color('#150A14');
+          const shade = new THREE.Color('#1D1B18');
           list.forEach((x) => {
             const c2 = x.color.clone().lerp(shade, x.d);
             lg.addColorStop(
@@ -380,7 +380,7 @@ function Bottle({
             <mesh position={[0, 2.08, 0]}>
               <cylinderGeometry args={[0.56, 0.56, 0.82, 128]} />
               <meshStandardMaterial
-                color="#17090F"
+                color="#1D1B18"
                 metalness={0.65}
                 roughness={0.28}
               />
@@ -435,7 +435,7 @@ export default function Bottle3D(props: Props) {
       <mesh position={[0, -2.24, 0]}>
         <cylinderGeometry args={[1.82, 1.88, 0.62, 192]} />
         <meshPhysicalMaterial
-          color="#332030"
+          color="#3A2A22"
           roughness={0.58}
           metalness={0.05}
         />
@@ -451,7 +451,7 @@ export default function Bottle3D(props: Props) {
         blur={2.4}
         opacity={0.9}
         far={2.6}
-        color="#050105"
+        color="#0B0907"
       />
       <Environment resolution={1024} frames={1}>
         <Lightformer
@@ -470,7 +470,7 @@ export default function Bottle3D(props: Props) {
         <Lightformer
           form="rect"
           intensity={1.1}
-          color="#E7C9FF"
+          color="#F1E9DD"
           position={[5, 0, 2]}
           rotation={[0, -Math.PI / 2, 0]}
           scale={[1.2, 7, 1]}
