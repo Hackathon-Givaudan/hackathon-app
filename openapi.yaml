@@ -629,6 +629,50 @@ components:
         source:
           type: string
           description: Origine de la formule, ou « exemple construit »
+        nearby:
+          type: array
+          maxItems: 3
+          description: |
+            Jusqu'à trois références proches de la banque, la proposée en premier.
+            Chacune dit les notes gardées par la marque qu'elle contient.
+          items:
+            type: object
+            required: [id, name, family, shared, why]
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              family:
+                type: string
+              shared:
+                type: array
+                items:
+                  type: string
+              why:
+                type: string
+        versions:
+          type: array
+          maxItems: 2
+          description: |
+            Deux versions de la formule, plus fraîche et plus chaude, pour un parfum.
+            Chacune met en avant deux notes, sans dosage. Vide pour un arôme.
+            La règle est écrite dans `ia/data/deux_versions.md`.
+          items:
+            type: object
+            required: [id, title, accent, why]
+            properties:
+              id:
+                type: string
+                enum: [A, B]
+              title:
+                type: string
+              accent:
+                type: array
+                items:
+                  type: string
+              why:
+                type: string
     Error:
       type: object
       required: [error]

@@ -14,6 +14,8 @@ type Props = {
   guide: string;
   /* Le brief qui reçoit le retour après essai */
   briefId?: number;
+  /* « Version A, plus fraîche », si la marque en a gardé une */
+  version?: string;
   onRestart: () => void;
 };
 
@@ -52,6 +54,7 @@ export function AcceptedStep({
   expert,
   guide,
   briefId,
+  version,
   onRestart,
 }: Props) {
   const [received, setReceived] = useState(false);
@@ -107,7 +110,10 @@ export function AcceptedStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>{name}</p>
+      <p className={smallLabel}>
+        <span>{name}</span>
+        {version && <span> · {version}</span>}
+      </p>
       <h1 className="f-display mt-1 text-[48px] leading-[1.05] md:text-[60px]">
         {received
           ? 'Vous l’avez reçu. Comment vit-elle chez vous ?'

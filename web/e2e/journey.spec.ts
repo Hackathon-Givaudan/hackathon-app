@@ -648,3 +648,24 @@ test('going back from the tray keeps the profile and the same brief', async ({
   await expect(offers).toBeVisible();
   expect(await count()).toBe(before);
 });
+
+test('the brand picks one of two versions and sees the nearby references', async ({
+  page,
+}) => {
+  await reachTray(page, 'Un parfum', SEASIDE);
+  await smell(page, 'Je l’aime');
+  await compose(page).click();
+
+  // Jusqu'à trois références proches, la proposée en premier
+  const nearby = page.getByRole('region', { name: 'Références proches' });
+  await expect(nearby.getByRole('listitem').first()).toContainText('proposée');
+  expect(await nearby.getByRole('listitem').count()).toBeLessThanOrEqual(3);
+
+  // Deux versions : la marque garde la plus chaude, et la retrouve dans son suivi
+  const versions = page.getByRole('region', { name: 'Deux versions' });
+  await versions
+    .getByRole('button', { name: /Version B, plus chaude/ })
+    .click();
+  await page.getByRole('button', { name: /^Recevoir l’échantillon/ }).click();
+  await expect(page.getByText(/Version B, plus chaude/)).toBeVisible();
+});
