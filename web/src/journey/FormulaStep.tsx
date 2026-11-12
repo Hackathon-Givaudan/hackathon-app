@@ -17,6 +17,8 @@ type Props = {
   /* Le nom que la marque donne à sa création */
   name: string;
   onName: (name: string) => void;
+  /* Les pays de vente donnés dans le brief, pour le contrôle réglementaire */
+  countries: string[];
   busy: boolean;
   error: string;
   onAccept: () => void;
@@ -29,6 +31,7 @@ export function FormulaStep({
   tiers,
   name,
   onName,
+  countries,
   busy,
   error,
   onAccept,
@@ -36,6 +39,8 @@ export function FormulaStep({
 }: Props) {
   /* Les notes regroupées par niveau, dans l'ordre où la formule les donne */
   const levels = [...new Set(formula.notes.map(({ note }) => note.family))];
+  /* L'IFRA et la tenue sur peau ne concernent que les parfums */
+  const flavour = expert === 'aromaticien';
 
   return (
     <div className="mt-auto pb-6 pt-10">
@@ -83,9 +88,42 @@ export function FormulaStep({
         />
       </label>
 
+      <h2 className="mt-8 text-[20px] font-semibold">
+        Avant votre échantillon
+      </h2>
+      <ul className="mt-2 border-t border-line-strong">
+        {[
+          [
+            `Validée par un ${expert} Givaudan`,
+            flavour ? 'Équilibre et dosages' : 'Équilibre, tenue et dosages',
+          ],
+          flavour
+            ? ['Testée dans votre produit', 'Goût et stabilité dans le temps']
+            : [
+                'Testée sur peau et en flacon',
+                'Tenue, sillage et stabilité dans le temps',
+              ],
+          [
+            'Contrôlée pour vos pays de vente',
+            `${flavour ? 'Réglementation alimentaire' : 'Normes IFRA et réglementation'} : ${countries.join(', ') || '[X]'}`,
+          ],
+        ].map(([check, detail]) => (
+          <li key={check} className="border-b border-line py-2">
+            <span className="block font-semibold">{check}</span>
+            <span className="text-sm text-secondary">{detail}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-2 text-sm text-secondary">
+        Ces trois étapes sont celles du vrai service : le prototype ne les
+        réalise pas.
+      </p>
+
       <div className="mt-6 flex flex-wrap items-center gap-5">
         <button onClick={onAccept} disabled={busy} className={primaryButton}>
-          {busy ? 'Enregistrement…' : 'Demander un échantillon'}
+          {busy
+            ? 'Enregistrement…'
+            : `Recevoir l’échantillon de ${name.trim() || formula.name}`}
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>
