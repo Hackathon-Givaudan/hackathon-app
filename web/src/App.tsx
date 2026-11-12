@@ -16,20 +16,25 @@ import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
 import { SessionStep } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
-import { NotesStep } from './journey/NotesStep';
+import { ProfileStep } from './journey/ProfileStep';
+import { TrayStep, type Opinion } from './journey/TrayStep';
 import { UniverseStep } from './journey/UniverseStep';
 import type { Layer } from './bottle/Bottle3D';
+import type { Vial } from './bottle/Tray3D';
 import { VOCABULARY } from './shared/vocabulary';
 import { cn } from './shared/ui';
 
 const Bottle3D = lazy(() => import('./bottle/Bottle3D'));
+const Tray3D = lazy(() => import('./bottle/Tray3D'));
 
-type Step = 'universe' | 'describe' | 'notes' | 'formula' | 'accepted';
+type Step =
+  'universe' | 'describe' | 'profile' | 'notes' | 'formula' | 'accepted';
 const STEPS: [Step, string][] = [
   ['universe', 'Univers'],
-  ['describe', 'Projet'],
-  ['notes', 'Récapitulatif'],
-  ['formula', 'Proposition'],
+  ['describe', 'Séance'],
+  ['profile', 'Brief'],
+  ['notes', 'Plateau'],
+  ['formula', 'Formule'],
   ['accepted', 'Demande'],
 ];
 
@@ -37,7 +42,11 @@ export default function App() {
   const [step, setStep] = useState<Step>('universe');
   const [universe, setUniverse] = useState<Universe>('parfum');
   const [brief, setBrief] = useState<Brief | null>(null);
-  const [keptIds, setKeptIds] = useState<string[]>([]);
+  /* Ce qu'Aurore a entendu pendant la séance, avant le profil */
+  const [heardWishes, setHeardWishes] = useState('');
+  /* L'avis de la marque sur chaque fiole de son plateau */
+  const [opinions, setOpinions] = useState<Record<string, Opinion>>({});
+  const keptIds = Object.keys(opinions).filter((id) => opinions[id] !== 'no');
   const [formula, setFormula] = useState<Formula | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -68,7 +77,7 @@ export default function App() {
     run(async () => {
       const created = await api.createBrief(universe, wishes);
       setBrief(created);
-      setKeptIds(created.proposedNotes.map((note) => note.id));
+      setOpinions({});
       setStep('notes');
     });
 
@@ -89,7 +98,8 @@ export default function App() {
   function restart() {
     setBrief(null);
     setFormula(null);
-    setKeptIds([]);
+    setOpinions({});
+    setHeardWishes('');
     setError('');
     setStep('universe');
   }
@@ -98,7 +108,7 @@ export default function App() {
   const kept =
     brief?.proposedNotes.filter((note) => keptIds.includes(note.id)) ?? [];
   const layers: Layer[] =
-    step === 'universe' || step === 'describe'
+    step === 'universe' || step === 'describe' || step === 'profile'
       ? []
       : step === 'notes'
         ? kept.slice(0, 5).map((note) => ({
@@ -114,7 +124,24 @@ export default function App() {
               p: share,
               c: noteColor(note.label),
             }));
-  const waiting = step === 'universe' || step === 'describe';
+  /* Le plateau en 3D : la fiole en cours se soulève, les écartées s'estompent */
+  const firstUnsmelled = brief?.proposedNotes.find(
+    (note) => !opinions[note.id],
+  );
+  const vials: Vial[] = (brief?.proposedNotes ?? []).map((note) => ({
+    label: note.label,
+    color: noteColor(note.label),
+    state:
+      note === firstUnsmelled
+        ? 'current'
+        : !opinions[note.id]
+          ? 'waiting'
+          : opinions[note.id] === 'no'
+            ? 'left'
+            : 'kept',
+  }));
+  const waiting =
+    step === 'universe' || step === 'describe' || step === 'profile';
   const bottleTitle = waiting
     ? 'Brief'
     : step === 'notes'
@@ -187,14 +214,18 @@ export default function App() {
             <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
               <BottleBoundary>
                 <Suspense fallback={null}>
-                  <Bottle3D
-                    layers={layers}
-                    title={bottleTitle}
-                    sub={bottleCaption}
-                    spinKey={step}
-                    focus={null}
-                    lid={lid}
-                  />
+                  {step === 'notes' && brief ? (
+                    <Tray3D vials={vials} />
+                  ) : (
+                    <Bottle3D
+                      layers={layers}
+                      title={bottleTitle}
+                      sub={bottleCaption}
+                      spinKey={step}
+                      focus={null}
+                      lid={lid}
+                    />
+                  )}
                 </Suspense>
               </BottleBoundary>
             </div>
@@ -230,27 +261,35 @@ export default function App() {
                 universe={universe}
                 busy={busy}
                 error={error}
-                onSubmit={sendWishes}
+                onSubmit={(wishes) => {
+                  setHeardWishes(wishes);
+                  setStep('profile');
+                }}
                 onBack={() => setStep('universe')}
               />
             )}
+            {step === 'profile' && (
+              <ProfileStep
+                universe={universe}
+                wishes={heardWishes}
+                busy={busy}
+                error={error}
+                onSubmit={sendWishes}
+                onBack={() => setStep('describe')}
+              />
+            )}
             {step === 'notes' && brief && (
-              <NotesStep
-                wishes={brief.wishes}
-                noteHelp={noteHelp}
+              <TrayStep
                 notes={brief.proposedNotes}
-                keptIds={keptIds}
-                onToggle={(id) =>
-                  setKeptIds((ids) =>
-                    ids.includes(id)
-                      ? ids.filter((kept) => kept !== id)
-                      : [...ids, id],
-                  )
+                opinions={opinions}
+                onOpinion={(id, opinion) =>
+                  setOpinions((all) => ({ ...all, [id]: opinion }))
                 }
+                noteHelp={noteHelp}
                 busy={busy}
                 error={error}
                 onValidate={validateNotes}
-                onBack={() => setStep('describe')}
+                onBack={() => setStep('profile')}
               />
             )}
             {step === 'formula' && formula && (
