@@ -43,10 +43,28 @@ export type Idea = {
 
 export type Turn = { reply: string; heard: Idea[]; done: boolean };
 
+/* La fiche matière d'une note : seulement ce que la Data a documenté */
+export type Material = {
+  noteId: string;
+  name: string;
+  family?: string;
+  tier?: string;
+  description?: string;
+  material?: string;
+  origin?: string;
+  obtained?: string;
+  hold?: string;
+  pairsWith?: string[];
+  vigilance?: string;
+  sources?: string[];
+};
+
 export type Api = {
   sessionTurn(universe: Universe, said: string, heard: Idea[]): Promise<Turn>;
   createBrief(universe: Universe, wishes: string): Promise<Brief>;
   validateNotes(briefId: number, noteIds: string[]): Promise<Brief>;
   proposeFormula(briefId: number): Promise<Formula>;
   acceptFormula(briefId: number): Promise<Brief>;
+  /* null quand la note n'a pas encore de fiche */
+  material(noteId: string): Promise<Material | null>;
 };

@@ -21,7 +21,7 @@ export type Formula = {
 /* Une erreur du service, déjà traduite dans le code HTTP que l'API renvoie */
 export class IaError extends Error {
   constructor(
-    readonly status: 400 | 502,
+    readonly status: 400 | 404 | 502,
     message: string,
   ) {
     super(message);
@@ -60,7 +60,8 @@ function isFormula(value: unknown): value is Formula {
   );
 }
 
-async function call(path: string, body: unknown): Promise<unknown> {
+/* Sans corps, l'appel est un GET */
+async function call(path: string, body?: unknown): Promise<unknown> {
   // Lu à chaque appel : api/.env est chargé après l'import de ce fichier
   const baseUrl = process.env.DATA_AI_URL;
   if (!baseUrl) throw new IaError(502, UNAVAILABLE);
@@ -68,9 +69,10 @@ async function call(path: string, body: unknown): Promise<unknown> {
   let response: Response;
   try {
     response = await fetch(`${baseUrl}${path}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      method: body === undefined ? 'GET' : 'POST',
+      headers:
+        body === undefined ? undefined : { 'Content-Type': 'application/json' },
+      body: body === undefined ? undefined : JSON.stringify(body),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
   } catch {
@@ -88,6 +90,7 @@ async function call(path: string, body: unknown): Promise<unknown> {
         : 'Rien ne correspond à cette demande',
     );
   }
+  if (response.status === 404) throw new IaError(404, 'Introuvable');
   if (!response.ok) throw new IaError(502, UNAVAILABLE);
   return data;
 }
@@ -164,4 +167,27 @@ export async function sessionTurn(
     throw new IaError(502, UNAVAILABLE);
   }
   return { reply: data.reply, heard: data.heard, done: data.done };
+}
+
+/* La fiche matière d'une note, telle que le service la donne, ou null si elle n'en a pas */
+export type Material = { noteId: string; name: string } & Record<
+  string,
+  unknown
+>;
+
+export async function getMaterial(noteId: string): Promise<Material | null> {
+  try {
+    const data = await call(`/materials/${encodeURIComponent(noteId)}`);
+    if (
+      !isRecord(data) ||
+      typeof data.noteId !== 'string' ||
+      typeof data.name !== 'string'
+    ) {
+      throw new IaError(502, UNAVAILABLE);
+    }
+    return data as Material;
+  } catch (error) {
+    if (error instanceof IaError && error.status === 404) return null;
+    throw error;
+  }
 }

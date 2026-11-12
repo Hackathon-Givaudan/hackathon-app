@@ -284,3 +284,16 @@ test('the composition sheet fills as vials are kept', async ({ page }) => {
   await page.getByRole('button', { name: 'Je l’aime', exact: true }).click();
   await expect(sheet.getByText(first, { exact: false })).toBeVisible();
 });
+
+test('each vial shows its material sheet, or says it is coming', async ({
+  page,
+}) => {
+  await reachTray(page, 'Un parfum', SEASIDE);
+
+  const sheet = page.getByRole('region', { name: 'Fiche matière' });
+  await expect(sheet).toBeVisible();
+  // Une fiche documentée donne son origine ; sinon, elle est annoncée
+  await expect(
+    sheet.getByText(/Origine|Obtention|Fiche à venir/).first(),
+  ).toBeVisible();
+});

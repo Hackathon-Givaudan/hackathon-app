@@ -5,6 +5,7 @@ import express, {
 } from 'express';
 import pg from 'pg';
 import {
+  getMaterial,
   IaError,
   isRecord,
   proposeFormula,
@@ -117,6 +118,17 @@ app.post('/api/session/turn', async (req, res) => {
     return fail(res, 400, 'Échange invalide');
   }
   res.json(await sessionTurn(universe, said.trim(), heard.filter(isIdea)));
+});
+
+/* La fiche matière d'une note, relayée depuis le service Data/IA */
+app.get('/api/materials/:noteId', async (req, res) => {
+  const noteId = req.params.noteId;
+  if (!/^[a-z0-9-]{1,100}$/.test(noteId)) {
+    return fail(res, 400, 'Identifiant de note invalide');
+  }
+  const material = await getMaterial(noteId);
+  if (!material) return fail(res, 404, 'Cette note n’a pas encore de fiche');
+  res.json(material);
 });
 
 app.get('/api/briefs/:briefId', async (req, res) => {

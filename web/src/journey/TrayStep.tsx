@@ -9,6 +9,7 @@ import {
   primaryButton,
   smallLabel,
 } from '../shared/ui';
+import { MaterialSheet } from './MaterialSheet';
 
 export type Opinion = 'love' | 'some' | 'no';
 
@@ -62,10 +63,7 @@ export function TrayStep({
           {current.label}
         </h1>
         <p className="mt-3 text-[17px]">{current.reason}.</p>
-        <dl className="mt-4 grid max-w-md grid-cols-[110px_1fr] gap-y-1 border-t border-line-strong pt-3 text-[15px]">
-          <dt className={smallLabel}>Famille</dt>
-          <dd>{current.family}</dd>
-        </dl>
+        <MaterialSheet note={current} />
         <p className="mt-4 text-[15px] opacity-85">
           {noteHelp} Dites-nous ce que vous en pensez.
         </p>

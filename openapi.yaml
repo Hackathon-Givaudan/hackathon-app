@@ -87,6 +87,40 @@ paths:
           $ref: '#/components/responses/BadRequest'
         '502':
           $ref: '#/components/responses/AiUnavailable'
+  /api/materials/{noteId}:
+    get:
+      tags: [Parcours]
+      operationId: getMaterial
+      summary: La fiche matière d'une note
+      description: |
+        Origine, obtention, tenue et accords d'une note, tirés des fiches de
+        l'équipe Data. Seuls les faits confirmés par une source sont donnés :
+        un champ absent est inconnu, pas vide. 404 si la note n'a pas de fiche.
+      parameters:
+        - name: noteId
+          in: path
+          required: true
+          schema:
+            type: string
+            maxLength: 100
+          example: fleur-d-oranger
+      responses:
+        '200':
+          description: La fiche
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Material'
+        '404':
+          description: La note n'a pas encore de fiche
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: Cette note n'a pas encore de fiche
+        '502':
+          $ref: '#/components/responses/AiUnavailable'
   /api/briefs:
     post:
       tags: [Parcours]
@@ -230,6 +264,40 @@ components:
       enum:
         [notes_proposed, notes_validated, formula_proposed, formula_accepted]
       description: Où en est le parcours. Chaque geste fait avancer d'un état.
+    Material:
+      type: object
+      required: [noteId, name]
+      description: La fiche matière d'une note. Un champ absent n'est pas documenté.
+      properties:
+        noteId:
+          type: string
+        name:
+          type: string
+        family:
+          type: string
+        tier:
+          type: string
+          description: Tête, Cœur ou Fond
+        description:
+          type: string
+        material:
+          type: string
+        origin:
+          type: string
+        obtained:
+          type: string
+        hold:
+          type: string
+        pairsWith:
+          type: array
+          items:
+            type: string
+        vigilance:
+          type: string
+        sources:
+          type: array
+          items:
+            type: string
     Idea:
       type: object
       required: [kind, label, quote]
