@@ -80,6 +80,8 @@ export function ProfileWheel({ universe, words }: Props) {
   /* Les deux axes qui dominent, pour dire le profil en une phrase */
   const top = axes
     .map(([name], index) => [name, values[index]] as const)
+    // Seuls les axes que les mots de la marque ont poussés : un axe resté au repos ne dit rien d'elle
+    .filter(([, value]) => value > BASE)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 2)
     .map(([name]) => name.toLowerCase());
@@ -94,7 +96,9 @@ export function ProfileWheel({ universe, words }: Props) {
         {VOCABULARY[universe].wheel}
       </h2>
       <p role="status" className="mt-1 text-[16px]">
-        Votre profil penche vers : {top.join(' et ')}.
+        {top.length
+          ? `Votre profil penche vers : ${top.join(' et ')}.`
+          : 'Votre profil est encore neutre : répondez aux questions pour le préciser.'}
       </p>
       <div className="mt-3 grid items-center gap-6 sm:grid-cols-[240px_1fr]">
         <svg viewBox="0 0 240 240" role="img" aria-label="Roue à six axes">

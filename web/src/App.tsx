@@ -22,7 +22,7 @@ import {
 } from './journey/BriefStep';
 import { AdvisorView } from './spaces/AdvisorView';
 import { SpaceView } from './spaces/SpaceView';
-import { SessionStep } from './journey/SessionStep';
+import { SessionStep, type SavedSession } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
 import { DeliveryStep } from './journey/DeliveryStep';
 import { HelpDialog } from './journey/HelpDialog';
@@ -78,6 +78,8 @@ export default function App() {
   /* Le produit choisi à la bienvenue, et ce que la marque complète dans son brief */
   const [product, setProduct] = useState('');
   const [details, setDetails] = useState<BriefDetails>({});
+  /* La séance, gardée pour que « Reprendre la séance » la retrouve telle quelle */
+  const [session, setSession] = useState<SavedSession>();
   /* Les réponses du profil, gardées si la marque revient en arrière */
   const [profileAnswers, setProfileAnswers] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
@@ -150,6 +152,7 @@ export default function App() {
     setCreationName('');
     setProduct('');
     setDetails({});
+    setSession(undefined);
     setProfileAnswers([]);
     setError('');
     setStep('universe');
@@ -364,6 +367,7 @@ export default function App() {
               <UniverseStep
                 onChoose={(chosen) => {
                   setUniverse(chosen);
+                  setSession(undefined);
                   setStep('welcome');
                 }}
               />
@@ -385,6 +389,8 @@ export default function App() {
                 universe={universe}
                 guide={guide}
                 product={product}
+                saved={session}
+                onSave={setSession}
                 busy={busy}
                 error={error}
                 onSubmit={(wishes) => {

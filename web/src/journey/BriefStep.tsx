@@ -1,6 +1,7 @@
 /* Le brief (écran 05 de la V3) : ce qu'Aurore a entendu, puis onze réponses à compléter d'un geste.
    Rien n'est obligatoire : un ordre de grandeur suffit, et la marque peut passer au profil. */
 import { ArrowRight } from 'lucide-react';
+import { cleanNumber } from '../shared/french';
 import { cn, linkButton, primaryButton, smallLabel } from '../shared/ui';
 
 /* Ce que la marque a complété : un nombre, un choix, ou plusieurs choix */
@@ -227,7 +228,7 @@ export function BriefStep({
                 onChange={(event) =>
                   onDetails({
                     ...details,
-                    [id]: event.target.value.replace(/[^\d.,]/g, ''),
+                    [id]: cleanNumber(event.target.value),
                   })
                 }
                 className="min-h-12 w-full rounded-md border border-line-input bg-card px-3 text-[16px] outline-none focus:border-ink"

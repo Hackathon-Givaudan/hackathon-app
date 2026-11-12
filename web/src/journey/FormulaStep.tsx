@@ -1,6 +1,7 @@
 /* Geste 3 : la marque reçoit une formule, puis demande son échantillon (geste 4) */
 import { ArrowRight } from 'lucide-react';
 import type { Formula } from '../api';
+import { of } from '../shared/french';
 import {
   cn,
   errorText,
@@ -124,7 +125,7 @@ export function FormulaStep({
         <button onClick={onAccept} disabled={busy} className={primaryButton}>
           {busy
             ? 'Enregistrement…'
-            : `Recevoir l’échantillon de ${name.trim() || formula.name}`}
+            : `Recevoir l’échantillon ${of(name.trim() || formula.name)}`}
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>

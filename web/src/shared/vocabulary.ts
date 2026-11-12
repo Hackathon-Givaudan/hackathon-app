@@ -40,7 +40,7 @@ export const VOCABULARY: Record<
 > = {
   parfum: {
     label: 'Un parfum',
-    hint: 'Bougie, soin, parfum d’ambiance…',
+    hint: 'Parfum, bougie, lessive…',
     expert: 'parfumeur',
     profile: 'olfactif',
     wheel: 'Votre roue olfactive',
@@ -132,7 +132,7 @@ export const VOCABULARY: Record<
   },
   arome: {
     label: 'Un arôme alimentaire',
-    hint: 'Boisson, yaourt, pâtisserie…',
+    hint: 'Boisson, yaourt, sirop…',
     expert: 'aromaticien',
     profile: 'gustatif',
     wheel: 'Votre roue des saveurs',
