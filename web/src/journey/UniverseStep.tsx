@@ -86,24 +86,33 @@ export function UniverseStep({
         </Dialog>
       )}
 
-      <ul
+      {/* L'orgue du parfumeur : des fioles sur deux étagères, leur nom au survol */}
+      <div
+        role="group"
         aria-label="Quelques matières de l’orgue du parfumeur"
-        className="mt-8 flex flex-wrap items-end gap-3"
+        className="mt-8 max-w-xl border border-line bg-soft px-6 pt-5"
       >
-        {ORGAN.map((matter) => (
-          <li key={matter} className="group flex flex-col items-center">
-            <span
-              className="block h-14 w-6 rounded-b-md border border-line-strong transition-transform group-hover:-translate-y-1.5"
-              style={{
-                background: `linear-gradient(to top, ${noteColor(matter)} 68%, transparent 68%)`,
-              }}
-            />
-            <span className="mono mt-1 text-[10px] opacity-0 transition-opacity group-hover:opacity-90">
-              {matter}
-            </span>
-          </li>
+        {[ORGAN.slice(0, 4), ORGAN.slice(4)].map((shelf, row) => (
+          <div key={row} className="mb-6">
+            <ul className="flex items-end justify-around px-2">
+              {shelf.map((matter) => (
+                <li key={matter} className="group flex flex-col items-center">
+                  <span className="mb-1 text-[12px] text-secondary opacity-0 transition-opacity group-hover:opacity-100">
+                    {matter}
+                  </span>
+                  <span
+                    className="block h-16 w-7 rounded-b-md border border-line-strong transition-transform group-hover:-translate-y-1.5"
+                    style={{
+                      background: `linear-gradient(to top, ${noteColor(matter)} 70%, var(--color-card) 70%)`,
+                    }}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className="h-2.5 rounded-sm bg-gradient-to-b from-wood to-wood-deep" />
+          </div>
         ))}
-      </ul>
+      </div>
 
       <ol className="mt-10 grid gap-6 border-t border-line-strong pt-5 sm:grid-cols-3">
         {PROMISE.map(([title, text], index) => (

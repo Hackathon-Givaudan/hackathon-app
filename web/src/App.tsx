@@ -16,7 +16,9 @@ import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
 import { SessionStep } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
+import { DeliveryStep } from './journey/DeliveryStep';
 import { HelpDialog } from './journey/HelpDialog';
+import { ACCOUNT, WelcomeStep, type Guide } from './journey/WelcomeStep';
 import { ProfileStep } from './journey/ProfileStep';
 import { TrayStep, type Opinion } from './journey/TrayStep';
 import { UniverseStep } from './journey/UniverseStep';
@@ -29,9 +31,17 @@ const Bottle3D = lazy(() => import('./bottle/Bottle3D'));
 const Tray3D = lazy(() => import('./bottle/Tray3D'));
 
 type Step =
-  'universe' | 'describe' | 'profile' | 'notes' | 'formula' | 'accepted';
+  | 'universe'
+  | 'welcome'
+  | 'describe'
+  | 'profile'
+  | 'delivery'
+  | 'notes'
+  | 'formula'
+  | 'accepted';
 const STEPS: [Step, string][] = [
   ['universe', 'Univers'],
+  ['welcome', 'Bienvenue'],
   ['describe', 'Séance'],
   ['profile', 'Brief'],
   ['notes', 'Plateau'],
@@ -52,12 +62,14 @@ export default function App() {
   /* Le nom que la marque donne à sa création */
   const [creationName, setCreationName] = useState('');
   const [help, setHelp] = useState(false);
+  const [guide, setGuide] = useState<Guide>('Aurore');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const panel = useRef<HTMLElement>(null);
   const { expert, object, lid, noteHelp, tiers } = VOCABULARY[universe];
   /* Tant que la marque n'a pas dit ce qu'elle crée, on ne montre ni flacon ni pot */
   const chosen = step !== 'universe';
+  const onTray = (step === 'notes' || step === 'delivery') && brief;
 
   /* Lance un geste : état d'attente, puis résultat ou message d'erreur */
   async function run(gesture: () => Promise<void>) {
@@ -82,7 +94,7 @@ export default function App() {
       const created = await api.createBrief(universe, wishes);
       setBrief(created);
       setOpinions({});
-      setStep('notes');
+      setStep('delivery');
     });
 
   const validateNotes = () =>
@@ -113,7 +125,10 @@ export default function App() {
   const kept =
     brief?.proposedNotes.filter((note) => keptIds.includes(note.id)) ?? [];
   const layers: Layer[] =
-    step === 'universe' || step === 'describe' || step === 'profile'
+    step === 'universe' ||
+    step === 'welcome' ||
+    step === 'describe' ||
+    step === 'profile'
       ? []
       : step === 'notes'
         ? kept.slice(0, 5).map((note) => ({
@@ -146,7 +161,10 @@ export default function App() {
             : 'kept',
   }));
   const waiting =
-    step === 'universe' || step === 'describe' || step === 'profile';
+    step === 'universe' ||
+    step === 'welcome' ||
+    step === 'describe' ||
+    step === 'profile';
   const bottleTitle = waiting
     ? 'Brief'
     : step === 'notes'
@@ -184,7 +202,10 @@ export default function App() {
     };
   }, [step]);
 
-  const stepIndex = STEPS.findIndex(([id]) => id === step);
+  /* L'attente du plateau fait partie de l'étape « Plateau » */
+  const stepIndex = STEPS.findIndex(
+    ([id]) => id === (step === 'delivery' ? 'notes' : step),
+  );
 
   return (
     <div className="f-root ink relative isolate flex min-h-svh flex-col overflow-x-clip">
@@ -198,12 +219,19 @@ export default function App() {
             Concept étudiant, sans lien officiel avec Givaudan
           </p>
         </div>
-        <button
-          onClick={() => setHelp(true)}
-          className="order-last h-14 px-3 text-sm underline underline-offset-4"
-        >
-          Aide
-        </button>
+        <div className="order-last flex h-14 items-center gap-4">
+          {step !== 'universe' && (
+            <span className="text-sm text-secondary">
+              {ACCOUNT.name.split(' ')[0]} · {ACCOUNT.brand}
+            </span>
+          )}
+          <button
+            onClick={() => setHelp(true)}
+            className="h-11 px-1 text-sm underline underline-offset-4"
+          >
+            Aide
+          </button>
+        </div>
         {help && <HelpDialog onClose={() => setHelp(false)} />}
         <ol aria-label="Étapes" className="flex">
           {STEPS.map(([id, label], index) => (
@@ -229,7 +257,7 @@ export default function App() {
             <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
               <BottleBoundary>
                 <Suspense fallback={null}>
-                  {step === 'notes' && brief ? (
+                  {onTray ? (
                     <Tray3D vials={vials} />
                   ) : (
                     <Bottle3D
@@ -268,14 +296,23 @@ export default function App() {
               <UniverseStep
                 onChoose={(chosen) => {
                   setUniverse(chosen);
-                  setStep('describe');
+                  setStep('welcome');
                 }}
+              />
+            )}
+            {step === 'welcome' && (
+              <WelcomeStep
+                guide={guide}
+                onGuide={setGuide}
+                onStart={() => setStep('describe')}
+                onBack={() => setStep('universe')}
               />
             )}
             {step === 'describe' && (
               <SessionStep
                 key={universe}
                 universe={universe}
+                guide={guide}
                 busy={busy}
                 error={error}
                 onSubmit={(wishes) => {
@@ -293,6 +330,13 @@ export default function App() {
                 error={error}
                 onSubmit={sendWishes}
                 onBack={() => setStep('describe')}
+              />
+            )}
+            {step === 'delivery' && brief && (
+              <DeliveryStep
+                vials={brief.proposedNotes.length}
+                onArrived={() => setStep('notes')}
+                onBack={() => setStep('profile')}
               />
             )}
             {step === 'notes' && brief && (

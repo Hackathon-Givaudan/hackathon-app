@@ -22,6 +22,8 @@
   --color-accent-text: #7a5e3a;
   --color-danger: #9b3b2f;
   --color-stage: #22101f;
+  --color-wood: #6b4a36;
+  --color-wood-deep: #3a2a22;
 }
 body {
   margin: 0;

@@ -85,6 +85,22 @@ export function TrayStep({
             Revenir au brief
           </button>
         </div>
+
+        <section
+          aria-label="Votre feuille de composition"
+          className="mt-8 border-t border-line pt-4"
+        >
+          <h2 className={smallLabel}>Votre feuille de composition</h2>
+          {kept.length === 0 ? (
+            <p className="mt-1 text-[15px] text-secondary">
+              Aucune fiole gardée pour l’instant.
+            </p>
+          ) : (
+            <p className="mt-1 text-[16px] first-letter:uppercase">
+              {kept.map((note) => note.label).join(' · ')}
+            </p>
+          )}
+        </section>
       </div>
     );
   }

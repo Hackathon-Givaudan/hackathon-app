@@ -16,6 +16,8 @@ import { Analysing } from './Analysing';
 
 type Props = {
   universe: Universe;
+  /* Le prénom du guide choisi à la bienvenue */
+  guide: string;
   busy: boolean;
   error: string;
   onSubmit: (wishes: string) => void;
@@ -34,6 +36,7 @@ const KINDS: Record<Idea['kind'], string> = {
 
 export function SessionStep({
   universe,
+  guide,
   busy,
   error,
   onSubmit,
@@ -98,7 +101,7 @@ export function SessionStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>La séance · avec Aurore, parfumeuse IA</p>
+      <p className={smallLabel}>La séance · avec {guide}</p>
       <h1 className="f-display mt-1 text-[40px] leading-[1.08] md:text-[48px]">
         Parlez-nous de votre projet.
       </h1>
@@ -117,7 +120,7 @@ export function SessionStep({
             {line.who === 'aurore' ? `« ${line.text} »` : line.text}
           </li>
         ))}
-        {waiting && <li className="text-[15px] opacity-70">Aurore écoute…</li>}
+        {waiting && <li className="text-[15px] opacity-70">{guide} écoute…</li>}
       </ol>
 
       <div className="mt-4 flex gap-2">
