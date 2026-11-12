@@ -16,8 +16,11 @@ export const ACCOUNT = {
 };
 
 const GUIDES: [Guide, string][] = [
-  ['Aurore', 'Parfumeuse IA, formée au savoir-faire Givaudan.'],
-  ['Victor', 'Parfumeur IA, même savoir-faire, une autre voix.'],
+  [
+    'Aurore',
+    'Parfumeuse IA : elle note vos mots et ne retient que ceux de notre référentiel.',
+  ],
+  ['Victor', 'Parfumeur IA : la même méthode, sous un autre prénom.'],
 ];
 
 /* Les produits de la maquette V3, avec leur contenant. Le choix est facultatif. */
@@ -89,7 +92,7 @@ export function WelcomeStep({
 
       <h2 className="mt-8 text-[22px] font-semibold">Votre guide</h2>
       <p className="mt-1 text-[15px] text-secondary">
-        Deux parfumeurs, un même savoir-faire. L’échange se fait par écrit.
+        Deux prénoms, une même méthode. L’échange se fait par écrit.
       </p>
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         {GUIDES.map(([name, text]) => (
