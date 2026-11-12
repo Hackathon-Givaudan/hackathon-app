@@ -1,6 +1,6 @@
-# Règles du modèle V2
+# Règles du modèle V3
 
-Toutes les règles sont dans `app/moteur.py`. Elles sont déterministes : la même entrée donne toujours la même sortie.
+Toutes les règles sont dans `app/moteur.py`. Elles sont déterministes : la même entrée donne toujours la même sortie. L'option Mistral (section 14) est désactivée par défaut.
 
 ## 1. Analyse du brief (`POST /analyse-brief`)
 
@@ -70,3 +70,12 @@ Les notes dont un allergène à déclarer est bien connu (28 notes, liste partie
 ## 13. Formule en deux versions (`POST /formule`)
 
 Notes gardées : « j'aime », « un peu », « ça me rappelle ». Version A met en avant les 2 notes les plus fraîches, version B les 2 plus chaudes ; un étage vide est complété par un accord des notes aimées. Pas de dosage : il est fixé par le parfumeur. 3 références proches sont jointes.
+
+## 14. Option Mistral (`"llm": true`, `app/llm.py`)
+
+Modèle : `mistral:7b` via Ollama (ADR 0008), joint par une adresse compatible OpenAI (`AI_BASE_URL`). Deux appels au plus par recommandation, à température 0, réponse en JSON.
+
+1. **Compléter l'analyse du brief.** Le modèle reçoit le brief entre balises (c'est une donnée, ses consignes sont ignorées) et les listes fermées : les 72 identifiants de notes, les 9 familles et les valeurs de chaque champ du lexique. Toute valeur hors liste est jetée. Le modèle n'ajoute que ce que les règles n'ont pas trouvé : une note citée ou refusée de plus, une famille absente (même poids qu'un mot du lexique, 0,7), un champ resté vide. Il ne remplace jamais un champ déjà entendu. Chaque ajout porte le statut « Proposé par le modèle », sans citation.
+2. **Reformuler les explications.** Le modèle reçoit les faits déjà calculés (commentaire du profil avec les 3 familles dominantes, lien au projet de chaque référence, réponse de l'aide) et les réécrit en une ou deux phrases, sans rien ajouter. Les textes des règles restent dans la réponse ; les reformulations sont dans des champs à part.
+
+Repli : pas de réponse en 20 s (`AI_TIMEOUT`), réponse illisible ou hors liste, et on garde le résultat des règles. Le bloc `llm` de la réponse dit ce qui s'est passé (`demande`, `utilise`, `ajouts`, `duree_ms`, `message`).

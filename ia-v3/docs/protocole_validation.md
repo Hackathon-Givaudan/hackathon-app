@@ -66,3 +66,13 @@ V2 : notes 80 %, format 100 %, le reste inchangé. Ces corrections ont été fai
 - Seuils : 80 % pour les champs, 70 % pour les références.
 - Première exécution : champs 100 %, bonne référence 100 % (IC95 72 % à 100 %), hasard 34 %. Fichier : `evaluation/historique/run3_v3_premiere_execution.md`.
 - **Ce chiffre est optimiste** : le lexique des nouveaux champs a été écrit en connaissant les 10 cas, et la banque fictive a été construite par la même personne. Des briefs reformulés autrement ont révélé 3 manques, corrigés ensuite : nombres avec espace (« 3 000 kg »), « en concurrence avec », « aller vite ». Prochaine étape : 10 briefs écrits par Product ou par de vraies marques, sans les montrer à la Data avant la mesure.
+
+## 8. Option Mistral
+
+Les résultats officiels (sections 4 et 7) sont mesurés sans Mistral. Pour mesurer l'apport du modèle sur les mêmes cas et avec les mêmes seuils, Ollama lancé et `mistral:7b` installé :
+
+```bash
+python evaluation/evaluate.py --llm
+```
+
+Le script compare « règles seules » et « règles + Mistral », latence comprise, et écrit `evaluation/resultats_llm.md` sans toucher aux résultats officiels. L'option ne sera activée par défaut que si elle améliore les métriques sans dépasser le seuil de 5 s.
