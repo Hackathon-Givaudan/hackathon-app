@@ -12,6 +12,8 @@ La partie Data/IA transforme le brief utilisateur en informations exploitables p
 
 Le travail comprend la préparation des données, le développement du moteur, l'évaluation de ses résultats et la mise à disposition d'une API.
 
+**Périmètre des versions :** Le service Data/IA intégré au prototype se trouve sur la branche `v2`. Les résultats chiffrés, les tests et les captures historiques présentés dans ce document concernent le moteur V3 développé par Ali. Ces éléments constituent des preuves du travail Data/IA réalisé, mais ne doivent pas être interprétés automatiquement comme des mesures du service actuellement intégré sur `v2`.
+
 **Branche du prototype :** [v2](https://github.com/Hackathon-Givaudan/hackathon-app/tree/v2)
 
 **Service Data/IA intégré :** [ia/](https://github.com/Hackathon-Givaudan/hackathon-app/tree/v2/ia)
@@ -337,7 +339,6 @@ La version historique 3.1.0 reste accessible séparément comme référence tech
 | 3. Modèle publié                     | Code V3 historique et service intégré à V2        |
 | 4. Métriques et protocole sur 30 cas | Jeux de référence, résultats et contre-validation |
 | 5. API fonctionnelle                 | Code FastAPI, OpenAPI et captures de réponses     |
-
 
 **Livraison Data/IA — G11 YAMA — 12 novembre 2026**
 
