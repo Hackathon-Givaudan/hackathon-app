@@ -62,3 +62,16 @@ def test_v3_formule_et_pourquoi():
     assert f["compris"] and len(f["versions"]) == 2 and "musc" in f["notes_ecartees"]
     q = c.get("/notes/bergamote/pourquoi", params={"brief": "avec de la bergamote"}).json()
     assert "votre brief" in q["sources"]
+
+def test_llm_option_et_repli(monkeypatch):
+    from app import llm
+    assert c.get("/sante").json()["llm"]["modele"] == llm.AI_MODEL
+    assert set(c.get("/llm").json()) >= {"joignable", "modele", "message"}
+    monkeypatch.setattr(llm, "_chat", lambda prompt: None)  # modèle muet : on garde les règles
+    sans = c.post("/recommandation", json={"brief": "Bougie iodée, prix accessible."}).json()
+    avec = c.post("/recommandation", json={"brief": "Bougie iodée, prix accessible.", "llm": True}).json()
+    assert avec["llm"]["analyse"]["demande"] is True and avec["llm"]["analyse"]["utilise"] is False
+    assert [p["id"] for p in avec["plateau"]] == [p["id"] for p in sans["plateau"]]
+    monkeypatch.setattr(llm, "_chat", lambda prompt: {"reponse": "Une note lumineuse pour ouvrir votre parfum."})
+    q = c.get("/notes/bergamote/pourquoi", params={"llm": True}).json()
+    assert q["reponse_reformulee"] == "Une note lumineuse pour ouvrir votre parfum."
