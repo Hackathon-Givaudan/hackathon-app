@@ -1,6 +1,6 @@
 # 0011. Lancer toute la tranche par `docker compose up`, l'API et le front dans un même conteneur
 
-- Statut : acceptée
+- Statut : acceptée, précisée par [0013](0013-front-sur-l-api-reelle.md) : le front n'a plus de mode à choisir, `VITE_API_MODE` est retiré de `compose.yaml`
 - Date : 2026-11-10
 - Décideurs : Maxime, Wissem (tech-leads)
 
