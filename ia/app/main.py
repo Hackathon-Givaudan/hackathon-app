@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 from .formula import propose_formula
 from .notes import propose_notes
 from .references import REFERENCES
-from .session import next_turn
+from .session import is_known, next_turn
 
 app = FastAPI(title="Service Data/IA", version="0.1.0")
 
@@ -65,4 +65,7 @@ class TurnRequest(BaseModel):
 @app.post("/session/turn")
 def session_turn(request: TurnRequest) -> dict:
     """Un échange de la séance : ce qu'Aurore répond, et ce qu'elle a entendu depuis le début."""
-    return next_turn(request.universe, request.said, [idea.model_dump() for idea in request.heard])
+    heard = [idea.model_dump() for idea in request.heard]
+    if not all(is_known(request.universe, idea) for idea in heard):
+        raise HTTPException(422, "Une idée ne vient pas du référentiel")
+    return next_turn(request.universe, request.said, heard)

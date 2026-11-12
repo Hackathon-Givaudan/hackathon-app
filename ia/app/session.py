@@ -1,11 +1,15 @@
 """La séance avec Aurore : à chaque réponse de la marque, ce qu'elle entend et ce qu'elle demande ensuite.
 
-Le modèle ne sert qu'à reconnaître des étiquettes du référentiel dans ce que dit la marque (notes.find_tags).
+Aurore retient deux sortes d'idées :
+- les étiquettes du référentiel que la marque a écrites telles quelles, toujours gardées ;
+- celles que le modèle ajoute, gardées seulement si la marque a dit un mot de la même famille
+  (« élégant » pour « élégance »). Le modèle ne peut donc rien faire dire à la marque.
 Les questions d'Aurore sont écrites ici : elle demande ce qui manque encore au projet, dans un ordre fixe.
 """
 
-from .notes import find_tags, mentions
-from .references import KINDS
+from . import notes
+from .notes import mentions
+from .references import KINDS, all_tags, slug
 
 MAX_QUOTE = 120
 
@@ -27,6 +31,45 @@ NOT_UNDERSTOOD = "Je n'ai pas saisi. Dites-le-moi autrement : un produit, un lie
 CLOSING = "Merci. J'ai ce qu'il me faut pour rédiger votre brief."
 
 
+ROOT = 5  # deux mots sont de la même famille s'ils ont le même début, sur 5 lettres au plus
+
+
+def same_family(a: str, b: str) -> bool:
+    """« elegant » et « elegance », « soir » et « soiree » : même début, sur au moins 4 lettres."""
+    length = min(ROOT, len(a), len(b))
+    return length >= 4 and a[:length] == b[:length] or a == b
+
+
+LINKS = {"de", "du", "des", "la", "le", "les", "au", "aux", "en", "et", "a", "d", "l"}
+
+
+def said_by_the_brand(said: str, tag: str) -> bool:
+    """La marque a-t-elle dit chaque mot de l'étiquette, ou un mot de la même famille ?
+    Les petits mots de liaison (de, du, la…) ne comptent pas ; « mer » doit être dit tel quel."""
+    spoken = [word for word in slug(said).split("-") if word]
+    words = [word for word in slug(tag).split("-") if word not in LINKS]
+    return all(any(same_family(word, heard) for heard in spoken) for word in words)
+
+
+def heard_in(universe: str, said: str) -> list[str]:
+    """Les étiquettes qu'Aurore retient de ce que la marque vient de dire :
+    celles écrites telles quelles, celles dont la marque a dit un mot de la même famille,
+    et celles du modèle qui passent la même règle. Un verdict vide du modèle n'écarte rien."""
+    tags = all_tags(universe)
+    written = notes.written_tags(universe, said)
+    related = [tag for tag in tags if tag not in written and said_by_the_brand(said, tag)]
+    chosen = notes.pick_tags(said, tags) or []
+    added = [tag for tag in chosen if tag not in written + related and said_by_the_brand(said, tag)]
+    found = written + related + added
+    # « boisson » s'efface devant « boisson protéinée »
+    return [tag for tag in found if not any(tag != other and mentions(other, tag) for other in found)]
+
+
+def is_known(universe: str, idea: dict) -> bool:
+    """L'idée est-elle une étiquette du référentiel, avec sa bonne catégorie ?"""
+    return KINDS[universe].get(idea["label"]) == idea["kind"]
+
+
 def known(heard: list[dict], kind: str) -> bool:
     """Aurore sait-elle déjà cela ? Une sensation répond à la question de l'émotion."""
     kinds = {idea["kind"] for idea in heard}
@@ -41,7 +84,7 @@ def next_turn(universe: str, said: str, heard: list[dict]) -> dict:
     labels = {idea["label"] for idea in heard}
     new = [
         {"kind": KINDS[universe][tag], "label": tag, "quote": said.strip()[:MAX_QUOTE]}
-        for tag in find_tags(universe, said)
+        for tag in heard_in(universe, said)
         if tag not in labels
     ]
     heard = heard + new
