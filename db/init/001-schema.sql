@@ -9,5 +9,8 @@ CREATE TABLE briefs (
   proposed_notes JSONB NOT NULL,
   validated_notes JSONB NOT NULL DEFAULT '[]',
   formula JSONB,
+  -- Les précisions du brief (budget, cible, pays…) et le retour après essai : voir openapi.yaml
+  details JSONB NOT NULL DEFAULT '{}',
+  feedback JSONB,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );

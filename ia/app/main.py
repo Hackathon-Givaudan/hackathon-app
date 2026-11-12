@@ -11,7 +11,7 @@ from .notes import propose_notes
 from .potential import CHOICES
 from .potential import evaluate as evaluate_potential
 from .references import REFERENCES
-from .session import next_turn
+from .session import is_known, next_turn
 
 app = FastAPI(title="Service Data/IA", version="0.1.0")
 
@@ -65,6 +65,7 @@ def material(note_id: str) -> dict:
 class PotentialRequest(BaseModel):
     """Les champs du brief qui comptent pour le potentiel, tous facultatifs."""
 
+    universe: Universe = "parfum"
     target: str | None = None
     salesCountries: list[str] = Field(default=[], max_length=10)
     annualVolumeKg: float | None = Field(default=None, ge=0)
@@ -112,4 +113,7 @@ class TurnRequest(BaseModel):
 @app.post("/session/turn")
 def session_turn(request: TurnRequest) -> dict:
     """Un échange de la séance : ce qu'Aurore répond, et ce qu'elle a entendu depuis le début."""
-    return next_turn(request.universe, request.said, [idea.model_dump() for idea in request.heard])
+    heard = [idea.model_dump() for idea in request.heard]
+    if not all(is_known(request.universe, idea) for idea in heard):
+        raise HTTPException(422, "Une idée ne vient pas du référentiel")
+    return next_turn(request.universe, request.said, heard)

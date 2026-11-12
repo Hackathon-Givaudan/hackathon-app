@@ -30,6 +30,10 @@ def evaluate(brief: dict) -> dict:
     competition = brief.get("competition")
     reference = brief.get("closestReference")
     outside = [country for country in countries if country not in EUROPE]
+    # L'IFRA encadre les parfums ; un arôme suit la réglementation alimentaire
+    flavour = brief.get("universe") == "arome"
+    expert = "l'aromaticien" if flavour else "le parfumeur"
+    control = "Contrôle réglementaire alimentaire" if flavour else "Contrôle IFRA"
 
     found = {}
     if not target:
@@ -60,15 +64,15 @@ def evaluate(brief: dict) -> dict:
     # Sans les pays de vente, on ne peut pas juger la réglementation
     checks = [f"vente hors Union européenne ({', '.join(label('pays_vente', c) for c in outside)})"] if outside else []
     if "sans_allergenes" in (brief.get("commitments") or []):
-        checks.append("formule sans allergènes à vérifier par le parfumeur")
+        checks.append(f"formule sans allergènes à vérifier par {expert}")
     if "reglementation" in (brief.get("constraints") or []):
         checks.append("contrainte réglementaire signalée par la marque")
     if checks:
-        found["faisabilite_reglementaire"] = ("a_verifier", f"À vérifier : {' ; '.join(checks)}. Contrôle IFRA avant l'échantillon.")
+        found["faisabilite_reglementaire"] = ("a_verifier", f"À vérifier : {' ; '.join(checks)}. {control} avant l'échantillon.")
     elif not countries:
         found["faisabilite_reglementaire"] = ("a_completer", "Pays de vente non précisés : réglementation à vérifier.")
     else:
-        found["faisabilite_reglementaire"] = ("favorable", "Aucun point bloquant repéré. Contrôle IFRA avant l'échantillon.")
+        found["faisabilite_reglementaire"] = ("favorable", f"Aucun point bloquant repéré. {control} avant l'échantillon.")
 
     delays = RULES["delais"]
     if reference:

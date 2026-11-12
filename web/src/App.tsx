@@ -14,7 +14,14 @@ import { BottleBoundary } from './bottle/BottleBoundary';
 import type { Brief, Formula, Universe } from './api';
 import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
-import { BriefStep, type BriefDetails } from './journey/BriefStep';
+import {
+  BriefStep,
+  labelOf,
+  toApiDetails,
+  type BriefDetails,
+} from './journey/BriefStep';
+import { AdvisorView } from './spaces/AdvisorView';
+import { SpaceView } from './spaces/SpaceView';
 import { SessionStep } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
 import { DeliveryStep } from './journey/DeliveryStep';
@@ -54,6 +61,8 @@ const STEPS: [Step, string][] = [
 
 export default function App() {
   const [step, setStep] = useState<Step>('universe');
+  /* L'atelier, ou l'un des deux espaces : celui de la marque, celui du conseiller */
+  const [view, setView] = useState<'journey' | 'space' | 'advisor'>('journey');
   const [universe, setUniverse] = useState<Universe>('parfum');
   const [brief, setBrief] = useState<Brief | null>(null);
   /* Ce qu'Aurore a entendu pendant la séance, avant le profil */
@@ -98,7 +107,13 @@ export default function App() {
   const sendWishes = (wishes: string) =>
     run(async () => {
       const created = await api.createBrief(universe, wishes);
-      setBrief(created);
+      /* Les précisions données à l'écran du brief partent avec lui : le conseiller les lit */
+      const sent = toApiDetails(details);
+      setBrief(
+        Object.keys(sent).length
+          ? await api.completeBrief(created.id, sent)
+          : created,
+      );
       setOpinions({});
       setStep('delivery');
     });
@@ -230,11 +245,18 @@ export default function App() {
           </p>
         </div>
         <div className="order-last flex h-14 items-center gap-4">
-          {step !== 'universe' && (
-            <span className="text-sm text-secondary">
-              {ACCOUNT.name.split(' ')[0]} · {ACCOUNT.brand}
-            </span>
-          )}
+          <button
+            onClick={() => setView('space')}
+            className="h-11 px-1 text-sm underline underline-offset-4"
+          >
+            {ACCOUNT.name.split(' ')[0]} · Mon espace
+          </button>
+          <button
+            onClick={() => setView('advisor')}
+            className="h-11 px-1 text-sm underline underline-offset-4"
+          >
+            Espace conseiller
+          </button>
           <button
             onClick={() => setHelp(true)}
             className="h-11 px-1 text-sm underline underline-offset-4"
@@ -261,7 +283,15 @@ export default function App() {
         </ol>
       </header>
 
-      <div className={cn('grid flex-1', chosen && 'lg:grid-cols-2')}>
+      {view === 'space' && <SpaceView onBack={() => setView('journey')} />}
+      {view === 'advisor' && <AdvisorView onBack={() => setView('journey')} />}
+      <div
+        className={cn(
+          'grid flex-1',
+          chosen && 'lg:grid-cols-2',
+          view !== 'journey' && 'hidden',
+        )}
+      >
         {chosen && (
           <aside className="stage flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
             <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
@@ -389,7 +419,9 @@ export default function App() {
                 onName={setCreationName}
                 countries={
                   Array.isArray(details.salesCountries)
-                    ? details.salesCountries
+                    ? details.salesCountries.map((country) =>
+                        labelOf('salesCountries', country),
+                      )
                     : []
                 }
                 busy={busy}
@@ -404,6 +436,7 @@ export default function App() {
                 name={creationName.trim() || formula.name}
                 expert={expert}
                 guide={guide}
+                briefId={brief?.id}
                 onRestart={restart}
               />
             )}

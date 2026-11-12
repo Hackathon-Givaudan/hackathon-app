@@ -12,6 +12,8 @@ type Props = {
   name: string;
   expert: string;
   guide: string;
+  /* Le brief qui reçoit le retour après essai */
+  briefId?: number;
   onRestart: () => void;
 };
 
@@ -28,6 +30,13 @@ const ADJUSTMENTS = [
   'Plus doux',
 ];
 const PERFECT = 'Parfait comme ça';
+/* Les mêmes ajustements, avec l'identifiant du contrat (openapi.yaml) */
+const SENT: Record<string, string> = {
+  'Plus de fraîcheur en tête': 'plus_de_fraicheur',
+  'Plus de tenue le soir': 'plus_de_tenue',
+  'Plus doux': 'plus_doux',
+  [PERFECT]: 'parfait',
+};
 /* Givaudan n'a donné ni prix ni délai : ils restent [X], comme dans la maquette */
 const QUOTE = [
   ['Prix au kilo', '[X] €'],
@@ -42,6 +51,7 @@ export function AcceptedStep({
   name,
   expert,
   guide,
+  briefId,
   onRestart,
 }: Props) {
   const [received, setReceived] = useState(false);
@@ -49,6 +59,8 @@ export function AcceptedStep({
   const [accepted, setAccepted] = useState(false);
   const [asked, setAsked] = useState(false);
   const [ordered, setOrdered] = useState(false);
+  /* Le retour n'a pas pu être transmis */
+  const [lost, setLost] = useState(false);
   /* L'origine de chaque matière, quand sa fiche la donne */
   const [origins, setOrigins] = useState<Record<string, string>>({});
   const reached = adjustments.length ? 3 : received ? 2 : 1;
@@ -70,15 +82,26 @@ export function AcceptedStep({
 
   function adjust(choice: string) {
     setOrdered(false);
-    if (choice === PERFECT) {
-      return setAdjustments(adjustments.includes(PERFECT) ? [] : [PERFECT]);
-    }
     const others = adjustments.filter((kept) => kept !== PERFECT);
-    setAdjustments(
-      others.includes(choice)
-        ? others.filter((kept) => kept !== choice)
-        : [...others, choice],
-    );
+    const next =
+      choice === PERFECT
+        ? adjustments.includes(PERFECT)
+          ? []
+          : [PERFECT]
+        : others.includes(choice)
+          ? others.filter((kept) => kept !== choice)
+          : [...others, choice];
+    setAdjustments(next);
+    /* Le retour part chez le conseiller à chaque changement : la route remplace le précédent */
+    if (briefId && next.length) {
+      setLost(false);
+      api
+        .giveFeedback(
+          briefId,
+          next.map((kept) => SENT[kept]),
+        )
+        .catch(() => setLost(true));
+    }
   }
   const changes = adjustments.filter((kept) => kept !== PERFECT);
 
@@ -221,6 +244,11 @@ export function AcceptedStep({
                   ? `Nouvelle version : ${changes.join(', ').toLowerCase()}.`
                   : 'On garde cette version, sans retouche.'}
               </p>
+              {lost && (
+                <p className="mt-2 text-sm text-danger">
+                  Votre retour n’a pas pu être transmis, réessayez.
+                </p>
+              )}
               <p className={cn(smallLabel, 'mt-4')}>Ce que reçoit Karim</p>
               <p className="text-[15px]">
                 {name} ·{' '}
@@ -243,9 +271,8 @@ export function AcceptedStep({
       )}
 
       <p className="mt-5 max-w-[60ch] text-[13px] text-muted">
-        Prototype : aucun échantillon n’est envoyé, aucun devis ni commande
-        n’est réellement transmis, et le retour n’arrive pas encore au
-        conseiller.
+        Prototype : aucun échantillon n’est envoyé, et aucun devis ni commande
+        n’est réellement transmis. Votre retour, lui, arrive bien au conseiller.
       </p>
       <button onClick={onRestart} className={`${linkButton} mt-3`}>
         Démarrer un autre projet

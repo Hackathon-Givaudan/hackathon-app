@@ -1,5 +1,5 @@
 /* Appels réels à l'API, route par route, comme dans openapi.yaml */
-import type { Api, Brief, Formula, Material, Turn } from './types';
+import type { Api, Brief, Formula, Material, Potential, Turn } from './types';
 
 async function call<T>(
   method: string,
@@ -41,4 +41,12 @@ export const httpApi: Api = {
         throw error;
       },
     ),
+  completeBrief: (briefId, details) =>
+    call<Brief>('PUT', `/briefs/${briefId}/details`, details),
+  listBriefs: () =>
+    call<{ briefs: Brief[] }>('GET', '/briefs').then(({ briefs }) => briefs),
+  potential: (briefId) =>
+    call<Potential>('GET', `/briefs/${briefId}/potential`),
+  giveFeedback: (briefId, adjustments) =>
+    call<Brief>('POST', `/briefs/${briefId}/feedback`, { adjustments }),
 };
