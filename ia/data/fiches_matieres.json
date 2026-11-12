@@ -111,7 +111,7 @@
     },
     {
       "id": "fleur_oranger",
-      "nom": "Fleur d’oranger",
+      "nom": "Fleur d'oranger",
       "type": "matiere_naturelle_possible",
       "famille": "floral",
       "position": null,
