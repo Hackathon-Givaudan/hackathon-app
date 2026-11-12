@@ -1,0 +1,1431 @@
+{
+  "empreinte_cas": "8fc80f201c02f4ce",
+  "resultats": [
+    {
+      "modele": "V1 baseline (règles simples)",
+      "cas": 30,
+      "metriques": {
+        "famille_dominante_exacte": {
+          "valeur": 0.8,
+          "seuil": 0.6,
+          "atteint": true,
+          "ic95": [
+            0.627,
+            0.905
+          ]
+        },
+        "famille_dominante_top3": {
+          "valeur": 1.0,
+          "seuil": 0.85,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "rappel_notes_plateau": {
+          "valeur": 0.694,
+          "seuil": 0.5,
+          "atteint": true,
+          "ic95": null
+        },
+        "bonne_direction_3_pistes": {
+          "valeur": 1.0,
+          "seuil": 0.85,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "respect_contraintes": {
+          "valeur": 0.967,
+          "seuil": 1.0,
+          "atteint": false,
+          "ic95": [
+            0.833,
+            0.994
+          ]
+        },
+        "champ_format": {
+          "valeur": 0.0,
+          "seuil": 0.8,
+          "atteint": false,
+          "ic95": [
+            0,
+            0.114
+          ]
+        },
+        "champ_positionnement": {
+          "valeur": 0.6,
+          "seuil": 0.8,
+          "atteint": false,
+          "ic95": [
+            0.423,
+            0.754
+          ]
+        },
+        "champ_intensite": {
+          "valeur": 0.8,
+          "seuil": 0.8,
+          "atteint": true,
+          "ic95": [
+            0.627,
+            0.905
+          ]
+        },
+        "champ_engagements": {
+          "valeur": 0.8,
+          "seuil": 0.8,
+          "atteint": true,
+          "ic95": [
+            0.627,
+            0.905
+          ]
+        }
+      },
+      "latence": {
+        "mediane_ms": 0.17,
+        "p95_ms": 0.22,
+        "seuil_ms": 5000,
+        "atteint": true
+      },
+      "detail": [
+        {
+          "id": "C01",
+          "famille_attendue": "marine",
+          "famille_predite": "marine",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "sel_marin"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C02",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "musc"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": false
+        },
+        {
+          "id": "C03",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.5,
+          "notes_manquantes": [
+            "cacao",
+            "cardamome"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C04",
+          "famille_attendue": "hesperidee",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": false
+        },
+        {
+          "id": "C05",
+          "famille_attendue": "boisee",
+          "famille_predite": "aromatique",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "cedre"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C06",
+          "famille_attendue": "boisee",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": false,
+          "champ_engagements": true
+        },
+        {
+          "id": "C07",
+          "famille_attendue": "musquee",
+          "famille_predite": "musquee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "fleur_oranger"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C08",
+          "famille_attendue": "aromatique",
+          "famille_predite": "aromatique",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "bergamote"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C09",
+          "famille_attendue": "hesperidee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.5,
+          "notes_manquantes": [
+            "pamplemousse",
+            "poivre_noir"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": false,
+          "champ_engagements": true
+        },
+        {
+          "id": "C10",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.5,
+          "notes_manquantes": [
+            "cerise",
+            "vanille"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C11",
+          "famille_attendue": "verte",
+          "famille_predite": "verte",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C12",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.3333333333333333,
+          "notes_manquantes": [
+            "ambrette",
+            "mandarine"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": false
+        },
+        {
+          "id": "C13",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "ananas"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C14",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.5,
+          "notes_manquantes": [
+            "patchouli",
+            "vetiver"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": false,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": false
+        },
+        {
+          "id": "C15",
+          "famille_attendue": "iodee",
+          "famille_predite": "iodee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "algue"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C16",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C17",
+          "famille_attendue": "boisee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "poivre_noir"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C18",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C19",
+          "famille_attendue": "verte",
+          "famille_predite": "verte",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "yuzu"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": false,
+          "champ_engagements": true
+        },
+        {
+          "id": "C20",
+          "famille_attendue": "boisee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.3333333333333333,
+          "notes_manquantes": [
+            "galbanum",
+            "poivre_noir"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": false,
+          "champ_engagements": true
+        },
+        {
+          "id": "C21",
+          "famille_attendue": "florale",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "ananas"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C22",
+          "famille_attendue": "iodee",
+          "famille_predite": "iodee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.5,
+          "notes_manquantes": [
+            "ambre_gris",
+            "embruns"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C23",
+          "famille_attendue": "hesperidee",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "fleur_oranger"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": false,
+          "champ_engagements": true
+        },
+        {
+          "id": "C24",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.5,
+          "notes_manquantes": [
+            "orange_douce",
+            "pin"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C25",
+          "famille_attendue": "aromatique",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.3333333333333333,
+          "notes_manquantes": [
+            "eucalyptus",
+            "menthe"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": false
+        },
+        {
+          "id": "C26",
+          "famille_attendue": "boisee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "benjoin"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C27",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "santal"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": false,
+          "champ_engagements": true
+        },
+        {
+          "id": "C28",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "citron_vert"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C29",
+          "famille_attendue": "aromatique",
+          "famille_predite": "musquee",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "tonka"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": false
+        },
+        {
+          "id": "C30",
+          "famille_attendue": "marine",
+          "famille_predite": "marine",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": false,
+          "champ_positionnement": false,
+          "champ_intensite": true,
+          "champ_engagements": true
+        }
+      ]
+    },
+    {
+      "modele": "Modèle 3.0.0",
+      "cas": 30,
+      "metriques": {
+        "famille_dominante_exacte": {
+          "valeur": 0.8,
+          "seuil": 0.6,
+          "atteint": true,
+          "ic95": [
+            0.627,
+            0.905
+          ]
+        },
+        "famille_dominante_top3": {
+          "valeur": 1.0,
+          "seuil": 0.85,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "rappel_notes_plateau": {
+          "valeur": 0.803,
+          "seuil": 0.5,
+          "atteint": true,
+          "ic95": null
+        },
+        "bonne_direction_3_pistes": {
+          "valeur": 1.0,
+          "seuil": 0.85,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "respect_contraintes": {
+          "valeur": 1.0,
+          "seuil": 1.0,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "champ_format": {
+          "valeur": 1.0,
+          "seuil": 0.8,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "champ_positionnement": {
+          "valeur": 1.0,
+          "seuil": 0.8,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "champ_intensite": {
+          "valeur": 1.0,
+          "seuil": 0.8,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        },
+        "champ_engagements": {
+          "valeur": 1.0,
+          "seuil": 0.8,
+          "atteint": true,
+          "ic95": [
+            0.886,
+            1
+          ]
+        }
+      },
+      "latence": {
+        "mediane_ms": 1.11,
+        "p95_ms": 2.58,
+        "seuil_ms": 5000,
+        "atteint": true
+      },
+      "detail": [
+        {
+          "id": "C01",
+          "famille_attendue": "marine",
+          "famille_predite": "marine",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "citron"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C02",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C03",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C04",
+          "famille_attendue": "hesperidee",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C05",
+          "famille_attendue": "boisee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C06",
+          "famille_attendue": "boisee",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C07",
+          "famille_attendue": "musquee",
+          "famille_predite": "musquee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C08",
+          "famille_attendue": "aromatique",
+          "famille_predite": "aromatique",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.5,
+          "notes_manquantes": [
+            "bergamote",
+            "thym"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C09",
+          "famille_attendue": "hesperidee",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "poivre_noir"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C10",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C11",
+          "famille_attendue": "verte",
+          "famille_predite": "verte",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "citron"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C12",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.3333333333333333,
+          "notes_manquantes": [
+            "ambrette",
+            "mandarine"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C13",
+          "famille_attendue": "ambree",
+          "famille_predite": "marine",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C14",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.25,
+          "notes_manquantes": [
+            "benjoin",
+            "patchouli",
+            "vetiver"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C15",
+          "famille_attendue": "iodee",
+          "famille_predite": "iodee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "algue"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C16",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C17",
+          "famille_attendue": "boisee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C18",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "vanille"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C19",
+          "famille_attendue": "verte",
+          "famille_predite": "verte",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "yuzu"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C20",
+          "famille_attendue": "boisee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "poivre_noir"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C21",
+          "famille_attendue": "florale",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "ananas"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C22",
+          "famille_attendue": "iodee",
+          "famille_predite": "marine",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C23",
+          "famille_attendue": "hesperidee",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "citron"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C24",
+          "famille_attendue": "ambree",
+          "famille_predite": "ambree",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C25",
+          "famille_attendue": "aromatique",
+          "famille_predite": "hesperidee",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "eucalyptus"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C26",
+          "famille_attendue": "boisee",
+          "famille_predite": "boisee",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "benjoin"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C27",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "ylang_ylang"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C28",
+          "famille_attendue": "florale",
+          "famille_predite": "florale",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.6666666666666666,
+          "notes_manquantes": [
+            "citron_vert"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C29",
+          "famille_attendue": "aromatique",
+          "famille_predite": "musquee",
+          "famille_dominante_exacte": false,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 1.0,
+          "notes_manquantes": [],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        },
+        {
+          "id": "C30",
+          "famille_attendue": "marine",
+          "famille_predite": "marine",
+          "famille_dominante_exacte": true,
+          "famille_dominante_top3": true,
+          "rappel_notes_plateau": 0.75,
+          "notes_manquantes": [
+            "citron"
+          ],
+          "bonne_direction_3_pistes": true,
+          "respect_contraintes": true,
+          "champ_format": true,
+          "champ_positionnement": true,
+          "champ_intensite": true,
+          "champ_engagements": true
+        }
+      ]
+    }
+  ],
+  "v3": {
+    "cas": 10,
+    "empreinte_cas": "6b0aba09e05d1c33",
+    "champs": {
+      "domaine": 1.0,
+      "format": 1.0,
+      "budget_kilo": 1.0,
+      "volume_annuel": 1.0,
+      "pays_vente": 1.0,
+      "mise_en_concurrence": 1.0,
+      "relation": 1.0,
+      "type_projet": 1.0,
+      "cible": 1.0,
+      "objectif": 1.0,
+      "contraintes": 1.0,
+      "engagements": 1.0
+    },
+    "champs_moyenne": 1.0,
+    "bonne_reference_top3": 1.0,
+    "bonne_reference_top3_ic95": [
+      0.722,
+      1
+    ],
+    "hasard_top3": 0.343,
+    "detail": [
+      {
+        "id": "V01",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-F01",
+          "REF-F03",
+          "REF-F02"
+        ],
+        "hasard_top3": 0.34288537549407117
+      },
+      {
+        "id": "V02",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-A09",
+          "REF-A01",
+          "REF-A02"
+        ],
+        "hasard_top3": 0.5333333333333333
+      },
+      {
+        "id": "V03",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-F10",
+          "REF-F22",
+          "REF-F21"
+        ],
+        "hasard_top3": 0.34288537549407117
+      },
+      {
+        "id": "V04",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-F17",
+          "REF-F16",
+          "REF-F14"
+        ],
+        "hasard_top3": 0.23913043478260865
+      },
+      {
+        "id": "V05",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-A10",
+          "REF-A04",
+          "REF-A07"
+        ],
+        "hasard_top3": 0.5333333333333333
+      },
+      {
+        "id": "V06",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-A05",
+          "REF-A10",
+          "REF-A08"
+        ],
+        "hasard_top3": 0.30000000000000004
+      },
+      {
+        "id": "V07",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-F18",
+          "REF-F07",
+          "REF-F05"
+        ],
+        "hasard_top3": 0.23913043478260865
+      },
+      {
+        "id": "V08",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-F21",
+          "REF-F12",
+          "REF-F13"
+        ],
+        "hasard_top3": 0.23913043478260865
+      },
+      {
+        "id": "V09",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-A06",
+          "REF-A07",
+          "REF-A02"
+        ],
+        "hasard_top3": 0.5333333333333333
+      },
+      {
+        "id": "V10",
+        "domaine": true,
+        "format": true,
+        "budget_kilo": true,
+        "volume_annuel": true,
+        "pays_vente": true,
+        "mise_en_concurrence": true,
+        "relation": true,
+        "type_projet": true,
+        "cible": true,
+        "objectif": true,
+        "contraintes": true,
+        "engagements": true,
+        "bonne_reference_top3": true,
+        "references_proposees": [
+          "REF-F11",
+          "REF-F17",
+          "REF-F21"
+        ],
+        "hasard_top3": 0.125
+      }
+    ]
+  }
+}

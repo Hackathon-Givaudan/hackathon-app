@@ -1,0 +1,29 @@
+{
+ "version": "1.0",
+ "date": "2026-11-12",
+ "auteur": "equipe Data (adriatique), redige avant l'adaptation du moteur a la V3",
+ "statut": "a faire relire par une personne qui n'a construit ni la banque ni le moteur",
+ "objet": "champs du brief V3 (budget au kilo, volume annuel, pays de vente, mise en concurrence, relation, type de projet, cible, objectif, contraintes) et 3 references proches dans la banque fictive",
+ "cas": [
+  {"id":"V01","brief":"Maison Lumen, Biarritz. Création d'une eau de parfum pour nos boutiques : une maison née au bord de l'océan, l'impression d'être en vacances. Budget autour de 60 € le kilo, environ 150 kg par an. Vente en France et dans l'Union européenne. On consulte aussi d'autres fournisseurs. On travaille en direct.",
+   "attendu":{"domaine":"fragrances","format":"parfum","budget_kilo":60,"volume_annuel":150,"pays_vente":["france","union_europeenne"],"mise_en_concurrence":"autres_fournisseurs","relation":"direct","type_projet":"creation","cible":"clientele_boutiques","objectif":null,"contraintes":[],"engagements":[],"references":["REF-F01","REF-F02","REF-F03"]}},
+  {"id":"V02","brief":"Brasserie artisanale : on veut reformuler notre limonade citron gingembre. Budget 25 euros/kg, 2 tonnes par an, vendue en France uniquement. Uniquement avec Givaudan. Ingrédients naturels.",
+   "attendu":{"domaine":"aromes","format":"arome_boisson","budget_kilo":25,"volume_annuel":2000,"pays_vente":["france"],"mise_en_concurrence":"seulement_givaudan","relation":null,"type_projet":"reformulation","cible":null,"objectif":null,"contraintes":[],"engagements":["naturel"],"references":["REF-A01","REF-A09"]}},
+  {"id":"V03","brief":"Hôtel 5 étoiles à Londres et Paris : une signature olfactive pour le lobby en diffuseur, aromatique et provençale, lavande et romarin. Haut de gamme. Vente au Royaume-Uni et en France. On passe par notre distributeur habituel. Volume 40 kg par an.",
+   "attendu":{"domaine":"fragrances","format":"diffuseur","budget_kilo":null,"volume_annuel":40,"pays_vente":["royaume_uni","france"],"mise_en_concurrence":null,"relation":"distributeur","type_projet":null,"cible":"hotellerie","objectif":null,"contraintes":[],"engagements":[],"references":["REF-F10","REF-F11","REF-F08"]}},
+  {"id":"V04","brief":"Marque vegan de bougies : on veut étendre notre gamme avec une bougie résineuse façon temple, pour se différencier. Délai court, lancement en mars. On n'a pas encore décidé si on consulte d'autres fournisseurs.",
+   "attendu":{"domaine":"fragrances","format":"bougie","budget_kilo":null,"volume_annuel":null,"pays_vente":[],"mise_en_concurrence":"pas_decide","relation":null,"type_projet":"extension_gamme","cible":null,"objectif":"se_differencier","contraintes":["delai_court"],"engagements":["vegan"],"references":["REF-F14","REF-F13"]}},
+  {"id":"V05","brief":"Confiserie artisanale : un arôme fruits rouges pour des bonbons, grand public, vendus en France et aux États-Unis. Budget 15 €/kg, 500 kg/an. Sans allergènes si possible.",
+   "attendu":{"domaine":"aromes","format":"arome_alimentaire","budget_kilo":15,"volume_annuel":500,"pays_vente":["france","etats_unis"],"mise_en_concurrence":null,"relation":null,"type_projet":null,"cible":"grand_public","objectif":null,"contraintes":[],"engagements":["sans_allergenes"],"references":["REF-A04","REF-A10"]}},
+  {"id":"V06","brief":"Chocolatier de luxe : création d'un arôme pour une ganache cacao caramel, le produit signature de la maison. Vente en France et en Asie. Le coût des matières est important pour nous.",
+   "attendu":{"domaine":"aromes","format":"arome_alimentaire","budget_kilo":null,"volume_annuel":null,"pays_vente":["france","asie"],"mise_en_concurrence":null,"relation":null,"type_projet":"creation","cible":null,"objectif":"produit_signature","contraintes":["cout_matieres"],"engagements":[],"references":["REF-A05"]}},
+  {"id":"V07","brief":"Marque de lessive écologique : odeur de linge frais, propre et doux, grand public, pour fidéliser nos clients. Environ 10 tonnes par an, budget de 8 € le kilo. Attention à la réglementation.",
+   "attendu":{"domaine":"fragrances","format":"produit_entretien","budget_kilo":8,"volume_annuel":10000,"pays_vente":[],"mise_en_concurrence":null,"relation":null,"type_projet":null,"cible":"grand_public","objectif":"fideliser","contraintes":["reglementation"],"engagements":[],"references":["REF-F18","REF-F03"]}},
+  {"id":"V08","brief":"Barbier : un après-rasage boisé et épicé, cèdre et poivre, pour nos clients en boutique. On travaille en direct, et seulement avec Givaudan.",
+   "attendu":{"domaine":"fragrances","format":"soin","budget_kilo":null,"volume_annuel":null,"pays_vente":[],"mise_en_concurrence":"seulement_givaudan","relation":"direct","type_projet":null,"cible":"clientele_boutiques","objectif":null,"contraintes":[],"engagements":[],"references":["REF-F21","REF-F13"]}},
+  {"id":"V09","brief":"Glacier : extension de gamme avec un sorbet mangue citron vert, vendu dans l'Union européenne. 300 kg par an.",
+   "attendu":{"domaine":"aromes","format":"arome_alimentaire","budget_kilo":null,"volume_annuel":300,"pays_vente":["union_europeenne"],"mise_en_concurrence":null,"relation":null,"type_projet":"extension_gamme","cible":null,"objectif":null,"contraintes":[],"engagements":[],"references":["REF-A06","REF-A07"]}},
+  {"id":"V10","brief":"Jeune marque : une brume d'oreiller lavande et tonka, très douce, vegan, vendue aux États-Unis. Je ne sais pas encore si on passera par un distributeur.",
+   "attendu":{"domaine":"fragrances","format":"brume","budget_kilo":null,"volume_annuel":null,"pays_vente":["etats_unis"],"mise_en_concurrence":null,"relation":"ne_sait_pas","type_projet":null,"cible":null,"objectif":null,"contraintes":[],"engagements":["vegan"],"references":["REF-F11"]}}
+ ]
+}
