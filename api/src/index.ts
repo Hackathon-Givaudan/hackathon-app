@@ -9,6 +9,8 @@ import {
   isRecord,
   proposeFormula,
   proposeNotes,
+  sessionTurn,
+  isIdea,
   type Formula,
   type Note,
   type Universe,
@@ -98,6 +100,22 @@ app.post('/api/briefs', async (req, res) => {
     [universe, wishes, JSON.stringify(notes)],
   );
   res.status(201).json(toBrief(rows[0]));
+});
+
+/* La séance avec Aurore : un échange. L'API ne garde rien, le front renvoie ce qui a été entendu */
+app.post('/api/session/turn', async (req, res) => {
+  const body: unknown = req.body;
+  const universe = isRecord(body) ? body.universe : undefined;
+  const said = isRecord(body) && typeof body.said === 'string' ? body.said : '';
+  const heard: unknown[] =
+    isRecord(body) && Array.isArray(body.heard) ? body.heard : [];
+  if (universe !== 'parfum' && universe !== 'arome') {
+    return fail(res, 400, 'Univers inconnu : parfum ou arome');
+  }
+  if (said.length > 2000 || !heard.every(isIdea)) {
+    return fail(res, 400, 'Échange invalide');
+  }
+  res.json(await sessionTurn(universe, said.trim(), heard.filter(isIdea)));
 });
 
 app.get('/api/briefs/:briefId', async (req, res) => {

@@ -1,5 +1,5 @@
 /* Appels réels à l'API, route par route, comme dans openapi.yaml */
-import type { Api, Brief, Formula } from './types';
+import type { Api, Brief, Formula, Turn } from './types';
 
 async function call<T>(
   method: string,
@@ -20,6 +20,8 @@ async function call<T>(
 }
 
 export const httpApi: Api = {
+  sessionTurn: (universe, said, heard) =>
+    call<Turn>('POST', '/session/turn', { universe, said, heard }),
   createBrief: (universe, wishes) =>
     call<Brief>('POST', '/briefs', { universe, wishes }),
   validateNotes: (briefId, noteIds) =>
