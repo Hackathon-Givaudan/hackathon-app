@@ -42,6 +42,14 @@ async function smell(page: Page, opinion: string) {
 const compose = (page: Page) =>
   page.getByRole('button', { name: 'Composer ma formule' });
 
+/* Le chemin court vers les fioles : la marque a déjà son kit atelier, rien à attendre */
+async function openKit(page: Page) {
+  await page.getByRole('button', { name: /Utiliser mon kit atelier/ }).click();
+  await page
+    .getByRole('button', { name: 'J’ouvre mon kit, on commence' })
+    .click();
+}
+
 /* De l'accueil au plateau, sans répondre aux questions du profil */
 async function reachTray(page: Page, universe: string, example: string) {
   await describe(page, universe, example);
@@ -49,9 +57,7 @@ async function reachTray(page: Page, universe: string, example: string) {
     .getByRole('button', { name: 'Établir mon profil olfactif' })
     .click();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
-  await page
-    .getByRole('button', { name: 'Le plateau est arrivé, on commence' })
-    .click();
+  await openKit(page);
 }
 
 test('a perfume brand goes from its project to a sample request', async ({
@@ -79,9 +85,7 @@ test('a perfume brand goes from its project to a sample request', async ({
     if (await choice.isVisible()) await choice.click();
   }
   await page.getByRole('button', { name: 'Voir mon plateau' }).click();
-  await page
-    .getByRole('button', { name: 'Le plateau est arrivé, on commence' })
-    .click();
+  await openKit(page);
 
   // Le plateau : un avis par fiole
   await smell(page, 'Je l’aime');
@@ -273,13 +277,35 @@ test('the brand waits for its tray, then smells it', async ({ page }) => {
     .click();
   await page.getByRole('button', { name: 'Passer cette étape' }).click();
 
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    'Votre plateau arrive.',
-  );
+  // Écran 07 : trois façons de recevoir ses fioles, celle du conseiller en premier
+  const title = page.getByRole('heading', { level: 1 });
+  await expect(title).toHaveText('Votre parcours se fait en deux temps.');
+  await expect(page.getByText('Recommandé par votre conseiller')).toBeVisible();
+  await page.getByRole('button', { name: /^Recevoir mon plateau/ }).click();
+
+  // Écran 07b : Karim vérifie, le délai inconnu reste [X]
+  await expect(title).toHaveText('Karim vérifie votre demande.');
+  await expect(page.getByText('Sous [X] jours ouvrés')).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Démo : Karim a validé le plateau' })
+    .click();
+
+  // Écran 08 : le suivi de la livraison
+  await expect(title).toHaveText('Votre plateau arrive.');
   await expect(page.getByText('En route')).toBeVisible();
   await page
-    .getByRole('button', { name: 'Le plateau est arrivé, on commence' })
+    .getByRole('button', {
+      name: 'Démo : le plateau est arrivé, je me reconnecte',
+    })
     .click();
+
+  // Écran 08b : la marque se prépare, puis commence
+  await expect(title).toHaveText('Votre plateau est arrivé.');
+  const ready = page.getByRole('status', { name: 'Préparation' });
+  await expect(ready).toHaveText('1 sur 4 prêts');
+  await page.getByRole('checkbox', { name: /Un café/ }).check();
+  await expect(ready).toHaveText('2 sur 4 prêts');
+  await page.getByRole('button', { name: /^Commencer maintenant/ }).click();
   await expect(page.getByText(/fiole 1 sur/)).toBeVisible();
 });
 

@@ -359,6 +359,7 @@ export default function App() {
             {step === 'delivery' && brief && (
               <DeliveryStep
                 vials={brief.proposedNotes.length}
+                guide={guide}
                 onArrived={() => setStep('notes')}
                 onBack={() => setStep('profile')}
               />
