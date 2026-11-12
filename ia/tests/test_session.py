@@ -58,3 +58,9 @@ def test_the_route_answers_a_turn():
     response = client.post("/session/turn", json={"universe": "parfum", "said": "Une bougie", "heard": []})
     assert response.status_code == 200
     assert set(response.json()) == {"reply", "heard", "done"}
+
+
+def test_the_route_refuses_an_oversized_list_of_ideas():
+    idea = {"kind": "usage", "label": "bougie", "quote": "Une bougie"}
+    response = client.post("/session/turn", json={"universe": "parfum", "said": "Une bougie", "heard": [idea] * 51})
+    assert response.status_code == 422

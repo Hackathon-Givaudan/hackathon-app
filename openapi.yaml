@@ -63,6 +63,7 @@ paths:
                   maxLength: 2000
                 heard:
                   type: array
+                  maxItems: 50
                   items:
                     $ref: '#/components/schemas/Idea'
       responses:
@@ -239,9 +240,11 @@ components:
           enum: [usage, ambiance, emotion, sensation]
         label:
           type: string
+          maxLength: 100
           description: L'étiquette du référentiel, par exemple « bord de mer »
         quote:
           type: string
+          maxLength: 200
           description: La phrase de la marque dont l'idée vient
     BriefInput:
       type: object

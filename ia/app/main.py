@@ -52,14 +52,14 @@ def formula(request: FormulaRequest) -> dict:
 
 class Idea(BaseModel):
     kind: Literal["usage", "ambiance", "emotion", "sensation"]
-    label: str
-    quote: str
+    label: str = Field(max_length=100)
+    quote: str = Field(max_length=200)
 
 
 class TurnRequest(BaseModel):
     universe: Universe
     said: str = Field(max_length=2000)  # vide pour ouvrir la séance
-    heard: list[Idea] = []
+    heard: list[Idea] = Field(default=[], max_length=50)
 
 
 @app.post("/session/turn")

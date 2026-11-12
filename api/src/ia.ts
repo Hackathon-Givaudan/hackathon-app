@@ -130,6 +130,10 @@ export type Idea = {
 export type Turn = { reply: string; heard: Idea[]; done: boolean };
 
 const KINDS = ['usage', 'ambiance', 'emotion', 'sensation'];
+/* Bornes de ce que le front renvoie à chaque échange : une séance ne retient que quelques idées */
+export const MAX_HEARD = 50;
+const MAX_LABEL = 100;
+const MAX_QUOTE = 200;
 
 export function isIdea(value: unknown): value is Idea {
   return (
@@ -137,7 +141,9 @@ export function isIdea(value: unknown): value is Idea {
     typeof value.kind === 'string' &&
     KINDS.includes(value.kind) &&
     typeof value.label === 'string' &&
-    typeof value.quote === 'string'
+    value.label.length <= MAX_LABEL &&
+    typeof value.quote === 'string' &&
+    value.quote.length <= MAX_QUOTE
   );
 }
 

@@ -11,6 +11,7 @@ import {
   proposeNotes,
   sessionTurn,
   isIdea,
+  MAX_HEARD,
   type Formula,
   type Note,
   type Universe,
@@ -112,7 +113,7 @@ app.post('/api/session/turn', async (req, res) => {
   if (universe !== 'parfum' && universe !== 'arome') {
     return fail(res, 400, 'Univers inconnu : parfum ou arome');
   }
-  if (said.length > 2000 || !heard.every(isIdea)) {
+  if (said.length > 2000 || heard.length > MAX_HEARD || !heard.every(isIdea)) {
     return fail(res, 400, 'Échange invalide');
   }
   res.json(await sessionTurn(universe, said.trim(), heard.filter(isIdea)));
