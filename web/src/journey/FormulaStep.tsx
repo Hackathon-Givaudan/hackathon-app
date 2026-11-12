@@ -17,6 +17,8 @@ type Props = {
   /* Le nom que la marque donne à sa création */
   name: string;
   onName: (name: string) => void;
+  /* Les pays de vente donnés dans le brief, pour le contrôle réglementaire */
+  countries: string[];
   busy: boolean;
   error: string;
   onAccept: () => void;
@@ -29,6 +31,7 @@ export function FormulaStep({
   tiers,
   name,
   onName,
+  countries,
   busy,
   error,
   onAccept,
@@ -83,9 +86,37 @@ export function FormulaStep({
         />
       </label>
 
+      <h2 className="mt-8 text-[20px] font-semibold">
+        Avant votre échantillon
+      </h2>
+      <ul className="mt-2 border-t border-line-strong">
+        {[
+          ['Validée par un parfumeur Givaudan', 'Équilibre, tenue et dosages'],
+          [
+            'Testée sur peau et en flacon',
+            'Tenue, sillage et stabilité dans le temps',
+          ],
+          [
+            'Contrôlée pour vos pays de vente',
+            `Normes IFRA et réglementation : ${countries.join(', ') || '[X]'}`,
+          ],
+        ].map(([check, detail]) => (
+          <li key={check} className="border-b border-line py-2">
+            <span className="block font-semibold">{check}</span>
+            <span className="text-sm text-secondary">{detail}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-2 text-sm text-secondary">
+        Ces trois étapes sont celles du vrai service : le prototype ne les
+        réalise pas.
+      </p>
+
       <div className="mt-6 flex flex-wrap items-center gap-5">
         <button onClick={onAccept} disabled={busy} className={primaryButton}>
-          {busy ? 'Enregistrement…' : 'Demander un échantillon'}
+          {busy
+            ? 'Enregistrement…'
+            : `Recevoir l’échantillon de ${name.trim() || formula.name}`}
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>

@@ -372,6 +372,7 @@ export default function App() {
                   setOpinions((all) => ({ ...all, [id]: opinion }))
                 }
                 noteHelp={noteHelp}
+                guide={guide}
                 busy={busy}
                 error={error}
                 onValidate={validateNotes}
@@ -385,6 +386,11 @@ export default function App() {
                 tiers={tiers}
                 name={creationName}
                 onName={setCreationName}
+                countries={
+                  Array.isArray(details.salesCountries)
+                    ? details.salesCountries
+                    : []
+                }
                 busy={busy}
                 error={error}
                 onAccept={acceptFormula}
@@ -396,6 +402,7 @@ export default function App() {
                 formula={formula}
                 name={creationName.trim() || formula.name}
                 expert={expert}
+                guide={guide}
                 onRestart={restart}
               />
             )}

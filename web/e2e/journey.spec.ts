@@ -35,8 +35,12 @@ async function describe(page: Page, universe: string, example: string) {
 /* Le plateau : donne le même avis sur chaque fiole, jusqu'à la dernière */
 async function smell(page: Page, opinion: string) {
   const choice = page.getByRole('button', { name: opinion, exact: true });
+  const resume = page.getByRole('button', { name: 'C’est reparti' });
   await expect(choice).toBeVisible();
-  while (await choice.isVisible()) await choice.click();
+  // À mi-plateau, une pause café : on repart et on continue
+  while ((await choice.isVisible()) || (await resume.isVisible())) {
+    await ((await resume.isVisible()) ? resume : choice).click();
+  }
 }
 
 const compose = (page: Page) =>
@@ -92,8 +96,8 @@ test('a perfume brand goes from its project to a sample request', async ({
   await compose(page).click();
   await expect(page.getByText('Pourquoi cette proposition')).toBeVisible();
 
-  await page.getByRole('button', { name: 'Demander un échantillon' }).click();
-  await expect(page.getByText('Votre demande est envoyée')).toBeVisible();
+  await page.getByRole('button', { name: /^Recevoir l’échantillon/ }).click();
+  await expect(page.getByText('prend forme.')).toBeVisible();
   await expect(page.getByText('Votre parfumeur ajuste')).toBeVisible();
 });
 
@@ -104,7 +108,7 @@ test('a flavour brand follows the same journey with its own words', async ({
   await smell(page, 'Je l’aime');
   await compose(page).click();
 
-  await page.getByRole('button', { name: 'Demander un échantillon' }).click();
+  await page.getByRole('button', { name: /^Recevoir l’échantillon/ }).click();
   await expect(page.getByText('Votre aromaticien ajuste')).toBeVisible();
 });
 
@@ -235,8 +239,13 @@ test('the brand names its creation and follows its sample', async ({
   await compose(page).click();
 
   await page.getByLabel('Le nom de votre création').fill('Marée du soir');
-  await page.getByRole('button', { name: 'Demander un échantillon' }).click();
+  await page.getByRole('button', { name: /^Recevoir l’échantillon/ }).click();
   await expect(page.getByText('Marée du soir', { exact: true })).toBeVisible();
+
+  // Le devis de Karim : les montants inconnus restent [X]
+  await expect(page.getByText('Prix au kilo')).toBeVisible();
+  await page.getByRole('button', { name: 'Accepter le devis' }).click();
+  await expect(page.getByText(/Devis accepté/)).toBeVisible();
 
   // Le suivi, puis le retour après essai
   await page
@@ -368,4 +377,36 @@ test('the brief says what is left to complete', async ({ page }) => {
   await page.getByRole('button', { name: 'France', exact: true }).click();
   await page.getByRole('button', { name: 'Asie', exact: true }).click();
   await expect(progress).toHaveText(/3 sur 11/);
+});
+
+test('the brand can hesitate on a vial, or say what it reminds her of', async ({
+  page,
+}) => {
+  await reachTray(page, 'Un parfum', SEASIDE);
+
+  // « Je ne sais pas » : le guide repose la question autrement
+  await page.getByRole('button', { name: 'Je ne sais pas' }).click();
+  await page.getByRole('button', { name: 'Elle alourdit' }).click();
+  await expect(page.getByText(/fiole 2 sur/)).toBeVisible();
+
+  // « Ça me rappelle… » : la marque dit quoi, et la fiole est gardée
+  const second = await page.getByRole('heading', { level: 1 }).innerText();
+  await page.getByRole('button', { name: 'Ça me rappelle…' }).click();
+  await page.getByLabel('Ce que cette fiole vous rappelle').fill('Un jardin');
+  await page.getByRole('button', { name: 'Je la garde' }).click();
+  const sheet = page.getByRole('region', {
+    name: 'Votre feuille de composition',
+  });
+  await expect(sheet.getByText(second, { exact: false })).toBeVisible();
+});
+
+test('a coffee break rests the nose halfway through the tray', async ({
+  page,
+}) => {
+  await reachTray(page, 'Un parfum', SEASIDE);
+  const love = page.getByRole('button', { name: 'Je l’aime', exact: true });
+  const pause = page.getByRole('heading', { name: 'Pause café.' });
+  while (!(await pause.isVisible())) await love.click();
+  await page.getByRole('button', { name: 'C’est reparti' }).click();
+  await expect(love).toBeVisible();
 });
