@@ -489,3 +489,28 @@ test('the advisor reads the brief and its potential in seven criteria', async ({
   // Givaudan n'a pas donné de seuil de volume : il reste [X]
   await expect(criteria.getByText(/seuil Givaudan \[X\]/)).toBeVisible();
 });
+
+test('the profile wheel leans with the brand and can be shaped by hand', async ({
+  page,
+}) => {
+  await describe(page, 'Un parfum', SEASIDE);
+  await page
+    .getByRole('button', { name: 'Établir mon profil olfactif' })
+    .click();
+
+  // Le brief parle de bord de mer : la roue penche déjà vers le marin
+  const wheel = page.getByRole('region', { name: 'Votre roue olfactive' });
+  await expect(wheel.getByRole('status')).toContainText('marin');
+  // La marque la retouche à la main
+  for (let click = 0; click < 5; click++) {
+    await wheel.getByRole('button', { name: 'Plus de Boisé' }).click();
+  }
+  await expect(wheel.getByRole('status')).toContainText('boisé');
+});
+
+test('the workshop notebook says where the brand is', async ({ page }) => {
+  await enter(page, 'Un parfum');
+  await expect(
+    page.getByRole('status', { name: 'Carnet d’atelier' }),
+  ).toHaveText(/étape 3 sur 8 · Séance/);
+});

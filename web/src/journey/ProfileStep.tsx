@@ -12,6 +12,7 @@ import {
 } from '../shared/ui';
 import { VOCABULARY } from '../shared/vocabulary';
 import { Analysing } from './Analysing';
+import { ProfileWheel } from './ProfileWheel';
 
 type Props = {
   universe: Universe;
@@ -91,6 +92,10 @@ export function ProfileStep({
           </li>
         ))}
       </ol>
+      <ProfileWheel
+        universe={universe}
+        words={`${wishes} ${added.join(' ')}`}
+      />
       {added.length > 0 && (
         <p className="mt-3 text-[15px]">
           <span className={smallLabel}>Ajouté à votre brief</span>{' '}
