@@ -31,7 +31,7 @@ const CHOICES: [Opinion, string][] = [
 ];
 const VERDICT: Record<Opinion, string> = {
   love: 'Gardée',
-  some: 'Gardée, en retrait',
+  some: 'Gardée',
   no: 'Écartée',
 };
 

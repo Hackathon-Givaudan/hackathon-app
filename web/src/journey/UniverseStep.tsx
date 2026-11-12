@@ -1,13 +1,49 @@
 /* Premier écran : la marque comprend ce qu'elle va obtenir, puis dit ce qu'elle crée */
 import { ArrowRight } from 'lucide-react';
 import type { Universe } from '../api';
-import { smallLabel } from '../shared/ui';
+import { useState } from 'react';
+import { noteColor } from '../bottle/colors';
+import { Dialog } from '../shared/Dialog';
+import { linkButton, smallLabel } from '../shared/ui';
 import { VOCABULARY } from '../shared/vocabulary';
 
 const PROMISE = [
-  ['Vous décrivez', 'Trois questions, et une précision si vous le souhaitez.'],
-  ['Nous traduisons', 'Vos mots deviennent des notes, que vous validez.'],
+  ['Vous décrivez', 'Un échange écrit avec Aurore, notre parfumeuse IA.'],
+  [
+    'Nous traduisons',
+    'Vos mots deviennent des notes, que vous sentez une à une.',
+  ],
   ['Vous recevez', 'Une première proposition, puis un échantillon à essayer.'],
+];
+
+/* Le parcours en cinq temps, pour qui veut le voir avant d'entrer */
+const STAGES = [
+  [
+    'La séance',
+    'Vous racontez votre projet à Aurore. Elle note ce qu’elle entend.',
+  ],
+  [
+    'Le brief',
+    'Vous relisez ce qu’elle a compris, et précisez vos goûts en cinq questions.',
+  ],
+  ['Le plateau', 'Vous donnez votre avis sur chaque fiole proposée.'],
+  [
+    'La formule',
+    'Vous recevez une proposition expliquée, et vous lui donnez un nom.',
+  ],
+  ['L’échantillon', 'Vous demandez votre échantillon et suivez son avancée.'],
+];
+
+/* Quelques matières de l'orgue du parfumeur, pour donner le ton */
+const ORGAN = [
+  'bergamote',
+  'jasmin',
+  'sel marin',
+  'vanille',
+  'cèdre',
+  'menthe',
+  'rose',
+  'ambre',
 ];
 
 export function UniverseStep({
@@ -15,6 +51,7 @@ export function UniverseStep({
 }: {
   onChoose: (universe: Universe) => void;
 }) {
+  const [guide, setGuide] = useState(false);
   return (
     <div className="my-auto py-10">
       <h1 className="f-display text-[52px] leading-[1.02] md:text-[84px]">
@@ -24,6 +61,49 @@ export function UniverseStep({
         Décrivez votre projet avec vos mots. Aucun terme technique, environ deux
         minutes.
       </p>
+
+      <button onClick={() => setGuide(true)} className={`${linkButton} mt-3`}>
+        Comment ça marche
+      </button>
+      {guide && (
+        <Dialog title="Comment ça marche" onClose={() => setGuide(false)}>
+          <ol className="mt-4 border-t border-white/45">
+            {STAGES.map(([stage, text], index) => (
+              <li
+                key={stage}
+                className="grid grid-cols-[28px_1fr] gap-x-3 border-b border-white/25 py-3"
+              >
+                <span className="mono text-[12px] opacity-80">{index + 1}</span>
+                <span>
+                  <span className="f-display block text-[22px] leading-tight">
+                    {stage}
+                  </span>
+                  <span className="block text-[15px] opacity-85">{text}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </Dialog>
+      )}
+
+      <ul
+        aria-label="Quelques matières de l’orgue du parfumeur"
+        className="mt-8 flex flex-wrap items-end gap-3"
+      >
+        {ORGAN.map((matter) => (
+          <li key={matter} className="group flex flex-col items-center">
+            <span
+              className="block h-14 w-6 rounded-b-md border border-white/45 transition-transform group-hover:-translate-y-1.5"
+              style={{
+                background: `linear-gradient(to top, ${noteColor(matter)} 68%, transparent 68%)`,
+              }}
+            />
+            <span className="mono mt-1 text-[10px] opacity-0 transition-opacity group-hover:opacity-90">
+              {matter}
+            </span>
+          </li>
+        ))}
+      </ul>
 
       <ol className="mt-10 grid gap-6 border-t border-white/45 pt-5 sm:grid-cols-3">
         {PROMISE.map(([title, text], index) => (

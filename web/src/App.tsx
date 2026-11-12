@@ -16,6 +16,7 @@ import { noteColor } from './bottle/colors';
 import { AcceptedStep } from './journey/AcceptedStep';
 import { SessionStep } from './journey/SessionStep';
 import { FormulaStep } from './journey/FormulaStep';
+import { HelpDialog } from './journey/HelpDialog';
 import { ProfileStep } from './journey/ProfileStep';
 import { TrayStep, type Opinion } from './journey/TrayStep';
 import { UniverseStep } from './journey/UniverseStep';
@@ -48,6 +49,9 @@ export default function App() {
   const [opinions, setOpinions] = useState<Record<string, Opinion>>({});
   const keptIds = Object.keys(opinions).filter((id) => opinions[id] !== 'no');
   const [formula, setFormula] = useState<Formula | null>(null);
+  /* Le nom que la marque donne à sa création */
+  const [creationName, setCreationName] = useState('');
+  const [help, setHelp] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const panel = useRef<HTMLElement>(null);
@@ -100,6 +104,7 @@ export default function App() {
     setFormula(null);
     setOpinions({});
     setHeardWishes('');
+    setCreationName('');
     setError('');
     setStep('universe');
   }
@@ -190,6 +195,13 @@ export default function App() {
             Concept étudiant pour Givaudan
           </p>
         </div>
+        <button
+          onClick={() => setHelp(true)}
+          className="order-last h-14 px-3 text-sm underline underline-offset-4"
+        >
+          Aide
+        </button>
+        {help && <HelpDialog onClose={() => setHelp(false)} />}
         <ol aria-label="Étapes" className="flex">
           {STEPS.map(([id, label], index) => (
             <li
@@ -230,9 +242,11 @@ export default function App() {
               </BottleBoundary>
             </div>
             <p className="mono text-[11px] opacity-80">
-              {layers.length === 0
-                ? `Le ${object} se remplit avec vos mots.`
-                : layers.map((layer) => layer.n).join(' · ')}
+              {step === 'notes'
+                ? 'Votre plateau, une fiole à la fois.'
+                : layers.length === 0
+                  ? `Le ${object} se remplit avec vos mots.`
+                  : layers.map((layer) => layer.n).join(' · ')}
             </p>
           </aside>
         )}
@@ -297,6 +311,8 @@ export default function App() {
                 formula={formula}
                 expert={expert}
                 tiers={tiers}
+                name={creationName}
+                onName={setCreationName}
                 busy={busy}
                 error={error}
                 onAccept={acceptFormula}
@@ -306,6 +322,7 @@ export default function App() {
             {step === 'accepted' && formula && (
               <AcceptedStep
                 formula={formula}
+                name={creationName.trim() || formula.name}
                 expert={expert}
                 onRestart={restart}
               />

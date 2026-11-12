@@ -162,3 +162,73 @@ test('a long title stays whole on a narrow screen', async ({ page }) => {
   await expect(title).toHaveText('Écume Saline');
   await expect(title).toHaveCSS('clip-path', 'none');
 });
+
+test('the home shows how the atelier works before entering', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Comment ça marche' }).click();
+
+  const guide = page.getByRole('dialog', { name: 'Comment ça marche' });
+  for (const stage of [
+    'La séance',
+    'Le brief',
+    'Le plateau',
+    'La formule',
+    'L’échantillon',
+  ]) {
+    await expect(guide.getByText(stage, { exact: true })).toBeVisible();
+  }
+  await guide.getByRole('button', { name: 'Fermer' }).click();
+  await expect(guide).toBeHidden();
+});
+
+test('aurore only answers with validated answers', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Aide' }).click();
+  const help = page.getByRole('dialog', { name: 'Aide' });
+
+  await help
+    .getByLabel('Votre question')
+    .fill('Quand vais-je recevoir mon échantillon ?');
+  await help.getByRole('button', { name: 'Demander' }).click();
+  await expect(
+    help.getByText('Votre conseiller Givaudan vous le confirme'),
+  ).toBeVisible();
+
+  // Hors de notre projet : Aurore ne répond pas
+  await help
+    .getByLabel('Votre question')
+    .fill('Quelle est la capitale de la France ?');
+  await help.getByRole('button', { name: 'Demander' }).click();
+  await expect(help.getByText('Je ne peux pas répondre à cela.')).toBeVisible();
+});
+
+test('the brand names its creation and follows its sample', async ({
+  page,
+}) => {
+  await reachTray(page, 'Un parfum', SEASIDE);
+  await smell(page, 'Je l’aime');
+  await compose(page).click();
+
+  await page.getByLabel('Le nom de votre création').fill('Marée du soir');
+  await page.getByRole('button', { name: 'Demander un échantillon' }).click();
+  await expect(page.getByText('Marée du soir', { exact: true })).toBeVisible();
+
+  // Le suivi, puis le retour après essai
+  await page
+    .getByRole('button', { name: 'Simuler la réception de l’échantillon' })
+    .click();
+  await page.getByRole('button', { name: 'Plus de fraîcheur' }).click();
+  await expect(page.getByText('Votre retour est noté.')).toBeVisible();
+});
+
+test('the profile does not ask again what the session already settled', async ({
+  page,
+}) => {
+  await describe(page, 'Un parfum', 'Un diffuseur pour les soirées d’hiver');
+
+  // La séance a entendu « hiver » : le profil ne redemande pas « l'été ou l'hiver »
+  await expect(page.getByText('Plutôt le calme ou l’énergie ?')).toBeVisible();
+  await expect(page.getByText('Plutôt l’été ou l’hiver ?')).toHaveCount(0);
+});
