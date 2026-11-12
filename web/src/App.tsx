@@ -27,9 +27,10 @@ const Bottle3D = lazy(() => import('./bottle/Bottle3D'));
 type Step = 'universe' | 'describe' | 'notes' | 'formula' | 'accepted';
 const STEPS: [Step, string][] = [
   ['universe', 'Univers'],
-  ['describe', 'Envies'],
-  ['notes', 'Notes'],
-  ['formula', 'Formule'],
+  ['describe', 'Projet'],
+  ['notes', 'Récapitulatif'],
+  ['formula', 'Proposition'],
+  ['accepted', 'Demande'],
 ];
 
 export default function App() {
@@ -41,7 +42,9 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const panel = useRef<HTMLElement>(null);
-  const expert = VOCABULARY[universe].expert;
+  const { expert, object, lid, noteHelp, tiers } = VOCABULARY[universe];
+  /* Tant que la marque n'a pas dit ce qu'elle crée, on ne montre ni flacon ni pot */
+  const chosen = step !== 'universe';
 
   /* Lance un geste : état d'attente, puis résultat ou message d'erreur */
   async function run(gesture: () => Promise<void>) {
@@ -135,18 +138,21 @@ export default function App() {
     const tween = gsap.fromTo(
       title,
       { y: 24, clipPath: 'inset(0 0 100% 0)' },
-      { y: 0, clipPath: 'inset(0 0 -20% 0)', duration: 0.9, ease: 'expo.out' },
+      {
+        y: 0,
+        clipPath: 'inset(0 0 -20% 0)',
+        duration: 0.9,
+        ease: 'expo.out',
+        /* Le masque ne sert qu'à l'entrée : laissé en place, il coupe la deuxième ligne d'un titre long */
+        clearProps: 'clipPath,transform',
+      },
     );
     return () => {
       tween.progress(1).kill();
     };
   }, [step]);
 
-  /* Une fois la formule acceptée, la dernière étape reste allumée */
-  const stepIndex =
-    step === 'accepted'
-      ? STEPS.length - 1
-      : STEPS.findIndex(([id]) => id === step);
+  const stepIndex = STEPS.findIndex(([id]) => id === step);
 
   return (
     <div className="f-root ink relative isolate flex min-h-svh flex-col overflow-x-clip">
@@ -175,33 +181,41 @@ export default function App() {
         </ol>
       </header>
 
-      <div className="grid flex-1 lg:grid-cols-2">
-        <aside className="flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
-          <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
-            <BottleBoundary>
-              <Suspense fallback={null}>
-                <Bottle3D
-                  layers={layers}
-                  title={bottleTitle}
-                  sub={bottleCaption}
-                  spinKey={step}
-                  focus={null}
-                />
-              </Suspense>
-            </BottleBoundary>
-          </div>
-          <p className="mono text-[11px] opacity-80">
-            {layers.length === 0
-              ? 'Le flacon se remplit avec vos mots.'
-              : layers.map((layer) => layer.n).join(' · ')}
-          </p>
-        </aside>
+      <div className={cn('grid flex-1', chosen && 'lg:grid-cols-2')}>
+        {chosen && (
+          <aside className="flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
+            <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
+              <BottleBoundary>
+                <Suspense fallback={null}>
+                  <Bottle3D
+                    layers={layers}
+                    title={bottleTitle}
+                    sub={bottleCaption}
+                    spinKey={step}
+                    focus={null}
+                    lid={lid}
+                  />
+                </Suspense>
+              </BottleBoundary>
+            </div>
+            <p className="mono text-[11px] opacity-80">
+              {layers.length === 0
+                ? `Le ${object} se remplit avec vos mots.`
+                : layers.map((layer) => layer.n).join(' · ')}
+            </p>
+          </aside>
+        )}
 
         <main
           ref={panel}
           className="flex min-w-0 flex-col bg-[#1B0C19]/45 px-5 md:px-10"
         >
-          <div className="flex max-w-2xl flex-1 flex-col">
+          <div
+            className={cn(
+              'flex flex-1 flex-col',
+              chosen ? 'max-w-2xl' : 'mx-auto w-full max-w-5xl',
+            )}
+          >
             {step === 'universe' && (
               <UniverseStep
                 onChoose={(chosen) => {
@@ -223,6 +237,7 @@ export default function App() {
             {step === 'notes' && brief && (
               <NotesStep
                 wishes={brief.wishes}
+                noteHelp={noteHelp}
                 notes={brief.proposedNotes}
                 keptIds={keptIds}
                 onToggle={(id) =>
@@ -242,6 +257,7 @@ export default function App() {
               <FormulaStep
                 formula={formula}
                 expert={expert}
+                tiers={tiers}
                 busy={busy}
                 error={error}
                 onAccept={acceptFormula}

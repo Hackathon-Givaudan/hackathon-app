@@ -1,4 +1,5 @@
-/* Geste 2 : la marque garde les notes qui traduisent ses envies */
+/* Geste 2 : le récapitulatif. La marque vérifie ce que nous avons compris
+   et garde les notes qui traduisent ses envies */
 import { ArrowRight, Check } from 'lucide-react';
 import type { Note } from '../api';
 import {
@@ -11,6 +12,8 @@ import {
 
 type Props = {
   wishes: string;
+  /* « Une note est une odeur… » : le mot expliqué à la marque */
+  noteHelp: string;
   notes: Note[];
   keptIds: string[];
   onToggle: (noteId: string) => void;
@@ -22,6 +25,7 @@ type Props = {
 
 export function NotesStep({
   wishes,
+  noteHelp,
   notes,
   keptIds,
   onToggle,
@@ -30,16 +34,41 @@ export function NotesStep({
   onValidate,
   onBack,
 }: Props) {
+  /* Les idées retenues, tirées des raisons : « Évoque « bord de mer » » donne « bord de mer » */
+  const heard = [
+    ...new Set(
+      notes
+        .map(
+          ({ reason }) =>
+            reason?.match(/« (.+) »/)?.[1] ?? reason?.split(' : ')[1],
+        )
+        .filter((idea) => idea !== undefined),
+    ),
+  ];
+
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>Vos mots</p>
-      <p className="mt-1 text-[15px] opacity-85">« {wishes} »</p>
-
-      <h1 className="f-display mt-6 text-[44px] leading-[1.08] md:text-[52px]">
-        Voici les notes que nous y entendons.
+      <h1 className="f-display text-[44px] leading-[1.08] md:text-[52px]">
+        Voici ce que nous avons compris.
       </h1>
       <p className="mt-2 text-[15px]">
-        Retirez celles qui ne vous ressemblent pas.
+        Vérifiez avant de voir notre proposition. Vous pouvez tout modifier.
+      </p>
+
+      <p className={cn(smallLabel, 'mt-6')}>Votre projet</p>
+      <p className="mt-1 text-[15px] opacity-85">« {wishes} »</p>
+      {heard.length > 0 && (
+        <p className="mt-3 text-[15px]">
+          <span className={smallLabel}>Nous avons entendu</span>{' '}
+          {heard.join(' · ')}
+        </p>
+      )}
+
+      <h2 className="f-display mt-6 text-[28px] leading-tight">
+        Vos envies, traduites en notes
+      </h2>
+      <p className="mt-1 text-[15px]">
+        {noteHelp} Retirez celles qui ne vous ressemblent pas.
       </p>
 
       <ul className="mt-5 border-t border-white/45">
@@ -90,12 +119,12 @@ export function NotesStep({
           className={primaryButton}
         >
           {busy
-            ? 'Recherche de la formule…'
-            : `Valider ${keptIds.length} note${keptIds.length > 1 ? 's' : ''}`}
+            ? 'Recherche de votre proposition…'
+            : 'C’est bien ça, voir la proposition'}
           <ArrowRight className="size-4" />
         </button>
         <button onClick={onBack} className={linkButton}>
-          Reformuler mes envies
+          Modifier mon projet
         </button>
       </div>
       {keptIds.length === 0 && (

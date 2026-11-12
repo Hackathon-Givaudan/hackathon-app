@@ -1,5 +1,5 @@
-/* Geste 1 : trois questions à choix, puis une précision libre et facultative.
-   Les réponses forment les envies envoyées à l'API. */
+/* Geste 1 : la marque décrit son projet avec ses mots.
+   Elle peut partir d'un exemple, ou se laisser guider par trois questions. */
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import type { Universe } from '../api';
@@ -11,6 +11,7 @@ import {
   smallLabel,
 } from '../shared/ui';
 import { VOCABULARY } from '../shared/vocabulary';
+import { Analysing } from './Analysing';
 
 type Props = {
   universe: Universe;
@@ -20,6 +21,9 @@ type Props = {
   onBack: () => void;
 };
 
+const chip =
+  'min-h-11 border border-white/45 px-3 text-left text-[15px] hover:bg-white/10';
+
 export function DescribeStep({
   universe,
   busy,
@@ -27,101 +31,106 @@ export function DescribeStep({
   onSubmit,
   onBack,
 }: Props) {
-  const { questions } = VOCABULARY[universe];
-  const [answers, setAnswers] = useState<string[]>([]);
-  const [current, setCurrent] = useState(0);
-  const [detail, setDetail] = useState('');
-  const done = answers.filter(Boolean).length === questions.length;
+  const { questions, examples } = VOCABULARY[universe];
+  const [text, setText] = useState('');
+  const [guided, setGuided] = useState(false);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
 
-  function answer(option: string) {
-    const next = [...answers];
-    next[current] = option;
-    setAnswers(next);
-    setCurrent(Math.min(current + 1, questions.length));
-  }
+  /* Les réponses guidées d'abord, puis le texte libre : « Produit : bougie. … » */
+  const wishes = [
+    ...questions
+      .filter(({ id }) => answers[id])
+      .map(({ id, label }) => `${label} : ${answers[id]}.`),
+    text.trim(),
+  ]
+    .join(' ')
+    .trim();
 
-  function submit() {
-    const [product, mood, emotion] = answers;
-    onSubmit(
-      `Produit : ${product}. Ambiance : ${mood}. Émotion : ${emotion}. ${detail.trim()}`.trim(),
+  if (busy) {
+    return (
+      <div className="mt-auto pb-6 pt-10">
+        <Analysing />
+      </div>
     );
   }
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      {/* Réponses déjà données : un clic rouvre la question */}
-      <div className="flex min-h-11 flex-wrap gap-2">
-        {questions.map((question, index) =>
-          answers[index] ? (
-            <button
-              key={question.id}
-              onClick={() => setCurrent(index)}
-              className="h-11 border border-white/45 px-3 text-sm first-letter:uppercase hover:bg-white/10"
-            >
-              {answers[index]}
-            </button>
-          ) : null,
-        )}
+      <h1 className="f-display text-[44px] leading-[1.08] md:text-[56px]">
+        <label htmlFor="project">Parlez-nous de votre projet.</label>
+      </h1>
+      <p className="mt-2 text-[15px]">
+        Décrivez-le avec vos mots : vous n’avez pas besoin de connaître les
+        notes ni les dosages.
+      </p>
+      <textarea
+        id="project"
+        aria-label="Votre projet"
+        rows={3}
+        value={text}
+        onChange={(event) => setText(event.target.value)}
+        placeholder={`Par exemple : ${examples[0].toLowerCase()}`}
+        className="mt-4 w-full resize-none border border-white/50 bg-white/10 p-3 text-[16px] outline-none placeholder:text-white/65 focus:border-white"
+      />
+
+      <p className={cn(smallLabel, 'mt-5')}>Besoin d’inspiration ?</p>
+      <div className="mt-2 flex flex-wrap gap-2">
+        {examples.map((example) => (
+          <button
+            key={example}
+            onClick={() => setText(example)}
+            className={chip}
+          >
+            {example}
+          </button>
+        ))}
+        <button
+          onClick={() => setGuided(!guided)}
+          aria-expanded={guided}
+          className={cn(chip, guided && 'bg-white/15')}
+        >
+          Me laisser guider
+        </button>
       </div>
 
-      {current < questions.length ? (
-        <>
-          <p className={cn(smallLabel, 'mt-6')}>
-            Question {current + 1} sur {questions.length}
-          </p>
-          <h1
-            key={current}
-            className="f-display mt-1 text-[44px] leading-[1.08] md:text-[56px]"
-          >
-            {questions[current].title}
-          </h1>
-          <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3">
-            {questions[current].options.map((option) => (
-              <button
-                key={option}
-                onClick={() => answer(option)}
-                aria-pressed={answers[current] === option}
-                className={cn(
-                  'min-h-16 border border-white/45 px-3 text-[16px] first-letter:uppercase',
-                  answers[current] === option
-                    ? 'bg-[#F2ECF0] text-[#22101F]'
-                    : 'hover:bg-white/10',
-                )}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-        </>
-      ) : (
-        <>
-          <h1 className="f-display mt-6 text-[44px] leading-[1.08] md:text-[56px]">
-            <label htmlFor="detail">Une précision à ajouter&nbsp;?</label>
-          </h1>
-          <p className="mt-2 text-[15px]">
-            Facultatif. Avec vos mots : un souvenir, une matière, ce qu’il faut
-            éviter.
-          </p>
-          <textarea
-            id="detail"
-            rows={2}
-            value={detail}
-            onChange={(event) => setDetail(event.target.value)}
-            placeholder="Par exemple : rien de trop sucré"
-            className="mt-4 w-full resize-none border border-white/50 bg-white/10 p-3 text-[16px] outline-none placeholder:text-white/65 focus:border-white"
-          />
-          <button
-            onClick={submit}
-            disabled={busy || !done}
-            className={cn(primaryButton, 'mt-5')}
-          >
-            {busy ? 'Traduction en notes…' : 'Traduire en notes'}
-            <ArrowRight className="size-4" />
-          </button>
-        </>
-      )}
+      {guided &&
+        questions.map(({ id, title, options }) => (
+          <fieldset key={id} className="mt-4">
+            <legend className="text-[15px]">{title}</legend>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {options.map((option) => (
+                <button
+                  key={option}
+                  onClick={() =>
+                    setAnswers({
+                      ...answers,
+                      [id]: answers[id] === option ? '' : option,
+                    })
+                  }
+                  aria-pressed={answers[id] === option}
+                  className={cn(
+                    'min-h-11 border border-white/45 px-3 text-[15px] first-letter:uppercase',
+                    answers[id] === option
+                      ? 'bg-[#F2ECF0] text-[#22101F]'
+                      : 'hover:bg-white/10',
+                  )}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+        ))}
 
-      <div className="mt-5">
+      <div className="mt-6 flex flex-wrap items-center gap-5">
+        <button
+          onClick={() => onSubmit(wishes)}
+          disabled={wishes.length < 3}
+          className={primaryButton}
+        >
+          Continuer
+          <ArrowRight className="size-4" />
+        </button>
         <button onClick={onBack} className={linkButton}>
           Changer d’univers
         </button>

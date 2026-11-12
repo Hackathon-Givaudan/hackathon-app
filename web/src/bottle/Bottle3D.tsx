@@ -19,6 +19,8 @@ type Props = {
   sub: string;
   spinKey: string;
   focus: number | null;
+  /* Bouchon haut d'un flacon de parfum, ou couvercle plat d'un pot d'arôme */
+  lid?: 'bouchon' | 'couvercle';
 };
 
 const SLOTS = 5;
@@ -86,7 +88,14 @@ function Label({ title, sub }: { title: string; sub: string }) {
   );
 }
 
-function Bottle({ layers, title, sub, spinKey, focus }: Props) {
+function Bottle({
+  layers,
+  title,
+  sub,
+  spinKey,
+  focus,
+  lid = 'bouchon',
+}: Props) {
   const root = useRef<THREE.Group>(null);
   const spin = useRef({ y: 0 });
   const liquid = useRef<THREE.Mesh>(null);
@@ -349,30 +358,43 @@ function Bottle({ layers, title, sub, spinKey, focus }: Props) {
           decay={2}
         />
         <Label title={title} sub={sub} />
-        <mesh position={[0, 1.52, 0]}>
-          <cylinderGeometry args={[0.32, 0.36, 0.34, 128]} />
-          <meshStandardMaterial
-            color="#C9A66B"
-            metalness={1}
-            roughness={0.22}
-          />
-        </mesh>
-        <mesh position={[0, 2.08, 0]}>
-          <cylinderGeometry args={[0.56, 0.56, 0.82, 128]} />
-          <meshStandardMaterial
-            color="#17090F"
-            metalness={0.65}
-            roughness={0.28}
-          />
-        </mesh>
-        <mesh position={[0, 1.66, 0]}>
-          <cylinderGeometry args={[0.58, 0.58, 0.05, 128]} />
-          <meshStandardMaterial
-            color="#C9A66B"
-            metalness={1}
-            roughness={0.18}
-          />
-        </mesh>
+        {lid === 'couvercle' ? (
+          <mesh position={[0, 1.5, 0]}>
+            <cylinderGeometry args={[0.98, 0.98, 0.3, 128]} />
+            <meshStandardMaterial
+              color="#D9D2CB"
+              metalness={0.85}
+              roughness={0.32}
+            />
+          </mesh>
+        ) : (
+          <>
+            <mesh position={[0, 1.52, 0]}>
+              <cylinderGeometry args={[0.32, 0.36, 0.34, 128]} />
+              <meshStandardMaterial
+                color="#C9A66B"
+                metalness={1}
+                roughness={0.22}
+              />
+            </mesh>
+            <mesh position={[0, 2.08, 0]}>
+              <cylinderGeometry args={[0.56, 0.56, 0.82, 128]} />
+              <meshStandardMaterial
+                color="#17090F"
+                metalness={0.65}
+                roughness={0.28}
+              />
+            </mesh>
+            <mesh position={[0, 1.66, 0]}>
+              <cylinderGeometry args={[0.58, 0.58, 0.05, 128]} />
+              <meshStandardMaterial
+                color="#C9A66B"
+                metalness={1}
+                roughness={0.18}
+              />
+            </mesh>
+          </>
+        )}
       </group>
     </group>
   );
