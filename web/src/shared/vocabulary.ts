@@ -20,10 +20,11 @@ export const VOCABULARY: Record<
     label: string;
     hint: string;
     expert: string;
-    /* Les mots qui changent d'un univers à l'autre : le profil, la roue, les créations existantes */
+    /* Les mots qui changent d'un univers à l'autre : le profil, la roue, le métier du guide */
     profile: string;
     wheel: string;
-    existing: string;
+    /* Le métier du guide, au féminin puis au masculin */
+    guides: [string, string];
     /* L'objet montré à l'écran, et son couvercle */
     object: string;
     lid: 'bouchon' | 'couvercle';
@@ -43,10 +44,10 @@ export const VOCABULARY: Record<
     expert: 'parfumeur',
     profile: 'olfactif',
     wheel: 'Votre roue olfactive',
-    existing: 'Partir de parfums existants',
+    guides: ['Parfumeuse IA', 'Parfumeur IA'],
     object: 'flacon',
     lid: 'bouchon',
-    noteHelp: 'Une note est une odeur qui compose votre parfum.',
+    noteHelp: 'Une note est une odeur qui compose votre création.',
     tiers: {
       Tête: 'ce que l’on sent en premier',
       Cœur: 'le caractère, qui s’installe',
@@ -135,10 +136,10 @@ export const VOCABULARY: Record<
     expert: 'aromaticien',
     profile: 'gustatif',
     wheel: 'Votre roue des saveurs',
-    existing: 'Partir d’arômes existants',
+    guides: ['Aromaticienne IA', 'Aromaticien IA'],
     object: 'pot',
     lid: 'couvercle',
-    noteHelp: 'Une note est une saveur qui compose votre arôme.',
+    noteHelp: 'Une note est une saveur qui compose votre création.',
     tiers: {
       Dominante: 'le goût principal',
       Secondaires: 'ce qui l’accompagne',

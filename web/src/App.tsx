@@ -56,7 +56,7 @@ const STEPS: [Step, string][] = [
   ['profile', 'Profil'],
   ['notes', 'Plateau'],
   ['formula', 'Formule'],
-  ['accepted', 'Demande'],
+  ['accepted', 'Suivi'],
 ];
 
 export default function App() {
@@ -85,10 +85,15 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const panel = useRef<HTMLElement>(null);
-  const { expert, object, lid, noteHelp, tiers, profile, existing } =
-    VOCABULARY[universe];
+  const { expert, lid, noteHelp, tiers, profile } = VOCABULARY[universe];
   /* Tant que la marque n'a pas dit ce qu'elle crée, on ne montre ni flacon ni pot */
-  const chosen = step !== 'universe';
+  /* La scène 3D n'apparaît que lorsqu'il y a quelque chose à montrer : le plateau, puis le flacon de la formule.
+     Avant, un flacon vide prendrait la moitié de l'écran sans rien dire. */
+  const staged =
+    step === 'delivery' ||
+    step === 'notes' ||
+    step === 'formula' ||
+    step === 'accepted';
   const onTray = (step === 'notes' || step === 'delivery') && brief;
 
   /* Lance un geste : état d'attente, puis résultat ou message d'erreur */
@@ -310,12 +315,12 @@ export default function App() {
       <div
         className={cn(
           'grid flex-1',
-          chosen && 'lg:grid-cols-2',
+          staged && 'lg:grid-cols-2',
           view !== 'journey' && 'hidden',
         )}
       >
-        {chosen && (
-          <aside className="stage flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-[calc(100svh-74px)]">
+        {staged && (
+          <aside className="stage flex flex-col px-5 pb-6 md:px-10 lg:sticky lg:top-0 lg:h-svh">
             <div className="relative min-h-[340px] flex-1 bg-[radial-gradient(ellipse_46%_52%_at_50%_46%,rgb(255_236_220/.13),transparent_72%)]">
               <BottleBoundary>
                 <Suspense fallback={null}>
@@ -337,8 +342,8 @@ export default function App() {
             <p className="text-[13px] opacity-80">
               {step === 'notes'
                 ? 'Votre plateau, une fiole à la fois.'
-                : layers.length === 0
-                  ? `Le ${object} se remplit avec vos mots.`
+                : step === 'delivery'
+                  ? 'Votre plateau, choisi d’après votre brief.'
                   : layers.map((layer) => layer.n).join(' · ')}
             </p>
           </aside>
@@ -351,7 +356,11 @@ export default function App() {
           <div
             className={cn(
               'flex flex-1 flex-col',
-              chosen ? 'max-w-2xl' : 'mx-auto w-full max-w-5xl',
+              staged
+                ? 'max-w-2xl'
+                : step === 'universe'
+                  ? 'mx-auto w-full max-w-5xl'
+                  : 'mx-auto w-full max-w-3xl',
             )}
           >
             {step === 'universe' && (
@@ -415,7 +424,6 @@ export default function App() {
               <DeliveryStep
                 vials={brief.proposedNotes.length}
                 guide={guide}
-                existing={existing}
                 onArrived={() => setStep('notes')}
                 onBack={() => setStep('profile')}
               />

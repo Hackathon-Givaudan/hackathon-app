@@ -47,7 +47,7 @@ Le parcours suit la maquette du Product : la marque échange par écrit avec son
 - Le plateau : aucune fiole n'est envoyée. La livraison, le kit atelier et le créneau réservé sont des écrans, et l'avis sur chaque note se donne à l'écran.
 - Le devis et la commande : Givaudan n'a donné ni prix ni délai, ils s'écrivent `[X]`. Accepter le devis ou commander ne transmet rien.
 - L'échantillon : rien n'est envoyé, sa réception est un bouton.
-- La roue du profil : elle résume les mots du brief et les réponses. Elle n'oriente pas le plateau.
+- La roue du profil : elle montre où penchent les mots du brief et les réponses. Ce sont ces mots qui orientent le plateau, pas la roue. La correspondance entre un mot et un axe est une lecture de l'équipe.
 
 **Ce qui reste une hypothèse.** Les fiches couvrent 39 des 78 notes de parfum, et une partie de leurs valeurs est estimée par l'équipe Data. Les règles du potentiel sont à valider avec Givaudan : le conseiller décide.
 

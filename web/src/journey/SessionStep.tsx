@@ -58,6 +58,8 @@ export function SessionStep({
   const [text, setText] = useState('');
   const [waiting, setWaiting] = useState(false);
   const [failure, setFailure] = useState('');
+  /* Le guide a de quoi rédiger le brief : la suite est facultative */
+  const [done, setDone] = useState(false);
   const opened = useRef(false);
 
   /* Envoie ce que dit la marque (rien, pour ouvrir la séance) et ajoute la réponse d'Aurore */
@@ -68,6 +70,7 @@ export function SessionStep({
     try {
       const turn = await api.sessionTurn(universe, said, heard);
       setHeard(turn.heard);
+      setDone(turn.done);
       setLines((all) => [...all, { who: 'aurore', text: turn.reply }]);
     } catch (problem) {
       setFailure(problem instanceof Error ? problem.message : String(problem));
@@ -79,7 +82,7 @@ export function SessionStep({
   useEffect(() => {
     if (opened.current) return;
     opened.current = true;
-    void say(product ? `Mon produit : ${product}.` : '');
+    void say(product ? `Je crée ${product}.` : '');
   }, []); // la séance s'ouvre une seule fois, à l'arrivée sur l'écran
 
   function send() {
@@ -117,12 +120,9 @@ export function SessionStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>
-        La séance · avec {guide}
-        {lines.length > 0 && ` · message ${lines.length} · environ 4 min`}
-      </p>
+      <p className={smallLabel}>La séance · avec {guide}</p>
       <h1 className="f-display mt-1 text-[40px] leading-[1.08] md:text-[48px]">
-        Parlez-nous de votre projet.
+        Racontez votre projet à {guide}.
       </h1>
 
       <ol className="mt-5 space-y-3" aria-live="polite">
@@ -148,7 +148,11 @@ export function SessionStep({
           value={text}
           onChange={(event) => setText(event.target.value)}
           onKeyDown={(event) => event.key === 'Enter' && send()}
-          placeholder="Écrivez votre réponse…"
+          placeholder={
+            done
+              ? 'Ajouter une précision, si vous voulez…'
+              : 'Écrivez votre réponse…'
+          }
           className="min-h-12 flex-1 border border-line-input bg-card rounded-md px-3 text-[16px] outline-none placeholder:text-muted focus:border-ink"
         />
         <button

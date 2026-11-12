@@ -1,9 +1,7 @@
 /* La roue du profil (écran 06 de la V3) : six axes, qui penchent selon les mots de la marque.
-   Elle résume le brief et les réponses ; la marque peut la retoucher à la main.
-   Elle n'oriente pas le plateau : ce sont les mots du brief qui le font, et l'écran le dit. */
-import { useState } from 'react';
+   Elle montre où penchent le brief et les réponses du profil : ce sont ces mots qui orientent le plateau.
+   Pas de réglage à la main : un bouton qui ne changerait rien au plateau n'a pas sa place. */
 import type { Universe } from '../api';
-import { smallLabel } from '../shared/ui';
 import { VOCABULARY } from '../shared/vocabulary';
 
 /* Les six axes de la maquette pour chaque univers, avec ce qu'ils veulent dire */
@@ -67,15 +65,12 @@ type Props = {
 };
 
 export function ProfileWheel({ universe, words }: Props) {
-  /* Ce que la marque ajoute ou retire à la main, axe par axe */
-  const [touch, setTouch] = useState([0, 0, 0, 0, 0, 0]);
   const axes = AXES[universe];
   const said = (word: string) =>
     new RegExp(`(^|[^\\p{L}])${word}([^\\p{L}]|$)`, 'iu').test(words);
   const values = axes.map((_, index) =>
     clamp(
       BASE +
-        touch[index] +
         STEP *
           Object.entries(PUSHES[universe]).filter(
             ([word, pushed]) => pushed.includes(index) && said(word),
@@ -93,16 +88,13 @@ export function ProfileWheel({ universe, words }: Props) {
     const angle = -Math.PI / 2 + (index * Math.PI) / 3;
     return `${(120 + radius * Math.cos(angle)).toFixed(1)},${(120 + radius * Math.sin(angle)).toFixed(1)}`;
   };
-  const move = (index: number, by: number) =>
-    setTouch(touch.map((value, at) => (at === index ? value + by : value)));
-
   return (
     <section aria-label={VOCABULARY[universe].wheel} className="mt-8">
       <h2 className="text-[20px] font-semibold">
         {VOCABULARY[universe].wheel}
       </h2>
       <p role="status" className="mt-1 text-[16px]">
-        Profil établi : plutôt {top.join(' et ')}.
+        Votre profil penche vers : {top.join(' et ')}.
       </p>
       <div className="mt-3 grid items-center gap-6 sm:grid-cols-[240px_1fr]">
         <svg viewBox="0 0 240 240" role="img" aria-label="Roue à six axes">
@@ -123,7 +115,7 @@ export function ProfileWheel({ universe, words }: Props) {
           />
         </svg>
         <ul className="border-t border-line-strong">
-          {axes.map(([name, meaning], index) => (
+          {axes.map(([name, meaning]) => (
             <li
               key={name}
               className="flex items-center gap-3 border-b border-line py-2"
@@ -132,29 +124,13 @@ export function ProfileWheel({ universe, words }: Props) {
                 <span className="block font-semibold">{name}</span>
                 <span className="block text-sm text-secondary">{meaning}</span>
               </span>
-              <button
-                onClick={() => move(index, -10)}
-                aria-label={`Moins de ${name}`}
-                className="grid size-11 place-items-center rounded-full border border-line-strong text-[18px] hover:bg-soft"
-              >
-                −
-              </button>
-              <button
-                onClick={() => move(index, 10)}
-                aria-label={`Plus de ${name}`}
-                className="grid size-11 place-items-center rounded-full border border-line-strong text-[18px] hover:bg-soft"
-              >
-                +
-              </button>
             </li>
           ))}
         </ul>
       </div>
-      <p className={`${smallLabel} mt-3`}>Sculptez votre profil à la main</p>
-      <p className="max-w-[60ch] text-sm text-secondary">
-        La roue résume vos mots et vos réponses, et vous pouvez la retoucher.
-        Prototype : elle n’oriente pas encore le plateau, ce sont les mots de
-        votre brief qui le font.
+      <p className="mt-3 max-w-[60ch] text-sm text-secondary">
+        La roue montre où penchent les mots de votre brief et vos réponses. Ce
+        sont eux qui orientent votre plateau.
       </p>
     </section>
   );

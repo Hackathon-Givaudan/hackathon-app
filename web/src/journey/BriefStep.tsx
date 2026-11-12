@@ -178,10 +178,14 @@ export function BriefStep({
         Voici votre brief.
       </h1>
       <p className="mt-3 text-[17px] leading-snug">
-        Il manque quelques réponses : un geste suffit pour chacune.
+        Votre projet est compris. Vous pouvez ajouter quelques précisions pour
+        votre conseiller : un geste suffit pour chacune. Rien n’est obligatoire.
       </p>
 
-      <h2 className={cn(smallLabel, 'mt-6')}>Ce que {guide} a entendu</h2>
+      <h2 className={cn(smallLabel, 'mt-6')}>
+        {/^[AEIOUH]/.test(guide) ? 'Ce qu’' : 'Ce que '}
+        {guide} a entendu
+      </h2>
       <dl className="mt-2 grid max-w-md grid-cols-[110px_1fr] gap-y-1 border-t border-line-strong pt-3 text-[16px]">
         {heard.map(([label, value]) => (
           <div key={label} className="contents">
@@ -192,9 +196,15 @@ export function BriefStep({
       </dl>
 
       <div className="mt-8 flex items-baseline justify-between gap-4">
-        <h2 className="text-[24px] font-semibold">À compléter</h2>
-        <p role="status" aria-label="Brief complété" className="text-[15px]">
-          <span className="text-muted">Brief complété</span> {done} sur {TOTAL}
+        <h2 className="text-[24px] font-semibold">
+          Précisions pour votre conseiller
+        </h2>
+        <p
+          role="status"
+          aria-label="Précisions données"
+          className="text-[15px]"
+        >
+          <span className="text-muted">Facultatif ·</span> {done} sur {TOTAL}
         </p>
       </div>
       <div className="mt-2 h-1 rounded-full bg-soft">
@@ -272,7 +282,8 @@ export function BriefStep({
         </button>
       </div>
       <p className="mt-3 text-sm text-secondary">
-        Votre conseiller Givaudan reçoit ce brief en même temps que vous.
+        Votre conseiller recevra ce brief, avec vos précisions, quand vous
+        demanderez votre plateau.
       </p>
     </div>
   );
