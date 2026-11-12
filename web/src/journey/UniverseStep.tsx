@@ -24,7 +24,7 @@ const STAGES = [
   ],
   [
     'Le brief',
-    'Vous relisez ce qu’il a compris, et précisez vos goûts en cinq questions.',
+    'Vous relisez ce qu’il a compris, et précisez vos goûts en quelques questions.',
   ],
   ['Le plateau', 'Vous donnez votre avis sur chaque fiole proposée.'],
   [

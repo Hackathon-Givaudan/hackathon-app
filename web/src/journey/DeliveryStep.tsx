@@ -9,8 +9,6 @@ type Phase = 'offer' | 'validation' | 'shipping' | 'back';
 type Props = {
   vials: number;
   guide: string;
-  /* « Partir de parfums existants », ou d'arômes */
-  existing: string;
   onArrived: () => void;
   onBack: () => void;
 };
@@ -48,19 +46,14 @@ function Timeline({ stages, done }: { stages: string[][]; done: number }) {
   );
 }
 
-export function DeliveryStep({
-  vials,
-  guide,
-  existing,
-  onArrived,
-  onBack,
-}: Props) {
+export function DeliveryStep({ vials, guide, onArrived, onBack }: Props) {
   const [phase, setPhase] = useState<Phase>('offer');
   const [offer, setOffer] = useState(0);
   const [ready, setReady] = useState([true, false, false, false]);
   const [slot, setSlot] = useState('');
 
-  /* Les trois offres de la maquette. La première est celle que le conseiller recommande. */
+  /* Deux offres, celles que la suite du parcours tient vraiment. La maquette en montre une troisième,
+     « partir de parfums existants » : elle promettrait des parfums finis alors qu'on sent ensuite des notes. */
   const offers = [
     {
       title: 'Recevoir un plateau sur mesure',
@@ -77,14 +70,6 @@ export function DeliveryStep({
       text: `${guide} pioche dans vos notes de base. Pas d’attente : on sent tout de suite.`,
       cta: 'J’ouvre mon kit, on commence',
       next: null,
-    },
-    {
-      title: existing,
-      sub: 'Des échantillons de créations Givaudan proches de votre profil',
-      badge: 'Le plus rapide',
-      text: `${guide} choisit des formules de la banque proches de votre profil. Moins de sur-mesure, plus rapide.`,
-      cta: 'Recevoir mes échantillons',
-      next: 'validation' as const,
     },
   ];
   const chosen = offers[offer];
@@ -136,8 +121,7 @@ export function DeliveryStep({
         <p className="mt-4 max-w-[56ch] text-[16px]">{chosen.text}</p>
         <p className="mt-2 max-w-[56ch] text-sm text-secondary">
           Karim, votre conseiller Givaudan, a étudié votre brief et vous
-          recommande la première offre. Les autres restent possibles après un
-          échange avec lui.
+          recommande la première offre.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-5">
           <button

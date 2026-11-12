@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import type { Universe } from '../api';
 import { cn, linkButton, primaryButton, smallLabel } from '../shared/ui';
+import { VOCABULARY } from '../shared/vocabulary';
 
 export type Guide = 'Aurore' | 'Victor';
 
@@ -15,12 +16,10 @@ export const ACCOUNT = {
   email: 'lea@maison-lumen.fr',
 };
 
+/* Ce que fait chaque guide. Le métier (parfumeuse, aromaticienne…) vient du vocabulaire de l'univers */
 const GUIDES: [Guide, string][] = [
-  [
-    'Aurore',
-    'Parfumeuse IA : elle note vos mots et ne retient que ceux de notre référentiel.',
-  ],
-  ['Victor', 'Parfumeur IA : la même méthode, sous un autre prénom.'],
+  ['Aurore', 'elle note vos mots et ne retient que ceux de notre référentiel.'],
+  ['Victor', 'la même méthode, sous un autre prénom.'],
 ];
 
 /* Les produits de la maquette V3, avec leur contenant. Le choix est facultatif. */
@@ -95,7 +94,7 @@ export function WelcomeStep({
         Deux prénoms, une même méthode. L’échange se fait par écrit.
       </p>
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        {GUIDES.map(([name, text]) => (
+        {GUIDES.map(([name, text], index) => (
           <button
             key={name}
             onClick={() => onGuide(name)}
@@ -107,7 +106,9 @@ export function WelcomeStep({
             )}
           >
             <span className="block text-[20px] font-semibold">{name}</span>
-            <span className="block text-[15px] text-secondary">{text}</span>
+            <span className="block text-[15px] text-secondary">
+              {VOCABULARY[universe].guides[index]} : {text}
+            </span>
           </button>
         ))}
       </div>
