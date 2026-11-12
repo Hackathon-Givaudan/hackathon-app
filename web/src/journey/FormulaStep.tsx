@@ -48,17 +48,17 @@ export function FormulaStep({
         {formula.explanation}
       </p>
 
-      <dl className="mt-6 border-t border-white/45">
+      <dl className="mt-6 border-t border-line-strong">
         {levels.map((level) => (
           <div
             key={level}
-            className="grid gap-x-6 border-b border-white/25 py-3 sm:grid-cols-[210px_1fr]"
+            className="grid gap-x-6 border-b border-line py-3 sm:grid-cols-[210px_1fr]"
           >
             <dt>
               <span className={smallLabel}>{level}</span>
               <span className="block text-sm opacity-80">{tiers[level]}</span>
             </dt>
-            <dd className="f-display text-[23px] leading-tight first-letter:uppercase">
+            <dd className="font-semibold text-[23px] leading-tight first-letter:uppercase">
               {formula.notes
                 .filter(({ note }) => note.family === level)
                 .map(({ note }) => note.label)
@@ -79,7 +79,7 @@ export function FormulaStep({
           onChange={(event) => onName(event.target.value)}
           maxLength={40}
           placeholder={formula.name}
-          className="mt-1 min-h-12 w-full border border-white/50 bg-white/10 px-3 text-[16px] outline-none placeholder:text-white/65 focus:border-white"
+          className="mt-1 min-h-12 w-full border border-line-input bg-card px-3 text-[16px] outline-none placeholder:text-muted focus:border-ink"
         />
       </label>
 

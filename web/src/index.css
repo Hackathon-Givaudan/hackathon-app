@@ -3,31 +3,51 @@
 @import '@fontsource-variable/bodoni-moda';
 @import '@fontsource/ibm-plex-mono/400.css';
 
-/* Univers parfum : couleur d'encre du fond animé */
-:root {
-  --ink: oklch(0.2 0.055 340);
+/* Les couleurs du design system « Givaudan L'Atelier V2 » du Product.
+   Tons neutres, un seul accent bronze. Les fioles et le flacon gardent une scène sombre. */
+@theme {
+  --color-page: #faf8f5;
+  --color-card: #ffffff;
+  --color-soft: #f3efe9;
+  --color-selected: #f1e9dd;
+  --color-line: #e6e0d7;
+  --color-line-strong: #d8d0c4;
+  --color-line-input: #cfc6b8;
+  --color-ink: #1d1b18;
+  --color-ink-raised: #2b2722;
+  --color-on-ink: #faf8f5;
+  --color-secondary: #5c554d;
+  --color-muted: #6f6860;
+  --color-accent: #9c7a4d;
+  --color-accent-text: #7a5e3a;
+  --color-danger: #9b3b2f;
+  --color-stage: #22101f;
 }
 body {
   margin: 0;
-  background: #22101f;
+  background: var(--color-page);
 }
 .ink {
-  /* Fond fixe : une lueur douce derrière le flacon */
+  background: var(--color-page);
+  color: var(--color-ink);
+}
+/* La scène sombre du flacon et du plateau 3D */
+.stage {
   background:
     radial-gradient(
-      ellipse 60% 55% at 25% 45%,
+      ellipse 60% 55% at 50% 45%,
       oklch(0.36 0.07 330 / 0.55),
       transparent 70%
     ),
-    var(--ink);
-  color: oklch(0.98 0.005 95);
+    var(--color-stage);
+  color: var(--color-on-ink);
 }
 .f-root {
   font-family: 'Hanken Grotesk Variable', sans-serif;
 }
 .f-root ::selection {
-  background: #2a1626;
-  color: #ece9ef;
+  background: var(--color-selected);
+  color: var(--color-ink);
 }
 .f-display {
   font-family: 'Bodoni Moda Variable', Didot, serif;

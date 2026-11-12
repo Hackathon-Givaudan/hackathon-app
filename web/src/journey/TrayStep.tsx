@@ -62,7 +62,7 @@ export function TrayStep({
           {current.label}
         </h1>
         <p className="mt-3 text-[17px]">{current.reason}.</p>
-        <dl className="mt-4 grid max-w-md grid-cols-[110px_1fr] gap-y-1 border-t border-white/45 pt-3 text-[15px]">
+        <dl className="mt-4 grid max-w-md grid-cols-[110px_1fr] gap-y-1 border-t border-line-strong pt-3 text-[15px]">
           <dt className={smallLabel}>Famille</dt>
           <dd>{current.family}</dd>
         </dl>
@@ -74,7 +74,7 @@ export function TrayStep({
             <button
               key={opinion}
               onClick={() => onOpinion(current.id, opinion)}
-              className="min-h-12 border border-white/45 px-5 text-[16px] hover:bg-white/10"
+              className="min-h-12 border border-line-strong px-5 text-[16px] hover:bg-soft"
             >
               {label}
             </button>
@@ -99,19 +99,19 @@ export function TrayStep({
         {noteHelp} Vous pouvez encore changer d’avis.
       </p>
 
-      <ul className="mt-5 border-t border-white/45">
+      <ul className="mt-5 border-t border-line-strong">
         {notes.map((note) => {
           const left = opinions[note.id] === 'no';
           return (
             <li
               key={note.id}
               className={cn(
-                'flex min-h-14 items-center gap-4 border-b border-white/25 px-2',
+                'flex min-h-14 items-center gap-4 border-b border-line px-2',
                 left && 'opacity-60',
               )}
             >
               <span className="flex-1">
-                <span className="f-display block text-[22px] leading-tight first-letter:uppercase">
+                <span className="font-semibold block text-[22px] leading-tight first-letter:uppercase">
                   {note.label}
                 </span>
                 <span className="block text-sm opacity-80">
