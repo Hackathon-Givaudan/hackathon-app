@@ -50,7 +50,7 @@ export function ProfileStep({
 
   return (
     <div className="mt-auto pb-6 pt-10">
-      <p className={smallLabel}>Rédigé par Aurore pendant la séance</p>
+      <p className={smallLabel}>Rédigé pendant la séance</p>
       <h1 className="f-display mt-1 text-[44px] leading-[1.08] md:text-[52px]">
         Voici votre brief.
       </h1>
