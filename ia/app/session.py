@@ -31,22 +31,30 @@ NOT_UNDERSTOOD = "Je n'ai pas saisi. Dites-le-moi autrement : un produit, un lie
 CLOSING = "Merci. J'ai ce qu'il me faut pour rédiger votre brief."
 
 
-ROOT = 5  # deux mots sont de la même famille s'ils ont le même début, sur 5 lettres au plus
+# Des mots qui commencent pareil sans rien avoir en commun : on ne les rapproche jamais
+FALSE_FRIENDS = [{"fraise", "frais"}, {"bois", "boisson"}, {"chaleur", "chalet"}, {"gout", "gouter"}]
 
 
 def same_family(a: str, b: str) -> bool:
-    """« elegant » et « elegance », « soir » et « soiree » : même début, sur au moins 4 lettres."""
-    length = min(ROOT, len(a), len(b))
-    return length >= 4 and a[:length] == b[:length] or a == b
+    """« elegant » et « elegance », « soir » et « soiree » : le plus court des deux mots, à une lettre près,
+    ouvre le plus long. Il faut au moins 4 lettres en commun."""
+    if a == b:
+        return True
+    short, long = sorted((a, b), key=len)
+    if {a, b} in FALSE_FRIENDS:
+        return False
+    common = next((i for i, (x, y) in enumerate(zip(short, long)) if x != y), len(short))
+    return common >= max(4, len(short) - 1)
 
 
 LINKS = {"de", "du", "des", "la", "le", "les", "au", "aux", "en", "et", "a", "d", "l"}
 
 
-def said_by_the_brand(said: str, tag: str) -> bool:
+def said_by_the_brand(said: str, tag: str, taken: set[str] = frozenset()) -> bool:
     """La marque a-t-elle dit chaque mot de l'étiquette, ou un mot de la même famille ?
-    Les petits mots de liaison (de, du, la…) ne comptent pas ; « mer » doit être dit tel quel."""
-    spoken = [word for word in slug(said).split("-") if word]
+    Les petits mots de liaison (de, du, la…) ne comptent pas ; « mer » doit être dit tel quel.
+    Un mot déjà retenu tel quel (`taken`) ne fait pas entendre une deuxième étiquette."""
+    spoken = [word for word in slug(said).split("-") if word and word not in taken]
     words = [word for word in slug(tag).split("-") if word not in LINKS]
     return all(any(same_family(word, heard) for heard in spoken) for word in words)
 
@@ -57,12 +65,14 @@ def heard_in(universe: str, said: str) -> list[str]:
     et celles du modèle qui passent la même règle. Un verdict vide du modèle n'écarte rien."""
     tags = all_tags(universe)
     written = notes.written_tags(universe, said)
-    related = [tag for tag in tags if tag not in written and said_by_the_brand(said, tag)]
+    # « gourmand » écrit tel quel ne fait pas entendre aussi « gourmandise », ni « glace » « glacé »
+    taken = {word for tag in written for word in slug(tag).split("-")}
+    related = [tag for tag in tags if tag not in written and said_by_the_brand(said, tag, taken)]
     chosen = notes.pick_tags(said, tags) or []
     added = [tag for tag in chosen if tag not in written + related and said_by_the_brand(said, tag)]
     found = written + related + added
     # « boisson » s'efface devant « boisson protéinée »
-    return [tag for tag in found if not any(tag != other and mentions(other, tag) for other in found)]
+    return [tag for tag in found if not any(slug(tag) != slug(other) and mentions(other, tag) for other in found)]
 
 
 def is_known(universe: str, idea: dict) -> bool:

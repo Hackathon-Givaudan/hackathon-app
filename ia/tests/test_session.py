@@ -125,3 +125,31 @@ def test_a_short_word_is_not_enough_for_a_long_label(monkeypatch):
     # « à bord du bateau » ne veut pas dire « bord de mer »
     model_says(monkeypatch, [])
     assert "bord de mer" not in [idea["label"] for idea in turn("parfum", "À bord du bateau")["heard"]]
+
+
+def labels(universe, said):
+    return [idea["label"] for idea in turn(universe, said)["heard"]]
+
+
+def test_two_labels_that_differ_by_an_accent_stay_apart():
+    # « glace » (le produit) et « glacé » (la sensation) sont deux étiquettes
+    assert labels("arome", "Une glace") == ["glace"]
+    assert labels("arome", "glacé") == ["glacé"]
+
+
+def test_a_word_that_is_already_a_label_brings_no_relative():
+    # « gourmand » est une étiquette : il ne fait pas entendre aussi « gourmandise »
+    assert labels("arome", "gourmand") == ["gourmand"]
+
+
+@pytest.mark.parametrize(
+    "said, false_friend",
+    [
+        ("Un yaourt à la fraise", "frais"),
+        ("une note de bois", "boisson"),
+        ("de la chaleur", "chalet"),
+        ("un goût de confiture", "confiserie"),
+    ],
+)
+def test_a_false_friend_is_not_heard(said, false_friend):
+    assert false_friend not in labels("arome", said) + labels("parfum", said)
